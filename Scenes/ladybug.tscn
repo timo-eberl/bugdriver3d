@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhm7salc8s5ha"]
+
+[ext_resource type="PackedScene" uid="uid://mpgvxyqmd82o" path="res://Models/characters/ladybug.fbx" id="1_5ymec"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ynf5e"]
+rough = true
+bounce = 1.0
+absorbent = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hptm8"]
+radius = 0.2775728
+
+[node name="Ladybug" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_ynf5e")
+gravity_scale = 2.0
+
+[node name="ladybug" parent="." instance=ExtResource("1_5ymec")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45286202, 0)
+shape = SubResource("SphereShape3D_hptm8")

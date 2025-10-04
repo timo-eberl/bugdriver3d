@@ -1,24 +1,14 @@
-[gd_scene load_steps=35 format=3 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=33 format=3 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_kry3j"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dg0lcbvkqivcp" path="res://Scenes/beetman.tscn" id="2_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
-[ext_resource type="PackedScene" uid="uid://c7gocdu8x47tp" path="res://Models/characters/beetman.fbx" id="3_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://mpgvxyqmd82o" path="res://Models/characters/ladybug.fbx" id="4_hptm8"]
 [ext_resource type="PackedScene" uid="uid://k8c5gay3lm1c" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dfwhh47xffmt8" path="res://Scenes/bug.tscn" id="7_6bp64"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ynf5e"]
-rough = true
-absorbent = true
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_ynf5e"]
-radius = 0.3064729
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_hptm8"]
-radius = 0.2775728
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n5sl8"]
 top_radius = 0.25
@@ -57,6 +47,9 @@ points = PackedVector3Array(0.019625366, -0.31496716, -0.85424995, -0.82883173, 
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6iyac"]
 points = PackedVector3Array(0.10350532, 0.95003396, 0.8712905, 0.104011044, 0.95277125, 0.7398865, 0.72663605, -0.2205557, 1.3140109, -0.6141303, -0.24181066, 0.58503747, 0.820946, 0.48617348, 0.559919, 0.5112265, 0.43023396, 1.5849825, -0.52794343, 0.76669294, 1.2983913, -0.8288317, 0.5804788, 0.559919, -0.605757, -0.23343639, 1.6629866, 0.61176085, -0.24732752, 0.5797249, 0.16077653, -0.032069683, 1.7854682, 0.48257238, 0.8126485, 1.2995538, -0.023962198, 0.42883697, 1.6965814, 0.59918797, -0.23475319, 1.6640593, -0.6402118, -0.032069683, 1.6910567, -0.42550263, 0.8788946, 0.6400301, -0.10991657, 0.8987647, 1.2999036, 0.820946, 0.5804788, 0.559919, -0.73452175, -0.2205557, 1.3140109, 0.6323261, -0.032069683, 1.6910567, 0.4486312, 0.8643856, 0.65517056, -0.489977, 0.4317942, 1.5953937, 0.5988811, 0.4307674, 1.4636497, -0.41013548, 0.9030167, 0.9162337, -0.1928045, 0.85124373, 1.382445, 0.30883512, 0.8482623, 1.339416, -0.8288317, 0.48617348, 0.559919, -0.16882372, -0.032069683, 1.7854682, 0.14794724, -0.21833318, 1.7377418, -0.6011533, 0.43017247, 1.4608723, 0.4040267, 0.90554893, 0.91501886, 0.820946, 0.5804788, 0.6070647)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fdnlq"]
+points = PackedVector3Array(0.92190474, 1.0892092, -0.8256712, 0.63367414, 0.7147813, -0.76805776, -0.92190474, 1.0892092, -0.8256712, 0.92190474, 1.0892092, -0.9696822, -0.6049774, 0.5994953, -0.76805776, -0.92190474, 0.9739711, -0.9696822, 0.6049774, 0.5994953, -0.8832395, -0.6049774, 0.5994953, -0.8832395, 0.63367414, 0.9163521, -0.9696822, -0.92190474, 1.0892092, -0.9696822, 0.6049774, 0.5994953, -0.76805776, 0.92190474, 0.9739711, -0.9696822, -0.63367414, 0.7147813, -0.76805776, -0.63367414, 0.9163521, -0.9696822, 0.92190474, 0.9739711, -0.8256712, -0.92190474, 0.9739711, -0.8256712, -0.63367414, 0.65716225, -0.76805776, 0.63367414, 0.65716225, -0.76805776)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_top_color = Color(0.53538877, 0.41999844, 0.3660445, 1)
@@ -101,35 +94,105 @@ points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.
 [node name="Main" type="Node3D"]
 script = ExtResource("1_21xkr")
 
-[node name="Beetman" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6386985, 0)
-physics_material_override = SubResource("PhysicsMaterial_ynf5e")
-gravity_scale = 2.0
+[node name="Beetman" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 1.6386985, -1.8555462)
 
-[node name="beetman" parent="Beetman" instance=ExtResource("3_ynf5e")]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0, 0)
+[node name="Beetman2" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 1.6386985, -1.2935739)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Beetman"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58402264, 0)
-shape = SubResource("SphereShape3D_ynf5e")
+[node name="Beetman3" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 1.6386985, -1.8555462)
 
-[node name="Ladybug" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10394132, 1.5522597, 0.81236935)
-physics_material_override = SubResource("PhysicsMaterial_ynf5e")
-gravity_scale = 2.0
+[node name="Beetman4" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 1.6386985, -1.2935739)
 
-[node name="ladybug" parent="Ladybug" instance=ExtResource("4_hptm8")]
-transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0, 0)
+[node name="Beetman5" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 2.1876755, -1.8555462)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ladybug"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45286202, 0)
-shape = SubResource("SphereShape3D_hptm8")
+[node name="Beetman6" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 2.1876755, -1.2935739)
+
+[node name="Beetman7" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 2.1876755, -1.8555462)
+
+[node name="Beetman8" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 2.1876755, -1.2935739)
+
+[node name="Beetman9" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 2.6229572, -1.8555462)
+
+[node name="Beetman10" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 2.6229572, -1.2935739)
+
+[node name="Beetman11" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 2.6229572, -1.8555462)
+
+[node name="Beetman12" parent="." instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 2.6229572, -1.2935739)
+
+[node name="Ladybug" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 1.5522599, -0.91026384)
+
+[node name="Ladybug2" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 1.5522599, -1.3896191)
+
+[node name="Ladybug3" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 1.5522599, -0.91026384)
+
+[node name="Ladybug4" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 1.5522599, -1.3896191)
+
+[node name="Ladybug5" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.0403984, -0.91026384)
+
+[node name="Ladybug6" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.0403984, -1.3896191)
+
+[node name="Ladybug7" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.0403984, -0.91026384)
+
+[node name="Ladybug8" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.0403984, -1.3896191)
+
+[node name="Ladybug9" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.4536073, -0.91026384)
+
+[node name="Ladybug10" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.4536073, -1.3896191)
+
+[node name="Ladybug11" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.4536073, -0.91026384)
+
+[node name="Ladybug12" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.4536073, -1.3896191)
+
+[node name="Ladybug13" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.8010294, -0.91026384)
+
+[node name="Ladybug14" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.8010294, -1.3896191)
+
+[node name="Ladybug15" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.8010294, -0.91026384)
+
+[node name="Ladybug16" parent="." instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.8010294, -1.3896191)
 
 [node name="level" parent="." instance=ExtResource("1_kry3j")]
 transform = Transform3D(2.475, 0, 0, 0, 2.475, 0, 0, 0, 2.475, -14.80615, 0, 0)
 
+[node name="CameraBase" type="Node3D" parent="."]
+transform = Transform3D(0.40734234, -0.55400485, 0.7260516, 1.8626451e-08, 0.7949973, 0.6066129, -0.9132755, -0.24709928, 0.32383612, 0, 1.0788761, 0)
+top_level = true
+script = ExtResource("2_jjvhh")
+
+[node name="Camera3D" type="Camera3D" parent="CameraBase"]
+transform = Transform3D(1, -1.0430813e-07, 2.9802322e-08, -1.4901161e-08, 1.0000001, 2.30968e-07, 0, -7.450581e-09, 1, 0, 0, 26.588)
+fov = 36.2
+size = 15.08
+
 [node name="Bus" type="VehicleBody3D" parent="."]
-transform = Transform3D(-0.8268549, 0, 0.56241536, 0, 1, 0, -0.56241536, 0, -0.8268549, 0, 0.71488404, 0)
+transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, 2.5098362, 0.7148843, -1.6611314)
 mass = 60.0
 gravity_scale = 1.7
 center_of_mass_mode = 1
@@ -137,6 +200,9 @@ center_of_mass = Vector3(0, -0.5, 0)
 script = ExtResource("1_8gbba")
 engine_force_value = 200.0
 BRAKE_STRENGTH = 1.3
+
+[node name="CameraTarget" type="Node3D" parent="Bus"]
+transform = Transform3D(0.17682713, 0.597054, -0.78246975, 1.862645e-08, 0.7949973, 0.6066129, 0.98424184, -0.10726559, 0.14057714, 0, 0.3639921, 0)
 
 [node name="Wheel" type="VehicleWheel3D" parent="Bus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, -0.25, 0.7613398)
@@ -208,16 +274,6 @@ damping_relaxation = 0.5
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.15, 0, 0)
 mesh = SubResource("CylinderMesh_n5sl8")
 
-[node name="CameraBase" type="Node3D" parent="Bus"]
-transform = Transform3D(0.40734234, -0.55400485, 0.7260516, 1.8626451e-08, 0.7949973, 0.6066129, -0.9132755, -0.24709928, 0.32383612, 0, 1.0788761, 0)
-top_level = true
-script = ExtResource("2_jjvhh")
-
-[node name="Camera3D" type="Camera3D" parent="Bus/CameraBase"]
-transform = Transform3D(1, -1.0430813e-07, 2.9802322e-08, -1.4901161e-08, 1.0000001, 2.30968e-07, 0, -7.450581e-09, 1, 0, 0, 26.588)
-fov = 36.2
-size = 15.08
-
 [node name="bug_car" parent="Bus" instance=ExtResource("3_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043116152, -0.25103787)
 
@@ -228,15 +284,25 @@ light_energy = 1.585
 omni_range = 10.0
 omni_attenuation = 0.578
 
-[node name="Headlights" type="SpotLight3D" parent="Bus"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.35169947, 1.4379364)
+[node name="Headlight" type="SpotLight3D" parent="Bus"]
+transform = Transform3D(-0.9848077, 0, -0.17364822, 0, 1, 0, 0.17364822, 0, -0.9848077, 0.34501573, 0.35169947, 1.5332522)
 light_color = Color(1, 0.9906667, 0.86, 1)
 light_energy = 1.013
 shadow_enabled = true
 spot_range = 31.592
 spot_attenuation = 0.37
-spot_angle = 66.65
-spot_angle_attenuation = 7.7274117
+spot_angle = 54.45
+spot_angle_attenuation = 2.4622667
+
+[node name="Headlight2" type="SpotLight3D" parent="Bus"]
+transform = Transform3D(-0.98480767, 0, 0.17364828, 0, 1, 0, -0.17364828, 0, -0.98480767, -0.345, 0.352, 1.533)
+light_color = Color(1, 0.9906667, 0.86, 1)
+light_energy = 1.013
+shadow_enabled = true
+spot_range = 31.592
+spot_attenuation = 0.37
+spot_angle = 54.45
+spot_angle_attenuation = 2.4622667
 
 [node name="CollectArea" type="Area3D" parent="Bus"]
 collision_mask = 5
@@ -281,11 +347,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043116152, -0.25103787)
 shape = SubResource("ConvexPolygonShape3D_d1ilt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bus"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043116152, -0.25103787)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17278486, -0.25103787)
 shape = SubResource("ConvexPolygonShape3D_6iyac")
 
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="Bus"]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999994, 0, 2.9802322e-08, 0, 1, 0, 0.043116152, -0.582165)
+shape = SubResource("ConvexPolygonShape3D_fdnlq")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="Bus"]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 0.9999996, 0, -1, 0, 2.9802322e-08, 0.060391303, 0.037897468, -0.6084106)
+shape = SubResource("ConvexPolygonShape3D_fdnlq")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="Bus"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.9999996, 0, 1, 0, -4.371139e-08, -0.030575637, 0.037897468, -0.6084106)
+shape = SubResource("ConvexPolygonShape3D_fdnlq")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.8457448, -0.35892314, -0.3948291, 0.5332121, 0.59625256, 0.6001396, 0.020013839, -0.7180927, 0.69565976, 0, 10.2421055, 0)
+transform = Transform3D(0.24065903, -0.43210733, 0.86911833, -0.56809473, 0.66332793, 0.48709795, -0.78698874, -0.610966, -0.08584219, 0, 10.2421055, 0)
 light_color = Color(0.7915614, 0.6628314, 0.5337772, 1)
 light_energy = 0.05
 shadow_enabled = true

@@ -8,6 +8,8 @@ signal bug_collected
 @export var STEER_LIMIT := 0.4
 @export var BRAKE_STRENGTH := 2.0
 
+@export var MAX_SPEED := 5.0
+
 #@export var drift_strength := 5.0
 
 @export var damping_factor := 0.7
@@ -54,6 +56,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		engine_force = 0.0
 		set_linear_velocity(Vector3.ZERO)
+
+
+func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
+	linear_velocity = linear_velocity.limit_length(MAX_SPEED)
+
 
 #func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	#if previous_speed > state.linear_velocity.length() and state.linear_velocity.length() <= 0.5: 

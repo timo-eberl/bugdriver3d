@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=47 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -9,15 +9,51 @@
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
 [ext_resource type="PackedScene" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" path="res://Scenes/bug.tscn" id="7_6bp64"]
+[ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="Shader" path="res://Shaders/crt_post.gdshader" id="9_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
 [ext_resource type="Shader" path="res://Shaders/psx_post.gdshader" id="10_hptm8"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_n5sl8"]
-top_radius = 0.25
-bottom_radius = 0.25
-height = 0.3
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fco6s"]
+resource_name = "Wheel"
+cull_mode = 2
+albedo_texture = ExtResource("7_jkdf5")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4ndqe"]
+_surfaces = [{
+"aabb": AABB(-0.18885458, -0.3484643, -0.29202336, 0.36343747, 0.61226714, 0.61226714),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("BgAKAAIACwAGAAIABgAMAAoACwAMAAYACgASAAIAAgASAAUACgATABIAAgAFAA0ACwACAA0AEgAUAAUADQAFABQAFQASABMAFQAUABIACAATAAoADAAIAAoACAAVABMADAABAAgAAAALAA0ADAAPAAEACwAPAAwAAQARAAgAEQAVAAgAAQAPABEAEQAJABUAAAANAAMADQAUAAMADgALAAAADwALAA4ADgAAAAMADwAOAAcADwAEABEADwAHAAQABAAJABEABwAOABAABwAQAAQADgADABAAAwAWABAAAwAUABYAEAAXAAQABAAXAAkAEAAWABcAFAAXABYAFwAVAAkAFAAVABcA"),
+"lods": [0.094259635, PackedByteArray("BgAKAAIACwAGAAIABgAMAAoACwAMAAYACgAFAAIACwACAA0AAgAFAA0AAAALAA0AAAANAAMADQAFAAMADgALAAAADgAAAAMACwAPAAwADwALAA4AAwAFABAADgADABAABwAOABAADwAOAAcABwAQAAQADwAHAAQAEAAFAAQADAAPAAEABAAFAAkACgAJAAUADwAEABEAAQAPABEABAAJABEADAABAAgADAAIAAoAAQARAAgACAAJAAoAEQAJAAgA"), 0.14300682, PackedByteArray("BgABAAIABgAHAAEABwAGAAAAAQAHAAgAAQAIAAIABwAAAAQABwAEAAgAAAAGAAMABgACAAMAAAADAAQABAAJAAgACAAJAAIAAwAJAAQAAgAJAAUAAwAFAAkAAgAFAAMA"), 0.4724943, PackedByteArray("AAABAAIAAAACAAMAAQAAAAQAAQAEAAIAAAADAAQAAgAFAAMAAwAFAAQABAAFAAIA")],
+"name": "Wheel",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD///9/AAAAAAAA/38AAP///38AAAAA//////9/AAD///9///8AAP7/eLOGTAAAAAD/fwAAAAAAAP9///8AAP//AAD/fwAA/v+GTHizAAD//30lfSUAAAAAgdp9JQAAAAB9JX0lAAD+/4HafSUAAAAAgdqB2gAAAAB9JYHaAAD//4HagdoAAP//fSWB2gAA/v//fzQ3AAD+/4ZMhkwAAP7/ysj/fwAA/v80N/9/AAD+/3izeLMAAP7//3/KyAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e3o0m"]
+resource_name = "bug_car_Cylinder_001"
+_surfaces = [{
+"aabb": AABB(-0.18885458, -0.3484643, -0.29202336, 0.36343747, 0.61226714, 0.61226714),
+"attribute_data": PackedByteArray("QhVCIkIVf39qOeBQajlCImo5Hq5CFbzcajm83K/F6b90khO6X4TbpICXCtNCFeBQajl/f0IVHq6NsrqRmbexqsyDl8BmxWulL7LO0wOXNJJqOTBoQhUwaEIVkTlqOZE5ajnOlkIVzpZqOW3FQhVtxYCXupGvxdukjbIK01+E6b/Mg2ulA5fO02bFl8AvsjSSVZ3Pn3SSsaq4rM+fVZ30xJm3E7q4rPTE6sYRXtDstjRu4j1RdMPRDvvfMxmPnSw4Y6qvU/GnpRs="),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("CwAUAAIACwAVABQAFgALAAIAFQAMABQAFgACABcAAAAWABcAAAAXAAMAFQABAAwAAQAYAAwAAQAZABgAGQAEABgAGQANAAQADQAaAAQADQAbABoAGwAGABoAGwAFAAYADgAkABwAHAAkACUADgAmACQAHAAlAAkAHQAmAA4ACQAlAAgAHQAPACYACQAIAB8ABwAPAB0AHwAIACcABwAoAA8AHwAnAAoAHgAoAAcACgAnACkAHgApACgACgApAB4AIAAhABAAIAAiACEAIQAiABIAIgAgACMAIwAgABMAIgAjABEAKgArACwAKgAtACsAKwAtAC4ALQAqAC8ALwAqADAALQAvADEA"),
+"lods": [0.094259635, PackedByteArray("CwAUAAIACwAVABQAFgALAAIAFQAMABQAFgACABcAAAAWABcAAAAXAAMAFQABAAwAAQAYAAwAAQAZABgAGQAEABgAGQANAAQADQAaAAQADQAbABoAGwAGABoAGwAFAAYADgAPABwAHQAPAA4ABwAPAB0AHAAPAAgABwAIAA8AHAAIAAkAHgAIAAcACQAIAB8ACgAIAB4AHwAIAAoAIAAhABAAIAAiACEAIQAiABIAIgAgACMAIwAgABMAIgAjABEA"), 0.14300682, PackedByteArray("CwABAAIACwACAAMAAAALAAMAAQAMAAIAAQANAAwADQAEAAwADQAFAAQABQAGAAQADgAPAAkABwAPAA4ACgAPAAcACQAPAAgACgAIAA8ACQAIAAoAEAARABIAEQAQABMA"), 0.4724943, PackedByteArray("AAABAAIAAAACAAMAAQAEAAIAAQAFAAQABQAGAAQABwAIAAkACQAIAAoACgAIAAcA")],
+"material": SubResource("StandardMaterial3D_fco6s"),
+"name": "Wheel",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 50,
+"vertex_data": PackedByteArray("AAD///9//z8AAAAA/3//P////38AAAAA//////9//z////9////+fwAA////f/8///////9//z////9///+49P7/eLOGTLj0////fwAAuPT//////3+49AAA/38AAAAA//8AAP9//z8AAP9////+f///AAD/f7j0/v+GTHizuPQAAP9/AACMwQAA/3///4zBAAAAAP9/jMEAAP///3+Mwf//fSV9Jf8fAAB9JX0l/x8AAIHafSX/H/7/gdp9Jf8f//99JYHa/18AAH0lgdr/X///gdqB2v9fAACB2oHa/1///30lfSW49P//fSWB2rj0//+B2oHauPT+/4HafSW49AAAgdp9JYzBAAB9JX0ljMEAAH0lgdqMwQAAgdqB2ozB/v+GTIZMuPT+//9/NDe49P7/NDf/f7j0/v/KyP9/uPT+//9/ysi49P7/eLN4s7j0/v80N/9/BMD+//9/NDcEwP7/hkyGTATA/v/KyP9/BMD+/3izhkwEwP7//3/KyATA/v+GTHizBMD+/3izeLMEwP7//38AAP9//v//f/7//3//f////v//f/7//381umt0NbprdDW6a3Q1umt0/v//fwAA/3//f///NbprdDW6a3TIbZHbyG2R28htkdvIbZHbAAD/fwAA/3////9//v//fwAA/38AAP9//v//f/7//381umt0NbprdDW6a3Q1umt0yG2R28htkdvIbZHbyG2R2zW6a3Q1umt0NbprdDW6a3Q1umt0NbprdKyCWgWsgloFrIJaBayCWgWsgloFrIJaBayCWgWsgloF")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4ndqe")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8gbba"]
 radius = 3.0
@@ -265,7 +301,7 @@ damping_factor = 5.0
 transform = Transform3D(0.17682713, 0.597054, -0.78246975, 1.862645e-08, 0.7949973, 0.6066129, 0.98424184, -0.10726559, 0.14057714, 0, 0.3639921, 0)
 
 [node name="Wheel" type="VehicleWheel3D" parent="Bus"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, -0.25, 0.7613398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, -0.25, 0.761)
 brake = 1.0
 use_as_traction = true
 use_as_steering = true
@@ -279,12 +315,13 @@ suspension_max_force = 10000.0
 damping_compression = 0.4
 damping_relaxation = 0.5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bus/Wheel"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.15, 0, 0)
-mesh = SubResource("CylinderMesh_n5sl8")
+[node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel"]
+transform = Transform3D(0.83, 0, -2.4735927e-08, 0, 0.83, 0, 2.4735927e-08, 0, 0.83, -0.25, 0.04, -0.015)
+mesh = SubResource("ArrayMesh_e3o0m")
+skeleton = NodePath("")
 
 [node name="Wheel2" type="VehicleWheel3D" parent="Bus"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, -0.25, 0.7613398)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, -0.25, 0.761)
 brake = 1.0
 use_as_traction = true
 use_as_steering = true
@@ -298,12 +335,13 @@ suspension_max_force = 10000.0
 damping_compression = 0.4
 damping_relaxation = 0.5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bus/Wheel2"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.15, 0, 0)
-mesh = SubResource("CylinderMesh_n5sl8")
+[node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel2"]
+transform = Transform3D(-0.83, 0, -1.2532651e-07, 0, 0.83, 0, 1.2532651e-07, 0, -0.83, 0.25, 0.04, 0.015)
+mesh = SubResource("ArrayMesh_e3o0m")
+skeleton = NodePath("")
 
 [node name="Wheel3" type="VehicleWheel3D" parent="Bus"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, -0.25, -0.8475333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, -0.25, -0.848)
 brake = 1.0
 use_as_traction = true
 wheel_roll_influence = 1.0
@@ -316,12 +354,13 @@ suspension_max_force = 10000.0
 damping_compression = 0.4
 damping_relaxation = 0.5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bus/Wheel3"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.15, 0, 0)
-mesh = SubResource("CylinderMesh_n5sl8")
+[node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel3"]
+transform = Transform3D(0.83, 0, -2.4735927e-08, 0, 0.83, 0, 2.4735927e-08, 0, 0.83, -0.25, 0.04, -0.015)
+mesh = SubResource("ArrayMesh_e3o0m")
+skeleton = NodePath("")
 
 [node name="Wheel4" type="VehicleWheel3D" parent="Bus"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, -0.25, -0.8475333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, -0.25, -0.848)
 brake = 1.0
 use_as_traction = true
 wheel_roll_influence = 1.0
@@ -334,12 +373,16 @@ suspension_max_force = 10000.0
 damping_compression = 0.4
 damping_relaxation = 0.5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bus/Wheel4"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.15, 0, 0)
-mesh = SubResource("CylinderMesh_n5sl8")
+[node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel4"]
+transform = Transform3D(-0.83, 0, -1.2532651e-07, 0, 0.83, 0, 1.2532651e-07, 0, -0.83, 0.25, 0.04, 0.015)
+mesh = SubResource("ArrayMesh_e3o0m")
+skeleton = NodePath("")
 
 [node name="bug_car" parent="Bus" instance=ExtResource("3_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043116152, -0.25103787)
+
+[node name="Cylinder" parent="Bus/bug_car" index="4"]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Bus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5119176, 1.0629605)

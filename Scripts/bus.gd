@@ -75,23 +75,23 @@ func _physics_process(delta: float) -> void:
 	if 	Input.is_action_pressed("accelerate") or \
 		Input.is_action_pressed("reverse"):
 			slowdown_timer = linear_velocity.length()
-	elif slowdown_timer > 0.0:
-		engine_force = 0.0
-		slowdown_timer -= delta * damping_factor
 	else:
 		engine_force = 0.0
-		set_linear_velocity(lerp(linear_velocity, linear_velocity, delta))
+		slowdown_timer -= delta * damping_factor
 
 
-func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
-	linear_velocity = linear_velocity.limit_length(MAX_SPEED)
+func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	state.linear_velocity = linear_velocity.limit_length(MAX_SPEED)
+	if slowdown_timer < 0.0 and linear_velocity.length() < 1.0:
+		state.linear_velocity = Vector3.ZERO
 
 
 func _process(delta: float) -> void:
 	var speed := linear_velocity.length()
 	print("speed: ", speed)
 	var target_t := inverse_lerp(0, MAX_SPEED, speed)
-	camera_controller.distance_interpolator = target_t
+	var previous := camera_controller.distance_interpolator
+	camera_controller.distance_interpolator = lerp(previous, target_t, delta)
 
 func _on_collect_area_body_entered(body: Node3D) -> void:
 	if body is Bug:

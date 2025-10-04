@@ -67,6 +67,7 @@ sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
 
 [sub_resource type="Environment" id="Environment_8gbba"]
 background_mode = 2
+background_energy_multiplier = 1.5
 sky = SubResource("Sky_bo1nx")
 tonemap_mode = 4
 

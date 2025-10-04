@@ -1,5 +1,7 @@
 extends VehicleBody3D
 
+signal bug_collected
+
 @export var engine_force_value := 40.0
 
 @export var STEER_SPEED := 10
@@ -34,3 +36,10 @@ func _physics_process(delta: float) -> void:
 	steering = move_toward(steering, _steer_target, STEER_SPEED * delta)
 
 	previous_speed = linear_velocity.length()
+
+
+func _on_collect_area_body_entered(body: Node3D) -> void:
+	if body is Bug:
+		emit_signal("bug_collected")
+		var bug = body as Bug
+		bug.on_collection()

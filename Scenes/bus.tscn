@@ -16,6 +16,7 @@ height = 0.3
 
 [node name="Body" type="VehicleBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_mask = 5
 script = ExtResource("1_43mbl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
@@ -97,6 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 7.5, 15)
 
 [node name="Camera3D" type="Camera3D" parent="Body/CameraBase/CameraOffset"]
 transform = Transform3D(0.70710677, -0.23720008, 0.6661352, 0, 0.94205743, 0.33545157, -0.70710677, -0.23720008, 0.6661352, 0, 0, 0)
+current = true
 fov = 36.2
 size = 15.08
 

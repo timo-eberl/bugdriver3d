@@ -1,16 +1,15 @@
-[gd_scene load_steps=37 format=3 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=44 format=3 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
-[ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_kry3j"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://dg0lcbvkqivcp" path="res://Scenes/beetman.tscn" id="2_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
+[ext_resource type="PackedScene" path="res://Scenes/beetman.tscn" id="2_ynf5e"]
+[ext_resource type="PackedScene" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
 [ext_resource type="PackedScene" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" path="res://Scenes/bug.tscn" id="7_6bp64"]
-[ext_resource type="Shader" uid="uid://dfx4ble2n5874" path="res://Shaders/crt_post.gdshader" id="9_d1ilt"]
+[ext_resource type="Shader" path="res://Shaders/crt_post.gdshader" id="9_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
 [ext_resource type="Shader" path="res://Shaders/psx_post.gdshader" id="10_hptm8"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
@@ -55,6 +54,25 @@ points = PackedVector3Array(0.10350532, 0.95003396, 0.8712905, 0.104011044, 0.95
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fdnlq"]
 points = PackedVector3Array(0.92190474, 1.0892092, -0.8256712, 0.63367414, 0.7147813, -0.76805776, -0.92190474, 1.0892092, -0.8256712, 0.92190474, 1.0892092, -0.9696822, -0.6049774, 0.5994953, -0.76805776, -0.92190474, 0.9739711, -0.9696822, 0.6049774, 0.5994953, -0.8832395, -0.6049774, 0.5994953, -0.8832395, 0.63367414, 0.9163521, -0.9696822, -0.92190474, 1.0892092, -0.9696822, 0.6049774, 0.5994953, -0.76805776, 0.92190474, 0.9739711, -0.9696822, -0.63367414, 0.7147813, -0.76805776, -0.63367414, 0.9163521, -0.9696822, 0.92190474, 0.9739711, -0.8256712, -0.92190474, 0.9739711, -0.8256712, -0.63367414, 0.65716225, -0.76805776, 0.63367414, 0.65716225, -0.76805776)
+
+[sub_resource type="Gradient" id="Gradient_fdnlq"]
+colors = PackedColorArray(0.25565854, 0.25565886, 0.2556587, 1, 0.25490198, 0.25490198, 0.25490198, 0.40784314)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jkdf5"]
+gradient = SubResource("Gradient_fdnlq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wsu2k"]
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_jkdf5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k12tt"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_h1bgf"]
+material = SubResource("StandardMaterial3D_k12tt")
+size = Vector2(0.35, 0.35)
+orientation = 1
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_top_color = Color(0.53538877, 0.41999844, 0.3660445, 1)
@@ -407,6 +425,24 @@ shape = SubResource("ConvexPolygonShape3D_fdnlq")
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="Bus"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.9999996, 0, 1, 0, -4.371139e-08, -0.030575637, 0.037897468, -0.6084106)
 shape = SubResource("ConvexPolygonShape3D_fdnlq")
+
+[node name="DriftParticles" type="GPUParticles3D" parent="Bus"]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999992, 0, 2.9802322e-08, 0, 1, -0.7070508, -0.49694166, 0.88648033)
+emitting = false
+amount = 150
+lifetime = 1.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_wsu2k")
+draw_pass_1 = SubResource("QuadMesh_h1bgf")
+
+[node name="DriftParticles2" type="GPUParticles3D" parent="Bus"]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322e-08, 0, 1, -4.102412, 1.7551923, -1.8310566)
+emitting = false
+amount = 150
+lifetime = 1.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_wsu2k")
+draw_pass_1 = SubResource("QuadMesh_h1bgf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.24065903, -0.43210733, 0.86911833, -0.56809473, 0.66332793, 0.48709795, -0.78698874, -0.610966, -0.08584219, 0, 10.2421055, 0)

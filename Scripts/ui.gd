@@ -1,4 +1,5 @@
 extends Control
+class_name UI
 
 signal round_over
 
@@ -34,7 +35,7 @@ func _start_round() -> void:
 	running = true
 
 
-func _update_bug_count(new_count : int) -> void:
+func update_bug_count(new_count : int) -> void:
 	bug_counter.text = str(new_count)
 
 

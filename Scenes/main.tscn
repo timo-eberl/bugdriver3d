@@ -37,8 +37,5 @@ mesh = SubResource("PlaneMesh_7u77a")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_jjgbg")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.66990846, -0.41945618, 0.6126004, 0, 0.82511353, 0.564967, -0.74244374, -0.37847617, 0.5527505, 9.41165, 7.816719, 10.934915)
-
 [node name="BusBase" parent="." instance=ExtResource("1_jjgbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21488404, 0)

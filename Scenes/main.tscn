@@ -94,6 +94,7 @@ points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1ilt"]
 shader = ExtResource("10_hptm8")
+shader_parameter/quantization = 18
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_21xkr")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=35 format=3 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://k8c5gay3lm1c" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dfwhh47xffmt8" path="res://Scenes/bug.tscn" id="7_6bp64"]
+[ext_resource type="Shader" uid="uid://bfsaf2c8ndlm6" path="res://Shaders/psx_post.gdshader" id="10_hptm8"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n5sl8"]
 top_radius = 0.25
@@ -90,6 +91,9 @@ size = Vector3(5, 2, 5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jjgbg"]
 points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.4410467, -2.4415245, -1, 2.4410467, 2.4415245, -1, -2.4410467, 2.5391855, 1.0238096, -2.5386884, 2.4415245, -1, 2.4410467, -2.459634, -0.8807193, -2.5386884, -2.459634, -0.8807193, 2.5386884, 2.5391855, 1.0238096, 2.5386884, 2.3010283, 1.0238096, -2.5386884, -2.5391855, -0.96009994, -2.5386884, -2.5391855, -0.96009994, 2.5386884, -2.0633678, -0.72195804, -2.5386884, -2.0633678, -0.72195804, 2.5386884)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1ilt"]
+shader = ExtResource("10_hptm8")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_21xkr")
@@ -419,7 +423,19 @@ mesh = SubResource("PrismMesh_jjgbg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_jjgbg")
 
-[node name="UI" parent="." instance=ExtResource("4_jjvhh")]
+[node name="Post" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Post"]
+material = SubResource("ShaderMaterial_d1ilt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="HUD" instance=ExtResource("4_jjvhh")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
@@ -429,4 +445,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7680445, 6.67572e-06, 6.30
 [connection signal="bug_collected" from="Bus" to="." method="_on_bus_bug_collected"]
 [connection signal="body_entered" from="Bus/CollectArea" to="Bus" method="_on_collect_area_body_entered"]
 
+[editable path="level"]
 [editable path="Bus/bug_car"]

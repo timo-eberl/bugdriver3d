@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bapece8lr86n5"]
+[gd_scene load_steps=6 format=3 uid="uid://bd7cuv5nmi5cy"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_43mbl"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_he2g8"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_6hovg"]
-size = Vector3(1, 0.5, 2)
+[ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_3chwu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xlfce"]
 size = Vector3(1, 0.5, 2)
@@ -14,19 +12,11 @@ top_radius = 0.25
 bottom_radius = 0.25
 height = 0.3
 
-[sub_resource type="PrismMesh" id="PrismMesh_ff36x"]
-left_to_right = 1.0
-size = Vector3(0.5, 0.5, 1)
-
 [node name="BusBase" type="Node3D"]
 
 [node name="Body" type="VehicleBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_43mbl")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Body"]
-mesh = SubResource("BoxMesh_6hovg")
-skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
 shape = SubResource("BoxShape3D_xlfce")
@@ -97,11 +87,6 @@ damping_relaxation = 0.5
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_n5sl8")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.003073275, 1.2551022)
-mesh = SubResource("PrismMesh_ff36x")
-skeleton = NodePath("../..")
-
 [node name="CameraBase" type="Node3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0788761, 0)
 top_level = true
@@ -114,3 +99,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 7.5, 15)
 transform = Transform3D(0.70710677, -0.23720008, 0.6661352, 0, 0.94205743, 0.33545157, -0.70710677, -0.23720008, 0.6661352, 0, 0, 0)
 fov = 36.2
 size = 15.08
+
+[node name="bug_car" parent="Body" instance=ExtResource("3_3chwu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043116152, -0.25103787)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Body"]
+
+[node name="Headlights" type="SpotLight3D" parent="Body"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.34773088, 1.2386619)
+light_energy = 3.0
+shadow_enabled = true
+spot_range = 8.970557
+spot_angle = 36.469112
+spot_angle_attenuation = 0.32987696
+
+[editable path="Body/bug_car"]

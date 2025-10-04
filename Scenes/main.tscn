@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=16 format=3 uid="uid://btakpdgldl1nf"]
 
-[ext_resource type="PackedScene" uid="uid://bapece8lr86n5" path="res://Scenes/bus.tscn" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
+[ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_top_color = Color(0.53538877, 0.41999844, 0.3660445, 1)
+sky_horizon_color = Color(0.7042364, 0.68088484, 0.36193284, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
 [sub_resource type="Sky" id="Sky_bo1nx"]
@@ -12,7 +15,7 @@ sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
 [sub_resource type="Environment" id="Environment_8gbba"]
 background_mode = 2
 sky = SubResource("Sky_bo1nx")
-tonemap_mode = 2
+tonemap_mode = 4
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jjgbg"]
 dof_blur_far_enabled = true
@@ -27,6 +30,14 @@ size = Vector2(50, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jjgbg"]
 size = Vector3(50, 0.66, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlfce"]
+size = Vector3(1, 0.5, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n5sl8"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.3
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_jjgbg"]
 
@@ -44,7 +55,8 @@ points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+light_color = Color(0.7915614, 0.6628314, 0.5337772, 1)
+light_energy = 0.54
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8gbba")
@@ -60,8 +72,114 @@ mesh = SubResource("PlaneMesh_7u77a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33, 0)
 shape = SubResource("BoxShape3D_jjgbg")
 
-[node name="BusBase" parent="." instance=ExtResource("1_jjgbg")]
+[node name="BusBase" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21488404, 0)
+
+[node name="Body" type="VehicleBody3D" parent="BusBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_8gbba")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BusBase/Body"]
+shape = SubResource("BoxShape3D_xlfce")
+
+[node name="Wheel" type="VehicleWheel3D" parent="BusBase/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67703867, -0.25, 0.7613398)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.05
+wheel_radius = 0.25
+wheel_rest_length = 0.3
+wheel_friction_slip = 5.0
+suspension_travel = 0.3
+suspension_stiffness = 15.0
+damping_compression = 0.3
+damping_relaxation = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BusBase/Body/Wheel"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_n5sl8")
+
+[node name="Wheel2" type="VehicleWheel3D" parent="BusBase/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68034065, -0.25, 0.7613398)
+use_as_traction = true
+use_as_steering = true
+wheel_roll_influence = 0.05
+wheel_radius = 0.25
+wheel_rest_length = 0.3
+wheel_friction_slip = 5.0
+suspension_travel = 0.3
+suspension_stiffness = 15.0
+damping_compression = 0.3
+damping_relaxation = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BusBase/Body/Wheel2"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_n5sl8")
+
+[node name="Wheel3" type="VehicleWheel3D" parent="BusBase/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67703867, -0.25, -0.7590939)
+use_as_traction = true
+wheel_roll_influence = 0.05
+wheel_radius = 0.25
+wheel_rest_length = 0.3
+wheel_friction_slip = 5.0
+suspension_travel = 0.3
+suspension_stiffness = 15.0
+damping_compression = 0.3
+damping_relaxation = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BusBase/Body/Wheel3"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_n5sl8")
+
+[node name="Wheel4" type="VehicleWheel3D" parent="BusBase/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68034065, -0.25, -0.7590939)
+use_as_traction = true
+wheel_roll_influence = 0.05
+wheel_radius = 0.25
+wheel_rest_length = 0.3
+wheel_friction_slip = 5.0
+suspension_travel = 0.3
+suspension_stiffness = 15.0
+damping_compression = 0.3
+damping_relaxation = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BusBase/Body/Wheel4"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_n5sl8")
+
+[node name="CameraBase" type="Node3D" parent="BusBase/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0788761, 0)
+top_level = true
+script = ExtResource("2_jjvhh")
+
+[node name="CameraOffset" type="Node3D" parent="BusBase/Body/CameraBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 7.5, 15)
+
+[node name="Camera3D" type="Camera3D" parent="BusBase/Body/CameraBase/CameraOffset"]
+transform = Transform3D(0.70710677, -0.23720008, 0.6661352, 0, 0.94205743, 0.33545157, -0.70710677, -0.23720008, 0.6661352, 0, 0, 0)
+fov = 36.2
+size = 15.08
+
+[node name="bug_car" parent="BusBase/Body" instance=ExtResource("3_kry3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043116152, -0.25103787)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BusBase/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5119176, 1.0629605)
+light_color = Color(1, 0.9813334, 0.72, 1)
+light_energy = 1.585
+omni_range = 10.0
+omni_attenuation = 0.578
+
+[node name="Headlights" type="SpotLight3D" parent="BusBase/Body"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.35169947, 1.5187165)
+light_color = Color(1, 0.9906667, 0.86, 1)
+light_energy = 1.248
+shadow_enabled = true
+spot_range = 31.592
+spot_attenuation = 0.37
+spot_angle = 66.65
+spot_angle_attenuation = 1.1891974
 
 [node name="Obstacle" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.144708, 0.6910516, -1.8181491)
@@ -98,3 +216,5 @@ mesh = SubResource("PrismMesh_jjgbg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_jjgbg")
+
+[editable path="BusBase/Body/bug_car"]

@@ -1,0 +1,42 @@
+extends Control
+
+signal round_over
+
+@onready var round_timer: Label = $RoundTimer
+@onready var start_round_button: Button = $StartRoundButton
+@onready var bug_counter: Label = $BugCounter
+
+@export var round_duration := 60.0
+
+var timer_progress := 0.0
+var running := false
+
+func _ready() -> void:
+	round_timer.text = str(int(round_duration))
+
+
+func _process(delta: float) -> void:
+	if running:
+		if timer_progress >= round_duration:
+			start_round_button.visible = true
+			running = false
+			emit_signal("round_over")
+		else:
+			timer_progress += delta
+			round_timer.text = str(int(round_duration - timer_progress))
+
+
+func _start_round() -> void:
+	start_round_button.visible = false
+	round_timer.text = str(int(round_duration))
+	timer_progress = 0.0
+	
+	running = true
+
+
+func _update_bug_count(new_count : int) -> void:
+	bug_counter.text = str(new_count)
+
+
+func _on_start_round_button_pressed() -> void:
+	_start_round()

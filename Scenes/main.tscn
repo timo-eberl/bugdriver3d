@@ -65,6 +65,10 @@ background_mode = 2
 background_energy_multiplier = 1.5
 sky = SubResource("Sky_bo1nx")
 tonemap_mode = 4
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.3776, 0.56127995, 0.64, 1)
+fog_density = 1.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jjgbg"]
 dof_blur_far_enabled = true

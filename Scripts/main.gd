@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var ui : UI = $UI#TODO
+@onready var ui : UI = $HUD/UI#TODO
 
 var bug_count := 0
 

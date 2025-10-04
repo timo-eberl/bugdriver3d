@@ -1,6 +1,6 @@
 extends VehicleBody3D
 
-const STEER_SPEED = 1.5
+const STEER_SPEED = 10
 const STEER_LIMIT = 0.4
 const BRAKE_STRENGTH = 2.0
 
@@ -11,8 +11,6 @@ var _steer_target := 0.0
 
 
 func _physics_process(delta: float) -> void:
-	var fwd_mps := (linear_velocity * transform.basis).x
-	
 	_steer_target = Input.get_axis("turn_right", "turn_left")
 	_steer_target *= STEER_LIMIT
 

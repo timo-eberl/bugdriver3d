@@ -4,6 +4,7 @@ signal bug_collected
 
 @onready var backwheel_1: VehicleWheel3D = $Wheel3
 @onready var backwheel_2: VehicleWheel3D = $Wheel4
+@onready var camera_controller : CameraController = $"../CameraBase"
 
 @export var engine_force_value := 40.0
 
@@ -68,7 +69,7 @@ func _physics_process(delta: float) -> void:
 		slowdown_timer -= delta * damping_factor
 	else:
 		engine_force = 0.0
-		set_linear_velocity(Vector3.ZERO)
+		set_linear_velocity(lerp(linear_velocity, linear_velocity, delta))
 
 
 func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
@@ -82,6 +83,11 @@ func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
 #
 	#previous_speed = state.linear_velocity.length()
 
+func _process(delta: float) -> void:
+	var speed := linear_velocity.length()
+	print("speed: ", speed)
+	var target_t := inverse_lerp(0, MAX_SPEED, speed)
+	camera_controller.distance_interpolator = target_t
 
 func _on_collect_area_body_entered(body: Node3D) -> void:
 	if body is Bug:

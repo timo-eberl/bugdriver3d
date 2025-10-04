@@ -2,6 +2,9 @@ extends VehicleBody3D
 
 signal bug_collected
 
+@onready var backwheel_1: VehicleWheel3D = $Wheel3
+@onready var backwheel_2: VehicleWheel3D = $Wheel4
+
 @export var engine_force_value := 40.0
 
 @export var STEER_SPEED := 10
@@ -10,7 +13,9 @@ signal bug_collected
 
 @export var MAX_SPEED := 5.0
 
-#@export var drift_strength := 5.0
+@export_range(0.0, 1.0, 0.1) var drift_friction_slip := 0.7
+@export_range(0.0, 1.0, 0.1) var backwheel_friction_slip := 1.0
+@export_range(0.0, 1.0, 0.1) var drift_steer_mult := 1.5
 
 @export var damping_factor := 0.7
 var slowdown_timer := 0.0
@@ -42,8 +47,16 @@ func _physics_process(delta: float) -> void:
 	_steer_target = Input.get_axis("turn_right", "turn_left")
 	_steer_target *= STEER_LIMIT
 	
-	#if Input.is_action_pressed("brake"):
-		#_steer_target *= drift_strength
+	if Input.is_action_just_pressed("brake"):
+		backwheel_1.wheel_friction_slip = drift_friction_slip
+		backwheel_2.wheel_friction_slip = drift_friction_slip
+		
+	if Input.is_action_pressed("brake"):
+		_steer_target *= drift_steer_mult;
+		
+	if Input.is_action_just_released("brake"):
+		backwheel_1.wheel_friction_slip = backwheel_friction_slip
+		backwheel_2.wheel_friction_slip = backwheel_friction_slip
 	
 	steering = move_toward(steering, _steer_target, STEER_SPEED * delta)
 	

@@ -450,8 +450,7 @@ grow_vertical = 2
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_d1ilt")
-volume_db = 40.0
-max_db = 6.0
+volume_db = 50.0
 
 [node name="LevelMusicPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("11_6iyac")

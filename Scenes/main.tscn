@@ -55,9 +55,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21025413, 0)
 mesh = SubResource("PlaneMesh_7u77a")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.34406924, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33, 0)
 shape = SubResource("BoxShape3D_jjgbg")
 
 [node name="BusBase" parent="." instance=ExtResource("1_jjgbg")]

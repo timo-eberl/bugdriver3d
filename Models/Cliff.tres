@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://7x8tu37i8yx0"]
+
+[ext_resource type="Texture2D" uid="uid://bm5sgbpqphkkt" path="res://Models/textures/cliffs.png" id="1_648mi"]
+
+[resource]
+resource_name = "Cliff"
+cull_mode = 2
+albedo_texture = ExtResource("1_648mi")
+metallic_specular = 0.0
+texture_filter = 2

@@ -41,3 +41,7 @@ func update_bug_count(new_count : int) -> void:
 
 func _on_start_round_button_pressed() -> void:
 	_start_round()
+
+
+func _on_fullscreen_button_pressed() -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

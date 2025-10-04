@@ -4,6 +4,8 @@ signal bug_collected
 
 @onready var backwheel_1: VehicleWheel3D = $Wheel3
 @onready var backwheel_2: VehicleWheel3D = $Wheel4
+@onready var drift_particles: GPUParticles3D = $DriftParticles
+@onready var drift_particles2: GPUParticles3D = $DriftParticles2
 @onready var camera_controller : CameraController = $"../CameraBase"
 
 @export var engine_force_value := 40.0
@@ -48,9 +50,15 @@ func _physics_process(delta: float) -> void:
 	_steer_target = Input.get_axis("turn_right", "turn_left")
 	_steer_target *= STEER_LIMIT
 	
+	drift_particles.global_position = backwheel_1.global_position
+	drift_particles2.global_position = backwheel_2.global_position
+	
 	if Input.is_action_just_pressed("brake"):
 		backwheel_1.wheel_friction_slip = drift_friction_slip
 		backwheel_2.wheel_friction_slip = drift_friction_slip
+		
+		drift_particles.emitting = true
+		drift_particles2.emitting = true
 		
 	if Input.is_action_pressed("brake"):
 		_steer_target *= drift_steer_mult;
@@ -58,6 +66,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("brake"):
 		backwheel_1.wheel_friction_slip = backwheel_friction_slip
 		backwheel_2.wheel_friction_slip = backwheel_friction_slip
+	
+		drift_particles.emitting = false
+		drift_particles2.emitting = false
 	
 	steering = move_toward(steering, _steer_target, STEER_SPEED * delta)
 	
@@ -75,13 +86,6 @@ func _physics_process(delta: float) -> void:
 func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
 	linear_velocity = linear_velocity.limit_length(MAX_SPEED)
 
-
-#func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	#if previous_speed > state.linear_velocity.length() and state.linear_velocity.length() <= 0.5: 
-		#state.set_linear_velocity(Vector3.ZERO)
-		##print("happens")
-#
-	#previous_speed = state.linear_velocity.length()
 
 func _process(delta: float) -> void:
 	var speed := linear_velocity.length()

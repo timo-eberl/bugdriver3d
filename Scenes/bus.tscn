@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://bapece8lr86n5"]
+
+[ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_43mbl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6hovg"]
+size = Vector3(1, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlfce"]
+size = Vector3(1, 0.5, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n5sl8"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.3
+
+[sub_resource type="PrismMesh" id="PrismMesh_ff36x"]
+left_to_right = 1.0
+size = Vector3(0.5, 0.5, 1)
+
+[node name="BusBase" type="Node3D"]
+
+[node name="Body" type="VehicleBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_43mbl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body"]
+mesh = SubResource("BoxMesh_6hovg")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
+shape = SubResource("BoxShape3D_xlfce")
+
+[node name="Wheel" type="VehicleWheel3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67703867, -0.25, 0.7613398)
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wheel"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_n5sl8")
+
+[node name="Wheel2" type="VehicleWheel3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68034065, -0.25, 0.7613398)
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wheel2"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_n5sl8")
+
+[node name="Wheel3" type="VehicleWheel3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67703867, -0.25, -0.7590939)
+use_as_traction = true
+wheel_radius = 0.25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wheel3"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_n5sl8")
+
+[node name="Wheel4" type="VehicleWheel3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68034065, -0.25, -0.7590939)
+use_as_traction = true
+wheel_radius = 0.25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wheel4"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_n5sl8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.003073275, 1.2551022)
+mesh = SubResource("PrismMesh_ff36x")
+skeleton = NodePath("../..")

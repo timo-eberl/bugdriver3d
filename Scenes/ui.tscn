@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://k8c5gay3lm1c"]
+[gd_scene load_steps=3 format=3 uid="uid://k8c5gay3lm1c"]
 
 [ext_resource type="Script" uid="uid://nmu8nm1rry07" path="res://Scripts/ui.gd" id="1_jxero"]
+[ext_resource type="Theme" uid="uid://dgej2dh1384q7" path="res://theme.tres" id="2_qdvrb"]
 
 [node name="Ui" type="Control"]
 layout_mode = 3
@@ -19,15 +20,18 @@ anchor_right = 0.44300002
 anchor_bottom = 0.17600001
 offset_right = -373.33603
 offset_bottom = -31.048012
-theme_override_font_sizes/font_size = 60
+theme = ExtResource("2_qdvrb")
 text = "0"
 
 [node name="StartRoundButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 97.0
-offset_right = 121.0
-offset_bottom = 161.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 101.0
+grow_vertical = 0
+theme = ExtResource("2_qdvrb")
 text = "Start Round"
 
 [node name="BugCounter" type="Label" parent="."]
@@ -38,7 +42,7 @@ anchor_right = 1.0
 offset_left = -137.0
 offset_bottom = 83.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 60
+theme = ExtResource("2_qdvrb")
 text = "0"
 horizontal_alignment = 2
 
@@ -53,6 +57,7 @@ offset_left = -87.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("2_qdvrb")
 text = "Fullscreen"
 
 [connection signal="pressed" from="StartRoundButton" to="." method="_on_start_round_button_pressed"]

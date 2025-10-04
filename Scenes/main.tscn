@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=26 format=3 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
@@ -40,6 +40,9 @@ points = PackedVector3Array(-0.54527235, -0.17322785, -1.2374165, 0.7559718, 0.6
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ynf5e"]
 points = PackedVector3Array(-0.63893056, -0.22296609, 0.6885317, 0.062296107, 0.95279956, 0.9125614, 0.06291933, 0.95843214, 0.73566186, 0.7298796, -0.22043803, 1.3130169, -0.639776, -0.031564802, 1.6909206, 0.82438326, 0.48774293, 0.55769026, -0.8287833, 0.58224195, 0.55769026, 0.5113891, 0.43137142, 1.5823101, -0.44255298, 0.81015855, 1.3391436, 0.6119416, -0.2443128, 0.58025277, 0.14995578, -0.21790724, 1.7374139, 0.48336375, 0.8131206, 1.2980356, -0.022209551, 0.4301534, 1.6950207, -0.73427963, -0.22043803, 1.3130169, 0.635376, -0.031564802, 1.6909206, 0.42065623, 0.881984, 0.63710105, -0.61326617, -0.24123706, 0.5832137, -0.42365497, 0.8801029, 0.6390643, -0.6055304, -0.23350035, 1.6630237, 0.82438326, 0.58224195, 0.60480803, 0.60186505, -0.23423514, 1.6636221, -0.16741957, -0.031564802, 1.7853965, -0.108047925, 0.8994757, 1.2984822, -0.52741826, 0.76895976, 1.297414, -0.48830238, 0.43314382, 1.5941536, 0.59896374, 0.43192396, 1.4616013, 0.09548484, 0.8201781, 1.4063628, 0.77713144, 0.6296787, 0.55769026, -0.45274806, 0.8633434, 1.1287279, 0.16285773, -0.031564802, 1.7853965, -0.8287833, 0.48774293, 0.55769026, -0.6002085, 0.43159842, 1.4600788)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8gbba"]
+radius = 3.0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_top_color = Color(0.53538877, 0.41999844, 0.3660445, 1)
@@ -226,6 +229,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043116152, -0.25103787)
 shape = SubResource("ConvexPolygonShape3D_ynf5e")
 
 [node name="CollectArea" type="Area3D" parent="Bus"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bus/CollectArea"]
+shape = SubResource("SphereShape3D_8gbba")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)

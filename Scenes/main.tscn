@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=37 format=3 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
 [ext_resource type="PackedScene" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" path="res://Scenes/bug.tscn" id="7_6bp64"]
+[ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
 [ext_resource type="Shader" path="res://Shaders/psx_post.gdshader" id="10_hptm8"]
+[ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n5sl8"]
 top_radius = 0.25
@@ -446,13 +448,23 @@ grow_vertical = 2
 
 [node name="UI" parent="HUD" instance=ExtResource("4_jjvhh")]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_d1ilt")
+volume_db = 40.0
+max_db = 6.0
+
+[node name="LevelMusicPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_6iyac")
+volume_db = 40.0
+max_db = 6.0
 
 [node name="Bug" parent="." instance=ExtResource("7_6bp64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7680445, 6.67572e-06, 6.309321)
 
 [connection signal="bug_collected" from="Bus" to="." method="_on_bus_bug_collected"]
 [connection signal="body_entered" from="Bus/CollectArea" to="Bus" method="_on_collect_area_body_entered"]
+[connection signal="round_over" from="HUD/UI" to="." method="_on_ui_round_over"]
+[connection signal="round_start" from="HUD/UI" to="." method="_on_ui_round_start"]
 
 [editable path="level"]
 [editable path="Bus/bug_car"]

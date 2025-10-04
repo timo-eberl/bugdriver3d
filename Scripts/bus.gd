@@ -88,7 +88,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 func _process(delta: float) -> void:
 	var speed := linear_velocity.length()
-	print("speed: ", speed)
 	var target_t := inverse_lerp(0, MAX_SPEED, speed)
 	var previous := camera_controller.distance_interpolator
 	camera_controller.distance_interpolator = lerp(previous, target_t, delta)

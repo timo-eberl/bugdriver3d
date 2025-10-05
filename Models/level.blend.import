@@ -37,7 +37,145 @@ import_script/path=""
 materials/extract=1
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"@MATERIAL:0": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_0.tres",
+"use_external/path": "res://Models/@MATERIAL_0.tres"
+},
+"@MATERIAL:1": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_1.tres",
+"use_external/path": "res://Models/@MATERIAL_1.tres"
+},
+"@MATERIAL:11": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_11.tres",
+"use_external/path": "res://Models/@MATERIAL_11.tres"
+},
+"@MATERIAL:12": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_12.tres",
+"use_external/path": "res://Models/@MATERIAL_12.tres"
+},
+"@MATERIAL:13": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_13.tres",
+"use_external/path": "res://Models/@MATERIAL_13.tres"
+},
+"@MATERIAL:14": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_14.tres",
+"use_external/path": "res://Models/@MATERIAL_14.tres"
+},
+"@MATERIAL:15": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_15.tres",
+"use_external/path": "res://Models/@MATERIAL_15.tres"
+},
+"@MATERIAL:16": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_16.tres",
+"use_external/path": "res://Models/@MATERIAL_16.tres"
+},
+"@MATERIAL:17": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_17.tres",
+"use_external/path": "res://Models/@MATERIAL_17.tres"
+},
+"@MATERIAL:18": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_18.tres",
+"use_external/path": "res://Models/@MATERIAL_18.tres"
+},
+"@MATERIAL:19": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_19.tres",
+"use_external/path": "res://Models/@MATERIAL_19.tres"
+},
+"@MATERIAL:20": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_20.tres",
+"use_external/path": "res://Models/@MATERIAL_20.tres"
+},
+"@MATERIAL:21": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_21.tres",
+"use_external/path": "res://Models/@MATERIAL_21.tres"
+},
+"@MATERIAL:22": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_22.tres",
+"use_external/path": "res://Models/@MATERIAL_22.tres"
+},
+"@MATERIAL:23": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/@MATERIAL_23.tres",
+"use_external/path": "res://Models/@MATERIAL_23.tres"
+},
+"Bunker": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/Bunker.tres",
+"use_external/path": "uid://dpmad6u83xudp"
+},
+"BunkerDoor": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/BunkerDoor.tres",
+"use_external/path": "uid://devha7y7lg7ha"
+},
+"BunkerText": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/BunkerText.tres",
+"use_external/path": "uid://boarkysa2rbsp"
+},
+"Leaf": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/Leaf.tres",
+"use_external/path": "uid://455bm3uh81xg"
+},
+"Leaf.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/Leaf.001.tres",
+"use_external/path": "uid://8cwbgmwvlcwa"
+},
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/Material.001.tres",
+"use_external/path": "uid://l06varjnepmq"
+},
+"Pine": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/Pine.tres",
+"use_external/path": "uid://c5bg6kbwcmxgr"
+},
+"Rock": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/Rock.tres",
+"use_external/path": "uid://b8br3jw3if6qr"
+},
+"Wheel": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/Wheel.tres",
+"use_external/path": "uid://tao5ro48jgh2"
+},
+"beetman": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/beetman.tres",
+"use_external/path": "uid://cefyh3kqnpu0t"
+},
+"terrain": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/terrain.tres",
+"use_external/path": "uid://dgf5ltcqur0eu"
+},
+"tree": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/Tree.tres",
+"use_external/path": "uid://0fdx4wl43baa"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

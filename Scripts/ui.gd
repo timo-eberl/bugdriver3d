@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart") and not running:
 		get_tree().reload_current_scene()
-		Global.bug_count = 0
+		Global.score = 0
 	if event.is_action_pressed("exit_fullscreen") and Global.fullscreen_enabled:
 		Global.fullscreen_enabled = false
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
@@ -64,10 +64,10 @@ func _end_round() -> void:
 	
 	level_music_player.stop()
 	
-	score_label.text = str("Score: ", Global.bug_count)
+	score_label.text = str("Score: ", Global.score)
 	
-	if Global.highscore < Global.bug_count:
-		Global.highscore = Global.bug_count
+	if Global.highscore < Global.score:
+		Global.highscore = Global.score
 		Global.save_highscore()
 	
 	highscore_label.text = str("Highscore: ", Global.highscore)
@@ -76,10 +76,19 @@ func _end_round() -> void:
 
 
 func update_bug_count() -> void:
-	bug_counter.text = str(Global.bug_count)
+	bug_counter.text = str(Global.score)
 
 
 func _on_fullscreen_button_pressed() -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	Global.fullscreen_enabled = true
 	fullscreen_button.visible = false
+
+
+func _on_small_save_area_bug_saved(type: Bug.BugType) -> void:
+	match type:
+		Bug.BugType.LADYBUG:
+			Global.score += 50
+		Bug.BugType.BEETMAN:
+			Global.score += 200
+	update_bug_count()

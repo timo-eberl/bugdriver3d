@@ -4,6 +4,9 @@ class_name Bug
 @export var physics_material_in_car : PhysicsMaterial
 @export var physics_material_saved : PhysicsMaterial
 @export var splatter_scene : PackedScene
+@export var type : BugType
+
+enum BugType { LADYBUG, BEETMAN }
 
 var m_bus : Bus
 var save_location : Node3D

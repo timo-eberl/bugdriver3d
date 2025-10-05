@@ -13,8 +13,7 @@ func _ready() -> void:
 
 
 func _on_bus_bug_collected() -> void:
-	Global.bug_count += 1
-	ui.update_bug_count()
+	pass
 
 
 func _on_ui_round_over() -> void:

@@ -3,7 +3,7 @@ extends Node
 var fullscreen_enabled := false
 
 var highscore := 0
-var bug_count := 0
+var score := 0
 
 
 func _ready() -> void:
@@ -18,20 +18,20 @@ func save_highscore() -> void:
 
 
 func load_highscore() -> void:
-	var score = null
+	var lscore = null
 	var file = null
 	if FileAccess.file_exists("user://savegame.data"):
 		file = FileAccess.open("user://savegame.data", FileAccess.READ)
 	
-		score = file.get_var()
+		lscore = file.get_var()
 	
 	else:
 		file = FileAccess.open("user://savegame.data", FileAccess.WRITE)
 		
-		score = 0
+		lscore = 0
 	
-	if score == null:
+	if lscore == null:
 		highscore = 0
 	else:
-		highscore = score
+		highscore = lscore
 	file.close()

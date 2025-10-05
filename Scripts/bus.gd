@@ -115,6 +115,9 @@ func _physics_process(delta: float) -> void:
 	previous_speed = linear_velocity.length()
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	if Input.is_action_pressed("boost"):
+		state.apply_force((self.global_basis * -Vector3.FORWARD) * 1000.0)
+	
 	state.linear_velocity = linear_velocity.limit_length(MAX_SPEED)
 	if slowdown_timer < 0.0 and linear_velocity.length() < 1.0:
 		state.linear_velocity = Vector3.ZERO

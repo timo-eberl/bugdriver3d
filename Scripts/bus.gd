@@ -19,6 +19,11 @@ signal bug_collected
 @onready var camera_controller : CameraController = $"../CameraBase"
 
 @export var engine_force_value := 40.0
+@export var engine_force_braking_value := 100.0
+
+@export var acceleration_max_speed : float = 6.0
+@export var acceleration_curve : Curve
+@export var steering_curve : Curve
 
 @export var STEER_SPEED := 10
 @export var STEER_LIMIT := 0.4
@@ -29,7 +34,8 @@ signal bug_collected
 @export var MUD_SPEED := 5.0
 @export var MUD_DECELERATION := 5.0
 
-@export_range(0.0, 1.0, 0.1) var drift_friction_slip := 0.7
+
+@export_range(0.0, 1.0, 0.1) var drift_friction_slip := 0.9
 @export_range(0.0, 1.0, 0.1) var backwheel_friction_slip := 1.0
 @export_range(0.0, 5.0, 0.1) var drift_steer_mult := 1.5
 
@@ -49,23 +55,24 @@ func _physics_process(delta: float) -> void:
 	var speed := linear_velocity.length()
 	
 	if Input.is_action_pressed("accelerate"):
-		if speed < 5.0 and not is_zero_approx(speed):
-			engine_force = clampf(engine_force_value * 5.0 / speed, 0.0, 100.0)
-		else:
-			engine_force = engine_force_value
+		var t = speed / acceleration_max_speed
+		var acceleration_multiplier = acceleration_curve.sample(t)
+		engine_force = engine_force_value * acceleration_multiplier
 	else: 
 		engine_force = 0.0
 		
 	
 	if Input.is_action_pressed("reverse"):
 		if speed < 5.0 and not is_zero_approx(speed):
-			engine_force = -clampf(engine_force_value * BRAKE_STRENGTH * 10.0 / speed, 0.0, 100.0)
+			engine_force = -clampf(engine_force_braking_value * BRAKE_STRENGTH * 10.0 / speed, 0.0, 100.0)
 		else:
-			engine_force = -engine_force_value * BRAKE_STRENGTH
+			engine_force = -engine_force_braking_value * BRAKE_STRENGTH
 
 	
 	_steer_target = Input.get_axis("turn_right", "turn_left")
-	_steer_target *= STEER_LIMIT
+	var t = speed / acceleration_max_speed
+	var steering_multiplier = steering_curve.sample(t)
+	_steer_target *= STEER_LIMIT * steering_multiplier
 	
 	drift_particles.global_position = backwheel_1.global_position
 	drift_particles_2.global_position = backwheel_2.global_position
@@ -81,8 +88,8 @@ func _physics_process(delta: float) -> void:
 		drift_particles.emitting = true
 		drift_particles_2.emitting = true
 		
-	if Input.is_action_pressed("brake"):
-		engine_force = max(-engine_force_value * BRAKE_STRENGTH, 0.0)
+	#if Input.is_action_pressed("brake"):
+	#	engine_force = max(-engine_force_braking_value * BRAKE_STRENGTH, 0.0)
 	
 	if  abs(linear_velocity.length() - previous_speed) > drift_particle_bias or \
 		speed < 5.0 and not is_zero_approx(speed):

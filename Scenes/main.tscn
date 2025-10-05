@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=51 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -8,14 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
 [ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
 [ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="12_wsu2k"]
-[ext_resource type="PackedScene" uid="uid://1aw8p04lhqdo" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
-[ext_resource type="Script" uid="uid://cf4gn0xqtwgbt" path="res://Scripts/mud.gd" id="17_h1bgf"]
+[ext_resource type="PackedScene" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
+[ext_resource type="Script" path="res://Scripts/mud.gd" id="17_h1bgf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fco6s"]
 resource_name = "Wheel"
@@ -450,6 +451,9 @@ lifetime = 1.5
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_b3802")
 draw_pass_1 = SubResource("QuadMesh_h1bgf")
+
+[node name="Dust" parent="Bus" instance=ExtResource("8_h1bgf")]
+transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 1, 0, 0, -0.77136797)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.24065903, -0.43210733, 0.86911833, -0.56809473, 0.66332793, 0.48709795, -0.78698874, -0.610966, -0.08584219, 0, 10.2421055, 0)

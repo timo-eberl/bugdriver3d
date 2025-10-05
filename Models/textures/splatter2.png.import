@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brj4io6hblpw7"
-path.s3tc="res://.godot/imported/splatter.png-27db05b4ffb9eb423fde0a8d332610bc.s3tc.ctex"
+uid="uid://bi7w0jga8q1lc"
+path.s3tc="res://.godot/imported/splatter2.png-991acff0af22498426d9b6c1471a4fac.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/textures/splatter.png"
-dest_files=["res://.godot/imported/splatter.png-27db05b4ffb9eb423fde0a8d332610bc.s3tc.ctex"]
+source_file="res://Models/textures/splatter2.png"
+dest_files=["res://.godot/imported/splatter2.png-991acff0af22498426d9b6c1471a4fac.s3tc.ctex"]
 
 [params]
 

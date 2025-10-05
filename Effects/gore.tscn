@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=4 uid="uid://dvvufqg7r1c02"]
+
+[ext_resource type="Script" uid="uid://o7xelf3vxubc" path="res://Models/destroy_timer.gd" id="1_p2v5q"]
+[ext_resource type="Texture2D" uid="uid://o7b8e1mj1l4s" path="res://Models/characters/ladybug.png" id="2_41nfg"]
+[ext_resource type="Texture2D" uid="uid://bi7w0jga8q1lc" path="res://Models/textures/splatter2.png" id="3_irj44"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lmcm"]
+resource_name = "Gore"
+cull_mode = 2
+albedo_texture = ExtResource("2_41nfg")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5oxbp"]
+_surfaces = [{
+"aabb": AABB(-0.04458754, -0.12044216, -0.03689454, 0.08592813, 0.23002054, 0.08227974),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAgAEAAAAAgADAAUAAgAFAAQAAwAGAAUABAAFAAcABQAGAAcAAAAEAAgABAAHAAgAAAAJAAEAAAAIAAkAAQAKAAMACgAGAAMACQAKAAEABwAGAAsACAAHAAsACwAGAAoACAALAAkACQALAAoA"),
+"name": "Gore",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("xYgAAGNZAAD7XX0x//8AAA/82ChlzAAAL5xE1QjJAAD//30xsRkAAIzXW+H5cQAAMH///7twAAD7mnLP6hoAACI4QykAAAAAAAB9Meh4AAD8OFvhx6cAAL06XOE6MAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hutvv"]
+resource_name = "gore_Icosphere"
+_surfaces = [{
+"aabb": AABB(-0.04458754, -0.12044216, -0.03689454, 0.08592813, 0.23002054, 0.08227974),
+"attribute_data": PackedByteArray("R5Nc0wt9msUSlDq51n15q89m2beaZ7id3ZQYn6F+V5EZq9msTqr7xuSrt5KplfaEIMJ4oFXBmrrswlaGsKyVeCjZF5Rc2Dmu89n1ebfDNGwv8LaHZO/YoQ=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAQAEAAMABAAFAAMAAgADAAYAAwAHAAYAAgAGAAgAAgAIAAkACAAGAAoABgALAAoACAAKAAwADQAIAAwADAAKAA4ACgAPAA4ADAAOABAAEQAMABAAEAAOABIADgATABIAEAASABQAFQAQABQA"),
+"material": SubResource("StandardMaterial3D_2lmcm"),
+"name": "Gore",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("xYgAAGNZjcn7XX0x//88rg/82ChlzGS5L5xE1QjJxaz8OFvhx6feuTB///+7cKLFjNdb4flxRcMwf///u3Djwv//fTGxGbnkxYgAAGNZzeD7mnLP6hpz7jB///+7cK/YIjhDKQAAXubFiAAAY1mS+706XOE6MIbrMH///7twSvgAAH0x6Hh0wMWIAABjWSbW/Dhb4cenuMMwf///u3DQ3/tdfTH//x6jxYgAAGNZ38Y9NSZkXVpxiE2Csz/SpsN3poFrwHbLvZiHtdpHXufbUkad4jaYXZJO9LKJL3bRTiUIUCPUW0FP+15mSMgswoMFB1SwuU0rTNFveCi2wKGzrtpVqpAVFuGo")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5oxbp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3802"]
+transparency = 2
+alpha_scissor_threshold = 0.89
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.52461976, 0.864108, 0, 1)
+albedo_texture = ExtResource("3_irj44")
+metallic_specular = 0.0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_k12tt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gt3je"]
+radius = 0.17773438
+height = 0.7746887
+
+[node name="gore" type="RigidBody3D"]
+mass = 0.4
+gravity_scale = 2.0
+script = ExtResource("1_p2v5q")
+
+[node name="Gore" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.47, 0, 0, 0, 3.47, 0, 0, 0, 3.47, 0, 0, 0)
+mesh = SubResource("ArrayMesh_hutvv")
+skeleton = NodePath("")
+
+[node name="ParticleDrip" type="CPUParticles3D" parent="."]
+transform = Transform3D(-0.4999998, 4.3711378e-08, 0, -4.3711378e-08, -0.4999998, 0, 0, 0, 0.4999998, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_b3802")
+amount = 64
+lifetime = 0.5
+mesh = SubResource("QuadMesh_k12tt")
+spread = 20.57
+gravity = Vector3(0, -50, 0)
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+damping_min = 3.0
+damping_max = 3.0
+angle_max = 360.0
+scale_amount_min = 0.2
+scale_amount_max = 0.5
+color = Color(0.48290545, 0.57241297, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.033646107, 0)
+shape = SubResource("CapsuleShape3D_gt3je")

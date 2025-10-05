@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://ble36avkhdlh0"]
+
+[sub_resource type="Environment" id="Environment_nws6r"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.45
+
+[node name="HUD3DSetup" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+projection = 1
+fov = 10.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16940999, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nws6r")

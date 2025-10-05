@@ -2,6 +2,8 @@ extends RigidBody3D
 class_name Bug
 
 @export var physics_material_in_car : PhysicsMaterial
+@export var splatter_scene : PackedScene
+
 var m_bus : Bus
 
 # state
@@ -40,4 +42,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: PhysicsBody3D) -> void:
 	var is_ground := body.get_collision_layer_value(1)
 	if is_ground and in_car:
+		var splatter : Node3D = splatter_scene.instantiate()
+		get_tree().root.add_child(splatter)
+		splatter.global_position = self.global_position
 		queue_free()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhm7salc8s5ha"]
+[gd_scene load_steps=7 format=3 uid="uid://bhm7salc8s5ha"]
 
 [ext_resource type="Script" uid="uid://ykpnuohjvuoa" path="res://Scripts/bug.gd" id="1_2lt8f"]
 [ext_resource type="PackedScene" uid="uid://mpgvxyqmd82o" path="res://Models/characters/ladybug.fbx" id="1_5ymec"]
+[ext_resource type="PackedScene" uid="uid://b6x0yw6237lud" path="res://Effects/splatter.tscn" id="2_tji8x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ynf5e"]
 friction = 0.0
@@ -24,6 +25,7 @@ contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_2lt8f")
 physics_material_in_car = SubResource("PhysicsMaterial_2lt8f")
+splatter_scene = ExtResource("2_tji8x")
 
 [node name="ladybug" parent="." instance=ExtResource("1_5ymec")]
 transform = Transform3D(0.85, 0, 0, 0, 0.85807455, 0, 0, 0, 0.85, 0, 0, 0)

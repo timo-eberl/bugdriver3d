@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://k8c5gay3lm1c" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
-[ext_resource type="Environment" path="res://environment.tres" id="9_b3802"]
+[ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
 [ext_resource type="Texture2D" uid="uid://duigvoybihip" path="res://Models/textures/particle.png" id="9_fevyy"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
 [ext_resource type="Material" path="res://Materials/psx_mat.tres" id="10_fevyy"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=58 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -125,6 +125,42 @@ gradient = SubResource("Gradient_k12tt")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b3802"]
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_h1bgf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3802"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(2.4065375e-06, 0.25216204, 0.6982128, 1)
+albedo_texture = ExtResource("9_fevyy")
+metallic_specular = 0.0
+emission_enabled = true
+emission = Color(0.2445012, 0.30414218, 0.613525, 1)
+emission_energy_multiplier = 0.5
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_fevyy"]
+_data = [Vector2(0, 1), 0.0, 3.0893557, 0, 0, Vector2(1, 0), 0.18276457, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hibaj"]
+curve = SubResource("Curve_fevyy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ee4r6"]
+velocity_pivot = Vector3(0, 0, 3.065)
+direction = Vector3(0, 0, 10)
+spread = 9.413
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 1, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_min = 0.29999998
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_hibaj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hibaj"]
 transparency = 1
@@ -480,6 +516,13 @@ draw_pass_1 = SubResource("QuadMesh_h1bgf")
 [node name="Dust" parent="Bus" instance=ExtResource("8_h1bgf")]
 transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 1, 0, 0, -0.77136797)
 
+[node name="BoostParticles" parent="Bus" instance=ExtResource("8_h1bgf")]
+transform = Transform3D(-1, 0, 1.172251e-07, 0, 0.9999965, 0, -1.172251e-07, 0, -1, 2.7400226e-08, 0, -1.3269743)
+material_override = SubResource("StandardMaterial3D_b3802")
+lifetime = 0.3
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ee4r6")
+
 [node name="MagnetParticles" parent="Bus" instance=ExtResource("8_h1bgf")]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999983, 0, 2.9802322e-08, 0, 1, 9.168975e-08, -0.35774752, -0.61933327)
 layers = 2
@@ -492,7 +535,7 @@ process_material = SubResource("ParticleProcessMaterial_pdsj5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7939677e-08, 1.4437518, -0.58638036)
 strength = 104.89
 attenuation = 0.025382927
-cull_mask = 4294967294
+cull_mask = 4293918722
 radius = 5.15
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

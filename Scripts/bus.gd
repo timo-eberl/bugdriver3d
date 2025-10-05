@@ -14,6 +14,7 @@ signal bug_collected
 @onready var track_particles_3: GPUParticles3D = $TrackParticles3
 @onready var track_particles_4: GPUParticles3D = $TrackParticles4
 @onready var cage_area: Area3D = $CageArea
+@onready var boost_particles: GPUParticles3D = $BoostParticles
 
 @onready var camera_controller : CameraController = $"../CameraBase"
 
@@ -116,7 +117,7 @@ func _physics_process(delta: float) -> void:
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if Input.is_action_pressed("boost"):
-		state.apply_force((self.global_basis * -Vector3.FORWARD) * 1000.0)
+		state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 3000.0)
 	
 	state.linear_velocity = linear_velocity.limit_length(MAX_SPEED)
 	if slowdown_timer < 0.0 and linear_velocity.length() < 1.0:
@@ -131,6 +132,8 @@ func _process(delta: float) -> void:
 	var target_t := inverse_lerp(0, MAX_SPEED, speed)
 	var previous := camera_controller.distance_interpolator
 	camera_controller.distance_interpolator = lerp(previous, target_t, delta)
+	
+	boost_particles.emitting = Input.is_action_pressed("boost")
 
 func _on_collect_area_body_entered(body: Node3D) -> void:
 	if body is Bug:

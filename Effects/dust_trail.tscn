@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ses2yv2jxnoe"]
+
+[ext_resource type="Texture2D" uid="uid://b27kso3hi3a5" path="res://Models/textures/dust.png" id="1_cbf3k"]
+[ext_resource type="Material" uid="uid://dhwcsaibultm2" path="res://Effects/dust_particle.tres" id="2_bp0nv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hibaj"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.8623597, 0.6044521, 0.5079741, 1)
+albedo_texture = ExtResource("1_cbf3k")
+metallic_specular = 0.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_fevyy"]
+
+[node name="Dust" type="GPUParticles3D"]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999917, 0, 2.9802322e-08, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_hibaj")
+amount = 20
+randomness = 0.5
+process_material = ExtResource("2_bp0nv")
+draw_pass_1 = SubResource("QuadMesh_fevyy")

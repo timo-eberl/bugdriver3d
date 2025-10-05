@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://b8nx6p3bct6u0"]
+
+[ext_resource type="Shader" uid="uid://bdqhkyuvxcfna" path="res://Shaders/hud_3d_fill.gdshader" id="1_x0mxt"]
+[ext_resource type="Texture2D" uid="uid://io6qfp1wwacm" path="res://Models/textures/battery.png" id="2_5aley"]
+
+[resource]
+resource_name = "Battery"
+render_priority = 0
+shader = ExtResource("1_x0mxt")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5aley")
+shader_parameter/albedo_texture_size = Vector2i(128, 128)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/top_bounds = 2.3449999999999998
+shader_parameter/bottom_bounds = -2.23
+shader_parameter/fill = 1.0

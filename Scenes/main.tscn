@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=64 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -6,15 +6,17 @@
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
-[ext_resource type="PackedScene" uid="uid://k8c5gay3lm1c" path="res://Scenes/ui.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
-[ext_resource type="PackedScene" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
+[ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="8_fevyy"]
+[ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
 [ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
 [ext_resource type="Texture2D" uid="uid://duigvoybihip" path="res://Models/textures/particle.png" id="9_fevyy"]
+[ext_resource type="Script" uid="uid://5f3u8dxuhtks" path="res://Scripts/bunker_open_close.gd" id="9_hibaj"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
-[ext_resource type="Material" path="res://Materials/psx_mat.tres" id="10_fevyy"]
+[ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
-[ext_resource type="Material" path="res://Materials/crt_mat.tres" id="11_hibaj"]
+[ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="12_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://1aw8p04lhqdo" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
 [ext_resource type="Script" uid="uid://cf4gn0xqtwgbt" path="res://Scripts/mud.gd" id="17_h1bgf"]
@@ -187,6 +189,44 @@ damping_max = 0.4
 scale_min = 0.099999994
 scale_max = 0.29999998
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_sp2aa"]
+_surfaces = [{
+"aabb": AABB(-0.44075006, -1.9443692, -0.32521665, 4.785729, 4.641788, 0.650433),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "BunkerDoor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_83nlr"]
+resource_name = "level_Cube_014"
+_surfaces = [{
+"aabb": AABB(-0.44075006, -1.9443692, -0.32521665, 4.785729, 4.641788, 0.650433),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v3RMU5DslRJJdEwSSeyVU5D/X/9//5//P/+f/3//X/8/05OjjXpPWEvTk1hLek+jjf8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": ExtResource("8_fevyy"),
+"name": "BunkerDoor",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAP//AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP//AIAAAP////8AgP///////wCAAAAAAP//AIAAAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f///3////9/////f////3+qKqoqqiqqKqoqqiqqKqoq/3////9/////f////3///wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_sp2aa")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fevyy"]
+size = Vector3(11.891602, 5.7890625, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fevyy"]
+radius = 55.0
+
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jjgbg"]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 15.0
@@ -269,22 +309,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.056281, 3.0322394, -16.0068
 
 [node name="Ladybug5" parent="Bugs" instance=ExtResource("3_hptm8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.291513, 3.0322394, -14.644597)
-
-[node name="level" parent="." instance=ExtResource("1_kry3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.80615, 0, 0)
-
-[node name="mushroom_016 " parent="level" index="19"]
-transform = Transform3D(-0.46759847, 0.02972002, -1.2876643, -0.008750519, 0.81920135, 0.05603239, 1.2885928, 0.016347656, -0.46688098, 106.11985, 0.5074711, -45.058254)
-
-[node name="CameraBase" type="Node3D" parent="."]
-transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -7.7384214, 4.0650134, -5.8995986)
-script = ExtResource("2_jjvhh")
-distance_driving = 48.21
-
-[node name="Camera3D" type="Camera3D" parent="CameraBase"]
-transform = Transform3D(1, -1.0430813e-07, 2.9802322e-08, -1.4901161e-08, 1.0000001, 2.30968e-07, 0, -7.450581e-09, 1, 0, 0, 17)
-fov = 36.2
-size = 15.08
 
 [node name="Bus" type="VehicleBody3D" parent="."]
 transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, -7.7384214, 3.7010212, -5.8995986)
@@ -566,6 +590,67 @@ attenuation = 0.025382927
 cull_mask = 4293918722
 radius = 5.15
 
+[node name="Bunker" type="Node3D" parent="."]
+transform = Transform3D(-0.6949433, 0, 0.71906453, 0, 1, 0, -0.71906453, 0, -0.6949433, -66.16959, 2.204692, 79.21107)
+
+[node name="BunkerDoor" type="MeshInstance3D" parent="Bunker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0467458, 0, -1.1920929e-07)
+mesh = SubResource("ArrayMesh_83nlr")
+skeleton = NodePath("")
+metadata/extras = {
+"M3": {}
+}
+
+[node name="BunkerDoor2" type="Node3D" parent="Bunker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.381351, 0, 0)
+
+[node name="BunkerDoorMesh" type="MeshInstance3D" parent="Bunker/BunkerDoor2"]
+transform = Transform3D(-0.99999994, 0, 0.00039622188, 0, 1, 0, -0.00039622188, 0, -0.99999994, -0.85295486, 0.0003080368, 0.0017547607)
+mesh = SubResource("ArrayMesh_83nlr")
+skeleton = NodePath("")
+metadata/extras = {
+"M3": {}
+}
+
+[node name="StaticBody3DInvisible" type="StaticBody3D" parent="Bunker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5681076, -2.1471283, 0.716774)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bunker/StaticBody3DInvisible"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3945313, -0.14178845)
+shape = SubResource("BoxShape3D_fevyy")
+
+[node name="BigArea3D" type="Area3D" parent="Bunker"]
+transform = Transform3D(-0.6949433, 0, -0.71906453, 0, 1, 0, 0.71906453, 0, -0.6949433, 0, 0, 0)
+collision_mask = 2
+script = ExtResource("9_hibaj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bunker/BigArea3D"]
+shape = SubResource("SphereShape3D_fevyy")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bunker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0, -4.50019)
+light_color = Color(1, 1, 0.38039216, 1)
+light_energy = 8.197
+shadow_enabled = true
+omni_range = 111.028
+omni_attenuation = 1.12
+
+[node name="level" parent="." instance=ExtResource("1_kry3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.80615, 0, 0)
+
+[node name="mushroom_016 " parent="level" index="24"]
+transform = Transform3D(-0.46759847, 0.02972002, -1.2876643, -0.008750519, 0.81920135, 0.05603239, 1.2885928, 0.016347656, -0.46688098, 106.11985, 0.5074711, -45.058254)
+
+[node name="CameraBase" type="Node3D" parent="."]
+transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -7.7384214, 4.0650134, -5.8995986)
+script = ExtResource("2_jjvhh")
+distance_driving = 48.21
+
+[node name="Camera3D" type="Camera3D" parent="CameraBase"]
+transform = Transform3D(1, -1.0430813e-07, 2.9802322e-08, -1.4901161e-08, 1.0000001, 2.30968e-07, 0, -7.450581e-09, 1, 0, 0, 17)
+fov = 36.2
+size = 15.08
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.24065903, -0.43210733, 0.86911833, -0.56809473, 0.66332793, 0.48709795, -0.78698874, -0.610966, -0.08584219, 0, 10.2421055, 0)
 light_color = Color(0.7915614, 0.6628314, 0.5337772, 1)
@@ -719,8 +804,10 @@ shape = SubResource("ConvexPolygonShape3D_fevyy")
 [connection signal="bug_collected" from="Bus" to="." method="_on_bus_bug_collected"]
 [connection signal="body_entered" from="Bus/CollectArea" to="Bus" method="_on_collect_area_body_entered"]
 [connection signal="body_entered" from="Bus/CageArea" to="Bus" method="_on_cage_area_body_entered"]
+[connection signal="body_entered" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_exited"]
 [connection signal="round_over" from="HUD/UI" to="." method="_on_ui_round_over"]
 [connection signal="round_start" from="HUD/UI" to="." method="_on_ui_round_start"]
 
-[editable path="level"]
 [editable path="Bus/bug_car"]
+[editable path="level"]

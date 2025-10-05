@@ -1,18 +1,19 @@
-[gd_scene load_steps=55 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=51 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_kry3j"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://dg0lcbvkqivcp" path="res://Scenes/beetman.tscn" id="2_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
+[ext_resource type="PackedScene" path="res://Scenes/beetman.tscn" id="2_ynf5e"]
+[ext_resource type="PackedScene" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
-[ext_resource type="PackedScene" uid="uid://k8c5gay3lm1c" path="res://Scenes/ui.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
-[ext_resource type="Shader" uid="uid://dfx4ble2n5874" path="res://Shaders/crt_post.gdshader" id="9_d1ilt"]
+[ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
-[ext_resource type="Shader" uid="uid://bfsaf2c8ndlm6" path="res://Shaders/psx_post.gdshader" id="10_hptm8"]
+[ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
+[ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="12_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://1aw8p04lhqdo" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
 [ext_resource type="Script" path="res://Scripts/mud.gd" id="17_h1bgf"]
@@ -124,24 +125,6 @@ gradient = SubResource("Gradient_k12tt")
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_h1bgf")
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
-sky_top_color = Color(0.53538877, 0.41999844, 0.3660445, 1)
-sky_horizon_color = Color(0.7042364, 0.68088484, 0.36193284, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_bo1nx"]
-sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
-
-[sub_resource type="Environment" id="Environment_8gbba"]
-background_mode = 2
-background_energy_multiplier = 1.5
-sky = SubResource("Sky_bo1nx")
-tonemap_mode = 4
-fog_mode = 1
-fog_light_color = Color(0.3776, 0.56127995, 0.64, 1)
-fog_density = 1.0
-adjustment_enabled = true
-
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jjgbg"]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 15.0
@@ -167,34 +150,6 @@ size = Vector3(5, 2, 5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jjgbg"]
 points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.4410467, -2.4415245, -1, 2.4410467, 2.4415245, -1, -2.4410467, 2.5391855, 1.0238096, -2.5386884, 2.4415245, -1, 2.4410467, -2.459634, -0.8807193, -2.5386884, -2.459634, -0.8807193, 2.5386884, 2.5391855, 1.0238096, 2.5386884, 2.3010283, 1.0238096, -2.5386884, -2.5391855, -0.96009994, -2.5386884, -2.5391855, -0.96009994, 2.5386884, -2.0633678, -0.72195804, -2.5386884, -2.0633678, -0.72195804, 2.5386884)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1ilt"]
-shader = ExtResource("10_hptm8")
-shader_parameter/quantization = 18
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hptm8"]
-shader = ExtResource("9_d1ilt")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.0
-shader_parameter/resolution = Vector2(474, 266)
-shader_parameter/pixelate = false
-shader_parameter/roll = false
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 4.7499999933364734e-08
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_b3802"]
 size = Vector3(20, 1, 20)
@@ -278,10 +233,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.370328, 7.598239, -5.572511
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.370328, 7.598239, -5.010539)
 
 [node name="level" parent="." instance=ExtResource("1_kry3j")]
-transform = Transform3D(2.475, 0, 0, 0, 2.475, 0, 0, 0, 2.475, -14.80615, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.80615, 0, 0)
 
 [node name="CameraBase" type="Node3D" parent="."]
-transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, 1.2675041, 3.0244555, -6.009615)
+transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, 5.390295, 18.784176, -5.8995986)
 script = ExtResource("2_jjvhh")
 distance_driving = 48.21
 
@@ -291,7 +246,7 @@ fov = 36.2
 size = 15.08
 
 [node name="Bus" type="VehicleBody3D" parent="."]
-transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, 1.2675041, 2.6604636, -6.009615)
+transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, 5.390295, 18.420183, -5.8995986)
 mass = 60.0
 gravity_scale = 2.0
 center_of_mass_mode = 1
@@ -549,7 +504,7 @@ light_energy = 0.05
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8gbba")
+environment = ExtResource("9_b3802")
 camera_attributes = SubResource("CameraAttributesPractical_jjgbg")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
@@ -601,7 +556,7 @@ shape = SubResource("ConvexPolygonShape3D_jjgbg")
 [node name="Post" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Post"]
-material = SubResource("ShaderMaterial_d1ilt")
+material = ExtResource("10_fevyy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -612,7 +567,7 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_hptm8")
+material = ExtResource("11_hibaj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -623,6 +578,7 @@ metadata/_edit_use_anchors_ = true
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="HUD" instance=ExtResource("4_jjvhh")]
+round_duration = 15.0
 metadata/_edit_use_anchors_ = true
 
 [node name="LeftSubViewportContainer" type="SubViewportContainer" parent="HUD"]

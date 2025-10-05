@@ -64,56 +64,6 @@ _subresources={
 "use_external/fallback_path": "res://Models/@MATERIAL_13.tres",
 "use_external/path": "res://Models/@MATERIAL_13.tres"
 },
-"@MATERIAL:14": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_14.tres",
-"use_external/path": "res://Models/@MATERIAL_14.tres"
-},
-"@MATERIAL:15": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_15.tres",
-"use_external/path": "res://Models/@MATERIAL_15.tres"
-},
-"@MATERIAL:16": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_16.tres",
-"use_external/path": "res://Models/@MATERIAL_16.tres"
-},
-"@MATERIAL:17": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_17.tres",
-"use_external/path": "res://Models/@MATERIAL_17.tres"
-},
-"@MATERIAL:18": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_18.tres",
-"use_external/path": "res://Models/@MATERIAL_18.tres"
-},
-"@MATERIAL:19": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_19.tres",
-"use_external/path": "res://Models/@MATERIAL_19.tres"
-},
-"@MATERIAL:20": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_20.tres",
-"use_external/path": "res://Models/@MATERIAL_20.tres"
-},
-"@MATERIAL:21": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_21.tres",
-"use_external/path": "res://Models/@MATERIAL_21.tres"
-},
-"@MATERIAL:22": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_22.tres",
-"use_external/path": "res://Models/@MATERIAL_22.tres"
-},
-"@MATERIAL:23": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Models/@MATERIAL_23.tres",
-"use_external/path": "res://Models/@MATERIAL_23.tres"
-},
 "Bunker": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Models/Bunker.tres",

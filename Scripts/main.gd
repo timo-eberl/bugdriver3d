@@ -19,5 +19,5 @@ func _on_ui_round_over() -> void:
 	ambient_audio_player.play()
 
 
-func _on_ui_round_start() -> void:
-	ambient_audio_player.stop() 
+#func _on_ui_round_start() -> void:
+	#ambient_audio_player.stop() 

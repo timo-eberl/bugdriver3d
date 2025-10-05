@@ -2,14 +2,18 @@ extends RigidBody3D
 class_name Bug
 
 @export var physics_material_in_car : PhysicsMaterial
+@export var physics_material_saved : PhysicsMaterial
 @export var splatter_scene : PackedScene
 
 var m_bus : Bus
+var save_location : Node3D
 
 # state
 var idle := true
 var lerping := false
 var in_car := false
+var save_lerping := false
+var saved_idle := false
 
 func collect(bus: Bus) -> void:
 	if idle:
@@ -33,11 +37,39 @@ func stop_collecting() -> void:
 		self.physics_material_override = physics_material_in_car
 		self.remove_collision_exception_with(m_bus)
 
+func save(target: Node3D):
+	if in_car:
+		in_car = false
+		save_lerping = true
+		self.custom_integrator = true
+		self.add_collision_exception_with(m_bus)
+		save_location = target
+
+func save_idle():
+	if save_lerping:
+		save_lerping = false
+		saved_idle = true
+		self.custom_integrator = false
+		self.axis_lock_angular_x = true
+		self.axis_lock_angular_y = false
+		self.axis_lock_angular_z = true
+		self.physics_material_override = physics_material_saved
+		self.linear_damp_mode = RigidBody3D.DAMP_MODE_REPLACE
+		self.angular_damp_mode = RigidBody3D.DAMP_MODE_COMBINE
+		self.linear_damp = 0.0
+		self.angular_damp = 0.0
+
 func _process(delta: float) -> void:
 	if lerping:
 		var cage_pos := self.m_bus.cage_area.global_position
 		var target := cage_pos + 4.0 * (self.m_bus.global_position - self.global_position)
 		self.global_position = lerp(self.global_position, target, delta * 2.0)
+	if save_lerping:
+		var target := save_location.global_position
+		self.global_position = lerp(self.global_position, target, delta * 2.0)
+		var target_rotation := save_location.global_rotation
+		target_rotation.y = self.global_rotation.y
+		self.global_rotation = lerp(self.global_rotation, target_rotation, delta * 4.0)
 
 func _on_body_entered(body: PhysicsBody3D) -> void:
 	var is_ground := body.get_collision_layer_value(1)

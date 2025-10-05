@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhm7salc8s5ha"]
+[gd_scene load_steps=8 format=3 uid="uid://bhm7salc8s5ha"]
 
 [ext_resource type="Script" uid="uid://ykpnuohjvuoa" path="res://Scripts/bug.gd" id="1_2lt8f"]
 [ext_resource type="PackedScene" uid="uid://mpgvxyqmd82o" path="res://Models/characters/ladybug.fbx" id="1_5ymec"]
@@ -10,12 +10,16 @@ bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2lt8f"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tji8x"]
+friction = 0.0
+bounce = 1.0
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_hptm8"]
 radius = 0.2258865
 
 [node name="Ladybug" type="RigidBody3D"]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
@@ -25,6 +29,7 @@ contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_2lt8f")
 physics_material_in_car = SubResource("PhysicsMaterial_2lt8f")
+physics_material_saved = SubResource("PhysicsMaterial_tji8x")
 splatter_scene = ExtResource("2_tji8x")
 
 [node name="ladybug" parent="." instance=ExtResource("1_5ymec")]

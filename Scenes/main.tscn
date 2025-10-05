@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_kry3j"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://dg0lcbvkqivcp" path="res://Scenes/beetman.tscn" id="2_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
+[ext_resource type="PackedScene" path="res://Scenes/beetman.tscn" id="2_ynf5e"]
+[ext_resource type="PackedScene" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
 [ext_resource type="PackedScene" uid="uid://k8c5gay3lm1c" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://qp5i7x3kovy4" path="res://Scripts/random_rotate.gd" id="6_wsu2k"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="Shader" uid="uid://dfx4ble2n5874" path="res://Shaders/crt_post.gdshader" id="9_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
-[ext_resource type="Shader" uid="uid://bfsaf2c8ndlm6" path="res://Shaders/psx_post.gdshader" id="10_hptm8"]
+[ext_resource type="Shader" path="res://Shaders/psx_post.gdshader" id="10_hptm8"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_k12tt"]
@@ -47,13 +47,12 @@ _surfaces = [{
 "aabb": AABB(-0.18885458, -0.3484643, -0.29202336, 0.36343747, 0.61226714, 0.61226714),
 "format": 34896613377,
 "index_count": 132,
-"index_data": PackedByteArray("BgAKAAIACwAGAAIABgAMAAoACwAMAAYACgASAAIAAgASAAUACgATABIAAgAFAA0ACwACAA0AEgAUAAUADQAFABQAFQASABMAFQAUABIACAATAAoADAAIAAoACAAVABMADAABAAgAAAALAA0ADAAPAAEACwAPAAwAAQARAAgAEQAVAAgAAQAPABEAEQAJABUAAAANAAMADQAUAAMADgALAAAADwALAA4ADgAAAAMADwAOAAcADwAEABEADwAHAAQABAAJABEABwAOABAABwAQAAQADgADABAAAwAWABAAAwAUABYAEAAXAAQABAAXAAkAEAAWABcAFAAXABYAFwAVAAkAFAAVABcA"),
-"lods": [0.094259635, PackedByteArray("BgAKAAIACwAGAAIABgAMAAoACwAMAAYACgAFAAIACwACAA0AAgAFAA0AAAALAA0AAAANAAMADQAFAAMADgALAAAADgAAAAMACwAPAAwADwALAA4AAwAFABAADgADABAABwAOABAADwAOAAcABwAQAAQADwAHAAQAEAAFAAQADAAPAAEABAAFAAkACgAJAAUADwAEABEAAQAPABEABAAJABEADAABAAgADAAIAAoAAQARAAgACAAJAAoAEQAJAAgA"), 0.14300682, PackedByteArray("BgABAAIABgAHAAEABwAGAAAAAQAHAAgAAQAIAAIABwAAAAQABwAEAAgAAAAGAAMABgACAAMAAAADAAQABAAJAAgACAAJAAIAAwAJAAQAAgAJAAUAAwAFAAkAAgAFAAMA"), 0.4724943, PackedByteArray("AAABAAIAAAACAAMAAQAAAAQAAQAEAAIAAAADAAQAAgAFAAMAAwAFAAQABAAFAAIA")],
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAAAEAAEAAwAEAAAAAQAFAAIAAgAFAAYAAQAHAAUAAgAGAAgAAwACAAgABQAJAAYACAAGAAkACgAFAAcACgAJAAUACwAHAAEABAALAAEACwAKAAcABAAMAAsADQADAAgABAAOAAwAAwAOAAQADAAPAAsADwAKAAsADAAOAA8ADwAQAAoADQAIABEACAAJABEAEgADAA0ADgADABIAEgANABEADgASABMADgAUAA8ADgATABQAFAAQAA8AEwASABUAEwAVABQAEgARABUAEQAWABUAEQAJABYAFQAXABQAFAAXABAAFQAWABcACQAXABYAFwAKABAACQAKABcA"),
 "name": "Wheel",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray("AAD///9/AAAAAAAA/38AAP///38AAAAA//////9/AAD///9///8AAP7/eLOGTAAAAAD/fwAAAAAAAP9///8AAP//AAD/fwAA/v+GTHizAAD//30lfSUAAAAAgdp9JQAAAAB9JX0lAAD+/4HafSUAAAAAgdqB2gAAAAB9JYHaAAD//4HagdoAAP//fSWB2gAA/v//fzQ3AAD+/4ZMhkwAAP7/ysj/fwAA/v80N/9/AAD+/3izeLMAAP7//3/KyAAA")
+"vertex_data": PackedByteArray("AAD/fwAAAAD//30lfSUAAP///38AAAAAAACB2n0lAAAAAH0lfSUAAP7//380NwAA/v94s4ZMAAD+/4ZMhkwAAP7/gdp9JQAA/v/KyP9/AAD+/zQ3/38AAP//AAD/fwAAAAAAAP9/AAAAAP///38AAAAAfSWB2gAA//99JYHaAAD+/4ZMeLMAAP//////fwAAAACB2oHaAAAAAP9///8AAP///3///wAA//+B2oHaAAD+/3izeLMAAP7//3/KyAAA")
 }]
 blend_shape_mode = 0
 
@@ -61,17 +60,16 @@ blend_shape_mode = 0
 resource_name = "bug_car_Cylinder_001"
 _surfaces = [{
 "aabb": AABB(-0.18885458, -0.3484643, -0.29202336, 0.36343747, 0.61226714, 0.61226714),
-"attribute_data": PackedByteArray("QhVCIkIVf39qOeBQajlCImo5Hq5CFbzcajm83K/F6b90khO6X4TbpICXCtNCFeBQajl/f0IVHq6NsrqRmbexqsyDl8BmxWulL7LO0wOXNJJqOTBoQhUwaEIVkTlqOZE5ajnOlkIVzpZqOW3FQhVtxYCXupGvxdukjbIK01+E6b/Mg2ulA5fO02bFl8AvsjSSVZ3Pn3SSsaq4rM+fVZ30xJm3E7q4rPTE6sYRXtDstjRu4j1RdMPRDvvfMxmPnSw4Y6qvU/GnpRs="),
+"attribute_data": PackedByteArray("QhXgUGo5MGhqOeBQQhUwaEIVkTlqOX9/ajmROUIVQiJqOUIiQhV/f2o5zpZCFc6WajkerkIVHq5qOW3FQhVtxWo5vNxCFbzcjbK6kVWdz5+Al7qRdJKxqrisz59fhNukr8XbpHSSE7qZt7GqX4Tpv6/F6b9VnfTEmbcTuoCXCtONsgrTuKz0xMyDa6UDl87TzIOXwGbFl8Avss7TL7I0kgOXNJJmxWul6sYRXtDstjRu4j1RdMPRDvvfMxmPnSw4Y6qvU/GnpRs="),
 "format": 34896613399,
 "index_count": 132,
-"index_data": PackedByteArray("CwAUAAIACwAVABQAFgALAAIAFQAMABQAFgACABcAAAAWABcAAAAXAAMAFQABAAwAAQAYAAwAAQAZABgAGQAEABgAGQANAAQADQAaAAQADQAbABoAGwAGABoAGwAFAAYADgAkABwAHAAkACUADgAmACQAHAAlAAkAHQAmAA4ACQAlAAgAHQAPACYACQAIAB8ABwAPAB0AHwAIACcABwAoAA8AHwAnAAoAHgAoAAcACgAnACkAHgApACgACgApAB4AIAAhABAAIAAiACEAIQAiABIAIgAgACMAIwAgABMAIgAjABEAKgArACwAKgAtACsAKwAtAC4ALQAqAC8ALwAqADAALQAvADEA"),
-"lods": [0.094259635, PackedByteArray("CwAUAAIACwAVABQAFgALAAIAFQAMABQAFgACABcAAAAWABcAAAAXAAMAFQABAAwAAQAYAAwAAQAZABgAGQAEABgAGQANAAQADQAaAAQADQAbABoAGwAGABoAGwAFAAYADgAPABwAHQAPAA4ABwAPAB0AHAAPAAgABwAIAA8AHAAIAAkAHgAIAAcACQAIAB8ACgAIAB4AHwAIAAoAIAAhABAAIAAiACEAIQAiABIAIgAgACMAIwAgABMAIgAjABEA"), 0.14300682, PackedByteArray("CwABAAIACwACAAMAAAALAAMAAQAMAAIAAQANAAwADQAEAAwADQAFAAQABQAGAAQADgAPAAkABwAPAA4ACgAPAAcACQAPAAgACgAIAA8ACQAIAAoAEAARABIAEQAQABMA"), 0.4724943, PackedByteArray("AAABAAIAAAACAAMAAQAEAAIAAQAFAAQABQAGAAQABwAIAAkACQAIAAoACgAIAAcA")],
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYABwAEAAYABwAGAAgAAwAJAAUACQAKAAUACQALAAoACwAMAAoACwANAAwADQAOAAwADQAPAA4ADwAQAA4ADwARABAAEgATABQAFAATABUAEgAWABMAFAAVABcAGAAWABIAFwAVABkAGAAaABYAFwAZABsAHAAaABgAGwAZAB0AHAAeABoAGwAdAB8AIAAeABwAHwAdACEAIAAhAB4AHwAhACAAIgAjACQAIgAlACMAIwAlACYAJQAiACcAJwAiACgAJQAnACkAKgArACwAKgAtACsAKwAtAC4ALQAqAC8ALwAqADAALQAvADEA"),
 "material": SubResource("StandardMaterial3D_fco6s"),
 "name": "Wheel",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 50,
-"vertex_data": PackedByteArray("AAD///9//z8AAAAA/3//P////38AAAAA//////9//z////9////+fwAA////f/8///////9//z////9///+49P7/eLOGTLj0////fwAAuPT//////3+49AAA/38AAAAA//8AAP9//z8AAP9////+f///AAD/f7j0/v+GTHizuPQAAP9/AACMwQAA/3///4zBAAAAAP9/jMEAAP///3+Mwf//fSV9Jf8fAAB9JX0l/x8AAIHafSX/H/7/gdp9Jf8f//99JYHa/18AAH0lgdr/X///gdqB2v9fAACB2oHa/1///30lfSW49P//fSWB2rj0//+B2oHauPT+/4HafSW49AAAgdp9JYzBAAB9JX0ljMEAAH0lgdqMwQAAgdqB2ozB/v+GTIZMuPT+//9/NDe49P7/NDf/f7j0/v/KyP9/uPT+//9/ysi49P7/eLN4s7j0/v80N/9/BMD+//9/NDcEwP7/hkyGTATA/v/KyP9/BMD+/3izhkwEwP7//3/KyATA/v+GTHizBMD+/3izeLMEwP7//38AAP9//v//f/7//3//f////v//f/7//381umt0NbprdDW6a3Q1umt0/v//fwAA/3//f///NbprdDW6a3TIbZHbyG2R28htkdvIbZHbAAD/fwAA/3////9//v//fwAA/38AAP9//v//f/7//381umt0NbprdDW6a3Q1umt0yG2R28htkdvIbZHbyG2R2zW6a3Q1umt0NbprdDW6a3Q1umt0NbprdKyCWgWsgloFrIJaBayCWgWsgloFrIJaBayCWgWsgloF")
+"vertex_data": PackedByteArray("AAD/fwAAAAD//30lfSX/H////38AAAAAAAB9JX0l/x8AAIHafSX/H///AAD/f/8//v+B2n0l/x8AAP///3//P///////f/8/AAAAAP9//z///30lgdr/XwAAfSWB2v9f////f////n8AAP9////+f///gdqB2v9fAACB2oHa/1///////3//PwAA////f/8///8AAP9/uPT+/4ZMhky49P//fSV9Jbj0/v//fzQ3uPT+/zQ3/3+49P///38AALj0//99JYHauPT+/3izhky49P7/hkx4s7j0/v+B2n0luPT///9///+49P7/ysj/f7j0/v//f8rIuPT//////3+49P//gdqB2rj0/v94s3izuPQAAIHafSWMwQAAfSV9JYzBAAD/fwAAjMEAAH0lgdqMwQAAAAD/f4zBAACB2oHajMEAAP///3+MwQAA/3///4zB/v80N/9/BMD+//9/NDcEwP7/hkyGTATA/v/KyP9/BMD+/3izhkwEwP7//3/KyATA/v+GTHizBMD+/3izeLMEwP7//38AAP9//v//fwAA/3////9/AAD/f/7//3/+//9//v//fwAA/38AAP9/AAD/f/9/////f////v//f/7//3/+//9//v//fzW6a3Q1umt0NbprdDW6a3Q1umt0NbprdDW6a3Q1umt0NbprdDW6a3Q1umt0NbprdDW6a3Q1umt0NbprdDW6a3TIbZHbyG2R28htkdvIbZHbyG2R28htkdvIbZHbyG2R26yCWgWsgloFrIJaBayCWgWsgloFrIJaBayCWgWsgloF")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4ndqe")
@@ -113,7 +111,8 @@ points = PackedVector3Array(0.10350532, 0.95003396, 0.8712905, 0.104011044, 0.95
 points = PackedVector3Array(0.92190474, 1.0892092, -0.8256712, 0.63367414, 0.7147813, -0.76805776, -0.92190474, 1.0892092, -0.8256712, 0.92190474, 1.0892092, -0.9696822, -0.6049774, 0.5994953, -0.76805776, -0.92190474, 0.9739711, -0.9696822, 0.6049774, 0.5994953, -0.8832395, -0.6049774, 0.5994953, -0.8832395, 0.63367414, 0.9163521, -0.9696822, -0.92190474, 1.0892092, -0.9696822, 0.6049774, 0.5994953, -0.76805776, 0.92190474, 0.9739711, -0.9696822, -0.63367414, 0.7147813, -0.76805776, -0.63367414, 0.9163521, -0.9696822, 0.92190474, 0.9739711, -0.8256712, -0.92190474, 0.9739711, -0.8256712, -0.63367414, 0.65716225, -0.76805776, 0.63367414, 0.65716225, -0.76805776)
 
 [sub_resource type="Gradient" id="Gradient_fdnlq"]
-colors = PackedColorArray(0.25565854, 0.25565886, 0.2556587, 1, 0.25490198, 0.25490198, 0.25490198, 0.40784314)
+offsets = PackedFloat32Array(0, 0.99715906, 1)
+colors = PackedColorArray(0.26966777, 0.22027403, 0.17404023, 1, 0.26998302, 0.21980527, 0.17286342, 0.23718804, 0.27, 0.21978001, 0.1728, 0.39215687)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_jkdf5"]
 gradient = SubResource("Gradient_fdnlq")
@@ -328,7 +327,9 @@ engine_force_value = 100.0
 STEER_SPEED = 5
 STEER_LIMIT = 0.3
 BRAKE_STRENGTH = 1.3
+DRIFT_BRAKE_STRENGTH = 1.5
 MAX_SPEED = 15.0
+drift_friction_slip = 0.3
 damping_factor = 5.0
 
 [node name="CameraTarget" type="Node3D" parent="Bus"]
@@ -370,7 +371,7 @@ damping_compression = 0.4
 damping_relaxation = 0.5
 
 [node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel2"]
-transform = Transform3D(-0.83, 0, -1.2532651e-07, 0, 0.83, 0, 1.2532651e-07, 0, -0.83, 0.25, 0.04, 0.015)
+transform = Transform3D(-0.83, 0, -7.25609e-08, 0, 0.83, 0, 7.25609e-08, 0, -0.83, 0.25, 0.04, 0.015)
 mesh = SubResource("ArrayMesh_e3o0m")
 skeleton = NodePath("")
 
@@ -408,7 +409,7 @@ damping_compression = 0.4
 damping_relaxation = 0.5
 
 [node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel4"]
-transform = Transform3D(-0.83, 0, -1.2532651e-07, 0, 0.83, 0, 1.2532651e-07, 0, -0.83, 0.25, 0.04, 0.015)
+transform = Transform3D(-0.83, 0, -7.25609e-08, 0, 0.83, 0, 7.25609e-08, 0, -0.83, 0.25, 0.04, -0.015)
 mesh = SubResource("ArrayMesh_e3o0m")
 skeleton = NodePath("")
 
@@ -513,8 +514,7 @@ process_material = SubResource("ParticleProcessMaterial_wsu2k")
 draw_pass_1 = SubResource("QuadMesh_h1bgf")
 
 [node name="DriftParticles2" type="GPUParticles3D" parent="Bus"]
-transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999996, 0, 2.9802322e-08, 0, 1, -4.102412, 1.7551923, -1.8310566)
-emitting = false
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999995, 0, 2.9802322e-08, 0, 1, -2.5281777, 1.7551923, -2.9733715)
 amount = 150
 lifetime = 1.5
 fixed_fps = 60

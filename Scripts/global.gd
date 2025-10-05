@@ -18,9 +18,17 @@ func save_highscore() -> void:
 
 
 func load_highscore() -> void:
-	var file = FileAccess.open("user://savegame.data", FileAccess.READ)
+	var score = null
+	var file = null
+	if FileAccess.file_exists("user://savegame.data"):
+		file = FileAccess.open("user://savegame.data", FileAccess.READ)
 	
-	var score = file.get_var()
+		score = file.get_var()
+	
+	else:
+		file = FileAccess.open("user://savegame.data", FileAccess.WRITE)
+		
+		score = 0
 	
 	if score == null:
 		highscore = 0

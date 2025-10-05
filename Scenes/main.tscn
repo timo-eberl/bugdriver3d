@@ -1,21 +1,20 @@
-[gd_scene load_steps=56 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=51 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_kry3j"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
-[ext_resource type="PackedScene" path="res://Scenes/beetman.tscn" id="2_ynf5e"]
-[ext_resource type="PackedScene" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
+[ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
-[ext_resource type="PackedScene" path="res://Scenes/ui.tscn" id="4_jjvhh"]
-[ext_resource type="PackedScene" path="res://Scenes/bug.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
-[ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="9_b3802"]
-[ext_resource type="Shader" uid="uid://dfx4ble2n5874" path="res://Shaders/crt_post.gdshader" id="9_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
+[ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
-[ext_resource type="Shader" uid="uid://bfsaf2c8ndlm6" path="res://Shaders/psx_post.gdshader" id="10_hptm8"]
+[ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
-[ext_resource type="PackedScene" path="res://Scenes/hud_3d_left.tscn" id="12_wsu2k"]
+[ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
+[ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="12_wsu2k"]
 [ext_resource type="PackedScene" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
 [ext_resource type="Script" path="res://Scripts/mud.gd" id="17_h1bgf"]
 
@@ -58,7 +57,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4ndqe")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8gbba"]
-radius = 3.0
+radius = 3.9636283
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k12tt"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8gbba"]
 points = PackedVector3Array(-0.4517397, -0.2678583, -0.3827281, 0.30244443, 0.014886916, 0.371373, -0.4517397, 0.014886916, 0.371373, 0.29108948, 0.1021, -0.5107367, 0.30244443, -0.36216822, -0.28848737, -0.43533784, -0.2617092, 0.35189578, -0.44038475, 0.1021, -0.5107367, 0.28476936, -0.26123187, 0.35038385, 0.30244443, -0.07937687, -0.5242207, -0.31029326, -0.36216822, -0.33565158, -0.4517397, 0.10919684, -0.2413232, -0.027548041, -0.31501326, 0.2298804, -0.4517397, -0.07937687, -0.5242207, 0.30244443, 0.10919684, -0.2413232, 0.30244443, -0.36216822, -0.33565158, -0.4517397, -0.31501326, -0.194159, -0.31029326, -0.36216822, -0.28848737, -0.074647635, -0.36216822, -0.2413232, 0.01962538, -0.31501326, 0.2298804)
@@ -124,24 +125,6 @@ gradient = SubResource("Gradient_k12tt")
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_h1bgf")
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
-sky_top_color = Color(0.53538877, 0.41999844, 0.3660445, 1)
-sky_horizon_color = Color(0.7042364, 0.68088484, 0.36193284, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_bo1nx"]
-sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
-
-[sub_resource type="Environment" id="Environment_8gbba"]
-background_mode = 2
-background_energy_multiplier = 1.5
-sky = SubResource("Sky_bo1nx")
-tonemap_mode = 4
-fog_mode = 1
-fog_light_color = Color(0.3776, 0.56127995, 0.64, 1)
-fog_density = 1.0
-adjustment_enabled = true
-
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jjgbg"]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 15.0
@@ -168,34 +151,6 @@ size = Vector3(5, 2, 5)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jjgbg"]
 points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.4410467, -2.4415245, -1, 2.4410467, 2.4415245, -1, -2.4410467, 2.5391855, 1.0238096, -2.5386884, 2.4415245, -1, 2.4410467, -2.459634, -0.8807193, -2.5386884, -2.459634, -0.8807193, 2.5386884, 2.5391855, 1.0238096, 2.5386884, 2.3010283, 1.0238096, -2.5386884, -2.5391855, -0.96009994, -2.5386884, -2.5391855, -0.96009994, 2.5386884, -2.0633678, -0.72195804, -2.5386884, -2.0633678, -0.72195804, 2.5386884)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d1ilt"]
-shader = ExtResource("10_hptm8")
-shader_parameter/quantization = 18
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hptm8"]
-shader = ExtResource("9_d1ilt")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.0
-shader_parameter/resolution = Vector2(474, 266)
-shader_parameter/pixelate = false
-shader_parameter/roll = false
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 4.7499999933364734e-08
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
-
 [sub_resource type="BoxMesh" id="BoxMesh_b3802"]
 size = Vector3(20, 1, 20)
 subdivide_width = 1
@@ -206,95 +161,37 @@ points = PackedVector3Array(-10, -0.5, -10, -10, -0.5, 10, -10, 0.5, -10, 10, -0
 [node name="Main" type="Node3D"]
 script = ExtResource("1_21xkr")
 
-[node name="Beetman" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 1.6386985, -1.8555462)
+[node name="Bugs" type="Node3D" parent="."]
 
-[node name="Beetman2" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 1.6386985, -1.2935739)
+[node name="Ladybug" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9349937, 3.0322394, -11.221257)
 
-[node name="Beetman3" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 1.6386985, -1.8555462)
+[node name="Ladybug7" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.331827, 3.0322394, 9.904297)
 
-[node name="Beetman4" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 1.6386985, -1.2935739)
+[node name="Ladybug8" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.548874, 4.83314, 7.663553)
 
-[node name="Beetman5" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 2.1876755, -1.8555462)
+[node name="Ladybug9" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.461151, 4.83314, -33.08667)
 
-[node name="Beetman6" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 2.1876755, -1.2935739)
+[node name="Ladybug10" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.370388, 4.83314, -27.260502)
 
-[node name="Beetman7" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 2.1876755, -1.8555462)
+[node name="Ladybug11" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2961483, 2.9644914, -15.079139)
 
-[node name="Beetman8" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 2.1876755, -1.2935739)
+[node name="Ladybug3" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.056281, 3.0322394, -16.00681)
 
-[node name="Beetman9" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 2.6229572, -1.8555462)
-
-[node name="Beetman10" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1804721, 2.6229572, -1.2935739)
-
-[node name="Beetman11" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 2.6229572, -1.8555462)
-
-[node name="Beetman12" parent="." instance=ExtResource("2_ynf5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7337282, 2.6229572, -1.2935739)
-
-[node name="Ladybug" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 1.5522599, -0.91026384)
-
-[node name="Ladybug2" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 1.5522599, -1.3896191)
-
-[node name="Ladybug3" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 1.5522599, -0.91026384)
-
-[node name="Ladybug4" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 1.5522599, -1.3896191)
-
-[node name="Ladybug5" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.0403984, -0.91026384)
-
-[node name="Ladybug6" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.0403984, -1.3896191)
-
-[node name="Ladybug7" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.0403984, -0.91026384)
-
-[node name="Ladybug8" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.0403984, -1.3896191)
-
-[node name="Ladybug9" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.4536073, -0.91026384)
-
-[node name="Ladybug10" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.4536073, -1.3896191)
-
-[node name="Ladybug11" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.4536073, -0.91026384)
-
-[node name="Ladybug12" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.4536073, -1.3896191)
-
-[node name="Ladybug13" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.8010294, -0.91026384)
-
-[node name="Ladybug14" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4458542, 2.8010294, -1.3896191)
-
-[node name="Ladybug15" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.8010294, -0.91026384)
-
-[node name="Ladybug16" parent="." instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.8010294, -1.3896191)
+[node name="Ladybug5" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.291513, 3.0322394, -14.644597)
 
 [node name="level" parent="." instance=ExtResource("1_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.80615, 0, 0)
 
 [node name="CameraBase" type="Node3D" parent="."]
-transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -9.163846, 2.8948317, -1.0374436)
+transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -7.7384214, 4.0650134, -5.8995986)
 script = ExtResource("2_jjvhh")
 distance_driving = 48.21
 
@@ -304,7 +201,7 @@ fov = 36.2
 size = 15.08
 
 [node name="Bus" type="VehicleBody3D" parent="."]
-transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, -9.163846, 2.5308397, -1.0374436)
+transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, -7.7384214, 3.7010212, -5.8995986)
 mass = 60.0
 gravity_scale = 2.0
 center_of_mass_mode = 1
@@ -442,6 +339,13 @@ collision_mask = 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bus/CollectArea"]
 shape = SubResource("SphereShape3D_8gbba")
 
+[node name="CageArea" type="Area3D" parent="Bus"]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999994, 0, 2.9802322e-08, 0, 1, 3.7120657e-08, 0.7963299, -0.87056255)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bus/CageArea"]
+transform = Transform3D(1, 0, -2.9802326e-08, 0, 1, 0, 2.9802326e-08, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_k12tt")
+
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="Bus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043116152, -0.25103787)
 shape = SubResource("ConvexPolygonShape3D_8gbba")
@@ -548,8 +452,8 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_b3802")
 draw_pass_1 = SubResource("QuadMesh_h1bgf")
 
-[node name="Dust" parent="Bus" instance=ExtResource("9_b3802")]
-transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999917, 0, 2.9802322e-08, 0, 1, -0.0052471166, -0.17946365, -0.6926158)
+[node name="Dust" parent="Bus" instance=ExtResource("8_h1bgf")]
+transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 1, 0, 0, -0.77136797)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.24065903, -0.43210733, 0.86911833, -0.56809473, 0.66332793, 0.48709795, -0.78698874, -0.610966, -0.08584219, 0, 10.2421055, 0)
@@ -558,7 +462,7 @@ light_energy = 0.05
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8gbba")
+environment = ExtResource("9_b3802")
 camera_attributes = SubResource("CameraAttributesPractical_jjgbg")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
@@ -610,26 +514,30 @@ shape = SubResource("ConvexPolygonShape3D_jjgbg")
 [node name="Post" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Post"]
-material = SubResource("ShaderMaterial_d1ilt")
+material = ExtResource("10_fevyy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_hptm8")
+material = ExtResource("11_hibaj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="HUD" instance=ExtResource("4_jjvhh")]
+round_duration = 15.0
+metadata/_edit_use_anchors_ = true
 
 [node name="LeftSubViewportContainer" type="SubViewportContainer" parent="HUD"]
 anchors_preset = 4
@@ -640,6 +548,7 @@ offset_right = 474.0
 offset_bottom = 133.0
 grow_vertical = 2
 stretch = true
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="HUD/LeftSubViewportContainer"]
 own_world_3d = true
@@ -683,9 +592,6 @@ stream = ExtResource("11_6iyac")
 volume_db = 40.0
 max_db = 6.0
 
-[node name="Bug" parent="." instance=ExtResource("7_6bp64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7680445, 6.67572e-06, 6.309321)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." node_paths=PackedStringArray("area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.959602, -3.0180416, -28.352888)
 mesh = SubResource("BoxMesh_b3802")
@@ -701,6 +607,7 @@ shape = SubResource("ConvexPolygonShape3D_fevyy")
 
 [connection signal="bug_collected" from="Bus" to="." method="_on_bus_bug_collected"]
 [connection signal="body_entered" from="Bus/CollectArea" to="Bus" method="_on_collect_area_body_entered"]
+[connection signal="body_entered" from="Bus/CageArea" to="Bus" method="_on_cage_area_body_entered"]
 [connection signal="round_over" from="HUD/UI" to="." method="_on_ui_round_over"]
 [connection signal="round_start" from="HUD/UI" to="." method="_on_ui_round_start"]
 

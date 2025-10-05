@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://cchddnabcie2h"]
+
+[ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_ce3w2"]
+[ext_resource type="Script" uid="uid://dpqc3dwlx2j7b" path="res://Scripts/main_menu.gd" id="1_n45e2"]
+[ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="2_n45e2"]
+[ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="3_opfnp"]
+[ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="4_cp0ys"]
+[ext_resource type="Script" uid="uid://dxni3jy06w6ee" path="res://Scripts/volume_slider.gd" id="4_yhxw7"]
+[ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="6_opfnp"]
+[ext_resource type="Theme" uid="uid://dgej2dh1384q7" path="res://theme.tres" id="8_yhxw7"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yhxw7"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 15.0
+dof_blur_far_transition = 55.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 15.0
+dof_blur_amount = 0.21
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_n45e2")
+
+[node name="level" parent="." instance=ExtResource("1_ce3w2")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.24065903, -0.43210733, 0.86911833, -0.56809473, 0.66332793, 0.48709795, -0.78698874, -0.610966, -0.08584219, 0, 10.2421055, 0)
+light_color = Color(0.7915614, 0.6628314, 0.5337772, 1)
+light_energy = 0.05
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_n45e2")
+camera_attributes = SubResource("CameraAttributesPractical_yhxw7")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 305
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="UI/Margin/VBoxContainer"]
+layout_mode = 2
+text = "Bugbonanza!"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Margin/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margin/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+alignment = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/Margin/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margin/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="VolumeLabel" type="Label" parent="UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_yhxw7")
+bus_name = "Master"
+
+[node name="HighscoreLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Highscore:"
+
+[node name="PSX" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PSX"]
+material = ExtResource("3_opfnp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CRT" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CRT"]
+material = ExtResource("4_cp0ys")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.40734234, -0.55400485, 0.7260515, 3.7252907e-09, 0.7949972, 0.60661304, -0.91327554, -0.24709918, 0.32383603, -23.905, 23.555, 70.95)
+
+[node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_opfnp")
+volume_db = 50.0
+autoplay = true
+
+[node name="FullscreenButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("8_yhxw7")
+text = "Fullscreen"
+
+[connection signal="pressed" from="UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="FullscreenButton" to="." method="_on_fullscreen_button_pressed"]

@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://boguqwiv08o8b"]
+
+[sub_resource type="Shader" id="Shader_4sjnl"]
+code = "shader_type spatial;
+render_mode blend_mul, cull_front;
+
+void fragment() {
+	ALPHA = 0.0;
+}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_4sjnl")

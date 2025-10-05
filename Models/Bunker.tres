@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dpmad6u83xudp"]
+
+[ext_resource type="Texture2D" uid="uid://03ky6vqnbnrs" path="res://Models/textures/BunkerWall.png" id="1_qau7p"]
+
+[resource]
+resource_name = "Bunker"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_qau7p")
+texture_filter = 2

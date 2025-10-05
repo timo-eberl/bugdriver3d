@@ -1,0 +1,32 @@
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://c8em7h4a2cj1u"]
+
+[sub_resource type="Curve" id="Curve_jtdr2"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_5chvi"]
+_data = [Vector2(0, 0), 0.0, 0.8988765, 0, 1, Vector2(0.50000006, 0.44943827), 1.3577766, 1.3577766, 0, 0, Vector2(1, 1), 1.1011236, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_78yud"]
+_data = [Vector2(0, 0.15730345), 0.0, 0.54842156, 0, 1, Vector2(0.51219517, 0.43820232), 0.5349763, 0.5349763, 0, 0, Vector2(1, 1), 1.1516854, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_loem6"]
+curve_x = SubResource("Curve_jtdr2")
+curve_y = SubResource("Curve_5chvi")
+curve_z = SubResource("Curve_78yud")
+
+[resource]
+ambient_light_source = 2
+ambient_light_color = Color(0.77977043, 0.4969278, 0.54314893, 1)
+ambient_light_energy = 0.49
+glow_enabled = true
+glow_intensity = 2.43
+glow_bloom = 0.29
+fog_light_color = Color(0.491531, 0.32220438, 0.58619606, 1)
+fog_light_energy = 0.0
+fog_density = 0.2679
+adjustment_enabled = true
+adjustment_saturation = 0.59
+adjustment_color_correction = SubResource("CurveXYZTexture_loem6")

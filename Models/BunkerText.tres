@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://boarkysa2rbsp"]
+
+[ext_resource type="Texture2D" uid="uid://bq7plygijuuqd" path="res://Models/textures/hibernation.png" id="1_hxpxi"]
+
+[resource]
+resource_name = "BunkerText"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_hxpxi")
+texture_filter = 2

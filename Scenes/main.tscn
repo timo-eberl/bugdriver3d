@@ -290,7 +290,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.8010294, -0.9102
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9786515, 2.8010294, -1.3896191)
 
 [node name="level" parent="." instance=ExtResource("1_kry3j")]
-transform = Transform3D(2.475, 0, 0, 0, 2.475, 0, 0, 0, 2.475, -14.80615, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.80615, 0, 0)
 
 [node name="CameraBase" type="Node3D" parent="."]
 transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, 5.390295, 1.0788764, -5.8995986)

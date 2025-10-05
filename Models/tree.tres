@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c35124i56wctn"]
+
+[ext_resource type="Texture2D" uid="uid://xp7r2w8s8elg" path="res://Models/textures/treestump.png" id="1_8tk13"]
+
+[resource]
+resource_name = "tree"
+cull_mode = 2
+albedo_texture = ExtResource("1_8tk13")

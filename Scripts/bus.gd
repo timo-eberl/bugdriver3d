@@ -33,7 +33,7 @@ signal bug_collected
 @export_range(0.0, 5.0, 0.1) var drift_steer_mult := 1.5
 
 @export var damping_factor := 0.7
-var slowdown_timer := 0.0
+var slowdown_timer := 3.0
 
 #@export var engine_force_curve : Curve
 var status_effects := {

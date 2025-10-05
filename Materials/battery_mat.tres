@@ -20,5 +20,5 @@ shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/top_bounds = 2.3449999999999998
-shader_parameter/bottom_bounds = -2.23
-shader_parameter/fill = 1.0
+shader_parameter/bottom_bounds = -2.035
+shader_parameter/fill = 0.0

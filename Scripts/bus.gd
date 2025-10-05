@@ -142,7 +142,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		var colliding_body = state.get_contact_collider_object(contact)
 		if colliding_body.is_in_group("Mushroom"):
 
-			state.apply_impulse((self.global_basis * -Vector3.FORWARD) * -mushroom_bounce_strength)
+			var hit_direction = global_position - colliding_body.global_position
+			hit_direction.y = 0.0
+			hit_direction = hit_direction.normalized()
+			state.apply_impulse(hit_direction * mushroom_bounce_strength * linear_velocity.length(), Vector3(0.0, -0.2, 0.0))
 			
 			if active_tweens.has(colliding_body): break
 			

@@ -6,15 +6,15 @@
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
-[ext_resource type="PackedScene" uid="uid://k8c5gay3lm1c" path="res://Scenes/ui.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
-[ext_resource type="PackedScene" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
+[ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
 [ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
 [ext_resource type="Texture2D" uid="uid://duigvoybihip" path="res://Models/textures/particle.png" id="9_fevyy"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
-[ext_resource type="Material" path="res://Materials/psx_mat.tres" id="10_fevyy"]
+[ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
-[ext_resource type="Material" path="res://Materials/crt_mat.tres" id="11_hibaj"]
+[ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="12_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://1aw8p04lhqdo" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
 [ext_resource type="Script" uid="uid://cf4gn0xqtwgbt" path="res://Scripts/mud.gd" id="17_h1bgf"]
@@ -252,6 +252,124 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.291513, 3.0322394, -14.644
 [node name="level" parent="." instance=ExtResource("1_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.80615, 0, 0)
 
+[node name="StaticBody3D" parent="level/mushroom " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_001 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_002 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_003 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_004 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_005 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_006 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_007 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_008 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_009 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_010 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_011 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_012 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_013 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_014 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_015 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_016 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_017 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_018 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_019 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_020 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_021 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_022 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_023 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_024 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_025 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_026 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_027 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_028 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_029 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_030 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_031 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_032 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_033 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_034 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_035 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_036 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_037 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_038 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_039 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_040 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_041 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_042 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_043 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_044 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_045 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_046 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_047 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_048 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_049 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_050 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_051 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_052 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_053 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_054 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_055 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_056 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_057 " index="0" groups=["Mushroom"]]
+
+[node name="StaticBody3D" parent="level/mushroom_058 " index="0" groups=["Mushroom"]]
+
 [node name="CameraBase" type="Node3D" parent="."]
 transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -7.7384214, 4.0650134, -5.8995986)
 script = ExtResource("2_jjvhh")
@@ -270,6 +388,8 @@ mass = 60.0
 gravity_scale = 2.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.5, 0)
+contact_monitor = true
+max_contacts_reported = 16
 brake = 1.0
 script = ExtResource("1_8gbba")
 engine_force_value = 100.0
@@ -280,8 +400,10 @@ DRIFT_BRAKE_STRENGTH = 1.5
 MAX_SPEED = 15.0
 MUD_SPEED = 2.0
 MUD_DECELERATION = 17.5
+mushroom_bounce_strength = 350.0
 drift_friction_slip = 0.3
 damping_factor = 5.0
+squished_mushroom_scale = Vector3(1.2, 1.2, 1.2)
 
 [node name="CameraTarget" type="Node3D" parent="Bus"]
 transform = Transform3D(0.17682713, 0.597054, -0.78246975, 1.862645e-08, 0.7949973, 0.6066129, 0.98424184, -0.10726559, 0.14057714, 0, 0.3639921, 0)

@@ -1,4 +1,5 @@
 extends VehicleBody3D
+class_name Bus
 
 signal bug_collected
 
@@ -23,6 +24,8 @@ signal bug_collected
 @export var DRIFT_BRAKE_STRENGTH := 2.0
 
 @export var MAX_SPEED := 5.0
+@export var MUD_SPEED := 5.0
+@export var MUD_DECELERATION := 5.0
 
 @export_range(0.0, 1.0, 0.1) var drift_friction_slip := 0.7
 @export_range(0.0, 1.0, 0.1) var backwheel_friction_slip := 1.0
@@ -32,7 +35,9 @@ signal bug_collected
 var slowdown_timer := 0.0
 
 #@export var engine_force_curve : Curve
-
+var status_effects := {
+	StatusEffects.StatusEffect.MUD: []
+}
 
 var _steer_target := 0.0
 var previous_speed := linear_velocity.length()
@@ -113,6 +118,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if slowdown_timer < 0.0 and linear_velocity.length() < 1.0:
 		state.linear_velocity = Vector3.ZERO
 
+	if not status_effects[StatusEffects.StatusEffect.MUD].is_empty():
+		state.linear_velocity = linear_velocity.move_toward(linear_velocity.limit_length(MUD_SPEED), state.step * MUD_DECELERATION)
+	
+
 func _process(delta: float) -> void:
 	var speed := linear_velocity.length()
 	var target_t := inverse_lerp(0, MAX_SPEED, speed)
@@ -124,3 +133,18 @@ func _on_collect_area_body_entered(body: Node3D) -> void:
 		emit_signal("bug_collected")
 		var bug = body as Bug
 		bug.on_collection()
+
+
+#func _apply_status_effects() -> void:
+	#for effect in status_effects.values():
+		#match effect:
+			#StatusEffects.StatusEffect.MUD: 
+				#linear_velocity = linear_velocity.move_toward(linear_velocity.limit_length(MUD_SPEED), get_process_delta_time())
+
+
+func add_status_effect(new_effect : StatusEffects.StatusEffect, body : String) -> void: 
+	status_effects[new_effect].append(body)
+	
+func remove_status_effect(effect : StatusEffects.StatusEffect, body : String) -> void: 
+	var effect_id = status_effects[effect].find(body)
+	status_effects[effect].pop_at(effect_id)

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
-[ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
+[ext_resource type="Material" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
 [ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://5f3u8dxuhtks" path="res://Scripts/bunker_open_close.gd" id="5_pdsj5"]
 [ext_resource type="Script" uid="uid://dbiseun7es72p" path="res://Scripts/save_area.gd" id="6_pdsj5"]
@@ -21,7 +21,6 @@
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="12_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://1aw8p04lhqdo" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
-[ext_resource type="Script" uid="uid://cf4gn0xqtwgbt" path="res://Scripts/mud.gd" id="17_h1bgf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sp2aa"]
 _surfaces = [{
@@ -268,13 +267,6 @@ size = Vector3(5, 2, 5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jjgbg"]
 points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.4410467, -2.4415245, -1, 2.4410467, 2.4415245, -1, -2.4410467, 2.5391855, 1.0238096, -2.5386884, 2.4415245, -1, 2.4410467, -2.459634, -0.8807193, -2.5386884, -2.459634, -0.8807193, 2.5386884, 2.5391855, 1.0238096, 2.5386884, 2.3010283, 1.0238096, -2.5386884, -2.5391855, -0.96009994, -2.5386884, -2.5391855, -0.96009994, 2.5386884, -2.0633678, -0.72195804, -2.5386884, -2.0633678, -0.72195804, 2.5386884)
-
-[sub_resource type="BoxMesh" id="BoxMesh_b3802"]
-size = Vector3(20, 1, 20)
-subdivide_width = 1
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fevyy"]
-points = PackedVector3Array(-10, -0.5, -10, -10, -0.5, 10, -10, 0.5, -10, 10, -0.5, -10, -10, 0.5, 10, 10, -0.5, 10, 10, 0.5, -10, 10, 0.5, 10)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_21xkr")
@@ -941,19 +933,6 @@ volume_db = 50.0
 stream = ExtResource("11_6iyac")
 volume_db = 40.0
 max_db = 6.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." node_paths=PackedStringArray("area")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.959602, -3.0180416, -28.352888)
-mesh = SubResource("BoxMesh_b3802")
-script = ExtResource("17_h1bgf")
-area = NodePath("Area3D")
-
-[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.959602, 3.0180416, 28.352888)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.959602, -3.0180416, -28.352888)
-shape = SubResource("ConvexPolygonShape3D_fevyy")
 
 [connection signal="body_entered" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_exited"]

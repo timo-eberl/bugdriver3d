@@ -2,7 +2,7 @@
 
 [sub_resource type="Shader" id="Shader_4sjnl"]
 code = "shader_type spatial;
-render_mode blend_mul, cull_back;
+render_mode blend_mul, cull_front;
 
 void fragment() {
 	ALPHA = 0.0;

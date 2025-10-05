@@ -25,14 +25,12 @@ uniform vec3 uv2_offset;
 uniform float top_bounds = 1.0;
 uniform float bottom_bounds = -1.0;
 uniform float fill : hint_range(0.0, 1.0);
-varying float debug;
 
 float inv_lerp(float a, float b, float x) { return (x - a) / (b - a); }
 
 void vertex() {
 	float height = inv_lerp(bottom_bounds, top_bounds, VERTEX.y);
 	bool above = height > fill;
-	debug = float(above);
 	if (above) {
 		VERTEX.y = mix(bottom_bounds, top_bounds, fill);
 	}

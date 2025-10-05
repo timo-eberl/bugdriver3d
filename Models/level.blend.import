@@ -171,8 +171,8 @@ _subresources={
 },
 "tree": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Models/Tree.tres",
-"use_external/path": "uid://0fdx4wl43baa"
+"use_external/fallback_path": "res://Models/tree.tres",
+"use_external/path": "uid://c35124i56wctn"
 }
 }
 }

@@ -13,6 +13,7 @@ signal bug_collected
 @onready var track_particles_2: GPUParticles3D = $TrackParticles2
 @onready var track_particles_3: GPUParticles3D = $TrackParticles3
 @onready var track_particles_4: GPUParticles3D = $TrackParticles4
+@onready var cage_area: Area3D = $CageArea
 
 @onready var camera_controller : CameraController = $"../CameraBase"
 
@@ -131,8 +132,13 @@ func _process(delta: float) -> void:
 func _on_collect_area_body_entered(body: Node3D) -> void:
 	if body is Bug:
 		emit_signal("bug_collected")
-		var bug = body as Bug
-		bug.on_collection()
+		var bug := body as Bug
+		bug.collect(self)
+
+func _on_cage_area_body_entered(body: Node3D) -> void:
+	if body is Bug:
+		var bug := body as Bug
+		bug.stop_collecting()
 
 
 #func _apply_status_effects() -> void:

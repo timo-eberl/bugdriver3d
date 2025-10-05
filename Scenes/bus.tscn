@@ -1,8 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd7cuv5nmi5cy"]
+[gd_scene load_steps=8 format=3 uid="uid://bd7cuv5nmi5cy"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_43mbl"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_he2g8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_3chwu"]
+
+[sub_resource type="Curve" id="Curve_3chwu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9972261, 0), -2.7989125, 0.0, 0, 0, Vector2(0.99999, 0.009740233), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_o8fux"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.09708738, 0.987013), 0.0, 0.0, 0, 0, Vector2(1, 0.47727275), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xlfce"]
 size = Vector3(1, 0.5, 2)
@@ -17,6 +25,22 @@ height = 0.3
 [node name="Body" type="VehicleBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_43mbl")
+engine_force_value = null
+acceleration_max_speed = null
+acceleration_curve = SubResource("Curve_3chwu")
+steering_curve = SubResource("Curve_o8fux")
+STEER_SPEED = null
+STEER_LIMIT = null
+BRAKE_STRENGTH = null
+DRIFT_BRAKE_STRENGTH = null
+MAX_SPEED = 10.0
+MUD_SPEED = null
+MUD_DECELERATION = null
+drift_friction_slip = null
+backwheel_friction_slip = null
+drift_steer_mult = null
+damping_factor = null
+drift_particle_bias = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
 shape = SubResource("BoxShape3D_xlfce")

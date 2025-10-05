@@ -13,21 +13,23 @@ signal bug_collected
 @export var STEER_SPEED := 10
 @export var STEER_LIMIT := 0.4
 @export var BRAKE_STRENGTH := 2.0
+@export var DRIFT_BRAKE_STRENGTH := 2.0
 
 @export var MAX_SPEED := 5.0
 
 @export_range(0.0, 1.0, 0.1) var drift_friction_slip := 0.7
 @export_range(0.0, 1.0, 0.1) var backwheel_friction_slip := 1.0
-@export_range(0.0, 1.0, 0.1) var drift_steer_mult := 1.5
+@export_range(0.0, 5.0, 0.1) var drift_steer_mult := 1.5
 
 @export var damping_factor := 0.7
 var slowdown_timer := 0.0
 
-@export var engine_force_curve : Curve
+#@export var engine_force_curve : Curve
 
-#var previous_speed := linear_velocity.length()
+
 var _steer_target := 0.0
-
+var previous_speed := linear_velocity.length()
+@export var drift_particle_bias := 0.1
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("accelerate"):
@@ -52,23 +54,26 @@ func _physics_process(delta: float) -> void:
 	
 	drift_particles.global_position = backwheel_1.global_position
 	drift_particles2.global_position = backwheel_2.global_position
-	
+
 	if Input.is_action_just_pressed("brake"):
 		backwheel_1.wheel_friction_slip = drift_friction_slip
 		backwheel_2.wheel_friction_slip = drift_friction_slip
+	
+	if Input.is_action_pressed("brake"):
+		engine_force = max(-engine_force_value * BRAKE_STRENGTH, 0.0)
+	
+	if abs(linear_velocity.length() - previous_speed) > drift_particle_bias:
+		_steer_target *= drift_steer_mult;
 		
 		drift_particles.emitting = true
 		drift_particles2.emitting = true
-		
-	if Input.is_action_pressed("brake"):
-		_steer_target *= drift_steer_mult;
+	else:
+		drift_particles.emitting = false
+		drift_particles2.emitting = false
 		
 	if Input.is_action_just_released("brake"):
 		backwheel_1.wheel_friction_slip = backwheel_friction_slip
 		backwheel_2.wheel_friction_slip = backwheel_friction_slip
-	
-		drift_particles.emitting = false
-		drift_particles2.emitting = false
 	
 	steering = move_toward(steering, _steer_target, STEER_SPEED * delta)
 	
@@ -79,12 +84,12 @@ func _physics_process(delta: float) -> void:
 		engine_force = 0.0
 		slowdown_timer -= delta * damping_factor
 
+	previous_speed = linear_velocity.length()
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	state.linear_velocity = linear_velocity.limit_length(MAX_SPEED)
 	if slowdown_timer < 0.0 and linear_velocity.length() < 1.0:
 		state.linear_velocity = Vector3.ZERO
-
 
 func _process(delta: float) -> void:
 	var speed := linear_velocity.length()

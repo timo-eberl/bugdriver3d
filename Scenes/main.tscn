@@ -252,6 +252,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.291513, 3.0322394, -14.644
 [node name="level" parent="." instance=ExtResource("1_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.80615, 0, 0)
 
+[node name="mushroom_016 " parent="level" index="19"]
+transform = Transform3D(-0.46759847, 0.02972002, -1.2876643, -0.008750519, 0.81920135, 0.05603239, 1.2885928, 0.016347656, -0.46688098, 106.11985, 0.5074711, -45.058254)
+
 [node name="CameraBase" type="Node3D" parent="."]
 transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -7.7384214, 4.0650134, -5.8995986)
 script = ExtResource("2_jjvhh")

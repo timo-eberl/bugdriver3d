@@ -7,6 +7,7 @@ var m_bus : Bus
 # state
 var idle := true
 var lerping := false
+var in_car := false
 
 func collect(bus: Bus) -> void:
 	if idle:
@@ -19,6 +20,7 @@ func collect(bus: Bus) -> void:
 func stop_collecting() -> void:
 	if lerping:
 		lerping = false
+		in_car = true
 		self.custom_integrator = false
 		self.axis_lock_linear_x = false
 		self.axis_lock_linear_y = false
@@ -35,6 +37,7 @@ func _process(delta: float) -> void:
 		var target := cage_pos + 4.0 * (self.m_bus.global_position - self.global_position)
 		self.global_position = lerp(self.global_position, target, delta * 2.0)
 
-
-func _on_body_entered(body: Node) -> void:
-	pass
+func _on_body_entered(body: PhysicsBody3D) -> void:
+	var is_ground := body.get_collision_layer_value(1)
+	if is_ground and in_car:
+		queue_free()

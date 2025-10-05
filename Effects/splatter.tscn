@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6x0yw6237lud"]
+
+[ext_resource type="Texture2D" uid="uid://brj4io6hblpw7" path="res://Models/textures/splatter.png" id="1_swvmu"]
+[ext_resource type="Script" uid="uid://bisalw4w3hm3y" path="res://Scripts/splatter.gd" id="2_daum0"]
+[ext_resource type="AudioStream" uid="uid://doo8e2da33rhg" path="res://Sound/splatterthud1.wav" id="3_l7nt1"]
+[ext_resource type="AudioStream" uid="uid://bsmjc5qjjcgla" path="res://Sound/splatterthud2.wav" id="4_cd1ns"]
+[ext_resource type="AudioStream" uid="uid://dx42nwi7ptlcm" path="res://Sound/splatterthud3.wav" id="5_30855"]
+[ext_resource type="PackedScene" uid="uid://dvvufqg7r1c02" path="res://Effects/gore.tscn" id="6_nh5c4"]
+[ext_resource type="Texture2D" uid="uid://bi7w0jga8q1lc" path="res://Models/textures/splatter2.png" id="7_v83uy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1bgf"]
+transparency = 2
+alpha_scissor_threshold = 0.04
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.5832218, 0.9115328, 1.540184e-06, 1)
+albedo_texture = ExtResource("1_swvmu")
+metallic_specular = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b3802"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3802"]
+transparency = 2
+alpha_scissor_threshold = 0.89
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.52461976, 0.864108, 0, 1)
+albedo_texture = ExtResource("7_v83uy")
+metallic_specular = 0.0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_k12tt"]
+
+[node name="Splatter" type="MeshInstance3D" node_paths=PackedStringArray("audio_stream")]
+transform = Transform3D(1.5493275, 0, 0, 0, 1.5493275, 0, 0, 0, 1.5493275, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_h1bgf")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_b3802")
+script = ExtResource("2_daum0")
+audio_stream = NodePath("AudioStreamPlayer3D")
+sound_list = Array[AudioStream]([ExtResource("3_l7nt1"), ExtResource("4_cd1ns"), ExtResource("5_30855")])
+giblet_scene = ExtResource("6_nh5c4")
+giblet_count = 5
+launch_speed_min = 10.0
+launch_speed_max = 25.0
+
+[node name="ParticlesSide" type="CPUParticles3D" parent="."]
+transform = Transform3D(-2.1855688e-07, -0.9999996, 0, -4.3711378e-08, 9.5534246e-15, 0.9999996, -0.9999996, 2.1855688e-07, -4.3711378e-08, -0.11218917, 0.4465407, 0)
+material_override = SubResource("StandardMaterial3D_b3802")
+emitting = false
+amount = 16
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_k12tt")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.5
+emission_ring_radius = 0.4
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, -30, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 10.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+damping_min = 3.0
+damping_max = 3.0
+angle_max = 360.0
+scale_amount_max = 3.0
+color = Color(0.48290545, 0.57241297, 0, 1)
+
+[node name="ParticlesUp" type="CPUParticles3D" parent="."]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 0.99999994, 0, 0.11218901, 0)
+material_override = SubResource("StandardMaterial3D_b3802")
+emitting = false
+amount = 16
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_k12tt")
+spread = 20.57
+gravity = Vector3(0, -50, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+damping_min = 3.0
+damping_max = 3.0
+angle_max = 360.0
+scale_amount_max = 3.0
+color = Color(0.48290545, 0.57241297, 0, 1)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_l7nt1")
+autoplay = true

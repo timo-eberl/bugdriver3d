@@ -164,12 +164,13 @@ scale_curve = SubResource("CurveTexture_hibaj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hibaj"]
 transparency = 1
+blend_mode = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.39065817, 0.797958, 0.9999998, 1)
+albedo_color = Color(6.930828e-06, 0.6619765, 0.8979006, 1)
 albedo_texture = ExtResource("9_fevyy")
 metallic_specular = 0.0
 emission_enabled = true
-emission = Color(2.887845e-06, 0.6152811, 0.80181366, 1)
+emission = Color(2.6471912e-06, 0.44531673, 0.5828104, 1)
 emission_energy_multiplier = 0.5
 billboard_mode = 3
 billboard_keep_scale = true

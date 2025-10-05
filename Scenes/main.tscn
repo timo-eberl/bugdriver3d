@@ -7593,833 +7593,123 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.291513, 3.0322394, -14.644
 [node name="level" parent="." instance=ExtResource("1_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.80615, 0, 0)
 
-[node name="mushroom " parent="level" index="8"]
-mesh = SubResource("ArrayMesh_5gexf")
+[node name="StaticBody3D" parent="level/mushroom " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_65guf")
+[node name="StaticBody3D" parent="level/mushroom_001 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_001 " parent="level" index="9"]
-mesh = SubResource("ArrayMesh_85hnj")
+[node name="StaticBody3D" parent="level/mushroom_002 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_001 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_7xsis")
+[node name="StaticBody3D" parent="level/mushroom_003 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_002 " parent="level" index="10"]
-mesh = SubResource("ArrayMesh_32ogg")
+[node name="StaticBody3D" parent="level/mushroom_004 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_002 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_uf0lj")
+[node name="StaticBody3D" parent="level/mushroom_005 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_003 " parent="level" index="11"]
-mesh = SubResource("ArrayMesh_kcnyb")
+[node name="StaticBody3D" parent="level/mushroom_006 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_003 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_1kt71")
+[node name="StaticBody3D" parent="level/mushroom_007 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_004 " parent="level" index="12"]
-mesh = SubResource("ArrayMesh_hrpis")
+[node name="StaticBody3D" parent="level/mushroom_008 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_004 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_16nlh")
+[node name="StaticBody3D" parent="level/mushroom_009 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_005 " parent="level" index="13"]
-mesh = SubResource("ArrayMesh_5004q")
+[node name="StaticBody3D" parent="level/mushroom_010 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_005 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_7rg0j")
+[node name="StaticBody3D" parent="level/mushroom_011 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_006 " parent="level" index="14"]
-mesh = SubResource("ArrayMesh_3e45w")
+[node name="StaticBody3D" parent="level/mushroom_012 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_006 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_48ltx")
+[node name="StaticBody3D" parent="level/mushroom_013 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_007 " parent="level" index="15"]
-mesh = SubResource("ArrayMesh_3fvbb")
+[node name="StaticBody3D" parent="level/mushroom_014 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_007 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_47u33")
+[node name="StaticBody3D" parent="level/mushroom_015 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_008 " parent="level" index="16"]
-mesh = SubResource("ArrayMesh_mptkk")
+[node name="StaticBody3D" parent="level/mushroom_016 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_008 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_tt685")
+[node name="StaticBody3D" parent="level/mushroom_017 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_009 " parent="level" index="17"]
-mesh = SubResource("ArrayMesh_adygo")
+[node name="StaticBody3D" parent="level/mushroom_018 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_009 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_11j7f")
+[node name="StaticBody3D" parent="level/mushroom_019 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_010 " parent="level" index="18"]
-mesh = SubResource("ArrayMesh_yyap4")
+[node name="StaticBody3D" parent="level/mushroom_020 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_010 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_gpw0u")
+[node name="StaticBody3D" parent="level/mushroom_021 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_011 " parent="level" index="19"]
-mesh = SubResource("ArrayMesh_csfgq")
+[node name="StaticBody3D" parent="level/mushroom_022 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_011 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8logf")
+[node name="StaticBody3D" parent="level/mushroom_023 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_012 " parent="level" index="20"]
-mesh = SubResource("ArrayMesh_55g5m")
+[node name="StaticBody3D" parent="level/mushroom_024 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_012 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_s0yfy")
+[node name="StaticBody3D" parent="level/mushroom_025 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_013 " parent="level" index="21"]
-mesh = SubResource("ArrayMesh_rd3ub")
+[node name="StaticBody3D" parent="level/mushroom_026 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_013 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_sm12d")
+[node name="StaticBody3D" parent="level/mushroom_027 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_014 " parent="level" index="22"]
-mesh = SubResource("ArrayMesh_yhwdc")
+[node name="StaticBody3D" parent="level/mushroom_028 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_014 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_mv7de")
+[node name="StaticBody3D" parent="level/mushroom_029 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_015 " parent="level" index="23"]
-mesh = SubResource("ArrayMesh_pvrur")
+[node name="StaticBody3D" parent="level/mushroom_030 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_015 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_0yte7")
+[node name="StaticBody3D" parent="level/mushroom_031 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_016 " parent="level" index="24"]
-mesh = SubResource("ArrayMesh_tj1jl")
+[node name="StaticBody3D" parent="level/mushroom_032 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_016 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ja2b8")
+[node name="StaticBody3D" parent="level/mushroom_033 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_017 " parent="level" index="25"]
-mesh = SubResource("ArrayMesh_87vv8")
+[node name="StaticBody3D" parent="level/mushroom_034 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_017 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_t4srt")
+[node name="StaticBody3D" parent="level/mushroom_035 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_018 " parent="level" index="26"]
-mesh = SubResource("ArrayMesh_ms7mr")
+[node name="StaticBody3D" parent="level/mushroom_036 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_018 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_0r7t5")
+[node name="StaticBody3D" parent="level/mushroom_037 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_019 " parent="level" index="27"]
-mesh = SubResource("ArrayMesh_nlhga")
+[node name="StaticBody3D" parent="level/mushroom_038 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_019 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_00hqk")
+[node name="StaticBody3D" parent="level/mushroom_039 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_020 " parent="level" index="28"]
-mesh = SubResource("ArrayMesh_0kex1")
+[node name="StaticBody3D" parent="level/mushroom_040 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_020 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_owby5")
+[node name="StaticBody3D" parent="level/mushroom_041 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_021 " parent="level" index="29"]
-mesh = SubResource("ArrayMesh_vfdwf")
+[node name="StaticBody3D" parent="level/mushroom_042 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_021 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_yen3u")
+[node name="StaticBody3D" parent="level/mushroom_043 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_022 " parent="level" index="30"]
-mesh = SubResource("ArrayMesh_sboam")
+[node name="StaticBody3D" parent="level/mushroom_044 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_022 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_3w2gu")
+[node name="StaticBody3D" parent="level/mushroom_045 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_023 " parent="level" index="31"]
-mesh = SubResource("ArrayMesh_y244k")
+[node name="StaticBody3D" parent="level/mushroom_046 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_023 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_te64h")
+[node name="StaticBody3D" parent="level/mushroom_047 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_024 " parent="level" index="32"]
-mesh = SubResource("ArrayMesh_bn74i")
+[node name="StaticBody3D" parent="level/mushroom_048 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_024 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_g8755")
+[node name="StaticBody3D" parent="level/mushroom_049 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_025 " parent="level" index="33"]
-mesh = SubResource("ArrayMesh_7v6wg")
+[node name="StaticBody3D" parent="level/mushroom_050 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_025 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_novbf")
+[node name="StaticBody3D" parent="level/mushroom_051 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_026 " parent="level" index="34"]
-mesh = SubResource("ArrayMesh_6qxwo")
+[node name="StaticBody3D" parent="level/mushroom_052 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_026 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_tmpo1")
+[node name="StaticBody3D" parent="level/mushroom_053 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_027 " parent="level" index="35"]
-mesh = SubResource("ArrayMesh_c753o")
+[node name="StaticBody3D" parent="level/mushroom_054 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_027 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_5nhy4")
+[node name="StaticBody3D" parent="level/mushroom_055 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_028 " parent="level" index="36"]
-mesh = SubResource("ArrayMesh_1s87j")
+[node name="StaticBody3D" parent="level/mushroom_056 " index="0" groups=["Mushroom"]]
 
-[node name="CollisionShape3D" parent="level/mushroom_028 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_iaf8e")
+[node name="StaticBody3D" parent="level/mushroom_057 " index="0" groups=["Mushroom"]]
 
-[node name="mushroom_029 " parent="level" index="37"]
-mesh = SubResource("ArrayMesh_g7kw4")
-
-[node name="CollisionShape3D" parent="level/mushroom_029 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8k5mr")
-
-[node name="mushroom_030 " parent="level" index="38"]
-mesh = SubResource("ArrayMesh_55imn")
-
-[node name="CollisionShape3D" parent="level/mushroom_030 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_jadfg")
-
-[node name="mushroom_031 " parent="level" index="39"]
-mesh = SubResource("ArrayMesh_0ml8t")
-
-[node name="CollisionShape3D" parent="level/mushroom_031 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_tx5ff")
-
-[node name="mushroom_032 " parent="level" index="40"]
-mesh = SubResource("ArrayMesh_tybi1")
-
-[node name="CollisionShape3D" parent="level/mushroom_032 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ai7id")
-
-[node name="mushroom_033 " parent="level" index="41"]
-mesh = SubResource("ArrayMesh_qe4c3")
-
-[node name="CollisionShape3D" parent="level/mushroom_033 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_6jgt5")
-
-[node name="mushroom_034 " parent="level" index="42"]
-mesh = SubResource("ArrayMesh_w6v3v")
-
-[node name="CollisionShape3D" parent="level/mushroom_034 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_artda")
-
-[node name="mushroom_035 " parent="level" index="43"]
-mesh = SubResource("ArrayMesh_gmk57")
-
-[node name="CollisionShape3D" parent="level/mushroom_035 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_xtgpg")
-
-[node name="mushroom_036 " parent="level" index="44"]
-mesh = SubResource("ArrayMesh_mfjpx")
-
-[node name="CollisionShape3D" parent="level/mushroom_036 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ex2h5")
-
-[node name="mushroom_037 " parent="level" index="45"]
-mesh = SubResource("ArrayMesh_cybxt")
-
-[node name="CollisionShape3D" parent="level/mushroom_037 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_0bd0d")
-
-[node name="mushroom_038 " parent="level" index="46"]
-mesh = SubResource("ArrayMesh_wegnk")
-
-[node name="CollisionShape3D" parent="level/mushroom_038 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_nsiqj")
-
-[node name="mushroom_039 " parent="level" index="47"]
-mesh = SubResource("ArrayMesh_1xxr1")
-
-[node name="CollisionShape3D" parent="level/mushroom_039 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_deppf")
-
-[node name="mushroom_040 " parent="level" index="48"]
-mesh = SubResource("ArrayMesh_cwic7")
-
-[node name="CollisionShape3D" parent="level/mushroom_040 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_yg8su")
-
-[node name="mushroom_041 " parent="level" index="49"]
-mesh = SubResource("ArrayMesh_0t65m")
-
-[node name="CollisionShape3D" parent="level/mushroom_041 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_vijg6")
-
-[node name="mushroom_042 " parent="level" index="50"]
-mesh = SubResource("ArrayMesh_khjsu")
-
-[node name="CollisionShape3D" parent="level/mushroom_042 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_tthq7")
-
-[node name="mushroom_043 " parent="level" index="51"]
-mesh = SubResource("ArrayMesh_ek1x7")
-
-[node name="CollisionShape3D" parent="level/mushroom_043 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_0ip8b")
-
-[node name="mushroom_044 " parent="level" index="52"]
-mesh = SubResource("ArrayMesh_p0qq0")
-
-[node name="CollisionShape3D" parent="level/mushroom_044 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_jrmda")
-
-[node name="mushroom_045 " parent="level" index="53"]
-mesh = SubResource("ArrayMesh_caj4h")
-
-[node name="CollisionShape3D" parent="level/mushroom_045 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ebjym")
-
-[node name="mushroom_046 " parent="level" index="54"]
-mesh = SubResource("ArrayMesh_g56nf")
-
-[node name="CollisionShape3D" parent="level/mushroom_046 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8i753")
-
-[node name="mushroom_047 " parent="level" index="55"]
-mesh = SubResource("ArrayMesh_ls0rp")
-
-[node name="CollisionShape3D" parent="level/mushroom_047 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_mudwm")
-
-[node name="mushroom_048 " parent="level" index="56"]
-mesh = SubResource("ArrayMesh_pcj0q")
-
-[node name="CollisionShape3D" parent="level/mushroom_048 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_cjx5p")
-
-[node name="mushroom_049 " parent="level" index="57"]
-mesh = SubResource("ArrayMesh_7ooew")
-
-[node name="CollisionShape3D" parent="level/mushroom_049 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_424bd")
-
-[node name="mushroom_050 " parent="level" index="58"]
-mesh = SubResource("ArrayMesh_hx3uc")
-
-[node name="CollisionShape3D" parent="level/mushroom_050 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ch4gr")
-
-[node name="mushroom_051 " parent="level" index="59"]
-mesh = SubResource("ArrayMesh_kvfv5")
-
-[node name="CollisionShape3D" parent="level/mushroom_051 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_5s5go")
-
-[node name="mushroom_052 " parent="level" index="60"]
-mesh = SubResource("ArrayMesh_rx7ws")
-
-[node name="CollisionShape3D" parent="level/mushroom_052 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ns7l4")
-
-[node name="mushroom_053 " parent="level" index="61"]
-mesh = SubResource("ArrayMesh_octdh")
-
-[node name="CollisionShape3D" parent="level/mushroom_053 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_3jkym")
-
-[node name="mushroom_054 " parent="level" index="62"]
-mesh = SubResource("ArrayMesh_r187p")
-
-[node name="CollisionShape3D" parent="level/mushroom_054 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_vyhmy")
-
-[node name="mushroom_055 " parent="level" index="63"]
-mesh = SubResource("ArrayMesh_odq64")
-
-[node name="CollisionShape3D" parent="level/mushroom_055 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_hefn8")
-
-[node name="mushroom_056 " parent="level" index="64"]
-mesh = SubResource("ArrayMesh_4u66q")
-
-[node name="CollisionShape3D" parent="level/mushroom_056 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_alh3q")
-
-[node name="mushroom_057 " parent="level" index="65"]
-mesh = SubResource("ArrayMesh_7b6st")
-
-[node name="CollisionShape3D" parent="level/mushroom_057 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_p722e")
-
-[node name="mushroom_058 " parent="level" index="66"]
-mesh = SubResource("ArrayMesh_r6w8c")
-
-[node name="CollisionShape3D" parent="level/mushroom_058 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_jlyqf")
-
-[node name="Leaf2" parent="level" index="67"]
-mesh = SubResource("ArrayMesh_akhi8")
-
-[node name="CollisionShape3D" parent="level/Leaf2/StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_rgxwx")
-
-[node name="rock " parent="level" index="68"]
-mesh = SubResource("ArrayMesh_vsff5")
-
-[node name="CollisionShape3D" parent="level/rock /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_bfyfy")
-
-[node name="rock_001 " parent="level" index="69"]
-mesh = SubResource("ArrayMesh_upkq6")
-
-[node name="CollisionShape3D" parent="level/rock_001 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_6bnft")
-
-[node name="treestump " parent="level" index="70"]
-mesh = SubResource("ArrayMesh_o23ey")
-
-[node name="CollisionShape3D" parent="level/treestump /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_x5c0u")
-
-[node name="treestump_001 " parent="level" index="71"]
-mesh = SubResource("ArrayMesh_av1mu")
-
-[node name="CollisionShape3D" parent="level/treestump_001 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_1wpwx")
-
-[node name="treestump_002 " parent="level" index="72"]
-mesh = SubResource("ArrayMesh_3ruke")
-
-[node name="CollisionShape3D" parent="level/treestump_002 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_pn4lt")
-
-[node name="treestump_003 " parent="level" index="73"]
-mesh = SubResource("ArrayMesh_3aemf")
-
-[node name="CollisionShape3D" parent="level/treestump_003 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_twpwr")
-
-[node name="treestump_004 " parent="level" index="74"]
-mesh = SubResource("ArrayMesh_kmmya")
-
-[node name="CollisionShape3D" parent="level/treestump_004 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_u6lsl")
-
-[node name="treestump_005 " parent="level" index="75"]
-mesh = SubResource("ArrayMesh_h448p")
-
-[node name="CollisionShape3D" parent="level/treestump_005 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_smk88")
-
-[node name="treestump_006 " parent="level" index="76"]
-mesh = SubResource("ArrayMesh_355cq")
-
-[node name="CollisionShape3D" parent="level/treestump_006 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_sclu2")
-
-[node name="treestump_007 " parent="level" index="77"]
-mesh = SubResource("ArrayMesh_pmbld")
-
-[node name="CollisionShape3D" parent="level/treestump_007 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_hqfaa")
-
-[node name="treestump_008 " parent="level" index="78"]
-mesh = SubResource("ArrayMesh_w38ph")
-
-[node name="CollisionShape3D" parent="level/treestump_008 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8gxsm")
-
-[node name="treestump_009 " parent="level" index="79"]
-mesh = SubResource("ArrayMesh_3os8j")
-
-[node name="CollisionShape3D" parent="level/treestump_009 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_22qau")
-
-[node name="rock_002 " parent="level" index="80"]
-mesh = SubResource("ArrayMesh_ufsc0")
-
-[node name="CollisionShape3D" parent="level/rock_002 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_o8cnw")
-
-[node name="grass_045 " parent="level" index="81"]
-mesh = SubResource("ArrayMesh_f31tc")
-
-[node name="CollisionShape3D" parent="level/grass_045 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_gnqx3")
-
-[node name="grass_006 " parent="level" index="82"]
-mesh = SubResource("ArrayMesh_ht7bx")
-
-[node name="CollisionShape3D" parent="level/grass_006 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8f1xn")
-
-[node name="grass_005 " parent="level" index="83"]
-mesh = SubResource("ArrayMesh_yuphv")
-
-[node name="CollisionShape3D" parent="level/grass_005 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_tg0c0")
-
-[node name="grass_050 " parent="level" index="84"]
-mesh = SubResource("ArrayMesh_qcixi")
-
-[node name="CollisionShape3D" parent="level/grass_050 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_pv8n0")
-
-[node name="grass_051 " parent="level" index="85"]
-mesh = SubResource("ArrayMesh_xobhn")
-
-[node name="CollisionShape3D" parent="level/grass_051 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_4skkw")
-
-[node name="grass_052 " parent="level" index="86"]
-mesh = SubResource("ArrayMesh_1w70r")
-
-[node name="CollisionShape3D" parent="level/grass_052 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_rutwn")
-
-[node name="grass_053 " parent="level" index="87"]
-mesh = SubResource("ArrayMesh_q0e0o")
-
-[node name="CollisionShape3D" parent="level/grass_053 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_y5cv1")
-
-[node name="grass " parent="level" index="88"]
-mesh = SubResource("ArrayMesh_l0680")
-
-[node name="CollisionShape3D" parent="level/grass /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_dpnk0")
-
-[node name="grass_054 " parent="level" index="89"]
-mesh = SubResource("ArrayMesh_diu4d")
-
-[node name="CollisionShape3D" parent="level/grass_054 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_gk7eo")
-
-[node name="grass_055 " parent="level" index="90"]
-mesh = SubResource("ArrayMesh_7cg0k")
-
-[node name="CollisionShape3D" parent="level/grass_055 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_dppiw")
-
-[node name="grass_011 " parent="level" index="91"]
-mesh = SubResource("ArrayMesh_8wn33")
-
-[node name="CollisionShape3D" parent="level/grass_011 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_i3ecx")
-
-[node name="grass_056 " parent="level" index="92"]
-mesh = SubResource("ArrayMesh_3r81i")
-
-[node name="CollisionShape3D" parent="level/grass_056 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_g4q24")
-
-[node name="grass_057 " parent="level" index="93"]
-mesh = SubResource("ArrayMesh_3qnjt")
-
-[node name="CollisionShape3D" parent="level/grass_057 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_h60vx")
-
-[node name="grass_014 " parent="level" index="94"]
-mesh = SubResource("ArrayMesh_isaof")
-
-[node name="CollisionShape3D" parent="level/grass_014 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_0g42u")
-
-[node name="grass_009 " parent="level" index="95"]
-mesh = SubResource("ArrayMesh_52njf")
-
-[node name="CollisionShape3D" parent="level/grass_009 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_bc2md")
-
-[node name="grass_012 " parent="level" index="96"]
-mesh = SubResource("ArrayMesh_jna8v")
-
-[node name="CollisionShape3D" parent="level/grass_012 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_p7gy5")
-
-[node name="grass_010 " parent="level" index="97"]
-mesh = SubResource("ArrayMesh_1ksh4")
-
-[node name="CollisionShape3D" parent="level/grass_010 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_bq1g7")
-
-[node name="grass_016 " parent="level" index="98"]
-mesh = SubResource("ArrayMesh_6eln6")
-
-[node name="CollisionShape3D" parent="level/grass_016 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_wnpid")
-
-[node name="grass_017 " parent="level" index="99"]
-mesh = SubResource("ArrayMesh_dmtoa")
-
-[node name="CollisionShape3D" parent="level/grass_017 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_2wnwn")
-
-[node name="grass_018 " parent="level" index="100"]
-mesh = SubResource("ArrayMesh_sfdjl")
-
-[node name="CollisionShape3D" parent="level/grass_018 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_edlvd")
-
-[node name="grass_019 " parent="level" index="101"]
-mesh = SubResource("ArrayMesh_jdpx1")
-
-[node name="CollisionShape3D" parent="level/grass_019 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8vrso")
-
-[node name="grass_020 " parent="level" index="102"]
-mesh = SubResource("ArrayMesh_vmyd6")
-
-[node name="CollisionShape3D" parent="level/grass_020 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_vdv2a")
-
-[node name="grass_021 " parent="level" index="103"]
-mesh = SubResource("ArrayMesh_ic41i")
-
-[node name="CollisionShape3D" parent="level/grass_021 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_hk7j0")
-
-[node name="grass_022 " parent="level" index="104"]
-mesh = SubResource("ArrayMesh_1v6ic")
-
-[node name="CollisionShape3D" parent="level/grass_022 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_3rd4v")
-
-[node name="grass_023 " parent="level" index="105"]
-mesh = SubResource("ArrayMesh_dgd3v")
-
-[node name="CollisionShape3D" parent="level/grass_023 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_oluf0")
-
-[node name="grass_024 " parent="level" index="106"]
-mesh = SubResource("ArrayMesh_nt07n")
-
-[node name="CollisionShape3D" parent="level/grass_024 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_mkt07")
-
-[node name="grass_025 " parent="level" index="107"]
-mesh = SubResource("ArrayMesh_4ythj")
-
-[node name="CollisionShape3D" parent="level/grass_025 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_fm5l8")
-
-[node name="grass_026 " parent="level" index="108"]
-mesh = SubResource("ArrayMesh_0gwkw")
-
-[node name="CollisionShape3D" parent="level/grass_026 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_hc2mb")
-
-[node name="grass_027 " parent="level" index="109"]
-mesh = SubResource("ArrayMesh_6gqjb")
-
-[node name="CollisionShape3D" parent="level/grass_027 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_2q5gm")
-
-[node name="grass_028 " parent="level" index="110"]
-mesh = SubResource("ArrayMesh_q7fph")
-
-[node name="CollisionShape3D" parent="level/grass_028 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_o04rh")
-
-[node name="grass_029 " parent="level" index="111"]
-mesh = SubResource("ArrayMesh_bpsv2")
-
-[node name="CollisionShape3D" parent="level/grass_029 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ntxo5")
-
-[node name="grass_058 " parent="level" index="112"]
-mesh = SubResource("ArrayMesh_5nrgh")
-
-[node name="CollisionShape3D" parent="level/grass_058 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_slbux")
-
-[node name="grass_001 " parent="level" index="113"]
-mesh = SubResource("ArrayMesh_x4jhb")
-
-[node name="CollisionShape3D" parent="level/grass_001 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_pprtb")
-
-[node name="grass_002 " parent="level" index="114"]
-mesh = SubResource("ArrayMesh_vexi5")
-
-[node name="CollisionShape3D" parent="level/grass_002 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_sltq8")
-
-[node name="grass_059 " parent="level" index="115"]
-mesh = SubResource("ArrayMesh_q1w64")
-
-[node name="CollisionShape3D" parent="level/grass_059 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_vp2cy")
-
-[node name="grass_060 " parent="level" index="116"]
-mesh = SubResource("ArrayMesh_bcyvp")
-
-[node name="CollisionShape3D" parent="level/grass_060 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_tcrxh")
-
-[node name="grass_061 " parent="level" index="117"]
-mesh = SubResource("ArrayMesh_8kkwk")
-
-[node name="CollisionShape3D" parent="level/grass_061 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_lytcf")
-
-[node name="grass_062 " parent="level" index="118"]
-mesh = SubResource("ArrayMesh_8dbyq")
-
-[node name="CollisionShape3D" parent="level/grass_062 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_lbdh7")
-
-[node name="grass_003 " parent="level" index="119"]
-mesh = SubResource("ArrayMesh_ppjpg")
-
-[node name="CollisionShape3D" parent="level/grass_003 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_16vpb")
-
-[node name="grass_063 " parent="level" index="120"]
-mesh = SubResource("ArrayMesh_iftlv")
-
-[node name="CollisionShape3D" parent="level/grass_063 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_acp5w")
-
-[node name="grass_064 " parent="level" index="121"]
-mesh = SubResource("ArrayMesh_xx07g")
-
-[node name="CollisionShape3D" parent="level/grass_064 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_1xwrk")
-
-[node name="grass_004 " parent="level" index="122"]
-mesh = SubResource("ArrayMesh_f0ju1")
-
-[node name="CollisionShape3D" parent="level/grass_004 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_lxy67")
-
-[node name="grass_007 " parent="level" index="123"]
-mesh = SubResource("ArrayMesh_acw45")
-
-[node name="CollisionShape3D" parent="level/grass_007 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ki7pj")
-
-[node name="grass_008 " parent="level" index="124"]
-mesh = SubResource("ArrayMesh_lghw8")
-
-[node name="CollisionShape3D" parent="level/grass_008 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_x87t1")
-
-[node name="grass_013 " parent="level" index="125"]
-mesh = SubResource("ArrayMesh_pj4r7")
-
-[node name="CollisionShape3D" parent="level/grass_013 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ki806")
-
-[node name="grass_015 " parent="level" index="126"]
-mesh = SubResource("ArrayMesh_lwmhb")
-
-[node name="CollisionShape3D" parent="level/grass_015 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_y2xmc")
-
-[node name="grass_030 " parent="level" index="127"]
-mesh = SubResource("ArrayMesh_805ej")
-
-[node name="CollisionShape3D" parent="level/grass_030 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ujbv2")
-
-[node name="grass_031 " parent="level" index="128"]
-mesh = SubResource("ArrayMesh_f0g7p")
-
-[node name="CollisionShape3D" parent="level/grass_031 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_m1bdm")
-
-[node name="grass_032 " parent="level" index="129"]
-mesh = SubResource("ArrayMesh_kw0l0")
-
-[node name="CollisionShape3D" parent="level/grass_032 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_7q0dk")
-
-[node name="grass_033 " parent="level" index="130"]
-mesh = SubResource("ArrayMesh_1pbpm")
-
-[node name="CollisionShape3D" parent="level/grass_033 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8iqlk")
-
-[node name="grass_034 " parent="level" index="131"]
-mesh = SubResource("ArrayMesh_yhmhu")
-
-[node name="CollisionShape3D" parent="level/grass_034 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_w5nb4")
-
-[node name="grass_035 " parent="level" index="132"]
-mesh = SubResource("ArrayMesh_w3a7m")
-
-[node name="CollisionShape3D" parent="level/grass_035 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_lul23")
-
-[node name="grass_036 " parent="level" index="133"]
-mesh = SubResource("ArrayMesh_fn3e6")
-
-[node name="CollisionShape3D" parent="level/grass_036 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_tyr5c")
-
-[node name="grass_037 " parent="level" index="134"]
-mesh = SubResource("ArrayMesh_ubpmo")
-
-[node name="CollisionShape3D" parent="level/grass_037 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8j2fg")
-
-[node name="grass_038 " parent="level" index="135"]
-mesh = SubResource("ArrayMesh_ylc4n")
-
-[node name="CollisionShape3D" parent="level/grass_038 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_kmmtt")
-
-[node name="grass_039 " parent="level" index="136"]
-mesh = SubResource("ArrayMesh_r3tq8")
-
-[node name="CollisionShape3D" parent="level/grass_039 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_qw6mw")
-
-[node name="grass_040 " parent="level" index="137"]
-mesh = SubResource("ArrayMesh_gijnt")
-
-[node name="CollisionShape3D" parent="level/grass_040 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_7o22a")
-
-[node name="grass_041 " parent="level" index="138"]
-mesh = SubResource("ArrayMesh_8x2sc")
-
-[node name="CollisionShape3D" parent="level/grass_041 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_disl5")
-
-[node name="grass_042 " parent="level" index="139"]
-mesh = SubResource("ArrayMesh_hyvp0")
-
-[node name="CollisionShape3D" parent="level/grass_042 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_0b7cg")
-
-[node name="grass_043 " parent="level" index="140"]
-mesh = SubResource("ArrayMesh_87lks")
-
-[node name="CollisionShape3D" parent="level/grass_043 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_tkl0h")
-
-[node name="grass_044 " parent="level" index="141"]
-mesh = SubResource("ArrayMesh_fbdsn")
-
-[node name="CollisionShape3D" parent="level/grass_044 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_8rp4j")
-
-[node name="grass_046 " parent="level" index="142"]
-mesh = SubResource("ArrayMesh_m621p")
-
-[node name="CollisionShape3D" parent="level/grass_046 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_rcc31")
-
-[node name="grass_047 " parent="level" index="143"]
-mesh = SubResource("ArrayMesh_2jpb5")
-
-[node name="CollisionShape3D" parent="level/grass_047 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_vpdyw")
-
-[node name="grass_048 " parent="level" index="144"]
-mesh = SubResource("ArrayMesh_o4a6r")
-
-[node name="CollisionShape3D" parent="level/grass_048 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_jq2ae")
-
-[node name="grass_049 " parent="level" index="145"]
-mesh = SubResource("ArrayMesh_0rfc6")
-
-[node name="CollisionShape3D" parent="level/grass_049 /StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_ygn2f")
+[node name="StaticBody3D" parent="level/mushroom_058 " index="0" groups=["Mushroom"]]
 
 [node name="CameraBase" type="Node3D" parent="."]
 transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -7.7384214, 4.0650134, -5.8995986)
@@ -8439,6 +7729,8 @@ mass = 60.0
 gravity_scale = 2.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.5, 0)
+contact_monitor = true
+max_contacts_reported = 16
 brake = 1.0
 script = ExtResource("1_8gbba")
 engine_force_value = 200.0
@@ -8452,8 +7744,10 @@ DRIFT_BRAKE_STRENGTH = 0.0
 MAX_SPEED = 20.0
 MUD_SPEED = 2.0
 MUD_DECELERATION = 17.5
+mushroom_bounce_strength = 350.0
 drift_friction_slip = 0.3
 damping_factor = 5.0
+squished_mushroom_scale = Vector3(1.2, 1.2, 1.2)
 
 [node name="CameraTarget" type="Node3D" parent="Bus"]
 transform = Transform3D(0.17682713, 0.597054, -0.78246975, 1.862645e-08, 0.7949973, 0.6066129, 0.98424184, -0.10726559, 0.14057714, 0, 0.3639921, 0)

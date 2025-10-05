@@ -34,13 +34,17 @@ signal bug_collected
 @export var MUD_SPEED := 5.0
 @export var MUD_DECELERATION := 5.0
 
+@export var mushroom_bounce_strength := 500.0
 
-@export_range(0.0, 1.0, 0.1) var drift_friction_slip := 0.9
+@export_range(0.0, 1.0, 0.1) var drift_friction_slip := 0.7
 @export_range(0.0, 1.0, 0.1) var backwheel_friction_slip := 1.0
 @export_range(0.0, 5.0, 0.1) var drift_steer_mult := 1.5
 
 @export var damping_factor := 0.7
 var slowdown_timer := 3.0
+
+@export var squished_mushroom_scale := Vector3(0.95, 0.95, 0.95)
+var active_tweens : Array[Object]
 
 #@export var engine_force_curve : Curve
 var status_effects := {
@@ -118,7 +122,7 @@ func _physics_process(delta: float) -> void:
 			slowdown_timer = linear_velocity.length()
 	else:
 		engine_force = 0.0
-		slowdown_timer -= delta * damping_factor
+		slowdown_timer = max(-1.0, slowdown_timer - delta * damping_factor)
 
 	previous_speed = linear_velocity.length()
 
@@ -133,6 +137,32 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if not status_effects[StatusEffects.StatusEffect.MUD].is_empty():
 		state.linear_velocity = linear_velocity.move_toward(linear_velocity.limit_length(MUD_SPEED), state.step * MUD_DECELERATION)
 	
+	var contact_count = state.get_contact_count()
+	for contact in contact_count:
+		var colliding_body = state.get_contact_collider_object(contact)
+		if colliding_body.is_in_group("Mushroom"):
+
+			state.apply_impulse((self.global_basis * -Vector3.FORWARD) * -mushroom_bounce_strength)
+			
+			if active_tweens.has(colliding_body): break
+			
+			active_tweens.append(colliding_body)
+			
+			var tween : Tween = create_tween()
+			tween.set_trans(Tween.TRANS_SINE)
+			tween.set_ease(Tween.EASE_OUT)
+			
+			var mushroom_scale = colliding_body.get_parent().scale
+			
+			tween.tween_property(colliding_body.get_parent(), "scale", mushroom_scale * squished_mushroom_scale, 0.075)
+			tween.chain().tween_property(colliding_body.get_parent(), "scale", mushroom_scale, 0.075)
+			
+			await tween.finished
+			
+			active_tweens.erase(colliding_body)
+			
+			break
+
 
 func _process(delta: float) -> void:
 	var speed := linear_velocity.length()

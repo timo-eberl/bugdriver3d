@@ -26,5 +26,5 @@ func stop_collecting() -> void:
 func _process(delta: float) -> void:
 	if lerping:
 		var cage_pos := self.m_bus.cage_area.global_position
-		var target := cage_pos + 3.0 * (self.m_bus.global_position - self.global_position)
-		self.global_position = lerp(self.global_position, target, delta * 1.8)
+		var target := cage_pos + 4.0 * (self.m_bus.global_position - self.global_position)
+		self.global_position = lerp(self.global_position, target, delta * 2.0)

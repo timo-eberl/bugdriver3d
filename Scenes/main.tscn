@@ -16,8 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="12_wsu2k"]
-[ext_resource type="PackedScene" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
-[ext_resource type="Script" path="res://Scripts/mud.gd" id="17_h1bgf"]
+[ext_resource type="PackedScene" uid="uid://1aw8p04lhqdo" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
+[ext_resource type="Script" uid="uid://cf4gn0xqtwgbt" path="res://Scripts/mud.gd" id="17_h1bgf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fco6s"]
 resource_name = "Wheel"

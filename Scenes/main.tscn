@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=54 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
 [ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
+[ext_resource type="Texture2D" uid="uid://duigvoybihip" path="res://Models/textures/particle.png" id="9_fevyy"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
 [ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
@@ -124,6 +125,30 @@ gradient = SubResource("Gradient_k12tt")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b3802"]
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_h1bgf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hibaj"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.39065817, 0.797958, 0.9999998, 1)
+albedo_texture = ExtResource("9_fevyy")
+metallic_specular = 0.0
+emission_enabled = true
+emission = Color(2.887845e-06, 0.6152811, 0.80181366, 1)
+emission_energy_multiplier = 0.5
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pdsj5"]
+emission_shape = 2
+emission_sphere_radius = 3.93
+gravity = Vector3(0, 0, 0)
+damping_min = 0.4
+damping_max = 0.4
+scale_min = 0.099999994
+scale_max = 0.29999998
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jjgbg"]
 dof_blur_far_enabled = true
@@ -455,6 +480,21 @@ draw_pass_1 = SubResource("QuadMesh_h1bgf")
 [node name="Dust" parent="Bus" instance=ExtResource("8_h1bgf")]
 transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 1, 0, 0, -0.77136797)
 
+[node name="MagnetParticles" parent="Bus" instance=ExtResource("8_h1bgf")]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999983, 0, 2.9802322e-08, 0, 1, 9.168975e-08, -0.35774752, -0.61933327)
+layers = 2
+material_override = SubResource("StandardMaterial3D_hibaj")
+lifetime = 0.3
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_pdsj5")
+
+[node name="ParticleAttractor" type="GPUParticlesAttractorSphere3D" parent="Bus"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7939677e-08, 1.4437518, -0.58638036)
+strength = 104.89
+attenuation = 0.025382927
+cull_mask = 4294967294
+radius = 5.15
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.24065903, -0.43210733, 0.86911833, -0.56809473, 0.66332793, 0.48709795, -0.78698874, -0.610966, -0.08584219, 0, 10.2421055, 0)
 light_color = Color(0.7915614, 0.6628314, 0.5337772, 1)
@@ -536,7 +576,7 @@ metadata/_edit_use_anchors_ = true
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="HUD" instance=ExtResource("4_jjvhh")]
-round_duration = 15.0
+round_duration = 300.0
 metadata/_edit_use_anchors_ = true
 
 [node name="LeftSubViewportContainer" type="SubViewportContainer" parent="HUD"]

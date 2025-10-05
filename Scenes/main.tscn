@@ -201,6 +201,8 @@ size = 15.08
 
 [node name="Bus" type="VehicleBody3D" parent="."]
 transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, -7.7384214, 3.7010212, -5.8995986)
+collision_layer = 2
+collision_mask = 7
 mass = 60.0
 gravity_scale = 2.0
 center_of_mass_mode = 1
@@ -340,6 +342,7 @@ shape = SubResource("SphereShape3D_8gbba")
 
 [node name="CageArea" type="Area3D" parent="Bus"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999994, 0, 2.9802322e-08, 0, 1, 3.7120657e-08, 0.7963299, -0.87056255)
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bus/CageArea"]
 transform = Transform3D(1, 0, -2.9802326e-08, 0, 1, 0, 2.9802326e-08, 0, 1, 0, 0, 0)

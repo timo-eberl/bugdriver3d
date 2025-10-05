@@ -2,10 +2,17 @@ extends VehicleBody3D
 
 signal bug_collected
 
+@onready var wheel: VehicleWheel3D = $Wheel
+@onready var wheel_2: VehicleWheel3D = $Wheel2
 @onready var backwheel_1: VehicleWheel3D = $Wheel3
 @onready var backwheel_2: VehicleWheel3D = $Wheel4
 @onready var drift_particles: GPUParticles3D = $DriftParticles
-@onready var drift_particles2: GPUParticles3D = $DriftParticles2
+@onready var drift_particles_2: GPUParticles3D = $DriftParticles2
+@onready var track_particles: GPUParticles3D = $TrackParticles
+@onready var track_particles_2: GPUParticles3D = $TrackParticles2
+@onready var track_particles_3: GPUParticles3D = $TrackParticles3
+@onready var track_particles_4: GPUParticles3D = $TrackParticles4
+
 @onready var camera_controller : CameraController = $"../CameraBase"
 
 @export var engine_force_value := 40.0
@@ -32,17 +39,18 @@ var previous_speed := linear_velocity.length()
 @export var drift_particle_bias := 0.1
 
 func _physics_process(delta: float) -> void:
+	var speed := linear_velocity.length()
+	
 	if Input.is_action_pressed("accelerate"):
-		var speed := linear_velocity.length()
 		if speed < 5.0 and not is_zero_approx(speed):
 			engine_force = clampf(engine_force_value * 5.0 / speed, 0.0, 100.0)
 		else:
 			engine_force = engine_force_value
 	else: 
 		engine_force = 0.0
+		
 	
 	if Input.is_action_pressed("reverse"):
-		var speed := linear_velocity.length()
 		if speed < 5.0 and not is_zero_approx(speed):
 			engine_force = -clampf(engine_force_value * BRAKE_STRENGTH * 10.0 / speed, 0.0, 100.0)
 		else:
@@ -53,27 +61,41 @@ func _physics_process(delta: float) -> void:
 	_steer_target *= STEER_LIMIT
 	
 	drift_particles.global_position = backwheel_1.global_position
-	drift_particles2.global_position = backwheel_2.global_position
-
+	drift_particles_2.global_position = backwheel_2.global_position
+	
+	track_particles.global_position = wheel.global_position
+	track_particles_2.global_position = wheel_2.global_position
+	track_particles_3.global_position = backwheel_1.global_position
+	track_particles_4.global_position = backwheel_2.global_position
+	
 	if Input.is_action_just_pressed("brake"):
 		backwheel_1.wheel_friction_slip = drift_friction_slip
 		backwheel_2.wheel_friction_slip = drift_friction_slip
-	
+		drift_particles.emitting = true
+		drift_particles_2.emitting = true
+		
 	if Input.is_action_pressed("brake"):
 		engine_force = max(-engine_force_value * BRAKE_STRENGTH, 0.0)
 	
-	if abs(linear_velocity.length() - previous_speed) > drift_particle_bias:
+	if  abs(linear_velocity.length() - previous_speed) > drift_particle_bias or \
+		speed < 5.0 and not is_zero_approx(speed):
 		_steer_target *= drift_steer_mult;
 		
-		drift_particles.emitting = true
-		drift_particles2.emitting = true
+		track_particles.emitting = true
+		track_particles_2.emitting = true
+		track_particles_3.emitting = true
+		track_particles_4.emitting = true
 	else:
-		drift_particles.emitting = false
-		drift_particles2.emitting = false
+		track_particles.emitting = false
+		track_particles_2.emitting = false
+		track_particles_3.emitting = false
+		track_particles_4.emitting = false
 		
 	if Input.is_action_just_released("brake"):
 		backwheel_1.wheel_friction_slip = backwheel_friction_slip
 		backwheel_2.wheel_friction_slip = backwheel_friction_slip
+		drift_particles.emitting = false
+		drift_particles_2.emitting = false
 	
 	steering = move_toward(steering, _steer_target, STEER_SPEED * delta)
 	

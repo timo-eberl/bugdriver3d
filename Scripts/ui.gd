@@ -8,6 +8,8 @@ signal round_over
 #@onready var restart_round_button: Button = $RestartRoundButton
 @onready var round_over_ui: Control = $RoundOverUI
 @onready var score_label: Label = $RoundOverUI/RestartLabel/VBoxContainer/ScoreLabel
+@onready var highscore_label: Label = $RoundOverUI/RestartLabel/VBoxContainer/HighscoreLabel
+
 @onready var fullscreen_button: Button = $FullscreenButton
 
 @onready var bug_counter: Label = $BugCounter
@@ -37,6 +39,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart") and not running:
 		get_tree().reload_current_scene()
+		Global.bug_count = 0
 	if event.is_action_pressed("exit_fullscreen") and Global.fullscreen_enabled:
 		Global.fullscreen_enabled = false
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
@@ -61,13 +64,19 @@ func _end_round() -> void:
 	
 	level_music_player.stop()
 	
-	score_label.text = str("Score: ", bug_counter.text)
+	score_label.text = str("Score: ", Global.bug_count)
+	
+	if Global.highscore < Global.bug_count:
+		Global.highscore = Global.bug_count
+		Global.save_highscore()
+	
+	highscore_label.text = str("Highscore: ", Global.highscore)
 	
 	emit_signal("round_over")
 
 
-func update_bug_count(new_count : int) -> void:
-	bug_counter.text = str(new_count)
+func update_bug_count() -> void:
+	bug_counter.text = str(Global.bug_count)
 
 
 func _on_fullscreen_button_pressed() -> void:

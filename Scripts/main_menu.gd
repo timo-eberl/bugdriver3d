@@ -3,6 +3,10 @@ extends Node
 @onready var cutscene_scene : PackedScene = preload("res://Scenes/cutscene.tscn")
 @onready var ambient_audio_player: AudioStreamPlayer3D = $AmbientAudioPlayer
 @onready var fullscreen_button: Button = $FullscreenButton
+@onready var highscore_label: Label = $UI/HighscoreLabel
+
+func _ready() -> void:
+	highscore_label.text = str("Highscore: ", Global.highscore)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("exit_fullscreen") and Global.fullscreen_enabled:

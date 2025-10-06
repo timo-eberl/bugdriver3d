@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 StatusEffects="*res://Scripts/status_effects.gd"
 Global="*res://Scripts/global.gd"
-AudioPlayer="*res://scripts/audio_player.gd"
+AudioPlayer="*res://Scripts/audio_player.gd"
 
 [display]
 

@@ -135,7 +135,6 @@ render_target_update_mode = 4
 [node name="HUD3DLeft" parent="LeftSubViewportContainer/SubViewport" instance=ExtResource("3_2246s")]
 
 [node name="RightSubViewportContainer" type="SubViewportContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -155,7 +154,7 @@ own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(474, 266)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="HUD3DRight" parent="RightSubViewportContainer/SubViewport" instance=ExtResource("4_q7pk6")]
 

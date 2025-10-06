@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://eu7cm7g8468g"]
 
-[ext_resource type="Script" path="res://Scripts/random_rotate.gd" id="1_5boxk"]
+[ext_resource type="Script" uid="uid://qp5i7x3kovy4" path="res://Scripts/random_rotate.gd" id="1_5boxk"]
 [ext_resource type="Material" uid="uid://b8nx6p3bct6u0" path="res://Materials/battery_mat.tres" id="2_4sjnl"]
 [ext_resource type="Material" uid="uid://2wlhrqfgw11h" path="res://Materials/outline_mat.tres" id="3_4sjnl"]
 [ext_resource type="PackedScene" uid="uid://ble36avkhdlh0" path="res://Scenes/hud_3d_setup.tscn" id="3_fmf4n"]
@@ -88,8 +88,6 @@ _surfaces = [{
 [node name="Rotation" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.78855914, 0, -0.833)
 script = ExtResource("1_5boxk")
-
-[node name="battery2" type="Node3D" parent="Rotation"]
 
 [node name="battery" type="Node3D" parent="Rotation"]
 transform = Transform3D(0.049513403, -0.0069586555, 0, 0.0069586555, 0.049513403, 0, 0, 0, 0.05, 0, 0, 0)

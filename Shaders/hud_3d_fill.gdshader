@@ -35,6 +35,10 @@ void vertex() {
 		VERTEX.y = mix(bottom_bounds, top_bounds, fill);
 	}
 	VERTEX = (MODELVIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	
+	// it would be technically correct to do this, but if we dont then it looks like the lighting is baked
+	//NORMAL = normalize((MODELVIEW_MATRIX * vec4(NORMAL, 0.0)).xyz);
+	
 	UV = UV * uv1_scale.xy + uv1_offset.xy;
 }
 

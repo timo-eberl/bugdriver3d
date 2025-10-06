@@ -83,6 +83,21 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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")
 }]
 
+[sub_resource type="Animation" id="Animation_snkit"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotation/battery:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.05, 0.05, 0.05)]
+}
+
 [sub_resource type="Animation" id="Animation_6vywk"]
 resource_name = "pulse"
 length = 2.0
@@ -100,21 +115,6 @@ tracks/0/keys = {
 "values": [Vector3(0.05, 0.05, 0.05), Vector3(0.06, 0.06, 0.06), Vector3(0.05, 0.05, 0.05)]
 }
 
-[sub_resource type="Animation" id="Animation_snkit"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rotation/battery:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.05, 0.05, 0.05)]
-}
-
 [sub_resource type="Animation" id="Animation_ej1qe"]
 resource_name = "shake"
 length = 0.2
@@ -129,7 +129,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0.13962635), Vector3(0.34906584, 0, 0.34906584), Vector3(0, 0, 0.13962635)]
+"values": [Vector3(0, 0, 0.13962635), Vector3(0.17453292, 0, 0.2617994), Vector3(0, 0, 0.13962635)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ej1qe"]

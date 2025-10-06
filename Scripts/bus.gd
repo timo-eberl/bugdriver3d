@@ -123,7 +123,8 @@ func _physics_process(delta: float) -> void:
 	steering = move_toward(steering, _steer_target, STEER_SPEED * delta)
 	
 	if 	Input.is_action_pressed("accelerate") or \
-		Input.is_action_pressed("reverse"):
+		Input.is_action_pressed("reverse") or \
+		Input.is_action_pressed("boost"):
 			slowdown_timer = linear_velocity.length()
 	else:
 		engine_force = 0.0

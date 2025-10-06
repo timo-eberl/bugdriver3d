@@ -63,6 +63,8 @@ var boost_sound_target:= -80
 var mud_sound_target:= -80
 var magnet_sound_target:= -80
 
+@onready var boink_sound : AudioStream = preload("res://Sound/burn.wav")
+
 var is_magnetizing := false
 
 #@export var engine_force_curve : Curve
@@ -180,7 +182,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	for contact in contact_count:
 		var colliding_body = state.get_contact_collider_object(contact)
 		if colliding_body and colliding_body.is_in_group("Mushroom"):
-
+			AudioPlayer.play_sound(global_position, boink_sound, -13, randf_range(0.9, 1.3), 70)
 			var hit_direction = global_position - colliding_body.global_position
 			hit_direction.y = 0.0
 			hit_direction = hit_direction.normalized()

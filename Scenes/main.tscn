@@ -42,7 +42,6 @@
 [ext_resource type="Material" uid="uid://vhmfc0hsslai" path="res://Models/tree.003.tres" id="20_e5peh"]
 [ext_resource type="PackedScene" uid="uid://cbscvkaqg8iie" path="res://Scenes/battery_recharge_pickup.tscn" id="20_hibaj"]
 [ext_resource type="Material" uid="uid://dmgvj35vnut4t" path="res://Models/tree.004.tres" id="21_f6rfp"]
-[ext_resource type="AudioStream" uid="uid://clsp32t6op30o" path="res://Sound/mus_levelnomix.wav" id="22_gt3je"]
 [ext_resource type="Material" uid="uid://iuyrio0dy050" path="res://Models/tree.005.tres" id="22_sasc4"]
 [ext_resource type="Material" uid="uid://dp8tvhceyjrof" path="res://Models/tree.006.tres" id="23_pfx1i"]
 [ext_resource type="Material" uid="uid://dfo3r1hrml1iu" path="res://Models/tree.007.tres" id="24_fg68e"]

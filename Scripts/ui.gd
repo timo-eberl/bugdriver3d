@@ -34,6 +34,7 @@ signal round_over
 @export var bus := VehicleBody3D
 
 var timer_progress := 0.0
+var current_progress := 0.0
 var running := false
 
 func _ready() -> void:
@@ -50,7 +51,7 @@ func _process(delta: float) -> void:
 		else:
 			timer_progress += delta
 			round_timer.text = str(int(round_duration - timer_progress))
-			var current_progress = clampf(timer_progress / round_duration, 0.0, 1.0)
+			current_progress = clampf(timer_progress / round_duration, 0.0, 1.0)
 			day_night.progress = current_progress
 			snow_particles.amount_ratio = snow_amount_curve.sample(current_progress)
 
@@ -86,8 +87,6 @@ func _start_round() -> void:
 func _end_round() -> void:
 	continue_ui.visible = true
 	running = false
-	
-	#level_music_player.stop()
 	
 	emit_signal("round_over")
 

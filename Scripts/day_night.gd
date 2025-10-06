@@ -29,3 +29,4 @@ func _process(_delta: float) -> void:
 	self.environment.adjustment_saturation = lerpf(adjustment_saturation_day, adjustment_saturation_night, progress)
 	self.environment.ambient_light_color = lerp(ambient_light_color_day, ambient_light_color_night, progress)
 	self.environment.ambient_light_energy = lerpf(ambient_light_energy_day, ambient_light_energy_night, progress)
+	color_shift_material.set_shader_parameter("color_tint", lerp(color_shift_day, color_shift_night, progress))

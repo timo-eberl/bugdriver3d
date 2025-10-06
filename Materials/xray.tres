@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://blkltma7offhk"]
+
+[ext_resource type="Shader" uid="uid://dp6gporgnkpkg" path="res://Shaders/xray.gdshader" id="1_im6qr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u50mg"]
+render_priority = 1
+shader = ExtResource("1_im6qr")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/frensel_power = 1.5
+
+[resource]
+next_pass = SubResource("ShaderMaterial_u50mg")
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+stencil_mode = 3
+stencil_flags = 2

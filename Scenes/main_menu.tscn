@@ -10,9 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="6_opfnp"]
 [ext_resource type="Texture2D" uid="uid://dfo6etwfr8f5r" path="res://Models/textures/slider_grabber_hover.png" id="7_vtepg"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="8_trj04"]
-[ext_resource type="Theme" uid="uid://dgej2dh1384q7" path="res://theme.tres" id="8_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="9_16hvj"]
 [ext_resource type="PackedScene" uid="uid://c7gocdu8x47tp" path="res://Models/characters/beetman.fbx" id="10_vr1f0"]
+[ext_resource type="PackedScene" uid="uid://dljleff4r4j14" path="res://Scenes/fullscreen_button.tscn" id="10_vtepg"]
 [ext_resource type="Texture2D" uid="uid://vornck0bk43l" path="res://Scenes/logo.png" id="14_vtepg"]
 
 [sub_resource type="Curve" id="Curve_jtdr2"]
@@ -71,6 +71,11 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 15.0
 dof_blur_amount = 0.21
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yhxw7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5egv6"]
 content_margin_left = 1.0
 content_margin_top = 2.0
@@ -102,11 +107,6 @@ content_margin_bottom = 0.0
 bg_color = Color(1, 1, 1, 0.4)
 corner_detail = 6
 anti_aliasing = false
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yhxw7"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
-bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_16hvj"]
 resource_name = "MenuAnimation"
@@ -332,6 +332,15 @@ mouse_filter = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="BlackBorder2" type="Panel" parent="CanvasLayer"]
+material = SubResource("CanvasItemMaterial_yhxw7")
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 235.0
+offset_bottom = 268.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
+
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
@@ -451,36 +460,23 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "Highscore:"
 
-[node name="FullscreenButton" type="Button" parent="CanvasLayer/UI"]
+[node name="FullscreenButton" parent="CanvasLayer/UI" instance=ExtResource("10_vtepg")]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = -31.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("8_yhxw7")
-text = "⌞⌝
-"
+anchors_preset = -1
+anchor_left = 0.994
+anchor_top = 0.989
+anchor_right = 0.994
+anchor_bottom = 0.989
+offset_left = -22.156006
+offset_top = -22.074005
+offset_right = -0.15600586
+offset_bottom = -0.07400513
 
 [node name="BlackBorder" type="Panel" parent="CanvasLayer"]
 material = SubResource("CanvasItemMaterial_yhxw7")
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 33.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
-
-[node name="BlackBorder" type="Panel" parent="CanvasLayer/BlackBorder"]
-material = SubResource("CanvasItemMaterial_yhxw7")
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 235.0
-offset_bottom = 268.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
 

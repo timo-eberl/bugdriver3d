@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=167 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -21,16 +21,16 @@
 [ext_resource type="Material" uid="uid://beuf1uhpwqodj" path="res://Materials/rock.tres" id="7_hpc6h"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://b61i8gmml5tia" path="res://Scenes/bugs/beetle.tscn" id="7_r33sp"]
-[ext_resource type="PackedScene" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
+[ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
 [ext_resource type="PackedScene" uid="uid://rqp4fspcmnvf" path="res://Scenes/bugs/butterfly.tscn" id="8_hdf80"]
 [ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
 [ext_resource type="Texture2D" uid="uid://duigvoybihip" path="res://Models/textures/particle.png" id="9_fevyy"]
 [ext_resource type="PackedScene" uid="uid://b4a0tdsk6t4gu" path="res://Scenes/bugs/bzzt.tscn" id="9_jwpg7"]
 [ext_resource type="Material" uid="uid://c1mcut5etl88c" path="res://Materials/grass.tres" id="9_kltya"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
-[ext_resource type="Material" path="res://Materials/psx_mat.tres" id="10_fevyy"]
+[ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="Material" uid="uid://blkltma7offhk" path="res://Materials/xray.tres" id="10_gt3je"]
-[ext_resource type="Material" path="res://Materials/crt_mat.tres" id="11_hibaj"]
+[ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="Material" uid="uid://crerv88r4slmf" path="res://Materials/bus.tres" id="13_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://bi7w0jga8q1lc" path="res://Models/textures/splatter2.png" id="15_gt3je"]
 [ext_resource type="Script" uid="uid://ve2s1rqdhjot" path="res://Scripts/day_night.gd" id="15_pdsj5"]
@@ -38,11 +38,12 @@
 [ext_resource type="AudioStream" uid="uid://clsp32t6op30o" path="res://Sound/mus_levelnomix.wav" id="22_gt3je"]
 [ext_resource type="AudioStream" uid="uid://c015wtdr8nq38" path="res://Sound/boost.wav" id="29_kwxat"]
 [ext_resource type="AudioStream" uid="uid://de35ryjx2jcvl" path="res://Sound/ATV Engine Loop 3.wav" id="29_o1aky"]
+[ext_resource type="AudioStream" uid="uid://b42rspe052b8o" path="res://Sound/sfx_mudloop.wav" id="30_aa8k8"]
 [ext_resource type="PackedScene" uid="uid://dyn47f4y7bbkt" path="res://Scenes/bugs/mosquito.tscn" id="30_k2e45"]
 [ext_resource type="PackedScene" uid="uid://bnjkp6t2wpukw" path="res://Scenes/bugs/rama.tscn" id="31_536cc"]
 [ext_resource type="PackedScene" uid="uid://ntubh8ovxsdb" path="res://Scenes/bugs/worm.tscn" id="32_aqgau"]
 [ext_resource type="PackedScene" uid="uid://dvvufqg7r1c02" path="res://Effects/gore.tscn" id="40_8cuat"]
-[ext_resource type="PackedScene" path="res://Effects/splatter.tscn" id="41_o1aky"]
+[ext_resource type="PackedScene" uid="uid://b6x0yw6237lud" path="res://Effects/splatter.tscn" id="41_o1aky"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_536cc"]
 height = 8.44043
@@ -541,7 +542,7 @@ scale_curve = SubResource("CurveTexture_hibaj")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hibaj"]
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(0, 0.49019608, 0.8980392, 1)
+albedo_color = Color(0.4026126, 0.6812579, 0.9999959, 1)
 albedo_texture = ExtResource("9_fevyy")
 metallic_specular = 0.0
 emission_enabled = true
@@ -585,16 +586,19 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_6vcvc"]
 curve = SubResource("Curve_ueoa1")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7k868"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kwxat"]
 emission_shape_scale = Vector3(0.805, 0.16, 0.525)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 angle_min = 1.0728835e-05
 angle_max = 360.00003
-direction = Vector3(0, 1.805, -7.925)
+inherit_velocity_ratio = 0.49
+direction = Vector3(0, 39.18, -15)
 spread = 22.833
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
+initial_velocity_max = 4.0
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+gravity = Vector3(0, -8, 0)
 scale_min = 0.0
 scale_max = 0.01
 scale_curve = SubResource("CurveTexture_6vcvc")
@@ -665,6 +669,22 @@ points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.
 [sub_resource type="Curve" id="Curve_gt3je"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.45, 0.033), 0.2007959, 0.2007959, 0, 0, Vector2(0.7023255, 1), 0.18338107, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7k868"]
+emission_shape_scale = Vector3(0.805, 0.16, 0.525)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 1.805, -7.925)
+spread = 22.833
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.01
+scale_curve = SubResource("CurveTexture_6vcvc")
+color_ramp = SubResource("GradientTexture1D_1w6v2")
+alpha_curve = SubResource("CurveTexture_u50mg")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_21xkr")
@@ -1515,9 +1535,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0.3361621, -0.
 [node name="MudParticles" type="GPUParticles3D" parent="Bus"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999976, 0, 2.9802322e-08, 0, 1, 0, -0.05, 1.3)
 emitting = false
-amount = 100
+amount = 50
 lifetime = 0.5
-process_material = SubResource("ParticleProcessMaterial_7k868")
+process_material = SubResource("ParticleProcessMaterial_kwxat")
 draw_pass_1 = SubResource("QuadMesh_kltya")
 
 [node name="SnowParticles" type="GPUParticles3D" parent="Bus"]
@@ -1536,6 +1556,13 @@ stream = ExtResource("29_kwxat")
 volume_db = -80.0
 unit_size = 69.06
 pitch_scale = 2.97
+autoplay = true
+
+[node name="MudSounds" type="AudioStreamPlayer3D" parent="Bus"]
+transform = Transform3D(1.0000001, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000001, 0, 0, 0)
+stream = ExtResource("30_aa8k8")
+volume_db = -80.0
+unit_size = 72.87
 autoplay = true
 
 [node name="EngineSounds" type="AudioStreamPlayer3D" parent="Bus"]
@@ -1731,4 +1758,5 @@ process_material = SubResource("ParticleProcessMaterial_ee4r6")
 [connection signal="round_start" from="HUD/UI" to="." method="_on_ui_round_start"]
 
 [editable path="level"]
+[editable path="HUD/UI"]
 [editable path="Splatter"]

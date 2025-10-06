@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_kry3j"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
-[ext_resource type="Material" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
+[ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
 [ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://5f3u8dxuhtks" path="res://Scripts/bunker_open_close.gd" id="5_pdsj5"]
-[ext_resource type="Script" path="res://Scripts/save_area.gd" id="6_pdsj5"]
+[ext_resource type="Script" uid="uid://dbiseun7es72p" path="res://Scripts/save_area.gd" id="6_pdsj5"]
 [ext_resource type="Script" uid="uid://bceh0l24k5gvx" path="res://Scripts/small_save_area.gd" id="7_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
@@ -680,7 +680,7 @@ DRIFT_BRAKE_STRENGTH = 0.0
 MAX_SPEED = 20.0
 MUD_SPEED = 2.0
 MUD_DECELERATION = 17.5
-mushroom_bounce_strength = 100.0
+mushroom_bounce_strength = 75.0
 drift_friction_slip = 0.3
 damping_factor = 5.0
 squished_mushroom_scale = Vector3(1.2, 1.2, 1.2)
@@ -825,7 +825,7 @@ skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="Bus/bug_car_no_inheritance"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999998, 0, 2.9802322e-08, 0, 1, 0, 0, -0.3311269)
-material_override = ExtResource("10_gt3je")
+material_overlay = ExtResource("10_gt3je")
 mesh = SubResource("ArrayMesh_mh8a6")
 skeleton = NodePath("")
 

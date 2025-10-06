@@ -9,6 +9,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		var bus = body as Bus
 		bus.recharge_battery(charge_amount)
 		
-		AudioPlayer.play_sound(sound, global_position)
+		AudioPlayer.play_sound(global_position, sound)
 		
 		queue_free()

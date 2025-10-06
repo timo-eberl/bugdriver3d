@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 	var speed := linear_velocity.length()
 	
 	if Input.is_action_pressed("accelerate"):
+		@warning_ignore("confusable_local_declaration")
 		var t = speed / acceleration_max_speed
 		var acceleration_multiplier = acceleration_curve.sample(t)
 		engine_force = engine_force_value * acceleration_multiplier
@@ -143,7 +144,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	var contact_count = state.get_contact_count()
 	for contact in contact_count:
 		var colliding_body = state.get_contact_collider_object(contact)
-		if colliding_body.is_in_group("Mushroom"):
+		if colliding_body and colliding_body.is_in_group("Mushroom"):
 
 			var hit_direction = global_position - colliding_body.global_position
 			hit_direction.y = 0.0

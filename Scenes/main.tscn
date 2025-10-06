@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=162 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -39,6 +39,8 @@
 [ext_resource type="PackedScene" uid="uid://dyn47f4y7bbkt" path="res://Scenes/bugs/mosquito.tscn" id="30_k2e45"]
 [ext_resource type="PackedScene" uid="uid://bnjkp6t2wpukw" path="res://Scenes/bugs/rama.tscn" id="31_536cc"]
 [ext_resource type="PackedScene" uid="uid://ntubh8ovxsdb" path="res://Scenes/bugs/worm.tscn" id="32_aqgau"]
+[ext_resource type="PackedScene" uid="uid://dvvufqg7r1c02" path="res://Effects/gore.tscn" id="40_8cuat"]
+[ext_resource type="PackedScene" uid="uid://b6x0yw6237lud" path="res://Effects/splatter.tscn" id="41_o1aky"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_536cc"]
 height = 8.44043
@@ -1650,6 +1652,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.183298, 1.2938763, 5.038907
 [node name="Worm" parent="." instance=ExtResource("32_aqgau")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8049345, 1.7030003, 8.393063)
 
+[node name="Dust" parent="." instance=ExtResource("8_h1bgf")]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999917, 0, 2.9802322e-08, 0, 1, -1.930686, -43.144424, 7.027259)
+
+[node name="gore" parent="." instance=ExtResource("40_8cuat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6019869, -42.72649, 4.1517544)
+
+[node name="Splatter" parent="." instance=ExtResource("41_o1aky")]
+transform = Transform3D(1.5493275, 0, 0, 0, 1.5493275, 0, 0, 0, 1.5493275, 0.84881306, -42.916626, 1.5519829)
+
+[node name="AudioStreamPlayer3D" parent="Splatter" index="2"]
+volume_db = -80.0
+
+[node name="MagnetParticles" parent="." instance=ExtResource("8_h1bgf")]
+transform = Transform3D(-0.8270805, 0, 0.56208354, 0, 0.99999636, 0, -0.56208354, 0, -0.8270805, -10.528263, -40.04387, 9.5458355)
+layers = 2
+material_override = SubResource("StandardMaterial3D_hibaj")
+lifetime = 0.3
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_pdsj5")
+
+[node name="MudParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.82708055, 0, 0.5620834, 0, 0.9999992, 0, -0.5620834, 0, -0.82708055, -10.528263, -37.90204, 9.5458355)
+emitting = false
+amount = 100
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_7k868")
+draw_pass_1 = SubResource("QuadMesh_kltya")
+
+[node name="SnowParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.82708055, 0, 0.5620834, 0, 0.99999946, 0, -0.5620834, 0, -0.82708055, -10.528263, -37.90204, 9.5458355)
+cast_shadow = 0
+amount = 5000
+lifetime = 2.0
+preprocess = 1.0
+speed_scale = 1.1
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_gt3je")
+draw_pass_1 = SubResource("QuadMesh_u50mg")
+
+[node name="BoostParticles" parent="." instance=ExtResource("8_h1bgf")]
+transform = Transform3D(-0.8270805, 0, 0.56208354, 0, 0.9999929, 0, -0.56208354, 0, -0.8270805, -10.528263, -41.83994, 9.5458355)
+material_override = SubResource("StandardMaterial3D_b3802")
+lifetime = 0.3
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ee4r6")
+
 [connection signal="body_entered" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_exited"]
 [connection signal="body_entered" from="Bunker/SaveArea" to="Bunker/SaveArea" method="_on_body_entered"]
@@ -1664,3 +1712,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8049345, 1.7030003, 8.39306
 [connection signal="round_start" from="HUD/UI" to="." method="_on_ui_round_start"]
 
 [editable path="level"]
+[editable path="Splatter"]

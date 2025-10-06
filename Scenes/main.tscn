@@ -277,16 +277,19 @@ script = ExtResource("1_21xkr")
 [node name="Bugs" type="Node3D" parent="."]
 
 [node name="Ladybug" parent="Bugs" instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9349937, 3.0322394, -11.221257)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48177147, 3.0322394, -8.935284)
 
 [node name="Ladybug7" parent="Bugs" instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.331827, 3.0322394, 9.904297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2544003, 3.0322394, -5.8050375)
 
 [node name="Ladybug12" parent="Bugs" instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.300022, 0.75645113, 53.5586)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.168086, 0.7564521, 38.03411)
 
 [node name="Ladybug14" parent="Bugs" instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.39053, 0.75645113, 55.18319)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.805772, 0.756454, 37.210354)
+
+[node name="Ladybug17" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.853548, 0.756454, 34.611965)
 
 [node name="Ladybug15" parent="Bugs" instance=ExtResource("3_hptm8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.740177, 0.75645113, 57.72005)
@@ -298,13 +301,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.44158, 0.75645113, 58.904
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.398552, 0.7564516, 60.91766)
 
 [node name="Ladybug8" parent="Bugs" instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.548874, 4.83314, 7.663553)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.481478, 1.8230333, 30.531847)
 
 [node name="Ladybug9" parent="Bugs" instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.461151, 4.83314, -33.08667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.751312, 3.8334527, -30.067745)
+
+[node name="Ladybug18" parent="Bugs" instance=ExtResource("3_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.049943, 4.83314, -30.340153)
 
 [node name="Ladybug10" parent="Bugs" instance=ExtResource("3_hptm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.370388, 4.83314, -27.260502)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.370388, 2.5187063, -27.260502)
 
 [node name="Ladybug11" parent="Bugs" instance=ExtResource("3_hptm8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2961483, 2.9644914, -15.079139)
@@ -934,7 +940,7 @@ volume_db = 40.0
 max_db = 6.0
 
 [node name="BatteryRechargePickup" parent="." instance=ExtResource("20_hibaj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.667772, 1.354919, 54.576122)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.036171, 1.354919, 27.090002)
 
 [node name="StatsCam" type="Camera3D" parent="."]
 transform = Transform3D(-0.94551855, -0.05261305, 0.32128873, 0, 0.98685575, 0.16160381, -0.32556808, 0.15279943, -0.9330904, -43.819134, 8.939531, 55.001366)

@@ -6,13 +6,13 @@
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bgbh7727al1k7" path="res://Scenes/bugs/beetman.tscn" id="3_gt3je"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/bugs/ladybug.tscn" id="3_hptm8"]
-[ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
+[ext_resource type="Material" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
 [ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://l1apayfrv6uw" path="res://Scenes/bugs/alien.tscn" id="4_kltya"]
 [ext_resource type="PackedScene" uid="uid://dqdkgsdawh7mv" path="res://Scenes/bugs/ant.tscn" id="5_e08e2"]
 [ext_resource type="Script" uid="uid://5f3u8dxuhtks" path="res://Scripts/bunker_open_close.gd" id="5_pdsj5"]
 [ext_resource type="PackedScene" uid="uid://df2a6v86kgc6v" path="res://Scenes/bugs/bee.tscn" id="6_neg2b"]
-[ext_resource type="Script" uid="uid://dbiseun7es72p" path="res://Scripts/save_area.gd" id="6_pdsj5"]
+[ext_resource type="Script" path="res://Scripts/save_area.gd" id="6_pdsj5"]
 [ext_resource type="Script" uid="uid://bceh0l24k5gvx" path="res://Scripts/small_save_area.gd" id="7_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://b61i8gmml5tia" path="res://Scenes/bugs/beetle.tscn" id="7_r33sp"]
@@ -24,14 +24,15 @@
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
 [ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="Material" uid="uid://blkltma7offhk" path="res://Materials/xray.tres" id="10_gt3je"]
-[ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="Material" uid="uid://crerv88r4slmf" path="res://Materials/bus.tres" id="13_3pmx8"]
+[ext_resource type="Texture2D" uid="uid://bi7w0jga8q1lc" path="res://Models/textures/splatter2.png" id="15_gt3je"]
 [ext_resource type="Script" uid="uid://ve2s1rqdhjot" path="res://Scripts/day_night.gd" id="15_pdsj5"]
 [ext_resource type="PackedScene" uid="uid://cbscvkaqg8iie" path="res://Scenes/battery_recharge_pickup.tscn" id="20_hibaj"]
 [ext_resource type="PackedScene" uid="uid://dyn47f4y7bbkt" path="res://Scenes/bugs/mosquito.tscn" id="30_k2e45"]
 [ext_resource type="PackedScene" uid="uid://bnjkp6t2wpukw" path="res://Scenes/bugs/rama.tscn" id="31_536cc"]
 [ext_resource type="PackedScene" uid="uid://ntubh8ovxsdb" path="res://Scenes/bugs/worm.tscn" id="32_aqgau"]
+[ext_resource type="AudioStream" uid="uid://clsp32t6op30o" path="res://Sound/mus_levelnomix.wav" id="22_gt3je"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sp2aa"]
 _surfaces = [{
@@ -384,6 +385,55 @@ damping_max = 0.4
 scale_min = 0.099999994
 scale_max = 0.29999998
 
+[sub_resource type="Curve" id="Curve_3pmx8"]
+_data = [Vector2(0, 1), 0.0, -0.20709139, 0, 1, Vector2(1, 0.7929086), -0.20709139, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u50mg"]
+curve = SubResource("Curve_3pmx8")
+
+[sub_resource type="Gradient" id="Gradient_cbgmd"]
+colors = PackedColorArray(0.3647059, 0.30980393, 0.26666668, 1, 0.2761197, 0.2318986, 0.19712621, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1w6v2"]
+gradient = SubResource("Gradient_cbgmd")
+
+[sub_resource type="Curve" id="Curve_ueoa1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.03802681), 0.08417269, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6vcvc"]
+curve = SubResource("Curve_ueoa1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7k868"]
+emission_shape_scale = Vector3(0.805, 0.16, 0.525)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 1.805, -7.925)
+spread = 22.833
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.01
+scale_curve = SubResource("CurveTexture_6vcvc")
+color_ramp = SubResource("GradientTexture1D_1w6v2")
+alpha_curve = SubResource("CurveTexture_u50mg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpc6h"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("15_gt3je")
+metallic_specular = 0.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_kltya"]
+material = SubResource("StandardMaterial3D_hpc6h")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gt3je"]
 emission_shape_offset = Vector3(0, 4, 0)
 emission_shape_scale = Vector3(30, 10, 30)
@@ -396,6 +446,7 @@ initial_velocity_max = 4.0
 gravity = Vector3(-6.915, -9.8, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pmx8"]
+disable_receive_shadows = true
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -432,8 +483,8 @@ size = Vector3(5, 2, 5)
 points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.4410467, -2.4415245, -1, 2.4410467, 2.4415245, -1, -2.4410467, 2.5391855, 1.0238096, -2.5386884, 2.4415245, -1, 2.4410467, -2.459634, -0.8807193, -2.5386884, -2.459634, -0.8807193, 2.5386884, 2.5391855, 1.0238096, 2.5386884, 2.3010283, 1.0238096, -2.5386884, -2.5391855, -0.96009994, -2.5386884, -2.5391855, -0.96009994, 2.5386884, -2.0633678, -0.72195804, -2.5386884, -2.0633678, -0.72195804, 2.5386884)
 
 [sub_resource type="Curve" id="Curve_gt3je"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.9930233, 0.9944206), 3.2296112, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.45, 0.033), 0.2007959, 0.2007959, 0, 0, Vector2(0.7023255, 1), 0.18338107, 0.0, 0, 0]
+point_count = 3
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_21xkr")
@@ -1053,7 +1104,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 2.2199733, -0.
 [node name="MagnetForceBottom" type="Node3D" parent="Bus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0.3361621, -0.5240848)
 
+[node name="MudParticles" type="GPUParticles3D" parent="Bus"]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999976, 0, 2.9802322e-08, 0, 1, 0, -0.05, 1.3)
+emitting = false
+amount = 100
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_7k868")
+draw_pass_1 = SubResource("QuadMesh_kltya")
+
 [node name="SnowParticles" type="GPUParticles3D" parent="Bus"]
+cast_shadow = 0
 amount = 5000
 lifetime = 2.0
 preprocess = 1.0
@@ -1156,7 +1216,6 @@ metadata/_edit_use_anchors_ = true
 [node name="UI" parent="HUD" node_paths=PackedStringArray("stats_cam", "bus_end_pos", "bus") instance=ExtResource("4_jjvhh")]
 unique_name_in_owner = true
 snow_amount_curve = SubResource("Curve_gt3je")
-round_duration = 120.0
 stats_cam = NodePath("../../StatsCam")
 bus_end_pos = NodePath("../../BusEndPos")
 bus = NodePath("../../Bus")
@@ -1167,7 +1226,7 @@ stream = ExtResource("10_d1ilt")
 volume_db = 50.0
 
 [node name="LevelMusicPlayer" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("11_6iyac")
+stream = ExtResource("22_gt3je")
 volume_db = 40.0
 max_db = 6.0
 

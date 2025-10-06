@@ -66,6 +66,8 @@ var _steer_target := 0.0
 var previous_speed := linear_velocity.length()
 @export var drift_particle_bias := 0.1
 
+@onready var mud_particles: GPUParticles3D = $MudParticles
+
 
 func _ready() -> void:
 	global_position = bus_starting_pos.global_position
@@ -201,6 +203,7 @@ func _process(delta: float) -> void:
 	camera_controller.distance_interpolator = lerp(previous, target_t, delta)
 	
 	boost_particles.emitting = Input.is_action_pressed("boost") && battery_charge > boost_energy_cost * delta
+	mud_particles.emitting = !status_effects[StatusEffects.StatusEffect.MUD].is_empty() && speed > 1.0
 	
 	is_magnetizing = Input.is_action_pressed("magnet") && battery_charge > magnet_energy_cost * delta
 	magnet_particles.emitting = is_magnetizing

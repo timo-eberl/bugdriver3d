@@ -24,6 +24,9 @@ signal round_over
 
 @onready var day_night: DayNight = $"../../WorldEnvironment"
 
+@onready var snow_particles: GPUParticles3D = $"../../Bus/SnowParticles"
+@export var snow_amount_curve : Curve
+
 @export var round_duration := 60.0
 
 @export var stats_cam := Camera3D
@@ -47,7 +50,9 @@ func _process(delta: float) -> void:
 		else:
 			timer_progress += delta
 			round_timer.text = str(int(round_duration - timer_progress))
-			day_night.progress = clampf(timer_progress / round_duration, 0.0, 1.0)
+			var current_progress = clampf(timer_progress / round_duration, 0.0, 1.0)
+			day_night.progress = current_progress
+			snow_particles.amount_ratio = snow_amount_curve.sample(current_progress)
 
 
 func _input(event: InputEvent) -> void:

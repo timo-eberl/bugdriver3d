@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=91 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="Material" uid="uid://crerv88r4slmf" path="res://Materials/bus.tres" id="13_3pmx8"]
+[ext_resource type="Texture2D" uid="uid://bi7w0jga8q1lc" path="res://Models/textures/splatter2.png" id="15_gt3je"]
 [ext_resource type="Script" uid="uid://ve2s1rqdhjot" path="res://Scripts/day_night.gd" id="15_pdsj5"]
 [ext_resource type="PackedScene" uid="uid://cbscvkaqg8iie" path="res://Scenes/battery_recharge_pickup.tscn" id="20_hibaj"]
 
@@ -373,6 +374,55 @@ damping_min = 0.4
 damping_max = 0.4
 scale_min = 0.099999994
 scale_max = 0.29999998
+
+[sub_resource type="Curve" id="Curve_3pmx8"]
+_data = [Vector2(0, 1), 0.0, -0.20709139, 0, 1, Vector2(1, 0.7929086), -0.20709139, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_u50mg"]
+curve = SubResource("Curve_3pmx8")
+
+[sub_resource type="Gradient" id="Gradient_cbgmd"]
+colors = PackedColorArray(0.3647059, 0.30980393, 0.26666668, 1, 0.2761197, 0.2318986, 0.19712621, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1w6v2"]
+gradient = SubResource("Gradient_cbgmd")
+
+[sub_resource type="Curve" id="Curve_ueoa1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.03802681), 0.08417269, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6vcvc"]
+curve = SubResource("Curve_ueoa1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7k868"]
+emission_shape_scale = Vector3(0.805, 0.16, 0.525)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 1.805, -7.925)
+spread = 22.833
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.01
+scale_curve = SubResource("CurveTexture_6vcvc")
+color_ramp = SubResource("GradientTexture1D_1w6v2")
+alpha_curve = SubResource("CurveTexture_u50mg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpc6h"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("15_gt3je")
+metallic_specular = 0.0
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_kltya"]
+material = SubResource("StandardMaterial3D_hpc6h")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gt3je"]
 emission_shape_offset = Vector3(0, 4, 0)
@@ -1013,6 +1063,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 2.2199733, -0.
 
 [node name="MagnetForceBottom" type="Node3D" parent="Bus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0.3361621, -0.5240848)
+
+[node name="MudParticles" type="GPUParticles3D" parent="Bus"]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999976, 0, 2.9802322e-08, 0, 1, 0, -0.05, 1.3)
+emitting = false
+amount = 100
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_7k868")
+draw_pass_1 = SubResource("QuadMesh_kltya")
 
 [node name="SnowParticles" type="GPUParticles3D" parent="Bus"]
 cast_shadow = 0

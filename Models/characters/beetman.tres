@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b823s4uvx5kfg"]
+
+[ext_resource type="Texture2D" uid="uid://dgwryh2672wba" path="res://Models/characters/beetman.png" id="1_7thsp"]
+
+[resource]
+resource_name = "beetman"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_7thsp")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+stencil_mode = 3
+stencil_flags = 2

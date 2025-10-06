@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://eu7cm7g8468g"]
+[gd_scene load_steps=24 format=4 uid="uid://eu7cm7g8468g"]
 
 [ext_resource type="Script" uid="uid://qp5i7x3kovy4" path="res://Scripts/random_rotate.gd" id="1_5boxk"]
 [ext_resource type="Material" uid="uid://b8nx6p3bct6u0" path="res://Materials/battery_mat.tres" id="2_4sjnl"]
@@ -98,6 +98,71 @@ tracks/0/keys = {
 "values": [Vector3(0.05, 0.05, 0.05)]
 }
 
+[sub_resource type="Curve" id="Curve_6vywk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.2873472, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_snkit"]
+curve = SubResource("Curve_6vywk")
+
+[sub_resource type="Gradient" id="Gradient_ej1qe"]
+colors = PackedColorArray(1, 1, 1, 1, 0.11344338, 0.45041484, 0.5789932, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h7ofk"]
+gradient = SubResource("Gradient_ej1qe")
+
+[sub_resource type="Curve" id="Curve_ua8al"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50565267), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0jjuh"]
+curve = SubResource("Curve_ua8al")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_onyxq"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 0.9
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_initial_ramp = SubResource("GradientTexture1D_h7ofk")
+alpha_curve = SubResource("CurveTexture_snkit")
+emission_curve = SubResource("CurveTexture_0jjuh")
+collision_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk03w"]
+transparency = 1
+vertex_color_use_as_albedo = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 8.29
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4v6ba"]
+material = SubResource("StandardMaterial3D_wk03w")
+top_radius = 0.001
+bottom_radius = 0.001
+height = 0.01
+
+[sub_resource type="Animation" id="Animation_snkit"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotation/battery:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.05, 0.05, 0.05)]
+}
+
 [sub_resource type="Animation" id="Animation_6vywk"]
 resource_name = "pulse"
 length = 2.0
@@ -141,15 +206,17 @@ _data = {
 
 [node name="HUD3DLeft" type="Node3D"]
 
-[node name="Rotation" type="Node3D" parent="." node_paths=PackedStringArray("shake_animation", "pulse_animation", "battery")]
-transform = Transform3D(0.99026805, -0.13917312, 0, 0.13917312, 0.99026805, 0, 0, 0, 1.0000001, -0.78855914, 0, -0.833)
+[node name="Rotation" type="Node3D" parent="." node_paths=PackedStringArray("collision_box", "battery_particles", "shake_animation", "pulse_animation", "battery")]
+transform = Transform3D(0.99026805, -0.13917314, 0, 0.13917314, 0.99026805, 0, 0, 0, 1.0000001, -0.78855914, 0, -0.833)
 script = ExtResource("1_5boxk")
+collision_box = NodePath("battery/Cylinder2/GPUParticlesCollisionBox3D")
+battery_particles = NodePath("battery/Cylinder2/GPUParticles3D")
 shake_animation = NodePath("../ShakeAnimation")
 pulse_animation = NodePath("../PulseAnimation")
 battery = NodePath("battery")
 
 [node name="battery" type="Node3D" parent="Rotation"]
-transform = Transform3D(0.049513403, -0.006958656, 0, 0.006958656, 0.049513403, 0, 0, 0, 0.05, 0, 0, 0)
+transform = Transform3D(0.049513403, -0.006958657, 0, 0.006958657, 0.049513403, 0, 0, 0, 0.05, 0, 0, 0)
 
 [node name="Cylinder2" type="MeshInstance3D" parent="Rotation/battery"]
 mesh = SubResource("ArrayMesh_ej1qe")
@@ -165,6 +232,17 @@ transform = Transform3D(1, -1.4901163e-08, 0, 1.4901163e-08, 1, 0, 0, 0, 1, 0, 0
 material_override = ExtResource("3_4sjnl")
 mesh = SubResource("ArrayMesh_4sjnl")
 skeleton = NodePath("")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Rotation/battery/Cylinder2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.905, 0)
+amount = 100
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_onyxq")
+draw_pass_1 = SubResource("CylinderMesh_4v6ba")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Rotation/battery/Cylinder2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 2.044, 0)
+size = Vector3(3, 0.1, 3)
 
 [node name="HUD3DSetup" parent="." instance=ExtResource("3_fmf4n")]
 

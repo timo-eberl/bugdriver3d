@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cchddnabcie2h"]
+[gd_scene load_steps=35 format=4 uid="uid://cchddnabcie2h"]
 
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_ce3w2"]
 [ext_resource type="Script" uid="uid://dpqc3dwlx2j7b" path="res://Scripts/main_menu.gd" id="1_n45e2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="9_16hvj"]
 [ext_resource type="PackedScene" uid="uid://c7gocdu8x47tp" path="res://Models/characters/beetman.fbx" id="10_vr1f0"]
 [ext_resource type="PackedScene" uid="uid://dljleff4r4j14" path="res://Scenes/fullscreen_button.tscn" id="10_vtepg"]
+[ext_resource type="AudioStream" uid="uid://bk8scrbeuvju7" path="res://Sound/mus_titletrack.wav" id="12_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://vornck0bk43l" path="res://Scenes/logo.png" id="14_vtepg"]
 
 [sub_resource type="Curve" id="Curve_jtdr2"]
@@ -492,6 +493,11 @@ autoplay = "MenuAnimation"
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_opfnp")
+volume_db = 50.0
+autoplay = true
+
+[node name="MusicAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_8dnnj")
 volume_db = 50.0
 autoplay = true
 

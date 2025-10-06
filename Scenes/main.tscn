@@ -35,7 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://bi7w0jga8q1lc" path="res://Models/textures/splatter2.png" id="15_gt3je"]
 [ext_resource type="Script" uid="uid://ve2s1rqdhjot" path="res://Scripts/day_night.gd" id="15_pdsj5"]
 [ext_resource type="PackedScene" uid="uid://cbscvkaqg8iie" path="res://Scenes/battery_recharge_pickup.tscn" id="20_hibaj"]
-[ext_resource type="AudioStream" uid="uid://clsp32t6op30o" path="res://Sound/mus_levelnomix.wav" id="22_gt3je"]
 [ext_resource type="AudioStream" uid="uid://c015wtdr8nq38" path="res://Sound/boost.wav" id="29_kwxat"]
 [ext_resource type="AudioStream" uid="uid://de35ryjx2jcvl" path="res://Sound/ATV Engine Loop 3.wav" id="29_o1aky"]
 [ext_resource type="AudioStream" uid="uid://b42rspe052b8o" path="res://Sound/sfx_mudloop.wav" id="30_aa8k8"]
@@ -43,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://bnjkp6t2wpukw" path="res://Scenes/bugs/rama.tscn" id="31_536cc"]
 [ext_resource type="PackedScene" uid="uid://ntubh8ovxsdb" path="res://Scenes/bugs/worm.tscn" id="32_aqgau"]
 [ext_resource type="Material" uid="uid://coecu8giikt8b" path="res://Materials/color_shift_popst.tres" id="34_aa8k8"]
+[ext_resource type="AudioStream" uid="uid://ccdhvooot5t8j" path="res://Sound/mus_level.wav" id="39_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://dvvufqg7r1c02" path="res://Effects/gore.tscn" id="40_8cuat"]
 [ext_resource type="PackedScene" uid="uid://b6x0yw6237lud" path="res://Effects/splatter.tscn" id="41_o1aky"]
 
@@ -1707,7 +1707,7 @@ stream = ExtResource("10_d1ilt")
 volume_db = 50.0
 
 [node name="LevelMusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("22_gt3je")
+stream = ExtResource("39_kqrg6")
 
 [node name="BatteryRechargePickup" parent="." instance=ExtResource("20_hibaj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.036171, 1.354919, 27.090002)

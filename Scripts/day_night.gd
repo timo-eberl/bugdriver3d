@@ -2,6 +2,8 @@
 extends WorldEnvironment
 class_name DayNight
 
+@export var color_shift_material : ShaderMaterial
+
 @export_range(0.0, 1.0) var progress := 0.0
 @export_category("day")
 @export_color_no_alpha var fog_color_day : Color
@@ -10,6 +12,7 @@ class_name DayNight
 @export_range(0.0, 3.0) var adjustment_saturation_day := 1.0
 @export_color_no_alpha var ambient_light_color_day : Color
 @export_range(0.0, 5.0) var ambient_light_energy_day := 1.0
+@export_color_no_alpha var color_shift_day : Color
 @export_category("night")
 @export_color_no_alpha var fog_color_night : Color
 @export_range(0.0, 1.0) var fog_density_night := 0.0
@@ -17,6 +20,7 @@ class_name DayNight
 @export_range(0.0, 3.0) var adjustment_saturation_night := 1.0
 @export_color_no_alpha var ambient_light_color_night : Color
 @export_range(0.0, 5.0) var ambient_light_energy_night := 1.0
+@export_color_no_alpha var color_shift_night : Color
 
 func _process(_delta: float) -> void:
 	self.environment.fog_light_color = lerp(fog_color_day, fog_color_night, progress)

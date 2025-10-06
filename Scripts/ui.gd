@@ -4,6 +4,8 @@ class_name UI
 signal round_start
 signal round_over
 
+@export var override_progress := true
+
 @onready var round_timer: Label = $RoundTimer
 #@onready var restart_round_button: Button = $RestartRoundButton
 @onready var continue_ui: Control = $ContinueUI
@@ -57,9 +59,10 @@ func _process(delta: float) -> void:
 			timer_progress += delta
 			#round_timer.text = str(int(round_duration - timer_progress))
 			current_progress = clampf(timer_progress / round_duration, 0.0, 1.0)
-			day_night.progress = current_progress
-			snow_particles.amount_ratio = snow_amount_curve.sample(current_progress)
-			thermometer_material.set_shader_parameter("fill", 1.0 - current_progress)
+			if override_progress:
+				day_night.progress = current_progress
+			snow_particles.amount_ratio = snow_amount_curve.sample(day_night.progress)
+			thermometer_material.set_shader_parameter("fill", 1.0 - day_night.progress)
 
 
 func _input(event: InputEvent) -> void:

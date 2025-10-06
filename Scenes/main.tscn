@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_kry3j"]
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
-[ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
+[ext_resource type="Material" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
 [ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://5f3u8dxuhtks" path="res://Scripts/bunker_open_close.gd" id="5_pdsj5"]
-[ext_resource type="Script" uid="uid://dbiseun7es72p" path="res://Scripts/save_area.gd" id="6_pdsj5"]
+[ext_resource type="Script" path="res://Scripts/save_area.gd" id="6_pdsj5"]
 [ext_resource type="Script" uid="uid://bceh0l24k5gvx" path="res://Scripts/small_save_area.gd" id="7_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
@@ -386,6 +386,7 @@ initial_velocity_max = 4.0
 gravity = Vector3(-6.915, -9.8, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pmx8"]
+disable_receive_shadows = true
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
@@ -1014,6 +1015,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 2.2199733, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0.3361621, -0.5240848)
 
 [node name="SnowParticles" type="GPUParticles3D" parent="Bus"]
+cast_shadow = 0
 amount = 5000
 lifetime = 2.0
 preprocess = 1.0

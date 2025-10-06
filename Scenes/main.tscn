@@ -316,7 +316,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.056281, 3.0322394, -16.0068
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.291513, 3.0322394, -14.644597)
 
 [node name="level" parent="." instance=ExtResource("1_kry3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.80615, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -14.80615, 0, 0)
 
 [node name="CollisionShape3D" parent="level/Bunker /StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00052799657, 0, 0)
@@ -440,7 +440,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00052799657, 0, 0)
 [node name="StaticBody3D" parent="level/mushroom_058 " index="0" groups=["Mushroom"]]
 
 [node name="Bunker" type="Node3D" parent="."]
-transform = Transform3D(-0.6949433, 0, 0.71906453, 0, 1, 0, -0.71906453, 0, -0.6949433, -66.16959, 2.204692, 79.21107)
+transform = Transform3D(-0.34747162, 0, 0.3595323, 0, 0.5, 0, -0.3595323, 0, -0.34747162, -40.289276, 1.0556791, 39.540184)
 
 [node name="BunkerDoor" type="MeshInstance3D" parent="Bunker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0467458, 0, -1.1920929e-07)
@@ -479,7 +479,7 @@ shape = SubResource("SphereShape3D_fevyy")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Bunker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 2.6307564, -4.50019)
-light_color = Color(1, 1, 0.38039216, 1)
+light_color = Color(0.7541104, 0.45275337, 5.7756904e-07, 1)
 light_energy = 8.197
 shadow_enabled = true
 omni_range = 111.028
@@ -510,7 +510,7 @@ script = ExtResource("7_ee4r6")
 shape = SubResource("SphereShape3D_pdsj5")
 
 [node name="CameraBase" type="Node3D" parent="."]
-transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -45.584873, 1.6952993, 67.1894)
+transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -35.863728, 1.6952974, 36.191883)
 script = ExtResource("2_jjvhh")
 distance_driving = 48.21
 
@@ -520,7 +520,7 @@ fov = 36.2
 size = 15.08
 
 [node name="Bus" type="VehicleBody3D" parent="."]
-transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, -45.584873, 1.3313072, 67.1894)
+transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, -35.863728, 1.3313053, 36.191883)
 collision_layer = 2
 collision_mask = 7
 mass = 60.0

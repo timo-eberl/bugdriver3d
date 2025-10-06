@@ -67,10 +67,10 @@ func save_idle():
 func _process(delta: float) -> void:
 	if lerping:
 		var cage_pos := self.m_bus.cage_area.global_position
-		var target := cage_pos + 2.5 * (self.m_bus.global_position - self.global_position)
+		var target := cage_pos + 3.0 * (self.m_bus.global_position - self.global_position)
 		var t := inverse_lerp(0.0, 20.0, m_bus.linear_velocity.length())
-		t = pow(t, 1.8)
-		var lerp_speed := lerpf(1.0, 4.0, t)
+		t = pow(t, 1.5)
+		var lerp_speed := lerpf(1.0, 3.5, t)
 		self.global_position = lerp(self.global_position, target, delta * lerp_speed)
 	if save_lerping:
 		var target := save_location.global_position

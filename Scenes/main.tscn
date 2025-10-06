@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=66 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -6,11 +6,11 @@
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
-[ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
+[ext_resource type="Material" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
 [ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://5f3u8dxuhtks" path="res://Scripts/bunker_open_close.gd" id="5_pdsj5"]
-[ext_resource type="Script" uid="uid://dbiseun7es72p" path="res://Scripts/save_area.gd" id="6_pdsj5"]
-[ext_resource type="Script" uid="uid://bceh0l24k5gvx" path="res://Scripts/small_save_area.gd" id="7_ee4r6"]
+[ext_resource type="Script" path="res://Scripts/save_area.gd" id="6_pdsj5"]
+[ext_resource type="Script" path="res://Scripts/small_save_area.gd" id="7_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
 [ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
@@ -19,6 +19,7 @@
 [ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
+[ext_resource type="PackedScene" uid="uid://rsuwbbfgm2xk" path="res://Scenes/battery_recharge_pickup.tscn" id="20_hibaj"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sp2aa"]
 _surfaces = [{
@@ -896,6 +897,9 @@ volume_db = 50.0
 stream = ExtResource("11_6iyac")
 volume_db = 40.0
 max_db = 6.0
+
+[node name="BatteryRechargePickup" parent="." instance=ExtResource("20_hibaj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.667772, 1.354919, 54.576122)
 
 [connection signal="body_entered" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_exited"]

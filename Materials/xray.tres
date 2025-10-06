@@ -5,7 +5,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u50mg"]
 render_priority = 1
 shader = ExtResource("1_im6qr")
-shader_parameter/albedo = Color(0, 1, 1, 1)
+shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/frensel_power = 1.5
 
 [resource]

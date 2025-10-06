@@ -87,7 +87,7 @@ func _end_round() -> void:
 	continue_ui.visible = true
 	running = false
 	
-	level_music_player.stop()
+	#level_music_player.stop()
 	
 	emit_signal("round_over")
 

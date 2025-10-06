@@ -156,7 +156,7 @@ func _physics_process(delta: float) -> void:
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	boost_sound_target = -80
 	if Input.is_action_pressed("boost") && battery_charge > boost_energy_cost * get_process_delta_time():
-		boost_sound_target = -20
+		boost_sound_target = -30
 		if not status_effects[StatusEffects.StatusEffect.MUD].is_empty():
 			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 1000.0)
 		else:

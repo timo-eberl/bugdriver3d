@@ -1685,11 +1685,13 @@ bus_end_pos = NodePath("../../BusEndPos")
 bus = NodePath("../../Bus")
 metadata/_edit_use_anchors_ = true
 
-[node name="RightSubViewportContainer" parent="HUD/UI" index="6"]
-offset_left = -474.0
-offset_top = -133.0
-offset_right = 0.0
-offset_bottom = 133.0
+[node name="FullscreenButton" parent="HUD/UI" index="4"]
+layout_mode = 1
+anchors_preset = 3
+offset_left = -28.0
+offset_top = -28.0
+offset_right = -3.0
+offset_bottom = -3.0
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_d1ilt")

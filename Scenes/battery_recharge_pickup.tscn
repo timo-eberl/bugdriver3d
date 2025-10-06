@@ -1,20 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://rsuwbbfgm2xk"]
+[gd_scene load_steps=5 format=3 uid="uid://cbscvkaqg8iie"]
 
 [ext_resource type="Script" uid="uid://bvawg601jn0kb" path="res://Scripts/battery_recharge_pickup.gd" id="1_wxe7c"]
+[ext_resource type="Script" uid="uid://qp5i7x3kovy4" path="res://Scripts/random_rotate.gd" id="2_37jca"]
+[ext_resource type="PackedScene" uid="uid://bvcy7pxgg07c5" path="res://Models/battery.blend" id="2_78iln"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_pdsj5"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ee4r6"]
-points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+[sub_resource type="SphereShape3D" id="SphereShape3D_37jca"]
+radius = 0.97930235
 
 [node name="BatteryRechargePickup" type="MeshInstance3D"]
-mesh = SubResource("BoxMesh_pdsj5")
 script = ExtResource("1_wxe7c")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("ConvexPolygonShape3D_ee4r6")
+shape = SubResource("SphereShape3D_37jca")
+
+[node name="Rotate" type="Node3D" parent="."]
+script = ExtResource("2_37jca")
+speed = 2.0
+
+[node name="battery" parent="Rotate" instance=ExtResource("2_78iln")]
+transform = Transform3D(0.33615768, -0.077608116, 0, 0.077608116, 0.33615768, 0, 0, 0, 0.345, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0, 0.3333335, 1, 1)
+light_energy = 10.0
+omni_range = 3.0
+omni_attenuation = 0.5
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

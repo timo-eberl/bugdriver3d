@@ -124,7 +124,8 @@ func _physics_process(delta: float) -> void:
 	
 	if 	Input.is_action_pressed("accelerate") or \
 		Input.is_action_pressed("reverse") or \
-		Input.is_action_pressed("boost"):
+		Input.is_action_pressed("boost") or \
+		linear_velocity.length() > 3.0:
 			slowdown_timer = linear_velocity.length()
 	else:
 		engine_force = 0.0
@@ -135,7 +136,7 @@ func _physics_process(delta: float) -> void:
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if Input.is_action_pressed("boost") && battery_charge > boost_energy_cost * get_process_delta_time():
 		if not status_effects[StatusEffects.StatusEffect.MUD].is_empty():
-			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 1000.0)
+			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 2000.0)
 		else:
 			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 3000.0)
 		

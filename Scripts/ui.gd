@@ -16,11 +16,13 @@ signal round_over
 @onready var bug_counter: Label = $BugCounter
 @onready var level_music_player: AudioStreamPlayer3D = $"../../LevelMusicPlayer"
 
-@onready var battery_mesh : MeshInstance3D = $LeftSubViewportContainer/SubViewport/HUD3DLeft/Rotation/battery/Cylinder2
-@onready var battery_material : ShaderMaterial = battery_mesh.get_active_material(0)
-
 @onready var left_sub_viewport_container: SubViewportContainer = $LeftSubViewportContainer
 @onready var right_sub_viewport_container: SubViewportContainer = $RightSubViewportContainer
+
+@onready var battery_mesh : MeshInstance3D = $LeftSubViewportContainer/SubViewport/HUD3DLeft/Rotation/battery/Cylinder2
+@onready var battery_material : ShaderMaterial = battery_mesh.get_active_material(0)
+@onready var thermometer_mesh : MeshInstance3D = $RightSubViewportContainer/SubViewport/HUD3DRight/Rotation/thermometer/Cylinder
+@onready var thermometer_material : ShaderMaterial = thermometer_mesh.get_material_override()
 
 @onready var day_night: DayNight = $"../../WorldEnvironment"
 
@@ -50,10 +52,11 @@ func _process(delta: float) -> void:
 			_end_round()
 		else:
 			timer_progress += delta
-			round_timer.text = str(int(round_duration - timer_progress))
+			#round_timer.text = str(int(round_duration - timer_progress))
 			current_progress = clampf(timer_progress / round_duration, 0.0, 1.0)
 			day_night.progress = current_progress
 			snow_particles.amount_ratio = snow_amount_curve.sample(current_progress)
+			thermometer_material.set_shader_parameter("fill", 1.0 - current_progress)
 
 
 func _input(event: InputEvent) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://eu7cm7g8468g"]
+[gd_scene load_steps=24 format=4 uid="uid://eu7cm7g8468g"]
 
 [ext_resource type="Script" uid="uid://qp5i7x3kovy4" path="res://Scripts/random_rotate.gd" id="1_5boxk"]
 [ext_resource type="Material" uid="uid://b8nx6p3bct6u0" path="res://Materials/battery_mat.tres" id="2_4sjnl"]
@@ -83,6 +83,71 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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")
 }]
 
+[sub_resource type="Curve" id="Curve_6vywk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.2873472, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_snkit"]
+curve = SubResource("Curve_6vywk")
+
+[sub_resource type="Gradient" id="Gradient_ej1qe"]
+colors = PackedColorArray(1, 1, 1, 1, 0.11344338, 0.45041484, 0.5789932, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h7ofk"]
+gradient = SubResource("Gradient_ej1qe")
+
+[sub_resource type="Curve" id="Curve_ua8al"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50565267), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0jjuh"]
+curve = SubResource("Curve_ua8al")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_onyxq"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 0.9
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_initial_ramp = SubResource("GradientTexture1D_h7ofk")
+alpha_curve = SubResource("CurveTexture_snkit")
+emission_curve = SubResource("CurveTexture_0jjuh")
+collision_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wk03w"]
+transparency = 1
+vertex_color_use_as_albedo = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 8.29
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4v6ba"]
+material = SubResource("StandardMaterial3D_wk03w")
+top_radius = 0.001
+bottom_radius = 0.001
+height = 0.01
+
+[sub_resource type="Animation" id="Animation_snkit"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotation/battery:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.05, 0.05, 0.05)]
+}
+
 [sub_resource type="Animation" id="Animation_6vywk"]
 resource_name = "pulse"
 length = 2.0
@@ -98,21 +163,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0.05, 0.05, 0.05), Vector3(0.06, 0.06, 0.06), Vector3(0.05, 0.05, 0.05)]
-}
-
-[sub_resource type="Animation" id="Animation_snkit"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rotation/battery:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.05, 0.05, 0.05)]
 }
 
 [sub_resource type="Animation" id="Animation_ej1qe"]
@@ -141,15 +191,17 @@ _data = {
 
 [node name="HUD3DLeft" type="Node3D"]
 
-[node name="Rotation" type="Node3D" parent="." node_paths=PackedStringArray("shake_animation", "pulse_animation", "battery")]
-transform = Transform3D(0.99026805, -0.13917312, 0, 0.13917312, 0.99026805, 0, 0, 0, 1.0000001, -0.78855914, 0, -0.833)
+[node name="Rotation" type="Node3D" parent="." node_paths=PackedStringArray("collision_box", "battery_particles", "shake_animation", "pulse_animation", "battery")]
+transform = Transform3D(0.99026805, -0.13917314, 0, 0.13917314, 0.99026805, 0, 0, 0, 1.0000001, -0.78855914, 0, -0.833)
 script = ExtResource("1_5boxk")
+collision_box = NodePath("battery/Cylinder2/GPUParticlesCollisionBox3D")
+battery_particles = NodePath("battery/Cylinder2/GPUParticles3D")
 shake_animation = NodePath("../ShakeAnimation")
 pulse_animation = NodePath("../PulseAnimation")
 battery = NodePath("battery")
 
 [node name="battery" type="Node3D" parent="Rotation"]
-transform = Transform3D(0.049513403, -0.006958656, 0, 0.006958656, 0.049513403, 0, 0, 0, 0.05, 0, 0, 0)
+transform = Transform3D(0.049513403, -0.006958657, 0, 0.006958657, 0.049513403, 0, 0, 0, 0.05, 0, 0, 0)
 
 [node name="Cylinder2" type="MeshInstance3D" parent="Rotation/battery"]
 mesh = SubResource("ArrayMesh_ej1qe")
@@ -165,6 +217,17 @@ transform = Transform3D(1, -1.4901163e-08, 0, 1.4901163e-08, 1, 0, 0, 0, 1, 0, 0
 material_override = ExtResource("3_4sjnl")
 mesh = SubResource("ArrayMesh_4sjnl")
 skeleton = NodePath("")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Rotation/battery/Cylinder2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.905, 0)
+amount = 100
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_onyxq")
+draw_pass_1 = SubResource("CylinderMesh_4v6ba")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Rotation/battery/Cylinder2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 2.044, 0)
+size = Vector3(3, 0.1, 3)
 
 [node name="HUD3DSetup" parent="." instance=ExtResource("3_fmf4n")]
 

@@ -539,10 +539,7 @@ autoplay = true
 
 [node name="MusicAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_8dnnj")
-<<<<<<< HEAD
-=======
-volume_db = 20.0
->>>>>>> e28dd4cecfed93914e49f03b2bbad79441b63f39
+volume_db = 50.0
 autoplay = true
 
 [node name="bug_car" parent="." instance=ExtResource("8_trj04")]

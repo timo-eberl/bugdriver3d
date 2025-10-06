@@ -1203,7 +1203,7 @@ damping_factor = 5.0
 squished_mushroom_scale = Vector3(1.2, 1.2, 1.2)
 boost_energy_cost = 0.25
 magnet_energy_cost = 0.5
-battery_charge_speed = 100.0
+battery_charge_speed = 0.1
 
 [node name="CameraTarget" type="Node3D" parent="Bus"]
 transform = Transform3D(0.17682713, 0.597054, -0.78246975, 1.862645e-08, 0.7949973, 0.6066129, 0.98424184, -0.10726559, 0.14057714, 0, 0.3639921, 0)

@@ -19,6 +19,7 @@ signal round_over
 @onready var left_sub_viewport_container: SubViewportContainer = $LeftSubViewportContainer
 @onready var right_sub_viewport_container: SubViewportContainer = $RightSubViewportContainer
 
+@onready var battery : Node3D =  $LeftSubViewportContainer/SubViewport/HUD3DLeft/Rotation
 @onready var battery_mesh : MeshInstance3D = $LeftSubViewportContainer/SubViewport/HUD3DLeft/Rotation/battery/Cylinder2
 @onready var battery_material : ShaderMaterial = battery_mesh.get_active_material(0)
 @onready var thermometer_mesh : MeshInstance3D = $RightSubViewportContainer/SubViewport/HUD3DRight/Rotation/thermometer/Cylinder
@@ -38,6 +39,8 @@ signal round_over
 var timer_progress := 0.0
 var current_progress := 0.0
 var running := false
+
+var last_charge := 0.0
 
 func _ready() -> void:
 	round_timer.text = str(int(round_duration))
@@ -136,4 +139,12 @@ func _on_small_save_area_bug_saved(type: Bug.BugType) -> void:
 
 
 func update_battery_charge(new_charge : float) -> void:
+	if new_charge < last_charge:
+		battery.draining = true
+	elif new_charge > last_charge:
+		battery.draining = false
+	
+	battery.filled_amount = new_charge
 	battery_material.set_shader_parameter("fill", new_charge)
+
+	last_charge = new_charge

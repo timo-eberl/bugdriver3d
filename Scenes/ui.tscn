@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqx60vrjgj505"]
+[gd_scene load_steps=7 format=3 uid="uid://dqx60vrjgj505"]
 
 [ext_resource type="Script" uid="uid://nmu8nm1rry07" path="res://Scripts/ui.gd" id="1_jxero"]
 [ext_resource type="Theme" uid="uid://dgej2dh1384q7" path="res://theme.tres" id="2_qdvrb"]
 [ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="3_2246s"]
 [ext_resource type="FontFile" uid="uid://cp3a32k6wvjhb" path="res://Effects/SuperMario256.ttf" id="3_q7pk6"]
+[ext_resource type="Texture2D" uid="uid://c5mtjxex6lhlh" path="res://Sprites/full_screen.png" id="4_m78vo"]
 [ext_resource type="PackedScene" uid="uid://1aw8p04lhqdo" path="res://Scenes/hud_3d_right.tscn" id="4_q7pk6"]
 
 [node name="Ui" type="Control"]
@@ -124,7 +125,20 @@ offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("2_qdvrb")
-text = "⌞⌝"
+
+[node name="TextureRect" type="TextureRect" parent="FullscreenButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_m78vo")
+expand_mode = 1
 
 [node name="LeftSubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1

@@ -1678,13 +1678,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="UI" parent="HUD" node_paths=PackedStringArray("stats_cam", "bus_end_pos", "bus") instance=ExtResource("4_jjvhh")]
 unique_name_in_owner = true
-override_progress = false
 snow_amount_curve = SubResource("Curve_gt3je")
 round_duration = 120.0
 stats_cam = NodePath("../../StatsCam")
 bus_end_pos = NodePath("../../BusEndPos")
 bus = NodePath("../../Bus")
 metadata/_edit_use_anchors_ = true
+
+[node name="RightSubViewportContainer" parent="HUD/UI" index="6"]
+offset_left = -474.0
+offset_top = -133.0
+offset_right = 0.0
+offset_bottom = 133.0
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_d1ilt")

@@ -1,4 +1,4 @@
-[gd_resource type="PhysicsMaterial" format=3 uid="uid://dbp7e2glr7d6a"]
+[gd_resource type="PhysicsMaterial" load_steps=0 format=3 uid="uid://dbp7e2glr7d6a"]
 
 [resource]
 rough = true

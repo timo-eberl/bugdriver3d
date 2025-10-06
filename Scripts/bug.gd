@@ -15,6 +15,13 @@ static var bugs_in_car_counter := 0
 @onready var ice_block_scene : PackedScene = preload("res://Scenes/bugs/ice_block.tscn")
 @onready var ui : UI
 
+@onready var whooshes : Array[AudioStream] = [preload("res://Sound/sfx_woosh1.wav"), preload("res://Sound/sfx_woosh2.wav"), preload("res://Sound/sfx_woosh3.wav")]
+@onready var collect_sound : AudioStream = preload("res://Sound/sfx_bugcollected.wav")
+
+@export var picked_up_voices : Array[AudioStream]
+
+
+
 enum BugType { LADYBUG }
 
 var m_bus : Bus
@@ -32,6 +39,8 @@ var frozen := false
 
 func collect(bus: Bus) -> void:
 	if idle:
+		AudioPlayer.play_sound(global_position, whooshes.pick_random(), -22, randf_range(0.9, 1.1))
+		AudioPlayer.play_sound_global(collect_sound, -15, randf_range(0.9, 1.1))
 		self.custom_integrator = true
 		m_bus = bus
 		lerping = true
@@ -40,6 +49,8 @@ func collect(bus: Bus) -> void:
 
 func stop_collecting() -> void:
 	if lerping:
+		if picked_up_voices.size() > 0:
+			AudioPlayer.play_sound(global_position, picked_up_voices.pick_random(), -15, randf_range(1.1, 1.5), 50.0)
 		lerping = false
 		in_car = true
 		bugs_in_car_counter += 1
@@ -77,8 +88,6 @@ func save_idle():
 		self.angular_damp = 0.0
 
 func _ready() -> void:
-	ui = get_tree().root.get_node("Main/HUD/UI")
-	
 	self.physics_material_override = physics_material_initial
 	self.contact_monitor = true
 	self.max_contacts_reported = 5
@@ -93,7 +102,9 @@ func _ready() -> void:
 	self.collision_layer = coll_layer
 	self.collision_mask = coll_mask
 	
-	ui.round_over.connect(_on_round_over)
+	ui = get_tree().root.get_node("Main/HUD/UI")
+	if ui:
+		ui.round_over.connect(_on_round_over)
 
 func _on_round_over():
 	if !saved_idle and !save_lerping:

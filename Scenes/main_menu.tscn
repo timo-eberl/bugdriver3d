@@ -462,6 +462,15 @@ text = "Highscore:"
 
 [node name="FullscreenButton" parent="CanvasLayer/UI" instance=ExtResource("10_vtepg")]
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.994
+anchor_top = 0.989
+anchor_right = 0.994
+anchor_bottom = 0.989
+offset_left = -22.156006
+offset_top = -22.074005
+offset_right = -0.15600586
+offset_bottom = -0.07400513
 
 [node name="BlackBorder" type="Panel" parent="CanvasLayer"]
 material = SubResource("CanvasItemMaterial_yhxw7")

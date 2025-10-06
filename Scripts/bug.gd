@@ -10,6 +10,13 @@ class_name Bug
 
 @onready var splatter_scene : PackedScene = preload("res://Effects/splatter.tscn")
 
+@onready var whooshes : Array[AudioStream] = [preload("res://Sound/sfx_woosh1.wav"), preload("res://Sound/sfx_woosh2.wav"), preload("res://Sound/sfx_woosh3.wav")]
+@onready var collect_sound : AudioStream = preload("res://Sound/sfx_bugcollected.wav")
+
+@export var picked_up_voices : Array[AudioStream]
+
+
+
 enum BugType { LADYBUG }
 
 var m_bus : Bus
@@ -26,6 +33,8 @@ var saved_idle := false
 
 func collect(bus: Bus) -> void:
 	if idle:
+		AudioPlayer.play_sound(global_position, whooshes.pick_random(), -22, randf_range(0.9, 1.1))
+		AudioPlayer.play_sound_global(collect_sound, -15, randf_range(0.9, 1.1))
 		self.custom_integrator = true
 		m_bus = bus
 		lerping = true
@@ -34,6 +43,8 @@ func collect(bus: Bus) -> void:
 
 func stop_collecting() -> void:
 	if lerping:
+		if picked_up_voices.size() > 0:
+			AudioPlayer.play_sound(global_position, picked_up_voices.pick_random(), -15, randf_range(1.1, 1.5), 50.0)
 		lerping = false
 		in_car = true
 		self.custom_integrator = false

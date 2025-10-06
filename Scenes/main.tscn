@@ -542,7 +542,8 @@ mushroom_bounce_strength = 100.0
 drift_friction_slip = 0.3
 damping_factor = 5.0
 squished_mushroom_scale = Vector3(1.2, 1.2, 1.2)
-boost_energy_cost = 1.0
+boost_energy_cost = 0.25
+magnet_energy_cost = 0.5
 battery_charge_speed = 0.1
 
 [node name="CameraTarget" type="Node3D" parent="Bus"]

@@ -15,6 +15,7 @@ signal bug_collected
 @onready var track_particles_4: GPUParticles3D = $TrackParticles4
 @onready var cage_area: Area3D = $CageArea
 @onready var boost_particles: GPUParticles3D = $BoostParticles
+@onready var magnet_particles: GPUParticles3D = $MagnetParticles
 
 @onready var camera_controller : CameraController = $"../CameraBase"
 
@@ -48,7 +49,10 @@ var active_tweens : Array[Object]
 
 var battery_charge := 1.0 
 @export var boost_energy_cost := 0.02
+@export var magnet_energy_cost := 0.04
 @export var battery_charge_speed := 0.01
+
+var is_magnetizing := false
 
 #@export var engine_force_curve : Curve
 var status_effects := {
@@ -187,7 +191,12 @@ func _process(delta: float) -> void:
 	
 	boost_particles.emitting = Input.is_action_pressed("boost") && battery_charge > boost_energy_cost * delta
 	
-	if not Input.is_action_pressed("boost"):
+	is_magnetizing = Input.is_action_pressed("magnet") && battery_charge > magnet_energy_cost * delta
+	magnet_particles.emitting = is_magnetizing
+	if is_magnetizing:
+		battery_charge = max(0.0, battery_charge - magnet_energy_cost * delta)
+	
+	if not Input.is_action_pressed("boost") and not is_magnetizing:
 		battery_charge = min(1.0, battery_charge + battery_charge_speed * delta)
 	
 	%UI.update_battery_charge(battery_charge)

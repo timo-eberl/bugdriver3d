@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://c1mcut5etl88c"]
 
-[ext_resource type="Shader" path="res://Shaders/snow_covered.gdshader" id="1_528a5"]
+[ext_resource type="Shader" uid="uid://c0vaptt85qt8j" path="res://Shaders/snow_covered.gdshader" id="1_528a5"]
 [ext_resource type="Texture2D" uid="uid://xp7r2w8s8elg" path="res://Models/textures/treestump.png" id="2_4d6mx"]
 
 [sub_resource type="Gradient" id="Gradient_4rxip"]

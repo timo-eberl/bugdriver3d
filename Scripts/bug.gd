@@ -20,7 +20,9 @@ static var bugs_in_car_counter := 0
 
 @export var picked_up_voices : Array[AudioStream]
 
+@export var killed_voices : Array[AudioStream]
 
+@export var saved_voices : Array[AudioStream]
 
 enum BugType { LADYBUG }
 
@@ -75,6 +77,7 @@ func save(target: Node3D):
 
 func save_idle():
 	if save_lerping:
+		AudioPlayer.play_rescue_sound(saved_voices.pick_random())
 		save_lerping = false
 		saved_idle = true
 		self.custom_integrator = false
@@ -159,6 +162,8 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 func _on_body_entered(body: PhysicsBody3D) -> void:
 	var is_ground := body.get_collision_layer_value(1)
 	if is_ground and in_car:
+		if killed_voices.size() > 0:
+			AudioPlayer.play_sound(m_bus.global_position, killed_voices.pick_random(), -15, randf_range(1.1, 1.5), 50.0)
 		var splatter : Node3D = splatter_scene.instantiate()
 		get_tree().root.add_child(splatter)
 		splatter.global_position = self.global_position

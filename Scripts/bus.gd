@@ -57,7 +57,9 @@ var battery_charge := 1.0
 
 @onready var engine_sound: AudioStreamPlayer3D = $EngineSounds
 @onready var boost_sound: AudioStreamPlayer3D = $BoostSounds
+@onready var mud_sound: AudioStreamPlayer3D = $MudSounds
 var boost_sound_target:= -80
+var mud_sound_target:= -80
 
 
 var is_magnetizing := false
@@ -82,6 +84,7 @@ func _physics_process(delta: float) -> void:
 	var speed := linear_velocity.length()
 	engine_sound.pitch_scale = clampf(speed / 5.0, 0.4, 3.0)
 	boost_sound.volume_db = lerpf(boost_sound.volume_db, boost_sound_target, delta * 50)
+	mud_sound.volume_db = lerpf(mud_sound.volume_db, mud_sound_target, delta * 10)
 	if Input.is_action_pressed("accelerate"):
 		@warning_ignore("confusable_local_declaration")
 		var t = speed / acceleration_max_speed
@@ -212,6 +215,11 @@ func _process(delta: float) -> void:
 	
 	boost_particles.emitting = Input.is_action_pressed("boost") && battery_charge > boost_energy_cost * delta
 	mud_particles.emitting = !status_effects[StatusEffects.StatusEffect.MUD].is_empty() && speed > 1.0
+	
+	if  !status_effects[StatusEffects.StatusEffect.MUD].is_empty() && speed > 1.0:
+		mud_sound_target = -16
+	else: 
+		mud_sound_target = -80
 	
 	is_magnetizing = Input.is_action_pressed("magnet") && battery_charge > magnet_energy_cost * delta
 	magnet_particles.emitting = is_magnetizing

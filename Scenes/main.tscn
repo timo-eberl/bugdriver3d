@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=168 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://b61i8gmml5tia" path="res://Scenes/bugs/beetle.tscn" id="7_r33sp"]
 [ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
-[ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
 [ext_resource type="PackedScene" uid="uid://rqp4fspcmnvf" path="res://Scenes/bugs/butterfly.tscn" id="8_hdf80"]
 [ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
 [ext_resource type="Texture2D" uid="uid://duigvoybihip" path="res://Models/textures/particle.png" id="9_fevyy"]
@@ -30,9 +29,7 @@
 [ext_resource type="Material" uid="uid://c1mcut5etl88c" path="res://Materials/grass.tres" id="9_kltya"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
 [ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
-[ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="Material" uid="uid://blkltma7offhk" path="res://Materials/xray.tres" id="10_gt3je"]
-[ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
 [ext_resource type="Material" uid="uid://crerv88r4slmf" path="res://Materials/bus.tres" id="13_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://bi7w0jga8q1lc" path="res://Models/textures/splatter2.png" id="15_gt3je"]
@@ -47,7 +44,6 @@
 [ext_resource type="PackedScene" uid="uid://ntubh8ovxsdb" path="res://Scenes/bugs/worm.tscn" id="32_aqgau"]
 [ext_resource type="Material" uid="uid://coecu8giikt8b" path="res://Materials/color_shift_popst.tres" id="34_aa8k8"]
 [ext_resource type="PackedScene" uid="uid://dvvufqg7r1c02" path="res://Effects/gore.tscn" id="40_8cuat"]
-[ext_resource type="PackedScene" uid="uid://b6x0yw6237lud" path="res://Effects/splatter.tscn" id="41_o1aky"]
 [ext_resource type="PackedScene" uid="uid://b6x0yw6237lud" path="res://Effects/splatter.tscn" id="41_o1aky"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_536cc"]
@@ -1588,7 +1584,6 @@ environment = ExtResource("9_b3802")
 camera_attributes = SubResource("CameraAttributesPractical_jjgbg")
 script = ExtResource("15_pdsj5")
 color_shift_material = ExtResource("34_aa8k8")
-progress = 1.0
 fog_color_day = Color(0.5294118, 0.53333336, 0.49411765, 1)
 fog_density_day = 0.22
 ambient_light_color_day = Color(0.5716675, 0.33265617, 0.30797753, 1)
@@ -1599,7 +1594,7 @@ fog_density_night = 0.401
 adjustment_saturation_night = 0.896
 ambient_light_color_night = Color(0.4308712, 0.5802055, 0.84968245, 1)
 ambient_light_energy_night = 2.047
-color_shift_night = Color(0.45882353, 0.78431374, 1, 1)
+color_shift_night = Color(0.48081177, 0.7931939, 1, 1)
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -43.14442, 0)

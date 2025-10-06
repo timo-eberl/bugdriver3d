@@ -641,7 +641,7 @@ omni_range = 10.0
 omni_attenuation = 0.578
 
 [node name="Headlight" type="SpotLight3D" parent="Bus"]
-transform = Transform3D(0.64788055, 0, 0.7617419, 0, 1, 0, -0.7617419, 0, 0.64788055, 0.34501573, 0.35169947, 1.5332522)
+transform = Transform3D(-0.9848077, 0, -0.17364822, 0, 1, 0, 0.17364822, 0, -0.9848077, 0.34501573, 0.35169947, 1.5332522)
 light_color = Color(1, 0.9906667, 0.86, 1)
 light_energy = 1.013
 shadow_enabled = true

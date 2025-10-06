@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
-[ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
+[ext_resource type="Material" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
 [ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://5f3u8dxuhtks" path="res://Scripts/bunker_open_close.gd" id="5_pdsj5"]
-[ext_resource type="Script" uid="uid://dbiseun7es72p" path="res://Scripts/save_area.gd" id="6_pdsj5"]
+[ext_resource type="Script" path="res://Scripts/save_area.gd" id="6_pdsj5"]
 [ext_resource type="Script" uid="uid://bceh0l24k5gvx" path="res://Scripts/small_save_area.gd" id="7_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
@@ -524,6 +524,9 @@ distance_driving = 48.21
 transform = Transform3D(1, -1.0430813e-07, 2.9802322e-08, -1.4901161e-08, 1.0000001, 2.30968e-07, 0, -7.450581e-09, 1, 0, 0, 17)
 fov = 36.2
 size = 15.08
+
+[node name="BusStartingPos" type="Marker3D" parent="."]
+transform = Transform3D(-0.82708055, 0, 0.56208324, 0, 0.99999994, 0, -0.56208324, 0, -0.82708055, -35.863728, 1.3313053, 36.191883)
 
 [node name="Bus" type="VehicleBody3D" parent="."]
 transform = Transform3D(-0.8270806, 0, 0.5620833, 0, 0.99999994, 0, -0.5620833, 0, -0.8270806, -35.863728, 1.3313053, 36.191883)

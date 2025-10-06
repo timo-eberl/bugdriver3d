@@ -20,6 +20,7 @@ signal bug_collected
 @onready var magnet_force_top: Node3D = $MagnetForceTop
 
 @onready var camera_controller : CameraController = $"../CameraBase"
+@onready var bus_starting_pos: Marker3D = $"../BusStartingPos"
 
 @export var engine_force_value := 40.0
 @export var engine_force_braking_value := 100.0
@@ -64,6 +65,11 @@ var status_effects := {
 var _steer_target := 0.0
 var previous_speed := linear_velocity.length()
 @export var drift_particle_bias := 0.1
+
+
+func _ready() -> void:
+	global_position = bus_starting_pos.global_position
+	rotation = bus_starting_pos.rotation
 
 func _physics_process(delta: float) -> void:
 	var speed := linear_velocity.length()
@@ -186,6 +192,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 
 func _process(delta: float) -> void:
+	if global_position.y <= -10.0:
+		global_position = bus_starting_pos.global_position
+		rotation = bus_starting_pos.rotation
 	var speed := linear_velocity.length()
 	var target_t := minf(1.0, inverse_lerp(0, MAX_SPEED, speed * 1.5))
 	var previous := camera_controller.distance_interpolator

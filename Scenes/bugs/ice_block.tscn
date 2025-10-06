@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c00totvqvaea7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e7vdg"]
+size = Vector3(0.592041, 1, 0.68847656)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7vdg"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0, 0, 0, 0.5137255)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+clearcoat_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ip6b8"]
+next_pass = SubResource("StandardMaterial3D_e7vdg")
+transparency = 1
+albedo_color = Color(0.5137255, 1, 1, 0.23921569)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7vdg"]
+material = SubResource("StandardMaterial3D_ip6b8")
+
+[node name="IceBlock" type="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49908996, 0)
+shape = SubResource("BoxShape3D_e7vdg")
+
+[node name="IceMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5891454, 0, 0, 0, 1, 0, 0, 0, 0.6887076, 0, 0, 0)
+mesh = SubResource("BoxMesh_e7vdg")
+skeleton = NodePath("../..")

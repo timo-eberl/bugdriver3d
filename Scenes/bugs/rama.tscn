@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnjkp6t2wpukw"]
+[gd_scene load_steps=8 format=3 uid="uid://bnjkp6t2wpukw"]
 
 [ext_resource type="Script" uid="uid://ykpnuohjvuoa" path="res://Scripts/bug.gd" id="1_3idxe"]
 [ext_resource type="PhysicsMaterial" uid="uid://dlv6yvv3tdkmm" path="res://BugSettings/physics_material_initial.tres" id="2_r1g5v"]
 [ext_resource type="PhysicsMaterial" uid="uid://bnusgqru18hnt" path="res://BugSettings/physics_material_in_car.tres" id="3_gxyjs"]
 [ext_resource type="PhysicsMaterial" uid="uid://bou3qquxj2lgt" path="res://BugSettings/physics_material_saved.tres" id="4_jqx48"]
 [ext_resource type="PackedScene" uid="uid://cvf3sike5g2lt" path="res://Models/characters/rama.fbx" id="5_3idxe"]
+[ext_resource type="PhysicsMaterial" uid="uid://dbp7e2glr7d6a" path="res://BugSettings/physics_material_frozen.tres" id="5_r1g5v"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r1g5v"]
 radius = 0.21659443
@@ -15,6 +16,7 @@ script = ExtResource("1_3idxe")
 physics_material_initial = ExtResource("2_r1g5v")
 physics_material_in_car = ExtResource("3_gxyjs")
 physics_material_saved = ExtResource("4_jqx48")
+physics_material_frozen = ExtResource("5_r1g5v")
 coll_layer = 4
 coll_mask = 7
 metadata/_custom_type_script = "uid://ykpnuohjvuoa"

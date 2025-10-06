@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=163 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgbh7727al1k7" path="res://Scenes/bugs/beetman.tscn" id="3_gt3je"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/bugs/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="Material" uid="uid://dp1mrqxhsmyl2" path="res://Materials/tree_stump.tres" id="4_3pmx8"]
-[ext_resource type="Material" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
+[ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
 [ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://l1apayfrv6uw" path="res://Scenes/bugs/alien.tscn" id="4_kltya"]
 [ext_resource type="Material" uid="uid://bcvn1kt0fva51" path="res://Materials/terrain.tres" id="4_u50mg"]
@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://5f3u8dxuhtks" path="res://Scripts/bunker_open_close.gd" id="5_pdsj5"]
 [ext_resource type="Material" uid="uid://fh1yoewbha1x" path="res://Materials/mushroom.tres" id="6_7k868"]
 [ext_resource type="PackedScene" uid="uid://df2a6v86kgc6v" path="res://Scenes/bugs/bee.tscn" id="6_neg2b"]
-[ext_resource type="Script" path="res://Scripts/save_area.gd" id="6_pdsj5"]
+[ext_resource type="Script" uid="uid://dbiseun7es72p" path="res://Scripts/save_area.gd" id="6_pdsj5"]
 [ext_resource type="Script" uid="uid://bceh0l24k5gvx" path="res://Scripts/small_save_area.gd" id="7_ee4r6"]
 [ext_resource type="Material" uid="uid://beuf1uhpwqodj" path="res://Materials/rock.tres" id="7_hpc6h"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
@@ -538,9 +538,8 @@ scale_curve = SubResource("CurveTexture_hibaj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hibaj"]
 transparency = 1
-blend_mode = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(6.930828e-06, 0.6619765, 0.8979006, 1)
+albedo_color = Color(0, 0.49019608, 0.8980392, 1)
 albedo_texture = ExtResource("9_fevyy")
 metallic_specular = 0.0
 emission_enabled = true
@@ -560,6 +559,9 @@ damping_min = 0.4
 damping_max = 0.4
 scale_min = 0.099999994
 scale_max = 0.29999998
+
+[sub_resource type="QuadMesh" id="QuadMesh_8cuat"]
+size = Vector2(1.5, 1.5)
 
 [sub_resource type="Curve" id="Curve_3pmx8"]
 _data = [Vector2(0, 1), 0.0, -0.20709139, 0, 1, Vector2(1, 0.7929086), -0.20709139, 0.0, 1, 0]
@@ -1493,6 +1495,7 @@ material_override = SubResource("StandardMaterial3D_hibaj")
 lifetime = 0.3
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_pdsj5")
+draw_pass_1 = SubResource("QuadMesh_8cuat")
 
 [node name="ParticleAttractor" type="GPUParticlesAttractorSphere3D" parent="Bus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7939677e-08, 1.4437518, -0.58638036)
@@ -1619,6 +1622,7 @@ metadata/_edit_use_anchors_ = true
 [node name="UI" parent="HUD" node_paths=PackedStringArray("stats_cam", "bus_end_pos", "bus") instance=ExtResource("4_jjvhh")]
 unique_name_in_owner = true
 snow_amount_curve = SubResource("Curve_gt3je")
+round_duration = 20.0
 stats_cam = NodePath("../../StatsCam")
 bus_end_pos = NodePath("../../BusEndPos")
 bus = NodePath("../../Bus")

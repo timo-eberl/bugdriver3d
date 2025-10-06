@@ -4,11 +4,14 @@ class_name Bug
 @export var physics_material_initial : PhysicsMaterial
 @export var physics_material_in_car : PhysicsMaterial
 @export var physics_material_saved : PhysicsMaterial
+@export var physics_material_frozen : PhysicsMaterial
 @export var type : Bug.BugType
 @export_flags_3d_physics var coll_layer : int
 @export_flags_3d_physics var coll_mask : int
 
 @onready var splatter_scene : PackedScene = preload("res://Effects/splatter.tscn")
+@onready var ice_block_scene : PackedScene = preload("res://Scenes/bugs/ice_block.tscn")
+@onready var ui : UI = %UI
 
 enum BugType { LADYBUG }
 
@@ -23,6 +26,7 @@ var lerping := false
 var in_car := false
 var save_lerping := false
 var saved_idle := false
+var frozen := false
 
 func collect(bus: Bus) -> void:
 	if idle:
@@ -82,6 +86,29 @@ func _ready() -> void:
 	
 	self.collision_layer = coll_layer
 	self.collision_mask = coll_mask
+	
+	ui.round_over.connect(_on_round_over)
+
+func _on_round_over():
+	if !saved_idle and !save_lerping:
+		frozen = true
+		idle = false
+		lerping = false
+		in_car = false
+		save_lerping = false
+		saved_idle = false
+		
+		self.axis_lock_linear_x = false
+		self.axis_lock_linear_y = false
+		self.axis_lock_linear_z = false
+		self.axis_lock_angular_x = false
+		self.axis_lock_angular_y = false
+		self.axis_lock_angular_z = false
+		
+		self.physics_material_override = physics_material_frozen
+		
+		var ice : Node3D = ice_block_scene.instantiate()
+		self.add_child(ice)
 
 func _process(delta: float) -> void:
 	if lerping:

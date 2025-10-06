@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://rqp4fspcmnvf"]
+[gd_scene load_steps=8 format=3 uid="uid://rqp4fspcmnvf"]
 
 [ext_resource type="Script" uid="uid://ykpnuohjvuoa" path="res://Scripts/bug.gd" id="1_r5cu6"]
 [ext_resource type="PhysicsMaterial" uid="uid://dlv6yvv3tdkmm" path="res://BugSettings/physics_material_initial.tres" id="2_mfxgm"]
 [ext_resource type="PhysicsMaterial" uid="uid://bnusgqru18hnt" path="res://BugSettings/physics_material_in_car.tres" id="3_gjd2l"]
 [ext_resource type="PhysicsMaterial" uid="uid://bou3qquxj2lgt" path="res://BugSettings/physics_material_saved.tres" id="4_ls55j"]
+[ext_resource type="PhysicsMaterial" uid="uid://dbp7e2glr7d6a" path="res://BugSettings/physics_material_frozen.tres" id="5_mfxgm"]
 [ext_resource type="PackedScene" uid="uid://docdy5i4fpxm" path="res://Models/characters/butterfly.fbx" id="5_r5cu6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mfxgm"]
@@ -15,6 +16,7 @@ script = ExtResource("1_r5cu6")
 physics_material_initial = ExtResource("2_mfxgm")
 physics_material_in_car = ExtResource("3_gjd2l")
 physics_material_saved = ExtResource("4_ls55j")
+physics_material_frozen = ExtResource("5_mfxgm")
 coll_layer = 4
 coll_mask = 7
 metadata/_custom_type_script = "uid://ykpnuohjvuoa"

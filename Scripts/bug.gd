@@ -21,6 +21,7 @@ static var bugs_in_car_counter := 0
 @export var picked_up_voices : Array[AudioStream]
 
 @export var killed_voices : Array[AudioStream]
+@export var blip : AudioStream
 
 @export var saved_voices : Array[AudioStream]
 
@@ -74,6 +75,7 @@ func save(target: Node3D):
 		self.custom_integrator = true
 		self.add_collision_exception_with(m_bus)
 		save_location = target
+		AudioPlayer.play_blip_sound(blip)
 
 func save_idle():
 	if save_lerping:

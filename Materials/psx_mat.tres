@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cdu2kwdkfm6fy"]
 
-[ext_resource type="Shader" uid="uid://bfsaf2c8ndlm6" path="res://Shaders/psx_post.gdshader" id="1_l13p1"]
+[ext_resource type="Shader" path="res://Shaders/psx_post.gdshader" id="1_l13p1"]
 
 [resource]
 shader = ExtResource("1_l13p1")

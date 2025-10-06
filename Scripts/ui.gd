@@ -16,11 +16,13 @@ signal round_over
 @onready var bug_counter: Label = $BugCounter
 @onready var level_music_player: AudioStreamPlayer3D = $"../../LevelMusicPlayer"
 
-@onready var battery_mesh : MeshInstance3D = $LeftSubViewportContainer/SubViewport/HUD3DLeft/Rotation/battery/Cylinder2
-@onready var battery_material : ShaderMaterial = battery_mesh.get_active_material(0)
-
 @onready var left_sub_viewport_container: SubViewportContainer = $LeftSubViewportContainer
 @onready var right_sub_viewport_container: SubViewportContainer = $RightSubViewportContainer
+
+@onready var battery_mesh : MeshInstance3D = $LeftSubViewportContainer/SubViewport/HUD3DLeft/Rotation/battery/Cylinder2
+@onready var battery_material : ShaderMaterial = battery_mesh.get_active_material(0)
+@onready var thermometer_mesh : MeshInstance3D = $RightSubViewportContainer/SubViewport/HUD3DRight/Rotation/thermometer/Cylinder
+@onready var thermometer_material : ShaderMaterial = thermometer_mesh.get_material_override()
 
 @onready var day_night: DayNight = $"../../WorldEnvironment"
 
@@ -34,6 +36,7 @@ signal round_over
 @export var bus := VehicleBody3D
 
 var timer_progress := 0.0
+var current_progress := 0.0
 var running := false
 
 func _ready() -> void:
@@ -49,10 +52,11 @@ func _process(delta: float) -> void:
 			_end_round()
 		else:
 			timer_progress += delta
-			round_timer.text = str(int(round_duration - timer_progress))
-			var current_progress = clampf(timer_progress / round_duration, 0.0, 1.0)
+			#round_timer.text = str(int(round_duration - timer_progress))
+			current_progress = clampf(timer_progress / round_duration, 0.0, 1.0)
 			day_night.progress = current_progress
 			snow_particles.amount_ratio = snow_amount_curve.sample(current_progress)
+			thermometer_material.set_shader_parameter("fill", 1.0 - current_progress)
 
 
 func _input(event: InputEvent) -> void:
@@ -86,8 +90,6 @@ func _start_round() -> void:
 func _end_round() -> void:
 	continue_ui.visible = true
 	running = false
-	
-	#level_music_player.stop()
 	
 	emit_signal("round_over")
 
@@ -130,8 +132,6 @@ func _on_small_save_area_bug_saved(type: Bug.BugType) -> void:
 	match type:
 		Bug.BugType.LADYBUG:
 			Global.score += 50
-		Bug.BugType.BEETMAN:
-			Global.score += 200
 	update_bug_count()
 
 

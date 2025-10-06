@@ -82,7 +82,7 @@ alignment = 1
 
 [node name="TitleLabel" type="Label" parent="CanvasLayer/UI/Margin/VBoxContainer"]
 layout_mode = 2
-text = "Bugbonanza!"
+text = "Bug Driver 3D!"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Margin/VBoxContainer"]
 layout_mode = 2

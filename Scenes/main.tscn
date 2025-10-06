@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=81 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -374,6 +374,27 @@ damping_max = 0.4
 scale_min = 0.099999994
 scale_max = 0.29999998
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gt3je"]
+emission_shape_offset = Vector3(0, 4, 0)
+emission_shape_scale = Vector3(30, 10, 30)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0.19, -1, -1.695)
+spread = 21.7
+initial_velocity_min = 0.099999994
+initial_velocity_max = 4.0
+gravity = Vector3(-6.915, -9.8, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pmx8"]
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_u50mg"]
+material = SubResource("StandardMaterial3D_3pmx8")
+size = Vector2(0.1, 0.1)
+
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jjgbg"]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 15.0
@@ -399,6 +420,10 @@ size = Vector3(5, 2, 5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jjgbg"]
 points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.4410467, -2.4415245, -1, 2.4410467, 2.4415245, -1, -2.4410467, 2.5391855, 1.0238096, -2.5386884, 2.4415245, -1, 2.4410467, -2.459634, -0.8807193, -2.5386884, -2.459634, -0.8807193, 2.5386884, 2.5391855, 1.0238096, 2.5386884, 2.3010283, 1.0238096, -2.5386884, -2.5391855, -0.96009994, -2.5386884, -2.5391855, -0.96009994, 2.5386884, -2.0633678, -0.72195804, -2.5386884, -2.0633678, -0.72195804, 2.5386884)
+
+[sub_resource type="Curve" id="Curve_gt3je"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.9930233, 0.9944206), 3.2296112, 0.0, 0, 0]
+point_count = 2
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_21xkr")
@@ -988,6 +1013,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 2.2199733, -0.
 [node name="MagnetForceBottom" type="Node3D" parent="Bus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0.3361621, -0.5240848)
 
+[node name="SnowParticles" type="GPUParticles3D" parent="Bus"]
+amount = 5000
+lifetime = 2.0
+preprocess = 1.0
+speed_scale = 1.1
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_gt3je")
+draw_pass_1 = SubResource("QuadMesh_u50mg")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.24065903, -0.43210733, 0.86911833, -0.56809473, 0.66332793, 0.48709795, -0.78698874, -0.610966, -0.08584219, 0, 10.2421055, 0)
 light_color = Color(0.7915614, 0.6628314, 0.5337772, 1)
@@ -1081,6 +1115,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="UI" parent="HUD" node_paths=PackedStringArray("stats_cam", "bus_end_pos", "bus") instance=ExtResource("4_jjvhh")]
 unique_name_in_owner = true
+snow_amount_curve = SubResource("Curve_gt3je")
 round_duration = 120.0
 stats_cam = NodePath("../../StatsCam")
 bus_end_pos = NodePath("../../BusEndPos")

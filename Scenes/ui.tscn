@@ -52,6 +52,27 @@ grow_vertical = 0
 theme = ExtResource("2_qdvrb")
 text = "Fullscreen"
 
+[node name="ContinueUI" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="ContinueUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press \"Enter\" to continue to results"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="RoundOverUI" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -59,6 +80,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="RestartLabel" type="MarginContainer" parent="RoundOverUI"]
 layout_mode = 1
@@ -74,7 +96,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="RoundOverUI/RestartLabel/VBoxContainer"]
 layout_mode = 2
-text = "Press \"Enter\" to start over!"
+text = "Press \"R\" to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 

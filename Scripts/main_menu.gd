@@ -2,8 +2,9 @@ extends Node
 
 @onready var cutscene_scene : PackedScene = preload("res://Scenes/cutscene.tscn")
 @onready var ambient_audio_player: AudioStreamPlayer3D = $AmbientAudioPlayer
-@onready var fullscreen_button: Button = $FullscreenButton
-@onready var highscore_label: Label = $UI/HighscoreLabel
+
+@onready var fullscreen_button: Button = $CanvasLayer/UI/FullscreenButton
+@onready var highscore_label: Label = $CanvasLayer/UI/HighscoreLabel
 
 func _ready() -> void:
 	highscore_label.text = str("Highscore: ", Global.highscore)

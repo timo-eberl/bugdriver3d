@@ -6,6 +6,7 @@ signal round_over
 
 @onready var round_timer: Label = $RoundTimer
 #@onready var restart_round_button: Button = $RestartRoundButton
+@onready var continue_ui: Control = $ContinueUI
 @onready var round_over_ui: Control = $RoundOverUI
 @onready var score_label: Label = $RoundOverUI/RestartLabel/VBoxContainer/ScoreLabel
 @onready var highscore_label: Label = $RoundOverUI/RestartLabel/VBoxContainer/HighscoreLabel
@@ -40,9 +41,12 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("restart") and not running:
-		get_tree().reload_current_scene()
-		Global.score = 0
+	if 	event.is_action_pressed("restart") and running || \
+		event.is_action_pressed("restart") and round_over_ui.visible:
+		_restart_game()
+	if event.is_action_pressed("continue") and running == false:
+		continue_ui.visible = false
+		round_over_ui.visible = true
 	if event.is_action_pressed("exit_fullscreen") and Global.fullscreen_enabled:
 		Global.fullscreen_enabled = false
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
@@ -62,11 +66,15 @@ func _start_round() -> void:
 
 
 func _end_round() -> void:
-	round_over_ui.visible = true
+	continue_ui.visible = true
 	running = false
 	
 	level_music_player.stop()
 	
+	emit_signal("round_over")
+
+func _show_results() -> void:
+	round_over_ui.visible = true
 	score_label.text = str("Score: ", Global.score)
 	
 	if Global.highscore < Global.score:
@@ -74,8 +82,10 @@ func _end_round() -> void:
 		Global.save_highscore()
 	
 	highscore_label.text = str("Highscore: ", Global.highscore)
-	
-	emit_signal("round_over")
+
+func _restart_game() -> void:
+	get_tree().reload_current_scene()
+	Global.score = 0
 
 
 func update_bug_count() -> void:

@@ -65,6 +65,7 @@
 [ext_resource type="Material" uid="uid://carenrp4dpcqg" path="res://Models/tree.017.tres" id="34_ihvwq"]
 [ext_resource type="Material" uid="uid://c1w1e66ld2mdr" path="res://Models/tree.018.tres" id="35_k8rh3"]
 [ext_resource type="Material" uid="uid://455bm3uh81xg" path="res://Models/Leaf.tres" id="36_55idt"]
+[ext_resource type="AudioStream" uid="uid://ccdhvooot5t8j" path="res://Sound/mus_level.wav" id="39_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://dvvufqg7r1c02" path="res://Effects/gore.tscn" id="40_8cuat"]
 [ext_resource type="PackedScene" uid="uid://b6x0yw6237lud" path="res://Effects/splatter.tscn" id="41_o1aky"]
 [ext_resource type="AudioStream" uid="uid://b1cv7n6pwly1a" path="res://Sound/sndMagnetPull.wav" id="53_ovafv"]
@@ -10465,7 +10466,7 @@ stream = ExtResource("10_d1ilt")
 volume_db = 50.0
 
 [node name="LevelMusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("22_gt3je")
+stream = ExtResource("39_kqrg6")
 
 [node name="BatteryRechargePickup" parent="." instance=ExtResource("20_hibaj")]
 transform = Transform3D(0.99507546, 0.036495198, 0.09215735, -0.024632905, 0.9916326, -0.1267205, -0.09601092, 0.12382636, 0.9876482, -6.684924, 3.3820033, 13.299416)

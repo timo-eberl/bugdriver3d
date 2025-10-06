@@ -123,7 +123,25 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://Models/tree.tres",
 "use_external/path": "uid://c35124i56wctn"
-}
+},
+"tree.001": null,
+"tree.002": null,
+"tree.003": null,
+"tree.004": null,
+"tree.005": null,
+"tree.006": null,
+"tree.007": null,
+"tree.008": null,
+"tree.009": null,
+"tree.010": null,
+"tree.011": null,
+"tree.012": null,
+"tree.013": null,
+"tree.014": null,
+"tree.015": null,
+"tree.016": null,
+"tree.017": null,
+"tree.018": null
 }
 }
 blender/nodes/visible=0

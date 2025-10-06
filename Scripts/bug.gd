@@ -11,6 +11,8 @@ enum BugType { LADYBUG, BEETMAN }
 var m_bus : Bus
 var save_location : Node3D
 
+var actually_in_cage := false
+
 # state
 var idle := true
 var lerping := false
@@ -69,8 +71,6 @@ func _process(delta: float) -> void:
 		var t := inverse_lerp(0.0, 20.0, m_bus.linear_velocity.length())
 		t = pow(t, 1.8)
 		var lerp_speed := lerpf(1.0, 4.0, t)
-		print("m_bus.linear_velocity.length(): ", m_bus.linear_velocity.length())
-		print("lerp_speed: ", lerp_speed)
 		self.global_position = lerp(self.global_position, target, delta * lerp_speed)
 	if save_lerping:
 		var target := save_location.global_position
@@ -78,6 +78,14 @@ func _process(delta: float) -> void:
 		var target_rotation := save_location.global_rotation
 		target_rotation.y = self.global_rotation.y
 		self.global_rotation = lerp(self.global_rotation, target_rotation, delta * 4.0)
+
+func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	if in_car and m_bus.is_magnetizing:
+		var magnet_center := m_bus.magnet_force_bottom.global_position if actually_in_cage \
+			else m_bus.magnet_force_top.global_position
+		var dir := (magnet_center - self.global_position).normalized()
+		var dist := magnet_center.distance_to(self.global_position)
+		state.apply_central_force(dir * 20.0 * maxf(1.0, dist))
 
 func _on_body_entered(body: PhysicsBody3D) -> void:
 	var is_ground := body.get_collision_layer_value(1)

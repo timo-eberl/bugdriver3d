@@ -16,6 +16,8 @@ signal bug_collected
 @onready var cage_area: Area3D = $CageArea
 @onready var boost_particles: GPUParticles3D = $BoostParticles
 @onready var magnet_particles: GPUParticles3D = $MagnetParticles
+@onready var magnet_force_bottom: Node3D = $MagnetForceBottom
+@onready var magnet_force_top: Node3D = $MagnetForceTop
 
 @onready var camera_controller : CameraController = $"../CameraBase"
 
@@ -229,3 +231,12 @@ func remove_status_effect(effect : StatusEffects.StatusEffect, body : String) ->
 	
 func recharge_battery(amount : float) -> void:
 	battery_charge = min(1.0, battery_charge + amount)
+
+
+func _on_actual_cage_area_body_entered(body: Node3D) -> void:
+	if body is Bug:
+		body.actually_in_cage = true
+
+func _on_actual_cage_area_body_exited(body: Node3D) -> void:
+	if body is Bug:
+		body.actually_in_cage = false

@@ -41,6 +41,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if bus.global_position.y <= -25.0:
+		_restart_game()
 	if running:
 		if timer_progress >= round_duration:
 			_end_round()

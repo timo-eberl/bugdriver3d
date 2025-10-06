@@ -19,7 +19,15 @@ signal round_over
 @onready var battery_mesh : MeshInstance3D = $LeftSubViewportContainer/SubViewport/HUD3DLeft/Rotation/battery/Cylinder2
 @onready var battery_material : ShaderMaterial = battery_mesh.get_active_material(0)
 
+@onready var left_sub_viewport_container: SubViewportContainer = $LeftSubViewportContainer
+@onready var right_sub_viewport_container: SubViewportContainer = $RightSubViewportContainer
+
+
 @export var round_duration := 60.0
+
+@export var stats_cam := Camera3D
+@export var bus_end_pos := Marker3D
+@export var bus := VehicleBody3D
 
 var timer_progress := 0.0
 var running := false
@@ -44,9 +52,11 @@ func _input(event: InputEvent) -> void:
 	if 	event.is_action_pressed("restart") and running || \
 		event.is_action_pressed("restart") and round_over_ui.visible:
 		_restart_game()
-	if event.is_action_pressed("continue") and running == false:
+	if event.is_action_pressed("continue") and not running \
+		and continue_ui.visible and not round_over_ui.visible:
 		continue_ui.visible = false
 		round_over_ui.visible = true
+		_show_results()
 	if event.is_action_pressed("exit_fullscreen") and Global.fullscreen_enabled:
 		Global.fullscreen_enabled = false
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
@@ -54,6 +64,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _start_round() -> void:
+	continue_ui.visible = false
 	round_over_ui.visible = false
 	round_timer.text = str(int(round_duration))
 	timer_progress = 0.0
@@ -75,13 +86,23 @@ func _end_round() -> void:
 
 func _show_results() -> void:
 	round_over_ui.visible = true
+	round_timer.visible = false
+	bug_counter.visible = false
+	left_sub_viewport_container.visible = false
+	right_sub_viewport_container.visible = false
+	
 	score_label.text = str("Score: ", Global.score)
+	
+	stats_cam.current = true
 	
 	if Global.highscore < Global.score:
 		Global.highscore = Global.score
 		Global.save_highscore()
 	
 	highscore_label.text = str("Highscore: ", Global.highscore)
+	
+	bus.global_position = bus_end_pos.global_position
+	bus.rotation = bus_end_pos.rotation
 
 func _restart_game() -> void:
 	get_tree().reload_current_scene()

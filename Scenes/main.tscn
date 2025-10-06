@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dfhe4w70omrjt" path="res://Scripts/camera.gd" id="2_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/ladybug.tscn" id="3_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="3_kry3j"]
-[ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
+[ext_resource type="Material" path="res://Models/BunkerDoor.tres" id="4_hibaj"]
 [ext_resource type="PackedScene" uid="uid://dqx60vrjgj505" path="res://Scenes/ui.tscn" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://5f3u8dxuhtks" path="res://Scripts/bunker_open_close.gd" id="5_pdsj5"]
 [ext_resource type="Script" uid="uid://dbiseun7es72p" path="res://Scripts/save_area.gd" id="6_pdsj5"]
@@ -885,9 +885,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="HUD" instance=ExtResource("4_jjvhh")]
+[node name="UI" parent="HUD" node_paths=PackedStringArray("stats_cam", "bus_end_pos", "bus") instance=ExtResource("4_jjvhh")]
 unique_name_in_owner = true
-round_duration = 300.0
+round_duration = 120.0
+stats_cam = NodePath("../../StatsCam")
+bus_end_pos = NodePath("../../BusEndPos")
+bus = NodePath("../../Bus")
 metadata/_edit_use_anchors_ = true
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
@@ -901,6 +904,12 @@ max_db = 6.0
 
 [node name="BatteryRechargePickup" parent="." instance=ExtResource("20_hibaj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.667772, 1.354919, 54.576122)
+
+[node name="StatsCam" type="Camera3D" parent="."]
+transform = Transform3D(-0.94551855, -0.05261305, 0.32128873, 0, 0.98685575, 0.16160381, -0.32556808, 0.15279943, -0.9330904, -45.866, 8.639, 60.883)
+
+[node name="BusEndPos" type="Marker3D" parent="."]
+transform = Transform3D(0.11320324, 0, 0.9935719, 0, 1, 0, -0.9935719, 0, 0.11320324, -55.758, 1, 76.492)
 
 [connection signal="body_entered" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_exited"]

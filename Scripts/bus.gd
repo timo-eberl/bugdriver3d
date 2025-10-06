@@ -217,3 +217,6 @@ func add_status_effect(new_effect : StatusEffects.StatusEffect, body : String) -
 func remove_status_effect(effect : StatusEffects.StatusEffect, body : String) -> void: 
 	var effect_id = status_effects[effect].find(body)
 	status_effects[effect].pop_at(effect_id)
+	
+func recharge_battery(amount : float) -> void:
+	battery_charge = min(1.0, battery_charge + amount)

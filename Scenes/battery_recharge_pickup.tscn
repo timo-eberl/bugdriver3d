@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://rsuwbbfgm2xk"]
+
+[ext_resource type="Script" uid="uid://bvawg601jn0kb" path="res://Scripts/battery_recharge_pickup.gd" id="1_wxe7c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pdsj5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ee4r6"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="BatteryRechargePickup" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_pdsj5")
+script = ExtResource("1_wxe7c")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("ConvexPolygonShape3D_ee4r6")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=65 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -19,8 +19,6 @@
 [ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="10_fevyy"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="11_6iyac"]
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="11_hibaj"]
-[ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="12_wsu2k"]
-[ext_resource type="PackedScene" uid="uid://1aw8p04lhqdo" path="res://Scenes/hud_3d_right.tscn" id="13_k12tt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sp2aa"]
 _surfaces = [{
@@ -543,6 +541,8 @@ mushroom_bounce_strength = 100.0
 drift_friction_slip = 0.3
 damping_factor = 5.0
 squished_mushroom_scale = Vector3(1.2, 1.2, 1.2)
+boost_energy_cost = 1.0
+battery_charge_speed = 0.1
 
 [node name="CameraTarget" type="Node3D" parent="Bus"]
 transform = Transform3D(0.17682713, 0.597054, -0.78246975, 1.862645e-08, 0.7949973, 0.6066129, 0.98424184, -0.10726559, 0.14057714, 0, 0.3639921, 0)
@@ -884,52 +884,9 @@ metadata/_edit_use_anchors_ = true
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="HUD" instance=ExtResource("4_jjvhh")]
+unique_name_in_owner = true
 round_duration = 300.0
 metadata/_edit_use_anchors_ = true
-
-[node name="LeftSubViewportContainer" type="SubViewportContainer" parent="HUD"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -133.0
-offset_right = 474.0
-offset_bottom = 133.0
-grow_vertical = 2
-stretch = true
-metadata/_edit_use_anchors_ = true
-
-[node name="SubViewport" type="SubViewport" parent="HUD/LeftSubViewportContainer"]
-own_world_3d = true
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(474, 266)
-render_target_update_mode = 4
-
-[node name="HUD3DLeft" parent="HUD/LeftSubViewportContainer/SubViewport" instance=ExtResource("12_wsu2k")]
-
-[node name="RightSubViewportContainer" type="SubViewportContainer" parent="HUD"]
-visible = false
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -474.0
-offset_top = -133.0
-offset_bottom = 133.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 8
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="HUD/RightSubViewportContainer"]
-own_world_3d = true
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(474, 266)
-render_target_update_mode = 0
-
-[node name="HUD3DRight" parent="HUD/RightSubViewportContainer/SubViewport" instance=ExtResource("13_k12tt")]
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_d1ilt")

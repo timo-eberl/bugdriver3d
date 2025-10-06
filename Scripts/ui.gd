@@ -15,6 +15,9 @@ signal round_over
 @onready var bug_counter: Label = $BugCounter
 @onready var level_music_player: AudioStreamPlayer3D = $"../../LevelMusicPlayer"
 
+@onready var battery_mesh : MeshInstance3D = $LeftSubViewportContainer/SubViewport/HUD3DLeft/Rotation/battery/Cylinder2
+@onready var battery_material : ShaderMaterial = battery_mesh.get_active_material(0)
+
 @export var round_duration := 60.0
 
 var timer_progress := 0.0
@@ -92,3 +95,7 @@ func _on_small_save_area_bug_saved(type: Bug.BugType) -> void:
 		Bug.BugType.BEETMAN:
 			Global.score += 200
 	update_bug_count()
+
+
+func update_battery_charge(new_charge : float) -> void:
+	battery_material.set_shader_parameter("fill", new_charge)

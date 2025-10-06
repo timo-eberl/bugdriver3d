@@ -46,6 +46,10 @@ var slowdown_timer := 3.0
 @export var squished_mushroom_scale := Vector3(0.95, 0.95, 0.95)
 var active_tweens : Array[Object]
 
+var battery_charge := 1.0 
+@export var boost_energy_cost := 0.02
+@export var battery_charge_speed := 0.01
+
 #@export var engine_force_curve : Curve
 var status_effects := {
 	StatusEffects.StatusEffect.MUD: []
@@ -128,11 +132,13 @@ func _physics_process(delta: float) -> void:
 	previous_speed = linear_velocity.length()
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	if Input.is_action_pressed("boost"):
+	if Input.is_action_pressed("boost") && battery_charge > boost_energy_cost * get_process_delta_time():
 		if not status_effects[StatusEffects.StatusEffect.MUD].is_empty():
 			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 1000.0)
 		else:
 			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 3000.0)
+		
+		battery_charge = max(0.0, battery_charge - boost_energy_cost * get_process_delta_time())
 	
 	state.linear_velocity = linear_velocity.limit_length(MAX_SPEED)
 	if slowdown_timer < 0.0 and linear_velocity.length() < 1.0:
@@ -177,7 +183,12 @@ func _process(delta: float) -> void:
 	var previous := camera_controller.distance_interpolator
 	camera_controller.distance_interpolator = lerp(previous, target_t, delta)
 	
-	boost_particles.emitting = Input.is_action_pressed("boost")
+	boost_particles.emitting = Input.is_action_pressed("boost") && battery_charge > boost_energy_cost * delta
+	
+	if not Input.is_action_pressed("boost"):
+		battery_charge = min(1.0, battery_charge + battery_charge_speed * delta)
+	
+	%UI.update_battery_charge(battery_charge)
 
 func _on_collect_area_body_entered(body: Node3D) -> void:
 	if body is Bug:

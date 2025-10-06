@@ -14,7 +14,7 @@ signal round_over
 @onready var fullscreen_button: Button = $FullscreenButton
 
 @onready var bug_counter: Label = $BugCounter
-@onready var level_music_player: AudioStreamPlayer3D = $"../../LevelMusicPlayer"
+@onready var level_music_player: AudioStreamPlayer = $"../../LevelMusicPlayer"
 
 @onready var left_sub_viewport_container: SubViewportContainer = $LeftSubViewportContainer
 @onready var right_sub_viewport_container: SubViewportContainer = $RightSubViewportContainer

@@ -55,6 +55,11 @@ var battery_charge := 1.0
 @export var magnet_energy_cost := 0.04
 @export var battery_charge_speed := 0.01
 
+@onready var engine_sound: AudioStreamPlayer3D = $EngineSounds
+@onready var boost_sound: AudioStreamPlayer3D = $BoostSounds
+var boost_sound_target:= -80
+
+
 var is_magnetizing := false
 
 #@export var engine_force_curve : Curve
@@ -75,7 +80,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var speed := linear_velocity.length()
-	
+	engine_sound.pitch_scale = clampf(speed / 5.0, 0.4, 3.0)
+	boost_sound.volume_db = lerpf(boost_sound.volume_db, boost_sound_target, delta * 50)
 	if Input.is_action_pressed("accelerate"):
 		@warning_ignore("confusable_local_declaration")
 		var t = speed / acceleration_max_speed
@@ -148,11 +154,13 @@ func _physics_process(delta: float) -> void:
 	previous_speed = linear_velocity.length()
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	boost_sound_target = -80
 	if Input.is_action_pressed("boost") && battery_charge > boost_energy_cost * get_process_delta_time():
+		boost_sound_target = -30
 		if not status_effects[StatusEffects.StatusEffect.MUD].is_empty():
-			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 2000.0)
+			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 1000.0)
 		else:
-			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 3000.0)
+			state.apply_central_force((self.global_basis * -Vector3.FORWARD) * 2000.0)
 		
 		battery_charge = max(0.0, battery_charge - boost_energy_cost * get_process_delta_time())
 	

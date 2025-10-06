@@ -16,21 +16,8 @@ grow_vertical = 2
 script = ExtResource("1_jxero")
 round_duration = 180.0
 
-[node name="FullscreenButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -87.0
-offset_top = -31.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("2_qdvrb")
-text = "Fullscreen"
-
 [node name="RoundTimer" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.44300002
@@ -42,15 +29,16 @@ text = "0"
 
 [node name="BugCounter" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -137.0
-offset_bottom = 83.0
-grow_horizontal = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.5
+offset_right = 68.5
+offset_bottom = 17.0
+grow_horizontal = 2
 theme = ExtResource("2_qdvrb")
 text = "0"
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [node name="ContinueUI" type="Control" parent="."]
 visible = false
@@ -114,6 +102,20 @@ text = "Highscore : 000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="FullscreenButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_qdvrb")
+text = "⌞⌝"
+
 [node name="LeftSubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
 anchors_preset = 4
@@ -123,6 +125,7 @@ offset_top = -133.0
 offset_right = 474.0
 offset_bottom = 133.0
 grow_vertical = 2
+mouse_filter = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="LeftSubViewportContainer"]
@@ -147,6 +150,7 @@ offset_bottom = 133.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
+mouse_filter = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="RightSubViewportContainer"]
@@ -159,6 +163,3 @@ render_target_update_mode = 4
 [node name="HUD3DRight" parent="RightSubViewportContainer/SubViewport" instance=ExtResource("4_q7pk6")]
 
 [connection signal="pressed" from="FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
-
-[editable path="LeftSubViewportContainer/SubViewport/HUD3DLeft"]
-[editable path="LeftSubViewportContainer/SubViewport/HUD3DLeft/HUD3DSetup"]

@@ -45,11 +45,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -87.0
+offset_left = -31.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("2_vlwh7")
-text = "Fullscreen"
+text = "⌞⌝
+"
 
 [connection signal="pressed" from="FullscreenButton" to="." method="_on_fullscreen_button_pressed"]

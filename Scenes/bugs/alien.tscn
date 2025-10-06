@@ -4,6 +4,7 @@
 [ext_resource type="PhysicsMaterial" uid="uid://dlv6yvv3tdkmm" path="res://BugSettings/physics_material_initial.tres" id="2_6586h"]
 [ext_resource type="PhysicsMaterial" uid="uid://bnusgqru18hnt" path="res://BugSettings/physics_material_in_car.tres" id="3_mht76"]
 [ext_resource type="PhysicsMaterial" uid="uid://bou3qquxj2lgt" path="res://BugSettings/physics_material_saved.tres" id="4_yxloj"]
+[ext_resource type="PhysicsMaterial" uid="uid://dbp7e2glr7d6a" path="res://BugSettings/physics_material_frozen.tres" id="5_6586h"]
 [ext_resource type="PackedScene" uid="uid://bta3vcebw78bk" path="res://Models/characters/alien.fbx" id="5_ioila"]
 [ext_resource type="AudioStream" uid="uid://co1q0trcc1vd7" path="res://Sound/dialogues_gettingpickedup/speech2_AREYOUBUG.wav" id="5_u5jb4"]
 [ext_resource type="AudioStream" uid="uid://bo4udc83jnhl1" path="res://Sound/dialogues_gettingpickedup/speech2_BUGCITYTIME.wav" id="6_jm4gh"]
@@ -68,6 +69,7 @@ script = ExtResource("1_ioila")
 physics_material_initial = ExtResource("2_6586h")
 physics_material_in_car = ExtResource("3_mht76")
 physics_material_saved = ExtResource("4_yxloj")
+physics_material_frozen = ExtResource("5_6586h")
 coll_layer = 4
 coll_mask = 7
 picked_up_voices = Array[AudioStream]([ExtResource("5_u5jb4"), ExtResource("6_jm4gh"), ExtResource("7_rmb8g"), ExtResource("8_lmsl2"), ExtResource("9_mthmq"), ExtResource("10_32hkl"), ExtResource("11_cwk2h"), ExtResource("12_81bid"), ExtResource("13_7sgcl"), ExtResource("14_eqfbj"), ExtResource("15_n36rp"), ExtResource("16_7mpiq"), ExtResource("17_x47rw"), ExtResource("18_etlon"), ExtResource("19_io77q"), ExtResource("20_3wo4p"), ExtResource("21_86r1w"), ExtResource("22_lflog"), ExtResource("23_w6s2f"), ExtResource("24_hst7u"), ExtResource("25_elmgi"), ExtResource("26_1t0o6"), ExtResource("27_46x87"), ExtResource("28_uj5a8"), ExtResource("29_q7xkr"), ExtResource("30_ej7uy"), ExtResource("31_ijnjv"), ExtResource("32_vmmnb"), ExtResource("33_cpmmn"), ExtResource("34_h53j1"), ExtResource("35_kwhpv"), ExtResource("36_guw25"), ExtResource("37_pbe54"), ExtResource("38_32550"), ExtResource("39_4b50b"), ExtResource("40_5aeru"), ExtResource("41_s6sgx"), ExtResource("42_g1or5"), ExtResource("43_lj174"), ExtResource("44_4igkr"), ExtResource("45_4dris"), ExtResource("46_iybw0"), ExtResource("47_mykes"), ExtResource("48_l5y2w"), ExtResource("49_ner0x"), ExtResource("50_5i7at"), ExtResource("51_scert"), ExtResource("52_yowq5"), ExtResource("53_q4l1m"), ExtResource("54_cx71s"), ExtResource("55_jg7g0"), ExtResource("56_x6v22"), ExtResource("57_n6nh1"), ExtResource("8_lmsl2"), ExtResource("9_mthmq"), ExtResource("10_32hkl"), ExtResource("14_eqfbj"), ExtResource("15_n36rp"), ExtResource("16_7mpiq"), ExtResource("17_x47rw"), ExtResource("20_3wo4p"), ExtResource("26_1t0o6"), ExtResource("30_ej7uy"), ExtResource("31_ijnjv"), ExtResource("39_4b50b"), ExtResource("40_5aeru"), ExtResource("41_s6sgx"), ExtResource("45_4dris"), ExtResource("55_jg7g0"), ExtResource("56_x6v22"), ExtResource("57_n6nh1"), ExtResource("44_4igkr"), ExtResource("55_jg7g0"), ExtResource("56_x6v22")])

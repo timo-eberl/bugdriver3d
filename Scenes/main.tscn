@@ -540,9 +540,8 @@ scale_curve = SubResource("CurveTexture_hibaj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hibaj"]
 transparency = 1
-blend_mode = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(6.930828e-06, 0.6619765, 0.8979006, 1)
+albedo_color = Color(0, 0.49019608, 0.8980392, 1)
 albedo_texture = ExtResource("9_fevyy")
 metallic_specular = 0.0
 emission_enabled = true
@@ -562,6 +561,9 @@ damping_min = 0.4
 damping_max = 0.4
 scale_min = 0.099999994
 scale_max = 0.29999998
+
+[sub_resource type="QuadMesh" id="QuadMesh_8cuat"]
+size = Vector2(1.5, 1.5)
 
 [sub_resource type="Curve" id="Curve_3pmx8"]
 _data = [Vector2(0, 1), 0.0, -0.20709139, 0, 1, Vector2(1, 0.7929086), -0.20709139, 0.0, 1, 0]
@@ -1495,6 +1497,7 @@ material_override = SubResource("StandardMaterial3D_hibaj")
 lifetime = 0.3
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_pdsj5")
+draw_pass_1 = SubResource("QuadMesh_8cuat")
 
 [node name="ParticleAttractor" type="GPUParticlesAttractorSphere3D" parent="Bus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7939677e-08, 1.4437518, -0.58638036)
@@ -1636,6 +1639,7 @@ metadata/_edit_use_anchors_ = true
 [node name="UI" parent="HUD" node_paths=PackedStringArray("stats_cam", "bus_end_pos", "bus") instance=ExtResource("4_jjvhh")]
 unique_name_in_owner = true
 snow_amount_curve = SubResource("Curve_gt3je")
+round_duration = 20.0
 stats_cam = NodePath("../../StatsCam")
 bus_end_pos = NodePath("../../BusEndPos")
 bus = NodePath("../../Bus")

@@ -4,11 +4,16 @@ class_name Bug
 @export var physics_material_initial : PhysicsMaterial
 @export var physics_material_in_car : PhysicsMaterial
 @export var physics_material_saved : PhysicsMaterial
+@export var physics_material_frozen : PhysicsMaterial
 @export var type : Bug.BugType
 @export_flags_3d_physics var coll_layer : int
 @export_flags_3d_physics var coll_mask : int
 
+static var bugs_in_car_counter := 0
+
 @onready var splatter_scene : PackedScene = preload("res://Effects/splatter.tscn")
+@onready var ice_block_scene : PackedScene = preload("res://Scenes/bugs/ice_block.tscn")
+@onready var ui : UI
 
 @onready var whooshes : Array[AudioStream] = [preload("res://Sound/sfx_woosh1.wav"), preload("res://Sound/sfx_woosh2.wav"), preload("res://Sound/sfx_woosh3.wav")]
 @onready var collect_sound : AudioStream = preload("res://Sound/sfx_bugcollected.wav")
@@ -30,6 +35,7 @@ var lerping := false
 var in_car := false
 var save_lerping := false
 var saved_idle := false
+var frozen := false
 
 func collect(bus: Bus) -> void:
 	if idle:
@@ -47,6 +53,7 @@ func stop_collecting() -> void:
 			AudioPlayer.play_sound(global_position, picked_up_voices.pick_random(), -15, randf_range(1.1, 1.5), 50.0)
 		lerping = false
 		in_car = true
+		bugs_in_car_counter += 1
 		self.custom_integrator = false
 		self.axis_lock_linear_x = false
 		self.axis_lock_linear_y = false
@@ -60,6 +67,7 @@ func stop_collecting() -> void:
 func save(target: Node3D):
 	if in_car:
 		in_car = false
+		bugs_in_car_counter -= 1
 		save_lerping = true
 		self.custom_integrator = true
 		self.add_collision_exception_with(m_bus)
@@ -80,6 +88,8 @@ func save_idle():
 		self.angular_damp = 0.0
 
 func _ready() -> void:
+	ui = get_tree().root.get_node("Main/HUD/UI")
+	
 	self.physics_material_override = physics_material_initial
 	self.contact_monitor = true
 	self.max_contacts_reported = 5
@@ -93,6 +103,30 @@ func _ready() -> void:
 	
 	self.collision_layer = coll_layer
 	self.collision_mask = coll_mask
+	
+	ui.round_over.connect(_on_round_over)
+
+func _on_round_over():
+	if !saved_idle and !save_lerping:
+		frozen = true
+		idle = false
+		lerping = false
+		in_car = false
+		bugs_in_car_counter -= 1
+		save_lerping = false
+		saved_idle = false
+		
+		self.axis_lock_linear_x = false
+		self.axis_lock_linear_y = false
+		self.axis_lock_linear_z = false
+		self.axis_lock_angular_x = false
+		self.axis_lock_angular_y = false
+		self.axis_lock_angular_z = false
+		
+		self.physics_material_override = physics_material_frozen
+		
+		var ice : Node3D = ice_block_scene.instantiate()
+		self.add_child(ice)
 
 func _process(delta: float) -> void:
 	if lerping:
@@ -129,3 +163,4 @@ func _on_body_entered(body: PhysicsBody3D) -> void:
 		get_tree().root.add_child(splatter)
 		splatter.global_position = self.global_position
 		queue_free()
+		bugs_in_car_counter -= 1

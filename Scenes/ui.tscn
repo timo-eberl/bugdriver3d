@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqx60vrjgj505"]
+[gd_scene load_steps=6 format=3 uid="uid://dqx60vrjgj505"]
 
 [ext_resource type="Script" uid="uid://nmu8nm1rry07" path="res://Scripts/ui.gd" id="1_jxero"]
 [ext_resource type="Theme" uid="uid://dgej2dh1384q7" path="res://theme.tres" id="2_qdvrb"]
 [ext_resource type="PackedScene" uid="uid://eu7cm7g8468g" path="res://Scenes/hud_3d_left.tscn" id="3_2246s"]
+[ext_resource type="FontFile" uid="uid://cp3a32k6wvjhb" path="res://Effects/SuperMario256.ttf" id="3_q7pk6"]
 [ext_resource type="PackedScene" uid="uid://1aw8p04lhqdo" path="res://Scenes/hud_3d_right.tscn" id="4_q7pk6"]
 
 [node name="Ui" type="Control"]
@@ -27,16 +28,22 @@ offset_bottom = -31.048012
 theme = ExtResource("2_qdvrb")
 text = "0"
 
-[node name="BugCounter" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -68.5
-offset_right = 68.5
-offset_bottom = 17.0
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 28.0
 grow_horizontal = 2
+theme_override_constants/margin_top = 5
+
+[node name="BugCounter" type="Label" parent="MarginContainer"]
+layout_mode = 2
 theme = ExtResource("2_qdvrb")
+theme_override_fonts/font = ExtResource("3_q7pk6")
+theme_override_font_sizes/font_size = 20
 text = "0"
 horizontal_alignment = 1
 
@@ -62,7 +69,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RoundOverUI" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,18 +92,21 @@ alignment = 1
 
 [node name="Label" type="Label" parent="RoundOverUI/RestartLabel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q7pk6")
 text = "Press \"R\" to restart"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="RoundOverUI/RestartLabel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q7pk6")
 text = "Score : 000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HighscoreLabel" type="Label" parent="RoundOverUI/RestartLabel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q7pk6")
 text = "Highscore : 000"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -144,9 +153,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -474.0
-offset_top = -133.0
-offset_bottom = 133.0
+offset_left = -468.0
+offset_top = -136.0
+offset_right = 6.0
+offset_bottom = 130.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8

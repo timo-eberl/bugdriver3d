@@ -6,6 +6,8 @@ signal round_over
 
 @export var override_progress := true
 
+@onready var score_particle_scene : PackedScene = preload("res://Scenes/score_particle.tscn")
+
 @onready var round_timer: Label = $RoundTimer
 #@onready var restart_round_button: Button = $RestartRoundButton
 @onready var continue_ui: Control = $ContinueUI
@@ -15,7 +17,7 @@ signal round_over
 
 @onready var fullscreen_button: Button = $FullscreenButton
 
-@onready var bug_counter: Label = $BugCounter
+@onready var bug_counter: Label = $MarginContainer/BugCounter
 @onready var level_music_player: AudioStreamPlayer = $"../../LevelMusicPlayer"
 
 @onready var left_sub_viewport_container: SubViewportContainer = $LeftSubViewportContainer
@@ -138,6 +140,7 @@ func _on_small_save_area_bug_saved(type: Bug.BugType) -> void:
 	match type:
 		Bug.BugType.LADYBUG:
 			Global.score += 50
+			_emit_score_effect()
 	update_bug_count()
 
 
@@ -151,3 +154,13 @@ func update_battery_charge(new_charge : float) -> void:
 	battery_material.set_shader_parameter("fill", new_charge)
 
 	last_charge = new_charge
+
+
+func _emit_score_effect() -> void:
+	var score_particle = score_particle_scene.instantiate() as ScoreParticle
+	bug_counter.add_child(score_particle)
+	
+	score_particle.position = bug_counter.position
+	
+	score_particle.emit()
+	

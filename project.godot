@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="LD25"
+config/name="Bug Driver 3D"
 run/main_scene="uid://cchddnabcie2h"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://d2fq0x3nt0wfn"

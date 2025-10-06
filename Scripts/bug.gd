@@ -88,8 +88,6 @@ func save_idle():
 		self.angular_damp = 0.0
 
 func _ready() -> void:
-	ui = get_tree().root.get_node("Main/HUD/UI")
-	
 	self.physics_material_override = physics_material_initial
 	self.contact_monitor = true
 	self.max_contacts_reported = 5
@@ -104,7 +102,9 @@ func _ready() -> void:
 	self.collision_layer = coll_layer
 	self.collision_mask = coll_mask
 	
-	ui.round_over.connect(_on_round_over)
+	ui = get_tree().root.get_node("Main/HUD/UI")
+	if ui:
+		ui.round_over.connect(_on_round_over)
 
 func _on_round_over():
 	if !saved_idle and !save_lerping:

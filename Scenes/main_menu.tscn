@@ -1,10 +1,10 @@
-[gd_scene load_steps=33 format=4 uid="uid://cchddnabcie2h"]
+[gd_scene load_steps=34 format=4 uid="uid://cchddnabcie2h"]
 
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_ce3w2"]
 [ext_resource type="Script" uid="uid://dpqc3dwlx2j7b" path="res://Scripts/main_menu.gd" id="1_n45e2"]
-[ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="3_opfnp"]
-[ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="4_cp0ys"]
-[ext_resource type="Script" uid="uid://dxni3jy06w6ee" path="res://Scripts/volume_slider.gd" id="4_yhxw7"]
+[ext_resource type="Material" path="res://Materials/psx_mat.tres" id="3_opfnp"]
+[ext_resource type="Material" path="res://Materials/crt_mat.tres" id="4_cp0ys"]
+[ext_resource type="Script" path="res://Scripts/volume_slider.gd" id="4_yhxw7"]
 [ext_resource type="FontFile" uid="uid://cp3a32k6wvjhb" path="res://Effects/SuperMario256.ttf" id="5_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://dqstoaypyq7mg" path="res://Models/textures/slider_grabber.png" id="6_5egv6"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="6_opfnp"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://dgej2dh1384q7" path="res://theme.tres" id="8_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="9_16hvj"]
 [ext_resource type="PackedScene" uid="uid://c7gocdu8x47tp" path="res://Models/characters/beetman.fbx" id="10_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://vornck0bk43l" path="res://Scenes/logo.png" id="14_vtepg"]
 
 [sub_resource type="Curve" id="Curve_jtdr2"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
@@ -344,6 +345,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 297.0
+offset_top = 42.0
+offset_right = 297.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 25
@@ -354,11 +359,6 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
-
-[node name="TitleLabel" type="Label" parent="CanvasLayer/UI/Margin/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_vr1f0")
-text = "Bug Driver 3D!"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Margin/VBoxContainer"]
 layout_mode = 2
@@ -489,6 +489,11 @@ skeleton = NodePath("")
 
 [node name="beetman" parent="bug_car" instance=ExtResource("10_vr1f0")]
 transform = Transform3D(-0.5229747, 0, -0.85234815, 0, 1, 0, 0.85234815, 0, -0.5229747, -1.6461296, -0.6694706, 0.6858444)
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(102, 114)
+scale = Vector2(0.12500001, 0.125)
+texture = ExtResource("14_vtepg")
 
 [connection signal="pressed" from="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

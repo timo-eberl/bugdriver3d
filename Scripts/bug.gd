@@ -82,6 +82,11 @@ func _process(delta: float) -> void:
 		var target_rotation := save_location.global_rotation
 		target_rotation.y = self.global_rotation.y
 		self.global_rotation = lerp(self.global_rotation, target_rotation, delta * 4.0)
+	if in_car:
+		if actually_in_cage:
+			self.linear_damp = 0.0
+		else:
+			self.linear_damp = 2.0
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if in_car and m_bus.is_magnetizing:

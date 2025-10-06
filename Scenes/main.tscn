@@ -10457,8 +10457,6 @@ offset_left = -28.156006
 offset_top = -28.074005
 offset_right = -0.15600586
 offset_bottom = -0.07400513
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_d1ilt")

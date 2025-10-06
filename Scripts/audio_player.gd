@@ -2,9 +2,13 @@ extends Node
 
 var last_rescue_timer = 0.0
 
+var last_blip_timer = 0.0
+
 func _process(delta: float) -> void:
 	if last_rescue_timer > 0:
 		last_rescue_timer -= delta
+	if last_blip_timer > 0:
+		last_blip_timer -= delta
 
 func play_sound(pos : Vector3, sound : AudioStreamWAV, volume_db : float = 0.0, pitch_scale : float = 1.0, unit_size: float = 70) -> void:
 	var audiostream = AudioStreamPlayer3D.new()
@@ -51,3 +55,8 @@ func play_rescue_sound(sound : AudioStreamWAV) -> void:
 		
 		await  audiostream.finished
 		audiostream.queue_free()
+
+func play_blip_sound(sound : AudioStreamWAV, volume_db : float = 0.0, pitch_scale : float = 1.0) -> void:
+	if last_blip_timer <= 0:
+		last_blip_timer = 2.0
+		play_sound_global(sound, volume_db, pitch_scale)

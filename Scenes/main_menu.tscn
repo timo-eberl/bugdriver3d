@@ -32,79 +32,6 @@ shadow_enabled = true
 environment = ExtResource("2_n45e2")
 camera_attributes = SubResource("CameraAttributesPractical_yhxw7")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Margin" type="MarginContainer" parent="UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_right = 305
-theme_override_constants/margin_bottom = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margin"]
-layout_mode = 2
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="TitleLabel" type="Label" parent="UI/Margin/VBoxContainer"]
-layout_mode = 2
-text = "Bugbonanza!"
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/Margin/VBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margin/VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="PlayButton" type="Button" parent="UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play"
-alignment = 0
-
-[node name="QuitButton" type="Button" parent="UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-alignment = 0
-
-[node name="MarginContainer2" type="MarginContainer" parent="UI/Margin/VBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Margin/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-
-[node name="VolumeLabel" type="Label" parent="UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Volume"
-
-[node name="VolumeSlider" type="HSlider" parent="UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-script = ExtResource("4_yhxw7")
-bus_name = "Master"
-
-[node name="HighscoreLabel" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -82.0
-offset_bottom = 23.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "Highscore:"
-
 [node name="PSX" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="PSX"]
@@ -127,15 +54,83 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.40734234, -0.55400485, 0.7260515, 3.7252907e-09, 0.7949972, 0.60661304, -0.91327554, -0.24709918, 0.32383603, -23.905, 23.555, 70.95)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("6_opfnp")
-volume_db = 50.0
-autoplay = true
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="FullscreenButton" type="Button" parent="."]
+[node name="Margin" type="MarginContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 305
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/UI/Margin/VBoxContainer"]
+layout_mode = 2
+text = "Bugbonanza!"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Margin/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+alignment = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/Margin/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="VolumeLabel" type="Label" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_yhxw7")
+bus_name = "Master"
+
+[node name="HighscoreLabel" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Highscore:"
+
+[node name="FullscreenButton" type="Button" parent="CanvasLayer/UI"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -148,6 +143,14 @@ grow_vertical = 0
 theme = ExtResource("8_yhxw7")
 text = "Fullscreen"
 
-[connection signal="pressed" from="UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.40734234, -0.55400485, 0.7260515, 3.7252907e-09, 0.7949972, 0.60661304, -0.91327554, -0.24709918, 0.32383603, -23.905, 23.555, 70.95)
+
+[node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_opfnp")
+volume_db = 50.0
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]

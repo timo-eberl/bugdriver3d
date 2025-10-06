@@ -9,9 +9,11 @@ class_name Bug
 @export_flags_3d_physics var coll_layer : int
 @export_flags_3d_physics var coll_mask : int
 
+static var bugs_in_car_counter := 0
+
 @onready var splatter_scene : PackedScene = preload("res://Effects/splatter.tscn")
 @onready var ice_block_scene : PackedScene = preload("res://Scenes/bugs/ice_block.tscn")
-@onready var ui : UI = %UI
+@onready var ui : UI
 
 enum BugType { LADYBUG }
 
@@ -40,6 +42,7 @@ func stop_collecting() -> void:
 	if lerping:
 		lerping = false
 		in_car = true
+		bugs_in_car_counter += 1
 		self.custom_integrator = false
 		self.axis_lock_linear_x = false
 		self.axis_lock_linear_y = false
@@ -53,6 +56,7 @@ func stop_collecting() -> void:
 func save(target: Node3D):
 	if in_car:
 		in_car = false
+		bugs_in_car_counter -= 1
 		save_lerping = true
 		self.custom_integrator = true
 		self.add_collision_exception_with(m_bus)
@@ -73,6 +77,8 @@ func save_idle():
 		self.angular_damp = 0.0
 
 func _ready() -> void:
+	ui = get_tree().root.get_node("Main/HUD/UI")
+	
 	self.physics_material_override = physics_material_initial
 	self.contact_monitor = true
 	self.max_contacts_reported = 5
@@ -95,6 +101,7 @@ func _on_round_over():
 		idle = false
 		lerping = false
 		in_car = false
+		bugs_in_car_counter -= 1
 		save_lerping = false
 		saved_idle = false
 		
@@ -145,3 +152,4 @@ func _on_body_entered(body: PhysicsBody3D) -> void:
 		get_tree().root.add_child(splatter)
 		splatter.global_position = self.global_position
 		queue_free()
+		bugs_in_car_counter -= 1

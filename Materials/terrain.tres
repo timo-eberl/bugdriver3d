@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bcvn1kt0fva51"]
+
+[ext_resource type="Shader" path="res://Shaders/snow_covered.gdshader" id="1_5g7om"]
+[ext_resource type="Texture2D" uid="uid://iq7whggm64hx" path="res://Models/textures/terrain.png" id="2_5g7om"]
+
+[sub_resource type="Gradient" id="Gradient_4rxip"]
+colors = PackedColorArray(0.8, 0.8, 0.8, 1, 1, 1, 1, 0.30980393)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yibse"]
+noise_type = 3
+frequency = 0.0041
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rr3lj"]
+noise = SubResource("FastNoiseLite_yibse")
+color_ramp = SubResource("Gradient_4rxip")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5g7om")
+shader_parameter/albedo_texture = ExtResource("2_5g7om")
+shader_parameter/snow_texture = SubResource("NoiseTexture2D_rr3lj")
+shader_parameter/snow_amount = 1.0
+shader_parameter/snow_uv_scale = 0.04
+shader_parameter/snow_softness = 2.0

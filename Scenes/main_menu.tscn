@@ -1,13 +1,66 @@
-[gd_scene load_steps=10 format=3 uid="uid://cchddnabcie2h"]
+[gd_scene load_steps=33 format=4 uid="uid://cchddnabcie2h"]
 
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_ce3w2"]
 [ext_resource type="Script" uid="uid://dpqc3dwlx2j7b" path="res://Scripts/main_menu.gd" id="1_n45e2"]
-[ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="2_n45e2"]
 [ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="3_opfnp"]
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="4_cp0ys"]
 [ext_resource type="Script" uid="uid://dxni3jy06w6ee" path="res://Scripts/volume_slider.gd" id="4_yhxw7"]
+[ext_resource type="FontFile" uid="uid://cp3a32k6wvjhb" path="res://Effects/SuperMario256.ttf" id="5_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://dqstoaypyq7mg" path="res://Models/textures/slider_grabber.png" id="6_5egv6"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="6_opfnp"]
+[ext_resource type="Texture2D" uid="uid://dfo6etwfr8f5r" path="res://Models/textures/slider_grabber_hover.png" id="7_vtepg"]
+[ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="8_trj04"]
 [ext_resource type="Theme" uid="uid://dgej2dh1384q7" path="res://theme.tres" id="8_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="9_16hvj"]
+[ext_resource type="PackedScene" uid="uid://c7gocdu8x47tp" path="res://Models/characters/beetman.fbx" id="10_vr1f0"]
+
+[sub_resource type="Curve" id="Curve_jtdr2"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_5chvi"]
+_data = [Vector2(0, 0), 0.0, 0.8988765, 0, 1, Vector2(0.50000006, 0.44943827), 1.3577766, 1.3577766, 0, 0, Vector2(1, 1), 1.1011236, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_78yud"]
+_data = [Vector2(0, 0.15730345), 0.0, 0.54842156, 0, 1, Vector2(0.51219517, 0.43820232), 0.5349763, 0.5349763, 0, 0, Vector2(1, 1), 1.1516854, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_loem6"]
+curve_x = SubResource("Curve_jtdr2")
+curve_y = SubResource("Curve_5chvi")
+curve_z = SubResource("Curve_78yud")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jtdr2"]
+sky_top_color = Color(0.5967377, 0.37207678, 0.4413632, 1)
+sky_horizon_color = Color(0.83583134, 0.59962034, 0.35245872, 1)
+ground_horizon_color = Color(0.464202, 0.19975132, 0.051695496, 1)
+use_debanding = false
+energy_multiplier = 0.7
+
+[sub_resource type="Sky" id="Sky_5chvi"]
+sky_material = SubResource("ProceduralSkyMaterial_jtdr2")
+
+[sub_resource type="Environment" id="Environment_cp0ys"]
+background_mode = 2
+background_color = Color(0.21289963, 0.28530043, 0.525707, 1)
+background_energy_multiplier = 1.82
+sky = SubResource("Sky_5chvi")
+ambient_light_source = 3
+ambient_light_color = Color(0.63231736, 0.44624138, 0.49171948, 1)
+ambient_light_sky_contribution = 0.26
+ambient_light_energy = 2.95
+glow_enabled = true
+glow_intensity = 0.97
+glow_bloom = 0.21
+fog_enabled = true
+fog_light_color = Color(0.5818572, 0.30878472, 0.44604838, 1)
+fog_light_energy = 0.31
+fog_density = 0.0
+fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_saturation = 0.59
+adjustment_color_correction = SubResource("CurveXYZTexture_loem6")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yhxw7"]
 dof_blur_far_enabled = true
@@ -17,10 +70,232 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 15.0
 dof_blur_amount = 0.21
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5egv6"]
+content_margin_left = 1.0
+content_margin_top = 2.0
+content_margin_right = 1.0
+content_margin_bottom = 2.0
+bg_color = Color(0.40116194, 0.3464933, 0.31999114, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.15847227, 0.15847233, 0.15847221, 1)
+corner_detail = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtepg"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_detail = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dnnj"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_detail = 6
+anti_aliasing = false
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yhxw7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_16hvj"]
+resource_name = "MenuAnimation"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(-14.692, 0, 0, 4.8444448, -0.35500005, -16.822, -4.8444448, 0, 5.1555557, 0, -14.692, 0, 0, 4.8444448, -0.35500005),
+"times": PackedFloat32Array(0, 29.066668, 60)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(3.082, 0, 0, 4.8444448, -0.09750001, 2.497, -4.8444448, 0, 5.1555557, 0, 3.082, 0, 0, 4.8444448, -0.09750001),
+"times": PackedFloat32Array(0, 29.066668, 60)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(40.462, 0, 0, 4.8444448, -0.057500206, 40.117, -4.8444448, 0, 5.1555557, 0, 40.462, 0, 0, 4.8444448, -0.057500206),
+"times": PackedFloat32Array(0, 29.066668, 60)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(-0.0844234, -0.25, 0, 0.25, 0, -0.0052359877, -4.8444448, 0, 5.1555557, 0, -0.0844234, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 29.066668, 60)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1.4733562, -0.25, 0, 0.25, 0, 1.4992378, -4.8444448, 0, 5.1555557, 0, 1.4733562, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 29.066668, 60)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(-0.028133227, -0.25, 0, 0.25, 0, -0.027925268, -4.8444448, 0, 5.1555557, 0, -0.028133227, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 29.066668, 60)
+}
+
+[sub_resource type="Animation" id="Animation_vr1f0"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-14.692184, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.7773547, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(40.462265, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.0844234, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.4733562, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.028133227, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vr1f0"]
+_data = {
+&"MenuAnimation": SubResource("Animation_16hvj"),
+&"RESET": SubResource("Animation_vr1f0")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fco6s"]
+resource_name = "Wheel"
+cull_mode = 2
+albedo_texture = ExtResource("9_16hvj")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4ndqe"]
+_surfaces = [{
+"aabb": AABB(-0.18885458, -0.3484643, -0.29202336, 0.36343747, 0.61226714, 0.61226714),
+"format": 34896613377,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAAAEAAEAAwAEAAAAAQAFAAIAAgAFAAYAAQAHAAUAAgAGAAgAAwACAAgABQAJAAYACAAGAAkACgAFAAcACgAJAAUACwAHAAEABAALAAEACwAKAAcABAAMAAsADQADAAgABAAOAAwAAwAOAAQADAAPAAsADwAKAAsADAAOAA8ADwAQAAoADQAIABEACAAJABEAEgADAA0ADgADABIAEgANABEADgASABMADgAUAA8ADgATABQAFAAQAA8AEwASABUAEwAVABQAEgARABUAEQAWABUAEQAJABYAFQAXABQAFAAXABAAFQAWABcACQAXABYAFwAKABAACQAKABcA"),
+"name": "Wheel",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD/fwAAAAD//30lfSUAAP///38AAAAAAACB2n0lAAAAAH0lfSUAAP7//380NwAA/v94s4ZMAAD+/4ZMhkwAAP7/gdp9JQAA/v/KyP9/AAD+/zQ3/38AAP//AAD/fwAAAAAAAP9/AAAAAP///38AAAAAfSWB2gAA//99JYHaAAD+/4ZMeLMAAP//////fwAAAACB2oHaAAAAAP9///8AAP///3///wAA//+B2oHaAAD+/3izeLMAAP7//3/KyAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e3o0m"]
+resource_name = "bug_car_Cylinder_001"
+_surfaces = [{
+"aabb": AABB(-0.18885458, -0.3484643, -0.29202336, 0.36343747, 0.61226714, 0.61226714),
+"attribute_data": PackedByteArray("QhXgUGo5MGhqOeBQQhUwaEIVkTlqOX9/ajmROUIVQiJqOUIiQhV/f2o5zpZCFc6WajkerkIVHq5qOW3FQhVtxWo5vNxCFbzcjbK6kVWdz5+Al7qRdJKxqrisz59fhNukr8XbpHSSE7qZt7GqX4Tpv6/F6b9VnfTEmbcTuoCXCtONsgrTuKz0xMyDa6UDl87TzIOXwGbFl8Avss7TL7I0kgOXNJJmxWul6sYRXtDstjRu4j1RdMPRDvvfMxmPnSw4Y6qvU/GnpRs="),
+"format": 34896613399,
+"index_count": 132,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYABwAEAAYABwAGAAgAAwAJAAUACQAKAAUACQALAAoACwAMAAoACwANAAwADQAOAAwADQAPAA4ADwAQAA4ADwARABAAEgATABQAFAATABUAEgAWABMAFAAVABcAGAAWABIAFwAVABkAGAAaABYAFwAZABsAHAAaABgAGwAZAB0AHAAeABoAGwAdAB8AIAAeABwAHwAdACEAIAAhAB4AHwAhACAAIgAjACQAIgAlACMAIwAlACYAJQAiACcAJwAiACgAJQAnACkAKgArACwAKgAtACsAKwAtAC4ALQAqAC8ALwAqADAALQAvADEA"),
+"material": SubResource("StandardMaterial3D_fco6s"),
+"name": "Wheel",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 50,
+"vertex_data": PackedByteArray("AAD/fwAAAAD//30lfSUQHv///38AAAAAAAB9JX0lEB4AAIHafSUQHv//AAD/f287/v+B2n0lEB4AAP///39vO///////f287AAAAAP9/bzv//30lgdoZVgAAfSWB2hlW////f///N2QAAP9///83ZP//gdqB2hlWAACB2oHaGVb//////39vOwAA////f287//8AAP9/5u3+/4ZMhky49P//fSV9JR34/v//fzQ3uPT+/zQ3/3+49P///38AACz4//99JYHan/X+/3izhky49P7/hkx4s7j0/v+B2n0l0er///9///+16f7/ysj/f7j0/v//f8rIuPT//////3/73///gdqB2q/b/v94s3izuPQAAIHafSWF3gAAfSV9JZfYAAD/fwAAbOUAAH0lgdrfqQAAAAD/f/TDAACB2oHaurgAAP///38ezAAA/3///zSk/v80N/9/BMD+//9/NDcEwP7/hkyGTATA/v/KyP9/BMD+/3izhkwEwP7//3/KyATA/v+GTHizBMD+/3izeLMEwP7/el6GDDtVed7/f8Qqhox488OqkBreSjrVeHNu5SC13spuZSA1j5qUMeE5HUaUsf9/AAD/f/7/4blqTmrOHcbeym9lbuUgtbYd29E1umt0KyHyxDW6a3Q1umt0Ys3YaIkVht41umt0NbprdMfPoYsVn7J2NbprdDW6a3TZufaSyaxMiTW6a3TzjNTY2Utk1b9kE9tBQQHWij8U13OM9bsblnPDH26+u6yCWgWsgloFrIJaBayCWgWsgloFrIJaBayCWgWsgloF")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4ndqe")
+
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_n45e2")
 
 [node name="level" parent="." instance=ExtResource("1_ce3w2")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.24065903, -0.43210733, 0.86911833, -0.56809473, 0.66332793, 0.48709795, -0.78698874, -0.610966, -0.08584219, 0, 10.2421055, 0)
@@ -29,7 +304,7 @@ light_energy = 0.05
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_n45e2")
+environment = SubResource("Environment_cp0ys")
 camera_attributes = SubResource("CameraAttributesPractical_yhxw7")
 
 [node name="PSX" type="CanvasLayer" parent="."]
@@ -82,6 +357,7 @@ alignment = 1
 
 [node name="TitleLabel" type="Label" parent="CanvasLayer/UI/Margin/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_vr1f0")
 text = "Bug Driver 3D!"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Margin/VBoxContainer"]
@@ -92,12 +368,23 @@ layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9999996, 0.74601406, 0.014563595, 1)
+theme_override_colors/font_focus_color = Color(0.92941177, 0.8745098, 0.68235296, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_vr1f0")
+theme_override_font_sizes/font_size = 22
 text = "Play"
+flat = true
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.74509805, 0.015686275, 1)
+theme_override_colors/font_focus_color = Color(0.92941177, 0.8745098, 0.68235296, 1)
+theme_override_fonts/font = ExtResource("5_vr1f0")
+theme_override_font_sizes/font_size = 22
 text = "Quit"
+flat = true
 alignment = 0
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/Margin/VBoxContainer"]
@@ -105,15 +392,25 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer2"]
 layout_mode = 2
+theme_override_constants/separation = -5
 
 [node name="VolumeLabel" type="Label" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.73741233, 0.6956217, 0.5593946, 1)
+theme_override_fonts/font = ExtResource("5_vr1f0")
+theme_override_font_sizes/font_size = 10
 text = "Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_icons/grabber = ExtResource("6_5egv6")
+theme_override_icons/grabber_highlight = ExtResource("7_vtepg")
+theme_override_styles/slider = SubResource("StyleBoxFlat_5egv6")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_vtepg")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_8dnnj")
 max_value = 1.0
 step = 0.001
+value = 0.615
 script = ExtResource("4_yhxw7")
 bus_name = "Master"
 
@@ -144,14 +441,57 @@ theme = ExtResource("8_yhxw7")
 text = "⌞⌝
 "
 
+[node name="BlackBorder" type="Panel" parent="CanvasLayer"]
+material = SubResource("CanvasItemMaterial_yhxw7")
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 33.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
+
+[node name="BlackBorder" type="Panel" parent="CanvasLayer/BlackBorder"]
+material = SubResource("CanvasItemMaterial_yhxw7")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 235.0
+offset_bottom = 268.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_trj04")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.40734234, -0.55400485, 0.7260515, 3.7252907e-09, 0.7949972, 0.60661304, -0.91327554, -0.24709918, 0.32383603, -23.905, 23.555, 70.95)
+transform = Transform3D(0.099608175, -0.08115334, 0.99171174, -0.02802933, 0.9960441, 0.084323145, -0.9946318, -0.03619629, 0.09693947, -14.692184, 3.7773547, 40.462265)
+fov = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_vr1f0")
+}
+autoplay = "MenuAnimation"
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_opfnp")
 volume_db = 50.0
 autoplay = true
 
+[node name="bug_car" parent="." instance=ExtResource("8_trj04")]
+transform = Transform3D(-0.33202946, 0, 0.943269, 0, 1, 0, -0.943269, 0, -0.33202946, -24.66642, 0.66947037, 36.32358)
+
+[node name="Cylinder2" type="MeshInstance3D" parent="bug_car"]
+transform = Transform3D(-0.9418934, 0, 0.335912, 0, 1, 0, -0.335912, 0, -0.9418934, -0.52950144, -0.3210081, 1.01241)
+mesh = SubResource("ArrayMesh_e3o0m")
+skeleton = NodePath("")
+
+[node name="Cylinder3" type="MeshInstance3D" parent="bug_car"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.5295014, -0.3210081, -0.61193335)
+mesh = SubResource("ArrayMesh_e3o0m")
+skeleton = NodePath("")
+
+[node name="beetman" parent="bug_car" instance=ExtResource("10_vr1f0")]
+transform = Transform3D(-0.5229747, 0, -0.85234815, 0, 1, 0, 0.85234815, 0, -0.5229747, -1.6461296, -0.6694706, 0.6858444)
+
 [connection signal="pressed" from="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+
+[editable path="bug_car"]

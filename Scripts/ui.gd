@@ -4,6 +4,10 @@ class_name UI
 signal round_start
 signal round_over
 
+@export var override_progress := true
+
+@onready var score_particle_scene : PackedScene = preload("res://Scenes/score_particle.tscn")
+
 @onready var round_timer: Label = $RoundTimer
 #@onready var restart_round_button: Button = $RestartRoundButton
 @onready var continue_ui: Control = $ContinueUI
@@ -13,7 +17,7 @@ signal round_over
 
 @onready var fullscreen_button: Button = $FullscreenButton
 
-@onready var bug_counter: Label = $BugCounter
+@onready var bug_counter: Label = $MarginContainer/BugCounter
 @onready var level_music_player: AudioStreamPlayer = $"../../LevelMusicPlayer"
 
 @onready var left_sub_viewport_container: SubViewportContainer = $LeftSubViewportContainer
@@ -57,9 +61,10 @@ func _process(delta: float) -> void:
 			timer_progress += delta
 			#round_timer.text = str(int(round_duration - timer_progress))
 			current_progress = clampf(timer_progress / round_duration, 0.0, 1.0)
-			day_night.progress = current_progress
-			snow_particles.amount_ratio = snow_amount_curve.sample(current_progress)
-			thermometer_material.set_shader_parameter("fill", 1.0 - current_progress)
+			if override_progress:
+				day_night.progress = current_progress
+			snow_particles.amount_ratio = snow_amount_curve.sample(day_night.progress)
+			thermometer_material.set_shader_parameter("fill", 1.0 - day_night.progress)
 
 
 func _input(event: InputEvent) -> void:
@@ -135,6 +140,7 @@ func _on_small_save_area_bug_saved(type: Bug.BugType) -> void:
 	match type:
 		Bug.BugType.LADYBUG:
 			Global.score += 50
+			_emit_score_effect()
 	update_bug_count()
 
 
@@ -148,3 +154,13 @@ func update_battery_charge(new_charge : float) -> void:
 	battery_material.set_shader_parameter("fill", new_charge)
 
 	last_charge = new_charge
+
+
+func _emit_score_effect() -> void:
+	var score_particle = score_particle_scene.instantiate() as ScoreParticle
+	bug_counter.add_child(score_particle)
+	
+	score_particle.position = bug_counter.position
+	
+	score_particle.emit()
+	

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dljleff4r4j14"]
+
+[ext_resource type="Theme" uid="uid://dgej2dh1384q7" path="res://theme.tres" id="1_61n3p"]
+[ext_resource type="Texture2D" uid="uid://c5mtjxex6lhlh" path="res://Sprites/full_screen.png" id="2_wg5do"]
+
+[node name="FullscreenButton" type="Button"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_61n3p")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wg5do")
+expand_mode = 1

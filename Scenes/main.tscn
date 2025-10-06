@@ -884,9 +884,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="HUD" instance=ExtResource("4_jjvhh")]
+[node name="UI" parent="HUD" node_paths=PackedStringArray("stats_cam", "bus_end_pos", "bus") instance=ExtResource("4_jjvhh")]
 unique_name_in_owner = true
-round_duration = 300.0
+round_duration = 10.0
+stats_cam = NodePath("../../StatsCam")
+bus_end_pos = NodePath("../../BusEndPos")
+bus = NodePath("../../Bus")
 metadata/_edit_use_anchors_ = true
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
@@ -900,6 +903,12 @@ max_db = 6.0
 
 [node name="BatteryRechargePickup" parent="." instance=ExtResource("20_hibaj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.667772, 1.354919, 54.576122)
+
+[node name="StatsCam" type="Camera3D" parent="."]
+transform = Transform3D(-0.94551855, -0.05261305, 0.32128873, 0, 0.98685575, 0.16160381, -0.32556808, 0.15279943, -0.9330904, -45.866, 8.639, 60.883)
+
+[node name="BusEndPos" type="Marker3D" parent="."]
+transform = Transform3D(0.11320324, 0, 0.9935719, 0, 1, 0, -0.9935719, 0, 0.11320324, -55.758, 1, 76.492)
 
 [connection signal="body_entered" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_exited"]

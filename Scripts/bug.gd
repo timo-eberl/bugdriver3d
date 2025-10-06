@@ -4,10 +4,13 @@ class_name Bug
 @export var physics_material_initial : PhysicsMaterial
 @export var physics_material_in_car : PhysicsMaterial
 @export var physics_material_saved : PhysicsMaterial
-@export var splatter_scene : PackedScene
-@export var type : BugType
+@export var type : Bug.BugType
+@export_flags_3d_physics var coll_layer : int
+@export_flags_3d_physics var coll_mask : int
 
-enum BugType { LADYBUG, BEETMAN }
+@onready var splatter_scene : PackedScene = preload("res://Effects/splatter.tscn")
+
+enum BugType { LADYBUG }
 
 var m_bus : Bus
 var save_location : Node3D
@@ -67,6 +70,18 @@ func save_idle():
 
 func _ready() -> void:
 	self.physics_material_override = physics_material_initial
+	self.contact_monitor = true
+	self.max_contacts_reported = 5
+	
+	self.axis_lock_linear_x = true
+	self.axis_lock_linear_y = false
+	self.axis_lock_linear_z = true
+	self.axis_lock_angular_x = true
+	self.axis_lock_angular_y = false
+	self.axis_lock_angular_z = true
+	
+	self.collision_layer = coll_layer
+	self.collision_mask = coll_mask
 
 func _process(delta: float) -> void:
 	if lerping:

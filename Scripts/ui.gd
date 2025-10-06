@@ -130,8 +130,6 @@ func _on_small_save_area_bug_saved(type: Bug.BugType) -> void:
 	match type:
 		Bug.BugType.LADYBUG:
 			Global.score += 50
-		Bug.BugType.BEETMAN:
-			Global.score += 200
 	update_bug_count()
 
 

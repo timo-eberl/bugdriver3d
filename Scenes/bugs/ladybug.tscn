@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhm7salc8s5ha"]
+
+[ext_resource type="Script" uid="uid://ykpnuohjvuoa" path="res://Scripts/bug.gd" id="1_a7loe"]
+[ext_resource type="PhysicsMaterial" uid="uid://dlv6yvv3tdkmm" path="res://BugSettings/physics_material_initial.tres" id="2_ip6b8"]
+[ext_resource type="PhysicsMaterial" uid="uid://bnusgqru18hnt" path="res://BugSettings/physics_material_in_car.tres" id="3_7350q"]
+[ext_resource type="PackedScene" uid="uid://mpgvxyqmd82o" path="res://Models/characters/ladybug.fbx" id="3_ip6b8"]
+[ext_resource type="PhysicsMaterial" uid="uid://bou3qquxj2lgt" path="res://BugSettings/physics_material_saved.tres" id="4_gvs3s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tji8x"]
+radius = 0.21596812
+
+[node name="Ladybug" type="RigidBody3D"]
+max_contacts_reported = 5
+script = ExtResource("1_a7loe")
+physics_material_initial = ExtResource("2_ip6b8")
+physics_material_in_car = ExtResource("3_7350q")
+physics_material_saved = ExtResource("4_gvs3s")
+coll_layer = 4
+coll_mask = 7
+metadata/_custom_type_script = "uid://ykpnuohjvuoa"
+
+[node name="ladybug" parent="." instance=ExtResource("3_ip6b8")]
+transform = Transform3D(0.7, 0, 0, 0, 0.707, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36733645, 0)
+shape = SubResource("SphereShape3D_tji8x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

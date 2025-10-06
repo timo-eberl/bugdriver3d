@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_ce3w2"]
 [ext_resource type="Script" uid="uid://dpqc3dwlx2j7b" path="res://Scripts/main_menu.gd" id="1_n45e2"]
-[ext_resource type="Material" path="res://Materials/psx_mat.tres" id="3_opfnp"]
-[ext_resource type="Material" path="res://Materials/crt_mat.tres" id="4_cp0ys"]
-[ext_resource type="Script" path="res://Scripts/volume_slider.gd" id="4_yhxw7"]
+[ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="3_opfnp"]
+[ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="4_cp0ys"]
+[ext_resource type="Script" uid="uid://dxni3jy06w6ee" path="res://Scripts/volume_slider.gd" id="4_yhxw7"]
 [ext_resource type="FontFile" uid="uid://cp3a32k6wvjhb" path="res://Effects/SuperMario256.ttf" id="5_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://dqstoaypyq7mg" path="res://Models/textures/slider_grabber.png" id="6_5egv6"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="6_opfnp"]
@@ -345,28 +345,34 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 297.0
-offset_top = 42.0
-offset_right = 297.0
-offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Margin"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 300
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Margin/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 120.635)
+layout_mode = 2
+texture = ExtResource("14_vtepg")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 25
-theme_override_constants/margin_right = 305
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_right = 60
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Margin"]
-layout_mode = 2
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Margin/VBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="PlayButton" type="Button" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9999996, 0.74601406, 0.014563595, 1)
 theme_override_colors/font_focus_color = Color(0.92941177, 0.8745098, 0.68235296, 1)
@@ -377,7 +383,12 @@ text = "Play"
 flat = true
 alignment = 0
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 60
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.74509805, 0.015686275, 1)
 theme_override_colors/font_focus_color = Color(0.92941177, 0.8745098, 0.68235296, 1)
@@ -387,22 +398,24 @@ text = "Quit"
 flat = true
 alignment = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/Margin/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/Margin"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 320
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Margin/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Margin/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer2"]
+[node name="VolumeSlider" type="HSlider" parent="CanvasLayer/UI/Margin/MarginContainer2/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(134.635, 0)
 layout_mode = 2
-theme_override_constants/separation = -5
-
-[node name="VolumeLabel" type="Label" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.73741233, 0.6956217, 0.5593946, 1)
-theme_override_fonts/font = ExtResource("5_vr1f0")
-theme_override_font_sizes/font_size = 10
-text = "Volume"
-
-[node name="VolumeSlider" type="HSlider" parent="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 8
 theme_override_icons/grabber = ExtResource("6_5egv6")
 theme_override_icons/grabber_highlight = ExtResource("7_vtepg")
 theme_override_styles/slider = SubResource("StyleBoxFlat_5egv6")
@@ -413,6 +426,18 @@ step = 0.001
 value = 0.615
 script = ExtResource("4_yhxw7")
 bus_name = "Master"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/UI/Margin/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 85
+
+[node name="VolumeLabel" type="Label" parent="CanvasLayer/UI/Margin/MarginContainer2/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.73741233, 0.6956217, 0.5593946, 1)
+theme_override_fonts/font = ExtResource("5_vr1f0")
+theme_override_font_sizes/font_size = 10
+text = "Volume"
 
 [node name="HighscoreLabel" type="Label" parent="CanvasLayer/UI"]
 layout_mode = 1
@@ -490,13 +515,8 @@ skeleton = NodePath("")
 [node name="beetman" parent="bug_car" instance=ExtResource("10_vr1f0")]
 transform = Transform3D(-0.5229747, 0, -0.85234815, 0, 1, 0, 0.85234815, 0, -0.5229747, -1.6461296, -0.6694706, 0.6858444)
 
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(102, 114)
-scale = Vector2(0.12500001, 0.125)
-texture = ExtResource("14_vtepg")
-
-[connection signal="pressed" from="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/Margin/VBoxContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer/MarginContainer2/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer/MarginContainer3/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
 
 [editable path="bug_car"]

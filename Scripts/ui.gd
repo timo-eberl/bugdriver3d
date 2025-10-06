@@ -22,6 +22,7 @@ signal round_over
 @onready var left_sub_viewport_container: SubViewportContainer = $LeftSubViewportContainer
 @onready var right_sub_viewport_container: SubViewportContainer = $RightSubViewportContainer
 
+@onready var day_night: DayNight = $"../../WorldEnvironment"
 
 @export var round_duration := 60.0
 
@@ -46,6 +47,7 @@ func _process(delta: float) -> void:
 		else:
 			timer_progress += delta
 			round_timer.text = str(int(round_duration - timer_progress))
+			day_night.progress = clampf(timer_progress / round_duration, 0.0, 1.0)
 
 
 func _input(event: InputEvent) -> void:

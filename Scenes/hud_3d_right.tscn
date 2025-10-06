@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://1aw8p04lhqdo"]
+[gd_scene load_steps=13 format=4 uid="uid://1aw8p04lhqdo"]
 
 [ext_resource type="Script" uid="uid://qp5i7x3kovy4" path="res://Scripts/random_rotate.gd" id="1_vepav"]
 [ext_resource type="Shader" uid="uid://bdqhkyuvxcfna" path="res://Shaders/hud_3d_fill.gdshader" id="2_cxi42"]
@@ -6,10 +6,18 @@
 [ext_resource type="Material" uid="uid://boguqwiv08o8b" path="res://Materials/transparency_override_mat.tres" id="3_ql2xw"]
 [ext_resource type="Material" uid="uid://2wlhrqfgw11h" path="res://Materials/outline_mat.tres" id="4_tkt03"]
 
+[sub_resource type="Gradient" id="Gradient_tkt03"]
+offsets = PackedFloat32Array(0.114369504, 0.38123167, 0.5483871, 0.8856305)
+colors = PackedColorArray(0, 0.0627451, 1, 1, 0, 0.7093332, 0.76, 1, 0.87, 0.79257, 0.09570001, 1, 0.99999994, 0.17417294, 0.12721592, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ycwe1"]
+gradient = SubResource("Gradient_tkt03")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ql2xw"]
 render_priority = 0
 shader = ExtResource("2_cxi42")
-shader_parameter/albedo = Color(1, 0.33999997, 0.35099983, 1)
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo_fill = SubResource("GradientTexture1D_ycwe1")
 shader_parameter/albedo_texture_size = Vector2i(0, 0)
 shader_parameter/point_size = 0.0
 shader_parameter/roughness = 0.0
@@ -74,7 +82,7 @@ _surfaces = [{
 [node name="HUD3DRight" type="Node3D"]
 
 [node name="Rotation" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.7919922, -0.1287356, -0.833)
+transform = Transform3D(1, 0, 1.7484557e-07, 0, 1, 0, -1.7484555e-07, 0, 1.0000001, 0.7919922, -0.1287356, -0.833)
 script = ExtResource("1_vepav")
 
 [node name="thermometer" type="Node3D" parent="Rotation"]
@@ -96,5 +104,9 @@ material_override = ExtResource("4_tkt03")
 mesh = SubResource("ArrayMesh_tkt03")
 
 [node name="HUD3DSetup" parent="." instance=ExtResource("3_cxi42")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.98910344, 0, 0.14722264, 0, 1, 0, -0.14722264, 0, -0.98910344, 0, 0, 0)
+light_energy = 0.5
 
 [editable path="HUD3DSetup"]

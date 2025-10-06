@@ -1,6 +1,7 @@
 extends RigidBody3D
 class_name Bug
 
+@export var physics_material_initial : PhysicsMaterial
 @export var physics_material_in_car : PhysicsMaterial
 @export var physics_material_saved : PhysicsMaterial
 @export var splatter_scene : PackedScene
@@ -63,6 +64,9 @@ func save_idle():
 		self.angular_damp_mode = RigidBody3D.DAMP_MODE_COMBINE
 		self.linear_damp = 0.0
 		self.angular_damp = 0.0
+
+func _ready() -> void:
+	self.physics_material_override = physics_material_initial
 
 func _process(delta: float) -> void:
 	if lerping:

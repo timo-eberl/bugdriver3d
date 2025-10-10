@@ -10,5 +10,6 @@ class_name CameraController
 @onready var camera : Camera3D = $Camera3D
 
 func _process(_delta: float) -> void:
-	global_position = camera_target.global_position
-	camera.position.z = lerp(distance_idle, distance_driving, distance_interpolator)
+	#global_position = camera_target.global_position
+	#camera.position.z = lerp(distance_idle, distance_driving, distance_interpolator)
+	pass

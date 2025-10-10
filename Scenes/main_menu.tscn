@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cchddnabcie2h"]
+[gd_scene load_steps=33 format=4 uid="uid://cchddnabcie2h"]
 
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="1_ce3w2"]
 [ext_resource type="Script" uid="uid://dpqc3dwlx2j7b" path="res://Scripts/main_menu.gd" id="1_n45e2"]
@@ -10,12 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dqstoaypyq7mg" path="res://Models/textures/slider_grabber.png" id="6_5egv6"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="6_opfnp"]
 [ext_resource type="Texture2D" uid="uid://dfo6etwfr8f5r" path="res://Models/textures/slider_grabber_hover.png" id="7_vtepg"]
-[ext_resource type="PackedScene" uid="uid://bsyfu5ncl5mr" path="res://Models/bug_car.blend" id="8_trj04"]
-[ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="9_16hvj"]
-[ext_resource type="PackedScene" uid="uid://c7gocdu8x47tp" path="res://Models/characters/beetman.fbx" id="10_vr1f0"]
 [ext_resource type="PackedScene" uid="uid://dljleff4r4j14" path="res://Scenes/fullscreen_button.tscn" id="10_vtepg"]
 [ext_resource type="AudioStream" uid="uid://bk8scrbeuvju7" path="res://Sound/mus_titletrack.wav" id="12_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://vornck0bk43l" path="res://Scenes/logo.png" id="14_vtepg"]
+[ext_resource type="PackedScene" uid="uid://6cr5kap07c1n" path="res://Models/leonardo_dance_vinci.blend" id="18_ujyyl"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_o8cnw"]
 _surfaces = [{
@@ -288,44 +286,6 @@ _data = {
 &"RESET": SubResource("Animation_vr1f0")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fco6s"]
-resource_name = "Wheel"
-cull_mode = 2
-albedo_texture = ExtResource("9_16hvj")
-texture_filter = 2
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_4ndqe"]
-_surfaces = [{
-"aabb": AABB(-0.18885458, -0.3484643, -0.29202336, 0.36343747, 0.61226714, 0.61226714),
-"format": 34896613377,
-"index_count": 132,
-"index_data": PackedByteArray("AAABAAIAAwAAAAIAAAAEAAEAAwAEAAAAAQAFAAIAAgAFAAYAAQAHAAUAAgAGAAgAAwACAAgABQAJAAYACAAGAAkACgAFAAcACgAJAAUACwAHAAEABAALAAEACwAKAAcABAAMAAsADQADAAgABAAOAAwAAwAOAAQADAAPAAsADwAKAAsADAAOAA8ADwAQAAoADQAIABEACAAJABEAEgADAA0ADgADABIAEgANABEADgASABMADgAUAA8ADgATABQAFAAQAA8AEwASABUAEwAVABQAEgARABUAEQAWABUAEQAJABYAFQAXABQAFAAXABAAFQAWABcACQAXABYAFwAKABAACQAKABcA"),
-"name": "Wheel",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAD/fwAAAAD//30lfSUAAP///38AAAAAAACB2n0lAAAAAH0lfSUAAP7//380NwAA/v94s4ZMAAD+/4ZMhkwAAP7/gdp9JQAA/v/KyP9/AAD+/zQ3/38AAP//AAD/fwAAAAAAAP9/AAAAAP///38AAAAAfSWB2gAA//99JYHaAAD+/4ZMeLMAAP//////fwAAAACB2oHaAAAAAP9///8AAP///3///wAA//+B2oHaAAD+/3izeLMAAP7//3/KyAAA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_e3o0m"]
-resource_name = "bug_car_Cylinder_001"
-_surfaces = [{
-"aabb": AABB(-0.18885458, -0.3484643, -0.29202336, 0.36343747, 0.61226714, 0.61226714),
-"attribute_data": PackedByteArray("QhXgUGo5MGhqOeBQQhUwaEIVkTlqOX9/ajmROUIVQiJqOUIiQhV/f2o5zpZCFc6WajkerkIVHq5qOW3FQhVtxWo5vNxCFbzcjbK6kVWdz5+Al7qRdJKxqrisz59fhNukr8XbpHSSE7qZt7GqX4Tpv6/F6b9VnfTEmbcTuoCXCtONsgrTuKz0xMyDa6UDl87TzIOXwGbFl8Avss7TL7I0kgOXNJJmxWul6sYRXtDstjRu4j1RdMPRDvvfMxmPnSw4Y6qvU/GnpRs="),
-"format": 34896613399,
-"index_count": 132,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYABwAEAAYABwAGAAgAAwAJAAUACQAKAAUACQALAAoACwAMAAoACwANAAwADQAOAAwADQAPAA4ADwAQAA4ADwARABAAEgATABQAFAATABUAEgAWABMAFAAVABcAGAAWABIAFwAVABkAGAAaABYAFwAZABsAHAAaABgAGwAZAB0AHAAeABoAGwAdAB8AIAAeABwAHwAdACEAIAAhAB4AHwAhACAAIgAjACQAIgAlACMAIwAlACYAJQAiACcAJwAiACgAJQAnACkAKgArACwAKgAtACsAKwAtAC4ALQAqAC8ALwAqADAALQAvADEA"),
-"material": SubResource("StandardMaterial3D_fco6s"),
-"name": "Wheel",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 50,
-"vertex_data": PackedByteArray("AAD/fwAAAAD//30lfSUQHv///38AAAAAAAB9JX0lEB4AAIHafSUQHv//AAD/f287/v+B2n0lEB4AAP///39vO///////f287AAAAAP9/bzv//30lgdoZVgAAfSWB2hlW////f///N2QAAP9///83ZP//gdqB2hlWAACB2oHaGVb//////39vOwAA////f287//8AAP9/5u3+/4ZMhky49P//fSV9JR34/v//fzQ3uPT+/zQ3/3+49P///38AACz4//99JYHan/X+/3izhky49P7/hkx4s7j0/v+B2n0l0er///9///+16f7/ysj/f7j0/v//f8rIuPT//////3/73///gdqB2q/b/v94s3izuPQAAIHafSWF3gAAfSV9JZfYAAD/fwAAbOUAAH0lgdrfqQAAAAD/f/TDAACB2oHaurgAAP///38ezAAA/3///zSk/v80N/9/BMD+//9/NDcEwP7/hkyGTATA/v/KyP9/BMD+/3izhkwEwP7//3/KyATA/v+GTHizBMD+/3izeLMEwP7/el6GDDtVed7/f8Qqhox488OqkBreSjrVeHNu5SC13spuZSA1j5qUMeE5HUaUsf9/AAD/f/7/4blqTmrOHcbeym9lbuUgtbYd29E1umt0KyHyxDW6a3Q1umt0Ys3YaIkVht41umt0NbprdMfPoYsVn7J2NbprdDW6a3TZufaSyaxMiTW6a3TzjNTY2Utk1b9kE9tBQQHWij8U13OM9bsblnPDH26+u6yCWgWsgloFrIJaBayCWgWsgloFrIJaBayCWgWsgloF")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_4ndqe")
-
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_n45e2")
 
@@ -541,25 +501,46 @@ autoplay = true
 stream = ExtResource("12_8dnnj")
 autoplay = true
 
-[node name="bug_car" parent="." instance=ExtResource("8_trj04")]
-transform = Transform3D(-0.33202946, 0, 0.943269, 0, 1, 0, -0.943269, 0, -0.33202946, -24.66642, 0.66947037, 36.32358)
+[node name="leonardo_dance_vinci" parent="." instance=ExtResource("18_ujyyl")]
+transform = Transform3D(-2.4325166, 0, 1.686554, 0, 2.96, 0, -1.686554, 0, -2.4325166, -21.28244, 0.41417181, 38.552402)
 
-[node name="Cylinder2" type="MeshInstance3D" parent="bug_car"]
-transform = Transform3D(-0.9418934, 0, 0.335912, 0, 1, 0, -0.335912, 0, -0.9418934, -0.52950144, -0.3210081, 1.01241)
-mesh = SubResource("ArrayMesh_e3o0m")
-skeleton = NodePath("")
+[node name="metarig" parent="leonardo_dance_vinci" index="0"]
+transform = Transform3D(0.36497486, 0.27028632, -0.89092016, -0.17870378, 0.95947623, 0.21787688, 0.9137058, 0.07969122, 0.3984859, -0.12829433, -0.14025947, 0.19999306)
 
-[node name="Cylinder3" type="MeshInstance3D" parent="bug_car"]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.5295014, -0.3210081, -0.61193335)
-mesh = SubResource("ArrayMesh_e3o0m")
-skeleton = NodePath("")
+[node name="Skeleton3D" parent="leonardo_dance_vinci/metarig" index="0"]
+bones/1/rotation = Quaternion(0.13930432, 0.14289246, 0.12460556, 0.97193086)
+bones/2/rotation = Quaternion(-0.09698045, 0.01514272, 0.015079459, 0.99505687)
+bones/3/rotation = Quaternion(-0.017810637, 0.0152328415, 0.015108549, 0.99961114)
+bones/4/rotation = Quaternion(0.17772943, -0.058116287, -0.026649088, 0.98200035)
+bones/5/rotation = Quaternion(-0.1185588, -0.060653042, -0.020221403, 0.9908866)
+bones/6/rotation = Quaternion(-0.11741893, -0.055778332, -0.03124827, 0.99102235)
+bones/8/rotation = Quaternion(-0.5730714, -0.3925546, -0.26183793, 0.67002314)
+bones/9/rotation = Quaternion(-0.11679669, 0.82584494, -0.55039394, 0.03748842)
+bones/10/rotation = Quaternion(0.24109071, 0.0013245218, -0.0006821942, 0.9705015)
+bones/11/rotation = Quaternion(-0.090967074, 0.08028142, -0.06364946, 0.9905699)
+bones/13/rotation = Quaternion(-0.64671123, 0.24681571, 0.44995725, 0.56425625)
+bones/14/rotation = Quaternion(0.10669085, -0.20869057, 0.6110555, 0.7560929)
+bones/15/rotation = Quaternion(0.2585512, -0.0013183252, 0.000731609, 0.9659964)
+bones/16/rotation = Quaternion(0.1256936, 0.09093095, -0.12776946, 0.97959566)
+bones/18/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/20/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/22/rotation = Quaternion(0.97663593, 0.09974419, -0.052309453, 0.18302251)
+bones/23/rotation = Quaternion(0.6131885, 0.07346853, 0.045477778, 0.7851969)
+bones/24/rotation = Quaternion(-0.76696074, 0.0124814175, -0.038297914, 0.64042854)
+bones/25/rotation = Quaternion(0.007931408, 0.9273667, -0.373402, -0.022344282)
+bones/29/rotation = Quaternion(0.9113522, 0.14600907, 0.115661874, 0.3670706)
+bones/30/rotation = Quaternion(0.5032685, 0.11781115, -0.04055062, 0.85510063)
+bones/31/rotation = Quaternion(-0.5605169, 0.10989703, 0.21852495, 0.7911956)
+bones/32/rotation = Quaternion(-3.7278916e-08, 0.92486954, -0.38028458, -2.6884354e-07)
+bones/38/rotation = Quaternion(0.90405166, 0.24033748, 0.06774612, -0.34689888)
+bones/40/rotation = Quaternion(0.90405166, -0.24033746, -0.06774612, -0.34689885)
 
-[node name="beetman" parent="bug_car" instance=ExtResource("10_vr1f0")]
-transform = Transform3D(-0.5229747, 0, -0.85234815, 0, 1, 0, 0.85234815, 0, -0.5229747, -1.6461296, -0.6694706, 0.6858444)
+[node name="AnimationPlayer" parent="leonardo_dance_vinci" index="1"]
+autoplay = "metarig|mixamo_com|Layer0"
 
 [connection signal="pressed" from="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer/MarginContainer2/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/Margin/MarginContainer/VBoxContainer/MarginContainer3/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
 
 [editable path="level"]
-[editable path="bug_car"]
+[editable path="leonardo_dance_vinci"]

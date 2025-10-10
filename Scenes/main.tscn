@@ -1,4 +1,4 @@
-[gd_scene load_steps=695 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=698 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -67,6 +67,9 @@
 [ext_resource type="AudioStream" uid="uid://ccdhvooot5t8j" path="res://Sound/mus_level.wav" id="39_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://dvvufqg7r1c02" path="res://Effects/gore.tscn" id="40_8cuat"]
 [ext_resource type="PackedScene" uid="uid://b6x0yw6237lud" path="res://Effects/splatter.tscn" id="41_o1aky"]
+[ext_resource type="PackedScene" uid="uid://c2am2lqqvud6h" path="res://Models/leonardo_dance_vinci_static.blend" id="47_owhal"]
+[ext_resource type="Script" uid="uid://t6krjhgj3r0e" path="res://Scripts/bugle_camera_3d.gd" id="50_e5peh"]
+[ext_resource type="Script" uid="uid://cdupmu5exkdye" path="res://addons/jigglebones/jigglebone.gd" id="50_f6rfp"]
 [ext_resource type="AudioStream" uid="uid://b1cv7n6pwly1a" path="res://Sound/sndMagnetPull.wav" id="53_ovafv"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pe3oc"]
@@ -9938,12 +9941,10 @@ shape = SubResource("SphereShape3D_pdsj5")
 [node name="CameraBase" type="Node3D" parent="."]
 transform = Transform3D(0.4073423, -0.55400485, 0.7260516, 3.7252903e-09, 0.7949974, 0.606613, -0.9132755, -0.24709927, 0.32383612, -35.863728, 1.6952974, 36.191883)
 script = ExtResource("2_jjvhh")
-distance_driving = 48.21
 
 [node name="Camera3D" type="Camera3D" parent="CameraBase"]
-transform = Transform3D(1, -1.0430813e-07, 2.9802322e-08, -1.4901161e-08, 1.0000001, 2.30968e-07, 0, -7.450581e-09, 1, 0, 0, 17)
-fov = 36.2
-size = 15.08
+process_mode = 4
+visible = false
 
 [node name="BusStartingPos" type="Marker3D" parent="."]
 transform = Transform3D(-0.82708055, 0, 0.56208324, 0, 0.99999994, 0, -0.56208324, 0, -0.82708055, -35.863728, 1.3313053, 36.191883)
@@ -10002,6 +10003,7 @@ damping_relaxation = 0.5
 
 [node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel"]
 transform = Transform3D(0.83, 0, -2.4735927e-08, 0, 0.83, 0, 2.4735927e-08, 0, 0.83, -0.25, 0.04, -0.015)
+visible = false
 material_overlay = ExtResource("10_gt3je")
 mesh = SubResource("ArrayMesh_e3o0m")
 skeleton = NodePath("")
@@ -10023,6 +10025,7 @@ damping_relaxation = 0.5
 
 [node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel2"]
 transform = Transform3D(-0.83, 0, -7.25609e-08, 0, 0.83, 0, 7.25609e-08, 0, -0.83, 0.25, 0.04, 0.015)
+visible = false
 material_overlay = ExtResource("10_gt3je")
 mesh = SubResource("ArrayMesh_e3o0m")
 skeleton = NodePath("")
@@ -10043,6 +10046,7 @@ damping_relaxation = 0.5
 
 [node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel3"]
 transform = Transform3D(0.83, 0, -2.4735927e-08, 0, 0.83, 0, 2.4735927e-08, 0, 0.83, -0.25, 0.04, -0.015)
+visible = false
 material_overlay = ExtResource("10_gt3je")
 mesh = SubResource("ArrayMesh_e3o0m")
 skeleton = NodePath("")
@@ -10063,6 +10067,7 @@ damping_relaxation = 0.5
 
 [node name="WheelMesh" type="MeshInstance3D" parent="Bus/Wheel4"]
 transform = Transform3D(-0.83, 0, -7.25609e-08, 0, 0.83, 0, 7.25609e-08, 0, -0.83, 0.25, 0.04, -0.015)
+visible = false
 material_overlay = ExtResource("10_gt3je")
 mesh = SubResource("ArrayMesh_e3o0m")
 skeleton = NodePath("")
@@ -10099,26 +10104,114 @@ spot_angle_attenuation = 2.4622667
 [node name="bug_car_no_inheritance" type="Node3D" parent="Bus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043116152, -0.25103787)
 
+[node name="leonardo_dance_vinci_static" parent="Bus/bug_car_no_inheritance" instance=ExtResource("47_owhal")]
+transform = Transform3D(-0.03694646, 0, 1.254456, 0, 1.255, 0, -1.254456, 0, -0.03694646, -0.8377484, -0.48290846, 0.6882625)
+
+[node name="metarig" parent="Bus/bug_car_no_inheritance/leonardo_dance_vinci_static" index="0"]
+transform = Transform3D(0.36497486, 0.27028632, -0.89092016, -0.17870378, 0.95947623, 0.21787688, 0.9137058, 0.07969122, 0.3984859, -0.12829433, -0.14025947, 0.19999306)
+
+[node name="Skeleton3D" parent="Bus/bug_car_no_inheritance/leonardo_dance_vinci_static/metarig" index="0"]
+bones/1/rotation = Quaternion(0.13930432, 0.14289246, 0.12460556, 0.97193086)
+bones/2/rotation = Quaternion(-0.09698045, 0.01514272, 0.015079459, 0.99505687)
+bones/3/rotation = Quaternion(-0.017810637, 0.0152328415, 0.015108549, 0.99961114)
+bones/4/rotation = Quaternion(0.17772943, -0.058116287, -0.026649088, 0.98200035)
+bones/5/rotation = Quaternion(-0.1185588, -0.060653042, -0.020221403, 0.9908866)
+bones/6/rotation = Quaternion(-0.11741893, -0.055778332, -0.03124827, 0.99102235)
+bones/8/rotation = Quaternion(-0.5730714, -0.3925546, -0.26183793, 0.67002314)
+bones/9/rotation = Quaternion(-0.11679669, 0.82584494, -0.55039394, 0.03748842)
+bones/10/rotation = Quaternion(0.24109071, 0.0013245218, -0.0006821942, 0.9705015)
+bones/11/rotation = Quaternion(-0.090967074, 0.08028142, -0.06364946, 0.9905699)
+bones/13/rotation = Quaternion(-0.64671123, 0.24681571, 0.44995725, 0.56425625)
+bones/14/rotation = Quaternion(0.10669085, -0.20869057, 0.6110555, 0.7560929)
+bones/15/rotation = Quaternion(0.2585512, -0.0013183252, 0.000731609, 0.9659964)
+bones/16/rotation = Quaternion(0.1256936, 0.09093095, -0.12776946, 0.97959566)
+bones/18/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/20/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/22/rotation = Quaternion(0.97663593, 0.09974419, -0.052309453, 0.18302251)
+bones/23/rotation = Quaternion(0.6131885, 0.07346853, 0.045477778, 0.7851969)
+bones/24/rotation = Quaternion(-0.76696074, 0.0124814175, -0.038297914, 0.64042854)
+bones/25/rotation = Quaternion(0.007931408, 0.9273667, -0.373402, -0.022344282)
+bones/29/rotation = Quaternion(0.9113522, 0.14600907, 0.115661874, 0.3670706)
+bones/30/rotation = Quaternion(0.5032685, 0.11781115, -0.04055062, 0.85510063)
+bones/31/rotation = Quaternion(-0.5605169, 0.10989703, 0.21852495, 0.7911956)
+bones/32/rotation = Quaternion(-3.7278916e-08, 0.92486954, -0.38028458, -2.6884354e-07)
+bones/36/scale = Vector3(1.5, 2, 1.5)
+bones/38/rotation = Quaternion(0.90405166, 0.24033748, 0.06774612, -0.34689888)
+bones/40/rotation = Quaternion(0.90405166, -0.24033746, -0.06774612, -0.34689885)
+
+[node name="Bulge" type="Node3D" parent="Bus/bug_car_no_inheritance/leonardo_dance_vinci_static/metarig/Skeleton3D" index="2"]
+transform = Transform3D(0.5553703, -0.5154387, 1.0004556, -0.0852081, -1.1316946, -0.53575295, 1.1221982, 0.16915885, -0.5358, -35.290623, 1.0024648, 36.23948)
+top_level = true
+script = ExtResource("50_f6rfp")
+bone_name = "bulge"
+stiffness = 8.1
+damping = 2.4
+use_gravity = true
+gravity = Vector3(0, -0.092, 0)
+forward_axis = 1
+metadata/_custom_type_script = "uid://cdupmu5exkdye"
+
+[node name="AssBoneL" type="Node3D" parent="Bus/bug_car_no_inheritance/leonardo_dance_vinci_static/metarig/Skeleton3D" index="3"]
+transform = Transform3D(-0.034001112, 1.2106849, 0.32880247, 0.11511481, -0.32452476, 1.2068377, 1.2492471, 0.06285563, -0.10225777, -34.95815, 1.0505948, 36.227715)
+top_level = true
+script = ExtResource("50_f6rfp")
+bone_name = "asscheek.L"
+stiffness = 0.1
+use_gravity = true
+gravity = Vector3(0, -10, 0)
+metadata/_custom_type_script = "uid://cdupmu5exkdye"
+
+[node name="AssBoneR" type="Node3D" parent="Bus/bug_car_no_inheritance/leonardo_dance_vinci_static/metarig/Skeleton3D" index="4"]
+transform = Transform3D(0.97789216, 0.7029073, 0.35309198, -0.2560143, -0.24826705, 1.2032646, 0.74378055, -1.009609, -0.050059028, -35.05226, 1.0793128, 36.015247)
+top_level = true
+script = ExtResource("50_f6rfp")
+bone_name = "asscheek.R"
+use_gravity = true
+gravity = Vector3(0, -10, 0)
+metadata/_custom_type_script = "uid://cdupmu5exkdye"
+
+[node name="AnimationPlayer" parent="Bus/bug_car_no_inheritance/leonardo_dance_vinci_static" index="1"]
+autoplay = "metarig|mixamo_com|Layer0"
+
+[node name="BugleCamera3D" type="Camera3D" parent="Bus/bug_car_no_inheritance/leonardo_dance_vinci_static" node_paths=PackedStringArray("BulgeCamera", "AssCamera")]
+transform = Transform3D(0.0032922165, 0.024287285, -0.39765182, -0.00012123454, 0.39766547, 0.024287103, 0.39839274, -7.969077e-05, 0.0032934844, -1.9562298, 1.3388689, 0.63766867)
+current = true
+fov = 36.2
+size = 15.08
+script = ExtResource("50_e5peh")
+BulgeCamera = NodePath(".")
+AssCamera = NodePath("../AssCamera3D")
+
+[node name="AssCamera3D" type="Camera3D" parent="Bus/bug_car_no_inheritance/leonardo_dance_vinci_static"]
+transform = Transform3D(0.04542142, 0.024287289, 0.39506298, -0.0028534164, 0.39766553, -0.02411922, -0.39579841, -7.969051e-05, 0.045510918, 2.3046453, 1.004159, -0.010109574)
+current = true
+fov = 36.2
+size = 15.08
+
 [node name="Bus" type="MeshInstance3D" parent="Bus/bug_car_no_inheritance"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999998, 0, 2.9802322e-08, 0, 1, 0, 0, 0)
+visible = false
 material_overlay = ExtResource("10_gt3je")
 mesh = SubResource("ArrayMesh_4v54h")
 skeleton = NodePath("")
 
 [node name="Eyes" type="MeshInstance3D" parent="Bus/bug_car_no_inheritance"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999998, 0, 2.9802322e-08, 0, 1, 0, 0, 1.7372545)
+visible = false
 material_overlay = ExtResource("10_gt3je")
 mesh = SubResource("ArrayMesh_w20a1")
 skeleton = NodePath("")
 
 [node name="Cage" type="MeshInstance3D" parent="Bus/bug_car_no_inheritance"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999998, 0, 2.9802322e-08, 0, 1, 0, 0, 0)
+visible = false
 material_overlay = ExtResource("10_gt3je")
 mesh = SubResource("ArrayMesh_6bymb")
 skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="Bus/bug_car_no_inheritance"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999998, 0, 2.9802322e-08, 0, 1, 0, 0, -0.3311269)
+visible = false
 material_overlay = ExtResource("10_gt3je")
 mesh = SubResource("ArrayMesh_mh8a6")
 skeleton = NodePath("")
@@ -10252,10 +10345,10 @@ process_material = SubResource("ParticleProcessMaterial_b3802")
 draw_pass_1 = SubResource("QuadMesh_h1bgf")
 
 [node name="Dust" parent="Bus" instance=ExtResource("8_h1bgf")]
-transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 1, 0, 0, -0.77136797)
+transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 1, 0, -0.26302144, -0.11120653)
 
 [node name="BoostParticles" parent="Bus" instance=ExtResource("8_h1bgf")]
-transform = Transform3D(-1, 0, 1.172251e-07, 0, 0.9999965, 0, -1.172251e-07, 0, -1, 2.7400226e-08, 0, -1.3269743)
+transform = Transform3D(-0.99695146, 0, 0.078024216, 0, 0.9999965, 0, -0.078024216, 0, -0.99695146, -0.26531044, 1.4530499, 0.3357899)
 material_override = SubResource("StandardMaterial3D_b3802")
 lifetime = 0.3
 local_coords = true
@@ -10637,5 +10730,6 @@ process_material = SubResource("ParticleProcessMaterial_ee4r6")
 [connection signal="round_over" from="HUD/UI" to="." method="_on_ui_round_over"]
 [connection signal="round_start" from="HUD/UI" to="." method="_on_ui_round_start"]
 
+[editable path="Bus/bug_car_no_inheritance/leonardo_dance_vinci_static"]
 [editable path="HUD/UI"]
 [editable path="Splatter"]

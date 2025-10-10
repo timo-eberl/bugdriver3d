@@ -1,8 +1,10 @@
-[gd_scene load_steps=55 format=4 uid="uid://b2kybgswv27lq"]
+[gd_scene load_steps=56 format=4 uid="uid://b2kybgswv27lq"]
 
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/bugs/ladybug.tscn" id="2_yyy7s"]
 [ext_resource type="PackedScene" uid="uid://c21wmgsopydc8" path="res://Models/level.blend" id="3_j3d02"]
+[ext_resource type="PackedScene" uid="uid://c2am2lqqvud6h" path="res://Models/leonardo_dance_vinci_static.blend" id="3_m8dls"]
 [ext_resource type="Material" uid="uid://devha7y7lg7ha" path="res://Models/BunkerDoor.tres" id="4_737wd"]
+[ext_resource type="PackedScene" uid="uid://6cr5kap07c1n" path="res://Models/leonardo_dance_vinci.blend" id="4_c2bh5"]
 [ext_resource type="Environment" uid="uid://c8em7h4a2cj1u" path="res://Effects/cutscene_environment.tres" id="7_ipiwr"]
 [ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="11_tuspr"]
 [ext_resource type="AudioStream" uid="uid://b0vkwnwcn8e73" path="res://Sound/bugdrive-music-final.wav" id="12_eholo"]
@@ -10,7 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://b637vb2mokou7" path="res://Sound/bugdrive-voice-final.wav" id="13_f5nhl"]
 [ext_resource type="AudioStream" uid="uid://dejybbt1rlxba" path="res://Sound/car_start.wav" id="13_whp1e"]
 [ext_resource type="Script" uid="uid://ddndcv1lafuo6" path="res://Scenes/intro_cutscene.gd" id="15_018oa"]
-[ext_resource type="PackedScene" uid="uid://c7gocdu8x47tp" path="res://Models/characters/beetman.fbx" id="15_f5nhl"]
 [ext_resource type="PackedScene" uid="uid://b5cckayaoygho" path="res://Models/cutscene_paper.fbx" id="16_whp1e"]
 [ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="17_3hpda"]
 [ext_resource type="PackedScene" uid="uid://bc738xw4u8hq1" path="res://Effects/snowflake.fbx" id="18_ixjyl"]
@@ -520,103 +521,25 @@ tracks/21/keys = {
 "points": PackedFloat32Array(41.95, 0, 0, 0.005555471, 0, 41.95, 0, 0, 0.60555553, -8.010864e-05, 41.95, -0.03333346, 4.4096673e-06, 0.5722221, -7.569898e-05, 41.95, 0, 0, 0.005555471, 0, 41.95, -0.11641121, 0, 0.41136712, 0, 41.95, -0.16006374, 0, 0.2232701, 0, 41.95, -0.105555855, 0, 0.022221884, 0, 41.95, 0, 0, 0.005555471, 0, 36.49031, -0.083333656, 0.90994835, 0, 0),
 "times": PackedFloat32Array(28.166668, 28.2, 28.400002, 28.666666, 29.533333, 31.166666, 31.533335, 31.666666, 32.166668)
 }
-tracks/22/type = "bezier"
+tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("AnimationPlayer/beetman3:position:x")
+tracks/22/path = NodePath("Bus:scale")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-45.24757, -0.25, 0, 0.25, 0, -44.393, -0.12600932, -0.17041577, 0.19065699, 0.25784567, -43.77955, -0.072338425, -0.06390539, 0.08498542, 0.075078025, -43.551712, -0.03840701, -0.016604282, 0.046578407, 0.020136975, -43.551712, -0.03840701, -0.016604282, 0.046578407, 0.020136975, -43.10442, -0.046578407, -0.1276115, 0.03333346, 0.09132415, -42.2381, -0.095026016, -0.22016716, 0, 0),
-"times": PackedFloat32Array(26.500002, 27.066668, 27.500698, 27.73114, 27.843943, 28.01061, 28.210611)
-}
-tracks/23/type = "bezier"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("AnimationPlayer/beetman3:position:y")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0.34342808, -0.25, 0, 0.25, 0, 0.108, -0.12600932, 2.8390634e-05, 0.19065699, -4.2956133e-05, 0.15962762, -0.072338425, -0.02085863, 0.08498542, 0.024505366, 0.11392556, -0.03840701, -0.016612478, 0.046578407, 0.020146914, 0.11392556, -0.03840701, -0.016612478, 0.046578407, 0.020146914, 0.4815296, -0.046578407, 0.010946992, 0.03333346, -0.007834126, 0.0012388527, -0.095026016, 0.06315752, 0, 0),
-"times": PackedFloat32Array(26.500002, 27.066668, 27.500698, 27.73114, 27.843943, 28.01061, 28.210611)
-}
-tracks/24/type = "bezier"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("AnimationPlayer/beetman3:position:z")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(39.45033, -0.25, 0, 0.25, 0, 39.904, -0.12600932, -0.09050596, 0.19065699, 0.13693902, 40.30424, -0.072338425, -0.033946432, 0.08498542, 0.03988132, 40.441, -0.03840701, -0.003218051, 0.046578407, 0.0039027173, 40.441, -0.03840701, -0.003218051, 0.046578407, 0.0039027173, 40.72176, -0.046578407, -0.06060913, 0.03333346, 0.043374434, 41.064903, -0.095026016, -0.11965625, 0, 0),
-"times": PackedFloat32Array(26.500002, 27.066668, 27.500698, 27.73114, 27.843943, 28.01061, 28.210611)
-}
-tracks/25/type = "bezier"
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/path = NodePath("AnimationPlayer/beetman3:rotation:x")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.12600932, 0, 0.19065699, 0, 3.0552376e-09, -0.072338425, -1.8384252e-10, 0.08498542, 2.1598388e-10, 2.3989584e-09, -0.09563129, 0, 0.0950257, 0, 0, -0.095026016, 3.998264e-10, 0, 0),
-"times": PackedFloat32Array(26.500002, 27.066668, 27.500698, 28.01061, 28.210611)
-}
-tracks/26/type = "bezier"
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/path = NodePath("AnimationPlayer/beetman3:rotation:y")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(-1.6684824, -0.25, 0, 0.25, 0, -0.81332344, -0.12600932, -0.076392576, 0.19065699, 0.11558493, -0.7227742, -0.072338425, -0.009498184, 0.08498542, 0.011158761, -0.6893818, -0.09563129, -0.024804035, 0.0950257, 0.024646964, -0.5166175, -0.095026016, -0.02879405, 0, 0),
-"times": PackedFloat32Array(26.500002, 27.066668, 27.500698, 28.01061, 28.210611)
-}
-tracks/27/type = "bezier"
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/path = NodePath("AnimationPlayer/beetman3:rotation:z")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.12600932, 0, 0.19065699, 0, 0.0696546, -0.072338425, -0.013052868, 0.08498542, 0.015334913, 0.17032668, -0.09563129, 0, 0.0950257, 0, 0, -0.095026016, 0.028387781, 0, 0),
-"times": PackedFloat32Array(26.500002, 27.066668, 27.500698, 28.01061, 28.210611)
-}
-tracks/28/type = "value"
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/path = NodePath("AnimationPlayer/beetman3:scale")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/keys = {
-"times": PackedFloat32Array(27.73574, 27.843945, 27.938356, 28.011908, 28.140911, 28.20825),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.9999998, 0.9999999, 0.9999999), Vector3(1.11, 0.905, 1.105), Vector3(0.9, 1.1, 0.9), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
-}
-tracks/29/type = "value"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("Bus:scale")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/keys = {
 "times": PackedFloat32Array(28.180624, 28.2, 28.400002, 28.666666, 29.533333, 31.166666, 31.533335, 31.766668),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.99999994, 0.99999994, 0.99999994), Vector3(1.065, 0.905, 1), Vector3(0.91, 1.1, 1), Vector3(0.99999994, 0.99999994, 0.99999994), Vector3(0.99999994, 0.99999994, 0.99999994), Vector3(0.99999994, 0.99999994, 0.99999994), Vector3(1.095, 0.9, 1), Vector3(0.845, 1.04, 1)]
 }
-tracks/30/type = "value"
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/path = NodePath("Bus:rotation")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/keys = {
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Bus:rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
 "times": PackedFloat32Array(29.533333, 31.166666, 31.53333, 31.63333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
@@ -880,103 +803,25 @@ tracks/21/keys = {
 "points": PackedFloat32Array(41.94952, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/22/type = "bezier"
+tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("AnimationPlayer/beetman3:position:x")
+tracks/22/path = NodePath("Bus:scale")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-45.24757, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/23/type = "bezier"
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/path = NodePath("AnimationPlayer/beetman3:position:y")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.34342808, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/24/type = "bezier"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("AnimationPlayer/beetman3:position:z")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(39.45033, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/25/type = "bezier"
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/path = NodePath("AnimationPlayer/beetman3:rotation:x")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/26/type = "bezier"
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/path = NodePath("AnimationPlayer/beetman3:rotation:y")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-1.6684824, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/27/type = "bezier"
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/path = NodePath("AnimationPlayer/beetman3:rotation:z")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/28/type = "value"
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/path = NodePath("AnimationPlayer/beetman3:scale")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.9999998, 0.9999999, 0.9999999)]
-}
-tracks/29/type = "value"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("Bus:scale")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.99999994, 0.99999994, 0.99999994)]
 }
-tracks/30/type = "value"
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/path = NodePath("Bus:rotation")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/keys = {
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Bus:rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1173,6 +1018,40 @@ transform = Transform3D(-0.82708055, 0, 0.56208324, 0, 0.99999994, 0, -0.5620832
 [node name="Bus" type="Node3D" parent="."]
 transform = Transform3D(-0.82708055, 0, 0.56208324, 0, 0.99999994, 0, -0.56208324, 0, -0.82708055, -41.9935, 0.71300894, 41.94952)
 
+[node name="leonardo_dance_vinci_static" parent="Bus" instance=ExtResource("3_m8dls")]
+transform = Transform3D(0.4658085, -0.052554473, 3.7649724, 0.20248716, 1.4513919, 1.9695454e-08, -1.545269, 0.17434363, 1.1349194, -1.0699605, -1.06973, -0.06558305)
+
+[node name="Skeleton3D" parent="Bus/leonardo_dance_vinci_static/metarig" index="0"]
+bones/1/rotation = Quaternion(0.13930432, 0.14289246, 0.12460556, 0.97193086)
+bones/2/rotation = Quaternion(-0.09698045, 0.01514272, 0.015079459, 0.99505687)
+bones/3/rotation = Quaternion(-0.017810637, 0.0152328415, 0.015108549, 0.99961114)
+bones/4/rotation = Quaternion(0.17772943, -0.058116287, -0.026649088, 0.98200035)
+bones/5/rotation = Quaternion(-0.1185588, -0.060653042, -0.020221403, 0.9908866)
+bones/6/rotation = Quaternion(-0.11741893, -0.055778332, -0.03124827, 0.99102235)
+bones/8/rotation = Quaternion(-0.5730714, -0.3925546, -0.26183793, 0.67002314)
+bones/9/rotation = Quaternion(-0.11679669, 0.82584494, -0.55039394, 0.03748842)
+bones/10/rotation = Quaternion(0.24109071, 0.0013245218, -0.0006821942, 0.9705015)
+bones/11/rotation = Quaternion(-0.090967074, 0.08028142, -0.06364946, 0.9905699)
+bones/13/rotation = Quaternion(-0.64671123, 0.24681571, 0.44995725, 0.56425625)
+bones/14/rotation = Quaternion(0.10669085, -0.20869057, 0.6110555, 0.7560929)
+bones/15/rotation = Quaternion(0.2585512, -0.0013183252, 0.000731609, 0.9659964)
+bones/16/rotation = Quaternion(0.1256936, 0.09093095, -0.12776946, 0.97959566)
+bones/18/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/20/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/22/rotation = Quaternion(0.97663593, 0.09974419, -0.052309453, 0.18302251)
+bones/23/rotation = Quaternion(0.6131885, 0.07346853, 0.045477778, 0.7851969)
+bones/24/rotation = Quaternion(-0.76696074, 0.0124814175, -0.038297914, 0.64042854)
+bones/25/rotation = Quaternion(0.007931408, 0.9273667, -0.373402, -0.022344282)
+bones/29/rotation = Quaternion(0.9113522, 0.14600907, 0.115661874, 0.3670706)
+bones/30/rotation = Quaternion(0.5032685, 0.11781115, -0.04055062, 0.85510063)
+bones/31/rotation = Quaternion(-0.5605169, 0.10989703, 0.21852495, 0.7911956)
+bones/32/rotation = Quaternion(-3.7278916e-08, 0.92486954, -0.38028458, -2.6884354e-07)
+bones/38/rotation = Quaternion(0.90405166, 0.24033748, 0.06774612, -0.34689888)
+bones/40/rotation = Quaternion(0.90405166, -0.24033746, -0.06774612, -0.34689885)
+
+[node name="AnimationPlayer" parent="Bus/leonardo_dance_vinci_static" index="1"]
+autoplay = "metarig|mixamo_com|Layer0"
+
 [node name="WheelMesh4" type="MeshInstance3D" parent="Bus"]
 transform = Transform3D(0.82112145, 3.302462e-08, -0.12107691, 2.980232e-08, 0.82999974, -1.490116e-08, 0.12107694, -4.4269237e-09, 0.82112145, 0.80436134, -0.3792586, 0.80171585)
 mesh = SubResource("ArrayMesh_e3o0m")
@@ -1224,6 +1103,7 @@ spot_angle_attenuation = 2.4622667
 
 [node name="bug_car_no_inheritance" type="Node3D" parent="Bus"]
 transform = Transform3D(0.989303, 0, -0.14587593, 0, 0.9999997, 0, 0.14587593, 0, 0.989303, 0.3562317, -0.12614274, -0.27218628)
+visible = false
 
 [node name="Bus" type="MeshInstance3D" parent="Bus/bug_car_no_inheritance"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999998, 0, 2.9802322e-08, 0, 1, 0, 0, 0)
@@ -1447,9 +1327,6 @@ light_energy = 3.472
 transform = Transform3D(-0.6068346, -0.72020006, 0.3362494, -0.62995595, 0.6937665, 0.34906104, -0.48467234, -1.4444361e-08, -0.8746958, -45.138172, 1.2328744, 38.263985)
 light_color = Color(0.84702766, 0.57671565, 0.044600718, 1)
 light_energy = 0.86
-
-[node name="beetman3" parent="AnimationPlayer" instance=ExtResource("15_f5nhl")]
-transform = Transform3D(-0.09753079, 0, -0.9952324, 0, 0.9999999, 0, 0.99523234, 0, -0.09753079, -45.24757, 0.34342808, 39.45033)
 
 [node name="cutscene_paper" parent="AnimationPlayer" instance=ExtResource("16_whp1e")]
 transform = Transform3D(-0.72215873, 0, -0.69172734, 0, 1, 0, 0.69172734, 0, -0.72215873, -45.576233, -0.77582896, 40.46397)
@@ -1720,6 +1597,159 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4700043, 1.2573029, -7.852
 [node name="Ladybug4" parent="Bugs2" instance=ExtResource("2_yyy7s")]
 transform = Transform3D(0.9416645, 0, -0.33655295, 0, 1, 0, 0.33655295, 0, 0.9416645, 0.16393542, 1.2573029, -4.827449)
 
+[node name="leonardo_dance_vinci" parent="." instance=ExtResource("4_c2bh5")]
+transform = Transform3D(1.400789, 0, -1.349376, 0, 1.945, 0, 1.349376, 0, 1.400789, 71.61494, 11.786337, 20.303448)
+
+[node name="metarig" parent="leonardo_dance_vinci" index="0"]
+transform = Transform3D(0.36497486, 0.27028632, -0.89092016, -0.17870378, 0.95947623, 0.21787688, 0.9137058, 0.07969122, 0.3984859, -0.12829433, -0.14025947, 0.19999306)
+
+[node name="Skeleton3D" parent="leonardo_dance_vinci/metarig" index="0"]
+bones/1/rotation = Quaternion(0.13930432, 0.14289246, 0.12460556, 0.97193086)
+bones/2/rotation = Quaternion(-0.09698045, 0.01514272, 0.015079459, 0.99505687)
+bones/3/rotation = Quaternion(-0.017810637, 0.0152328415, 0.015108549, 0.99961114)
+bones/4/rotation = Quaternion(0.17772943, -0.058116287, -0.026649088, 0.98200035)
+bones/5/rotation = Quaternion(-0.1185588, -0.060653042, -0.020221403, 0.9908866)
+bones/6/rotation = Quaternion(-0.11741893, -0.055778332, -0.03124827, 0.99102235)
+bones/8/rotation = Quaternion(-0.5730714, -0.3925546, -0.26183793, 0.67002314)
+bones/9/rotation = Quaternion(-0.11679669, 0.82584494, -0.55039394, 0.03748842)
+bones/10/rotation = Quaternion(0.24109071, 0.0013245218, -0.0006821942, 0.9705015)
+bones/11/rotation = Quaternion(-0.090967074, 0.08028142, -0.06364946, 0.9905699)
+bones/13/rotation = Quaternion(-0.64671123, 0.24681571, 0.44995725, 0.56425625)
+bones/14/rotation = Quaternion(0.10669085, -0.20869057, 0.6110555, 0.7560929)
+bones/15/rotation = Quaternion(0.2585512, -0.0013183252, 0.000731609, 0.9659964)
+bones/16/rotation = Quaternion(0.1256936, 0.09093095, -0.12776946, 0.97959566)
+bones/18/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/20/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/22/rotation = Quaternion(0.97663593, 0.09974419, -0.052309453, 0.18302251)
+bones/23/rotation = Quaternion(0.6131885, 0.07346853, 0.045477778, 0.7851969)
+bones/24/rotation = Quaternion(-0.76696074, 0.0124814175, -0.038297914, 0.64042854)
+bones/25/rotation = Quaternion(0.007931408, 0.9273667, -0.373402, -0.022344282)
+bones/29/rotation = Quaternion(0.9113522, 0.14600907, 0.115661874, 0.3670706)
+bones/30/rotation = Quaternion(0.5032685, 0.11781115, -0.04055062, 0.85510063)
+bones/31/rotation = Quaternion(-0.5605169, 0.10989703, 0.21852495, 0.7911956)
+bones/32/rotation = Quaternion(-3.7278916e-08, 0.92486954, -0.38028458, -2.6884354e-07)
+bones/38/rotation = Quaternion(0.90405166, 0.24033748, 0.06774612, -0.34689888)
+bones/40/rotation = Quaternion(0.90405166, -0.24033746, -0.06774612, -0.34689885)
+
+[node name="AnimationPlayer" parent="leonardo_dance_vinci" index="1"]
+autoplay = "metarig|mixamo_com|Layer0"
+
+[node name="leonardo_dance_vinci2" parent="." instance=ExtResource("4_c2bh5")]
+transform = Transform3D(-1.0555905, 0, 1.6336322, 0, 1.945, 0, -1.6336322, 0, -1.0555905, 56.213867, 0.055167675, -14.519209)
+
+[node name="metarig" parent="leonardo_dance_vinci2" index="0"]
+transform = Transform3D(0.36497486, 0.27028632, -0.89092016, -0.17870378, 0.95947623, 0.21787688, 0.9137058, 0.07969122, 0.3984859, -0.12829433, -0.14025947, 0.19999306)
+
+[node name="Skeleton3D" parent="leonardo_dance_vinci2/metarig" index="0"]
+bones/1/rotation = Quaternion(0.13930432, 0.14289246, 0.12460556, 0.97193086)
+bones/2/rotation = Quaternion(-0.09698045, 0.01514272, 0.015079459, 0.99505687)
+bones/3/rotation = Quaternion(-0.017810637, 0.0152328415, 0.015108549, 0.99961114)
+bones/4/rotation = Quaternion(0.17772943, -0.058116287, -0.026649088, 0.98200035)
+bones/5/rotation = Quaternion(-0.1185588, -0.060653042, -0.020221403, 0.9908866)
+bones/6/rotation = Quaternion(-0.11741893, -0.055778332, -0.03124827, 0.99102235)
+bones/8/rotation = Quaternion(-0.5730714, -0.3925546, -0.26183793, 0.67002314)
+bones/9/rotation = Quaternion(-0.11679669, 0.82584494, -0.55039394, 0.03748842)
+bones/10/rotation = Quaternion(0.24109071, 0.0013245218, -0.0006821942, 0.9705015)
+bones/11/rotation = Quaternion(-0.090967074, 0.08028142, -0.06364946, 0.9905699)
+bones/13/rotation = Quaternion(-0.64671123, 0.24681571, 0.44995725, 0.56425625)
+bones/14/rotation = Quaternion(0.10669085, -0.20869057, 0.6110555, 0.7560929)
+bones/15/rotation = Quaternion(0.2585512, -0.0013183252, 0.000731609, 0.9659964)
+bones/16/rotation = Quaternion(0.1256936, 0.09093095, -0.12776946, 0.97959566)
+bones/18/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/20/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/22/rotation = Quaternion(0.97663593, 0.09974419, -0.052309453, 0.18302251)
+bones/23/rotation = Quaternion(0.6131885, 0.07346853, 0.045477778, 0.7851969)
+bones/24/rotation = Quaternion(-0.76696074, 0.0124814175, -0.038297914, 0.64042854)
+bones/25/rotation = Quaternion(0.007931408, 0.9273667, -0.373402, -0.022344282)
+bones/29/rotation = Quaternion(0.9113522, 0.14600907, 0.115661874, 0.3670706)
+bones/30/rotation = Quaternion(0.5032685, 0.11781115, -0.04055062, 0.85510063)
+bones/31/rotation = Quaternion(-0.5605169, 0.10989703, 0.21852495, 0.7911956)
+bones/32/rotation = Quaternion(-3.7278916e-08, 0.92486954, -0.38028458, -2.6884354e-07)
+bones/38/rotation = Quaternion(0.90405166, 0.24033748, 0.06774612, -0.34689888)
+bones/40/rotation = Quaternion(0.90405166, -0.24033746, -0.06774612, -0.34689885)
+
+[node name="AnimationPlayer" parent="leonardo_dance_vinci2" index="1"]
+autoplay = "metarig|mixamo_com|Layer0"
+
+[node name="leonardo_dance_vinci3" parent="." instance=ExtResource("4_c2bh5")]
+transform = Transform3D(-0.44986948, 0, -1.2036786, 0, 1.285, 0, 1.2036786, 0, -0.44986948, -36.203503, 0.22280739, 39.16723)
+
+[node name="metarig" parent="leonardo_dance_vinci3" index="0"]
+transform = Transform3D(0.36497486, 0.27028632, -0.89092016, -0.17870378, 0.95947623, 0.21787688, 0.9137058, 0.07969122, 0.3984859, -0.12829433, -0.14025947, 0.19999306)
+
+[node name="Skeleton3D" parent="leonardo_dance_vinci3/metarig" index="0"]
+bones/1/rotation = Quaternion(0.13930432, 0.14289246, 0.12460556, 0.97193086)
+bones/2/rotation = Quaternion(-0.09698045, 0.01514272, 0.015079459, 0.99505687)
+bones/3/rotation = Quaternion(-0.017810637, 0.0152328415, 0.015108549, 0.99961114)
+bones/4/rotation = Quaternion(0.17772943, -0.058116287, -0.026649088, 0.98200035)
+bones/5/rotation = Quaternion(-0.1185588, -0.060653042, -0.020221403, 0.9908866)
+bones/6/rotation = Quaternion(-0.11741893, -0.055778332, -0.03124827, 0.99102235)
+bones/8/rotation = Quaternion(-0.5730714, -0.3925546, -0.26183793, 0.67002314)
+bones/9/rotation = Quaternion(-0.11679669, 0.82584494, -0.55039394, 0.03748842)
+bones/10/rotation = Quaternion(0.24109071, 0.0013245218, -0.0006821942, 0.9705015)
+bones/11/rotation = Quaternion(-0.090967074, 0.08028142, -0.06364946, 0.9905699)
+bones/13/rotation = Quaternion(-0.64671123, 0.24681571, 0.44995725, 0.56425625)
+bones/14/rotation = Quaternion(0.10669085, -0.20869057, 0.6110555, 0.7560929)
+bones/15/rotation = Quaternion(0.2585512, -0.0013183252, 0.000731609, 0.9659964)
+bones/16/rotation = Quaternion(0.1256936, 0.09093095, -0.12776946, 0.97959566)
+bones/18/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/20/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/22/rotation = Quaternion(0.97663593, 0.09974419, -0.052309453, 0.18302251)
+bones/23/rotation = Quaternion(0.6131885, 0.07346853, 0.045477778, 0.7851969)
+bones/24/rotation = Quaternion(-0.76696074, 0.0124814175, -0.038297914, 0.64042854)
+bones/25/rotation = Quaternion(0.007931408, 0.9273667, -0.373402, -0.022344282)
+bones/29/rotation = Quaternion(0.9113522, 0.14600907, 0.115661874, 0.3670706)
+bones/30/rotation = Quaternion(0.5032685, 0.11781115, -0.04055062, 0.85510063)
+bones/31/rotation = Quaternion(-0.5605169, 0.10989703, 0.21852495, 0.7911956)
+bones/32/rotation = Quaternion(-3.7278916e-08, 0.92486954, -0.38028458, -2.6884354e-07)
+bones/38/rotation = Quaternion(0.90405166, 0.24033748, 0.06774612, -0.34689888)
+bones/40/rotation = Quaternion(0.90405166, -0.24033746, -0.06774612, -0.34689885)
+
+[node name="AnimationPlayer" parent="leonardo_dance_vinci3" index="1"]
+autoplay = "metarig|mixamo_com|Layer0"
+
+[node name="leonardo_dance_vinci4" parent="." instance=ExtResource("4_c2bh5")]
+transform = Transform3D(0.5804286, 0, 0.76465845, 0, 0.96, 0, -0.76465845, 0, 0.5804286, -45.382492, 0.31175244, 39.132076)
+
+[node name="metarig" parent="leonardo_dance_vinci4" index="0"]
+transform = Transform3D(0.36497486, 0.27028632, -0.89092016, -0.17870378, 0.95947623, 0.21787688, 0.9137058, 0.07969122, 0.3984859, -0.12829433, -0.14025947, 0.19999306)
+
+[node name="Skeleton3D" parent="leonardo_dance_vinci4/metarig" index="0"]
+bones/1/rotation = Quaternion(0.13930432, 0.14289246, 0.12460556, 0.97193086)
+bones/2/rotation = Quaternion(-0.09698045, 0.01514272, 0.015079459, 0.99505687)
+bones/3/rotation = Quaternion(-0.017810637, 0.0152328415, 0.015108549, 0.99961114)
+bones/4/rotation = Quaternion(0.17772943, -0.058116287, -0.026649088, 0.98200035)
+bones/5/rotation = Quaternion(-0.1185588, -0.060653042, -0.020221403, 0.9908866)
+bones/6/rotation = Quaternion(-0.11741893, -0.055778332, -0.03124827, 0.99102235)
+bones/8/rotation = Quaternion(-0.5730714, -0.3925546, -0.26183793, 0.67002314)
+bones/9/rotation = Quaternion(-0.11679669, 0.82584494, -0.55039394, 0.03748842)
+bones/10/rotation = Quaternion(0.24109071, 0.0013245218, -0.0006821942, 0.9705015)
+bones/11/rotation = Quaternion(-0.090967074, 0.08028142, -0.06364946, 0.9905699)
+bones/13/rotation = Quaternion(-0.64671123, 0.24681571, 0.44995725, 0.56425625)
+bones/14/rotation = Quaternion(0.10669085, -0.20869057, 0.6110555, 0.7560929)
+bones/15/rotation = Quaternion(0.2585512, -0.0013183252, 0.000731609, 0.9659964)
+bones/16/rotation = Quaternion(0.1256936, 0.09093095, -0.12776946, 0.97959566)
+bones/18/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/20/rotation = Quaternion(3.3077256e-09, 0.6969362, 0.7171332, -1.9801036e-09)
+bones/22/rotation = Quaternion(0.97663593, 0.09974419, -0.052309453, 0.18302251)
+bones/23/rotation = Quaternion(0.6131885, 0.07346853, 0.045477778, 0.7851969)
+bones/24/rotation = Quaternion(-0.76696074, 0.0124814175, -0.038297914, 0.64042854)
+bones/25/rotation = Quaternion(0.007931408, 0.9273667, -0.373402, -0.022344282)
+bones/29/rotation = Quaternion(0.9113522, 0.14600907, 0.115661874, 0.3670706)
+bones/30/rotation = Quaternion(0.5032685, 0.11781115, -0.04055062, 0.85510063)
+bones/31/rotation = Quaternion(-0.5605169, 0.10989703, 0.21852495, 0.7911956)
+bones/32/rotation = Quaternion(-3.7278916e-08, 0.92486954, -0.38028458, -2.6884354e-07)
+bones/38/rotation = Quaternion(0.90405166, 0.24033748, 0.06774612, -0.34689888)
+bones/40/rotation = Quaternion(0.90405166, -0.24033746, -0.06774612, -0.34689885)
+
+[node name="AnimationPlayer" parent="leonardo_dance_vinci4" index="1"]
+autoplay = "metarig|mixamo_com|Layer0"
+
 [editable path="level"]
+[editable path="Bus/leonardo_dance_vinci_static"]
 [editable path="AnimationPlayer/cutscene_paper"]
 [editable path="snowflake"]
+[editable path="leonardo_dance_vinci"]
+[editable path="leonardo_dance_vinci2"]
+[editable path="leonardo_dance_vinci3"]
+[editable path="leonardo_dance_vinci4"]

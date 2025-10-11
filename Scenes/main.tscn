@@ -1,4 +1,4 @@
-[gd_scene load_steps=695 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=683 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -18,12 +18,10 @@
 [ext_resource type="Script" uid="uid://dbiseun7es72p" path="res://Scripts/save_area.gd" id="6_pdsj5"]
 [ext_resource type="Script" uid="uid://bceh0l24k5gvx" path="res://Scripts/small_save_area.gd" id="7_ee4r6"]
 [ext_resource type="Material" uid="uid://beuf1uhpwqodj" path="res://Materials/rock.tres" id="7_hpc6h"]
-[ext_resource type="Texture2D" uid="uid://dmqhrmwlg4we" path="res://Models/textures/wheel.png" id="7_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://b61i8gmml5tia" path="res://Scenes/bugs/beetle.tscn" id="7_r33sp"]
 [ext_resource type="PackedScene" uid="uid://ses2yv2jxnoe" path="res://Effects/dust_trail.tscn" id="8_h1bgf"]
 [ext_resource type="PackedScene" uid="uid://rqp4fspcmnvf" path="res://Scenes/bugs/butterfly.tscn" id="8_hdf80"]
 [ext_resource type="Environment" uid="uid://155iwjwx60fe" path="res://environment.tres" id="9_b3802"]
-[ext_resource type="Texture2D" uid="uid://duigvoybihip" path="res://Models/textures/particle.png" id="9_fevyy"]
 [ext_resource type="PackedScene" uid="uid://b4a0tdsk6t4gu" path="res://Scenes/bugs/bzzt.tscn" id="9_jwpg7"]
 [ext_resource type="Material" uid="uid://c1mcut5etl88c" path="res://Materials/grass.tres" id="9_kltya"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="10_d1ilt"]
@@ -35,7 +33,6 @@
 [ext_resource type="Material" uid="uid://crerv88r4slmf" path="res://Materials/bus.tres" id="13_3pmx8"]
 [ext_resource type="Material" uid="uid://dgf5ltcqur0eu" path="res://Models/terrain.tres" id="13_owhal"]
 [ext_resource type="Material" uid="uid://c35124i56wctn" path="res://Models/tree.tres" id="14_kqrg6"]
-[ext_resource type="Texture2D" uid="uid://bi7w0jga8q1lc" path="res://Models/textures/splatter2.png" id="15_gt3je"]
 [ext_resource type="Script" uid="uid://ve2s1rqdhjot" path="res://Scripts/day_night.gd" id="15_pdsj5"]
 [ext_resource type="Material" uid="uid://du617t6cd0y3g" path="res://Models/tree.001.tres" id="18_uv6w5"]
 [ext_resource type="Material" uid="uid://ckpjpclp25oay" path="res://Models/tree.002.tres" id="19_r7bbj"]
@@ -65,9 +62,13 @@
 [ext_resource type="Material" uid="uid://c1w1e66ld2mdr" path="res://Models/tree.018.tres" id="35_k8rh3"]
 [ext_resource type="Material" uid="uid://455bm3uh81xg" path="res://Models/Leaf.tres" id="36_55idt"]
 [ext_resource type="AudioStream" uid="uid://ccdhvooot5t8j" path="res://Sound/mus_level.wav" id="39_kqrg6"]
-[ext_resource type="PackedScene" uid="uid://dvvufqg7r1c02" path="res://Effects/gore.tscn" id="40_8cuat"]
-[ext_resource type="PackedScene" uid="uid://b6x0yw6237lud" path="res://Effects/splatter.tscn" id="41_o1aky"]
+[ext_resource type="Material" uid="uid://d1ym73apog7nj" path="res://Materials/wheel_mat.tres" id="46_owhal"]
+[ext_resource type="Material" uid="uid://rithkqfpy3lp" path="res://Materials/track_particles_mat.tres" id="48_owhal"]
+[ext_resource type="Material" uid="uid://cg0aft0glvpla" path="res://Materials/boost_patricles_mat.tres" id="50_uv6w5"]
+[ext_resource type="Material" uid="uid://pxhfqc1jcf01" path="res://Materials/magnet_particles_mat.tres" id="51_r7bbj"]
+[ext_resource type="Material" uid="uid://dbextc8th7wtv" path="res://Materials/mud_particles_mat.tres" id="52_uv6w5"]
 [ext_resource type="AudioStream" uid="uid://b1cv7n6pwly1a" path="res://Sound/sndMagnetPull.wav" id="53_ovafv"]
+[ext_resource type="Material" uid="uid://20nm3mibikxe" path="res://Materials/snow_particles_mat.tres" id="53_r7bbj"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pe3oc"]
 _surfaces = [{
@@ -6663,12 +6664,6 @@ point_count = 3
 _data = [Vector2(0, 1), 0.075513914, 0.075513914, 0, 0, Vector2(1, 0.5487013), -1.1909889, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fco6s"]
-resource_name = "Wheel"
-cull_mode = 2
-albedo_texture = ExtResource("7_jkdf5")
-texture_filter = 2
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_4ndqe"]
 _surfaces = [{
 "aabb": AABB(-0.18885458, -0.3484643, -0.29202336, 0.36343747, 0.61226714, 0.61226714),
@@ -6691,7 +6686,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 132,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYABwAEAAYABwAGAAgAAwAJAAUACQAKAAUACQALAAoACwAMAAoACwANAAwADQAOAAwADQAPAA4ADwAQAA4ADwARABAAEgATABQAFAATABUAEgAWABMAFAAVABcAGAAWABIAFwAVABkAGAAaABYAFwAZABsAHAAaABgAGwAZAB0AHAAeABoAGwAdAB8AIAAeABwAHwAdACEAIAAhAB4AHwAhACAAIgAjACQAIgAlACMAIwAlACYAJQAiACcAJwAiACgAJQAnACkAKgArACwAKgAtACsAKwAtAC4ALQAqAC8ALwAqADAALQAvADEA"),
-"material": SubResource("StandardMaterial3D_fco6s"),
+"material": ExtResource("46_owhal"),
 "name": "Wheel",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -6881,12 +6876,8 @@ gradient = SubResource("Gradient_fdnlq")
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_wsu2k")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k12tt"]
-transparency = 1
-vertex_color_use_as_albedo = true
-
 [sub_resource type="QuadMesh" id="QuadMesh_h1bgf"]
-material = SubResource("StandardMaterial3D_k12tt")
+material = ExtResource("48_owhal")
 size = Vector2(0.35, 0.35)
 orientation = 1
 
@@ -6900,22 +6891,6 @@ gradient = SubResource("Gradient_k12tt")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b3802"]
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_h1bgf")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3802"]
-transparency = 1
-blend_mode = 1
-vertex_color_use_as_albedo = true
-albedo_color = Color(2.4065375e-06, 0.25216204, 0.6982128, 1)
-albedo_texture = ExtResource("9_fevyy")
-metallic_specular = 0.0
-emission_enabled = true
-emission = Color(0.2445012, 0.30414218, 0.613525, 1)
-emission_energy_multiplier = 0.5
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_fevyy"]
 _data = [Vector2(0, 1), 0.0, 3.0893557, 0, 0, Vector2(1, 0), 0.18276457, 0.0, 0, 0]
@@ -6936,21 +6911,6 @@ damping_max = 1.0
 scale_min = 0.29999998
 scale_max = 1.5
 scale_curve = SubResource("CurveTexture_hibaj")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hibaj"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.4026126, 0.6812579, 0.9999959, 1)
-albedo_texture = ExtResource("9_fevyy")
-metallic_specular = 0.0
-emission_enabled = true
-emission = Color(2.6471912e-06, 0.44531673, 0.5828104, 1)
-emission_energy_multiplier = 0.5
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pdsj5"]
 emission_shape = 2
@@ -7003,18 +6963,8 @@ scale_curve = SubResource("CurveTexture_6vcvc")
 color_ramp = SubResource("GradientTexture1D_1w6v2")
 alpha_curve = SubResource("CurveTexture_u50mg")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpc6h"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("15_gt3je")
-metallic_specular = 0.0
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
 [sub_resource type="QuadMesh" id="QuadMesh_kltya"]
-material = SubResource("StandardMaterial3D_hpc6h")
+material = ExtResource("52_uv6w5")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gt3je"]
 emission_shape_offset = Vector3(0, 4, 0)
@@ -7027,15 +6977,8 @@ initial_velocity_min = 0.099999994
 initial_velocity_max = 4.0
 gravity = Vector3(-6.915, -9.8, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pmx8"]
-disable_receive_shadows = true
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
 [sub_resource type="QuadMesh" id="QuadMesh_u50mg"]
-material = SubResource("StandardMaterial3D_3pmx8")
+material = ExtResource("53_r7bbj")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jjgbg"]
@@ -7046,43 +6989,9 @@ dof_blur_near_enabled = true
 dof_blur_near_distance = 15.0
 dof_blur_amount = 0.21
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_7u77a"]
-size = Vector2(50, 50)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jjgbg"]
-size = Vector3(50, 0.66, 50)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_jjgbg"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bo1nx"]
-points = PackedVector3Array(-0.21418296, -0.94802845, -0.4511285, 0.022731654, 0.9521457, 0.49888662, 0.17148845, 0.9519953, 0.46901843, -0.12593445, 0.9526843, -0.48329136, 0.49966258, -0.95367396, -0.0068888306, -0.3876465, -0.9379602, 0.31565303, -0.48329246, 0.9526857, -0.12593003, 0.37509736, 0.9401282, -0.3298157, 0.17148845, -0.9519953, 0.46901843, 0.14078338, -0.9454848, -0.47957912, 0.4690145, 0.9520113, 0.17149934, -0.3876465, 0.9379602, 0.31565303, -0.48329246, -0.9526857, -0.12593003, -0.18351147, -0.9430759, 0.46469846, 0.40741244, -0.9469937, 0.2889825, 0.37509736, -0.9401282, -0.3298157, -0.39515373, 0.9557608, -0.3055234, -0.479555, 0.9454372, 0.1408799, 0.46469817, 0.94309926, -0.18351227, 0.14078338, 0.9454848, -0.47957912, -0.24320284, 0.9459547, 0.43649116, -0.479555, -0.9454372, 0.1408799, 0.2889712, 0.9469877, 0.4074208, -0.39515373, -0.9557608, -0.3055234, -0.006990604, -0.953641, 0.4996576, 0.49966258, 0.95367396, -0.0068888306, -0.27194828, 0.943071, -0.41921657, 0.46469817, -0.94309926, -0.18351227, -0.12593445, -0.9526843, -0.48329136, 0.31564754, 0.93797344, -0.38765055, 0.4690145, -0.9520113, 0.17149934, 0.40741244, 0.9469937, 0.2889825)
-
-[sub_resource type="PrismMesh" id="PrismMesh_jjgbg"]
-left_to_right = 1.0
-size = Vector3(5, 2, 5)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jjgbg"]
-points = PackedVector3Array(2.3010283, 1.0238096, 2.5386884, -2.4415245, -1, -2.4410467, -2.4415245, -1, 2.4410467, 2.4415245, -1, -2.4410467, 2.5391855, 1.0238096, -2.5386884, 2.4415245, -1, 2.4410467, -2.459634, -0.8807193, -2.5386884, -2.459634, -0.8807193, 2.5386884, 2.5391855, 1.0238096, 2.5386884, 2.3010283, 1.0238096, -2.5386884, -2.5391855, -0.96009994, -2.5386884, -2.5391855, -0.96009994, 2.5386884, -2.0633678, -0.72195804, -2.5386884, -2.0633678, -0.72195804, 2.5386884)
-
 [sub_resource type="Curve" id="Curve_gt3je"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.45, 0.033), 0.2007959, 0.2007959, 0, 0, Vector2(0.7023255, 1), 0.18338107, 0.0, 0, 0]
 point_count = 3
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7k868"]
-emission_shape_scale = Vector3(0.805, 0.16, 0.525)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-angle_min = 1.0728835e-05
-angle_max = 360.00003
-direction = Vector3(0, 1.805, -7.925)
-spread = 22.833
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.0
-scale_max = 0.01
-scale_curve = SubResource("CurveTexture_6vcvc")
-color_ramp = SubResource("GradientTexture1D_1w6v2")
-alpha_curve = SubResource("CurveTexture_u50mg")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_21xkr")
@@ -10256,7 +10165,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 1, 0, 0, -0.77136797)
 
 [node name="BoostParticles" parent="Bus" instance=ExtResource("8_h1bgf")]
 transform = Transform3D(-1, 0, 1.172251e-07, 0, 0.9999965, 0, -1.172251e-07, 0, -1, 2.7400226e-08, 0, -1.3269743)
-material_override = SubResource("StandardMaterial3D_b3802")
+material_override = ExtResource("50_uv6w5")
 lifetime = 0.3
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_ee4r6")
@@ -10264,7 +10173,7 @@ process_material = SubResource("ParticleProcessMaterial_ee4r6")
 [node name="MagnetParticles" parent="Bus" instance=ExtResource("8_h1bgf")]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.9999983, 0, 2.9802322e-08, 0, 1, 9.168975e-08, -0.35774752, -0.61933327)
 layers = 2
-material_override = SubResource("StandardMaterial3D_hibaj")
+material_override = ExtResource("51_r7bbj")
 lifetime = 0.3
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_pdsj5")
@@ -10354,52 +10263,6 @@ adjustment_saturation_night = 0.896
 ambient_light_color_night = Color(0.4308712, 0.5802055, 0.84968245, 1)
 ambient_light_energy_night = 2.047
 color_shift_night = Color(0.55594116, 0.81896216, 0.9999997, 1)
-
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -43.14442, 0)
-mesh = SubResource("PlaneMesh_7u77a")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33, 0)
-shape = SubResource("BoxShape3D_jjgbg")
-
-[node name="Obstacle" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.144708, -42.243114, -1.8181491)
-mesh = SubResource("CylinderMesh_jjgbg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Obstacle"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_bo1nx")
-
-[node name="Obstacle2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4136868, -42.243114, 5.3157434)
-mesh = SubResource("CylinderMesh_jjgbg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Obstacle2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle2/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_bo1nx")
-
-[node name="Obstacle3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.049238, -42.243114, 4.6096563)
-mesh = SubResource("CylinderMesh_jjgbg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Obstacle3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Obstacle3/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_bo1nx")
-
-[node name="Ramp" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.7183327, 0, 0.6956997, 0, 1, 0, -0.6956997, 0, 0.7183327, -4.2241907, -42.150238, -2.5513551)
-mesh = SubResource("PrismMesh_jjgbg")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ramp"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_jjgbg")
 
 [node name="Post" type="CanvasLayer" parent="."]
 
@@ -10578,52 +10441,6 @@ transform = Transform3D(0.9501561, 0, 0.88724476, 0, 1.3, 0, -0.88724476, 0, 0.9
 [node name="Worm3" parent="." instance=ExtResource("32_aqgau")]
 transform = Transform3D(0.24731666, 0, 1.276258, 0, 1.3, 0, -1.276258, 0, 0.24731666, 21.105768, 1.7030003, 28.226364)
 
-[node name="Dust" parent="." instance=ExtResource("8_h1bgf")]
-transform = Transform3D(1, 0, -2.9802322e-08, 0, 0.99999917, 0, 2.9802322e-08, 0, 1, -1.930686, -43.144424, 7.027259)
-
-[node name="gore" parent="." instance=ExtResource("40_8cuat")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6019869, -42.72649, 4.1517544)
-
-[node name="Splatter" parent="." instance=ExtResource("41_o1aky")]
-transform = Transform3D(1.5493275, 0, 0, 0, 1.5493275, 0, 0, 0, 1.5493275, 0.84881306, -42.916626, 1.5519829)
-
-[node name="AudioStreamPlayer3D" parent="Splatter" index="2"]
-volume_db = -80.0
-
-[node name="MagnetParticles" parent="." instance=ExtResource("8_h1bgf")]
-transform = Transform3D(-0.8270805, 0, 0.56208354, 0, 0.99999636, 0, -0.56208354, 0, -0.8270805, -10.528263, -40.04387, 9.5458355)
-layers = 2
-material_override = SubResource("StandardMaterial3D_hibaj")
-lifetime = 0.3
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_pdsj5")
-
-[node name="MudParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(-0.82708055, 0, 0.5620834, 0, 0.9999992, 0, -0.5620834, 0, -0.82708055, -10.528263, -37.90204, 9.5458355)
-emitting = false
-amount = 100
-lifetime = 0.5
-process_material = SubResource("ParticleProcessMaterial_7k868")
-draw_pass_1 = SubResource("QuadMesh_kltya")
-
-[node name="SnowParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(-0.82708055, 0, 0.5620834, 0, 0.99999946, 0, -0.5620834, 0, -0.82708055, -10.528263, -37.90204, 9.5458355)
-cast_shadow = 0
-amount = 5000
-lifetime = 2.0
-preprocess = 1.0
-speed_scale = 1.1
-interpolate = false
-process_material = SubResource("ParticleProcessMaterial_gt3je")
-draw_pass_1 = SubResource("QuadMesh_u50mg")
-
-[node name="BoostParticles" parent="." instance=ExtResource("8_h1bgf")]
-transform = Transform3D(-0.8270805, 0, 0.56208354, 0, 0.9999929, 0, -0.56208354, 0, -0.8270805, -10.528263, -41.83994, 9.5458355)
-material_override = SubResource("StandardMaterial3D_b3802")
-lifetime = 0.3
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_ee4r6")
-
 [connection signal="body_entered" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_exited"]
 [connection signal="body_entered" from="Bunker/SaveArea" to="Bunker/SaveArea" method="_on_body_entered"]
@@ -10638,4 +10455,3 @@ process_material = SubResource("ParticleProcessMaterial_ee4r6")
 [connection signal="round_start" from="HUD/UI" to="." method="_on_ui_round_start"]
 
 [editable path="HUD/UI"]
-[editable path="Splatter"]

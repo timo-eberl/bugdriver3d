@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6x0yw6237lud"]
+[gd_scene load_steps=11 format=3 uid="uid://b6x0yw6237lud"]
 
 [ext_resource type="Texture2D" uid="uid://brj4io6hblpw7" path="res://Models/textures/splatter.png" id="1_swvmu"]
 [ext_resource type="Script" uid="uid://bisalw4w3hm3y" path="res://Scripts/splatter.gd" id="2_daum0"]
@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bsmjc5qjjcgla" path="res://Sound/splatterthud2.wav" id="4_cd1ns"]
 [ext_resource type="AudioStream" uid="uid://dx42nwi7ptlcm" path="res://Sound/splatterthud3.wav" id="5_30855"]
 [ext_resource type="PackedScene" uid="uid://dvvufqg7r1c02" path="res://Effects/gore.tscn" id="6_nh5c4"]
-[ext_resource type="Texture2D" uid="uid://bi7w0jga8q1lc" path="res://Models/textures/splatter2.png" id="7_v83uy"]
+[ext_resource type="Material" uid="uid://c3rmligpc2441" path="res://Effects/splatter_mat.tres" id="7_swvmu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1bgf"]
 transparency = 2
@@ -17,19 +17,6 @@ albedo_texture = ExtResource("1_swvmu")
 metallic_specular = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b3802"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3802"]
-transparency = 2
-alpha_scissor_threshold = 0.89
-alpha_antialiasing_mode = 0
-albedo_color = Color(0.52461976, 0.864108, 0, 1)
-albedo_texture = ExtResource("7_v83uy")
-metallic_specular = 0.0
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_k12tt"]
 
@@ -48,7 +35,7 @@ launch_speed_max = 25.0
 
 [node name="ParticlesSide" type="CPUParticles3D" parent="."]
 transform = Transform3D(-2.1855688e-07, -0.9999996, 0, -4.3711378e-08, 9.5534246e-15, 0.9999996, -0.9999996, 2.1855688e-07, -4.3711378e-08, -0.11218917, 0.4465407, 0)
-material_override = SubResource("StandardMaterial3D_b3802")
+material_override = ExtResource("7_swvmu")
 emitting = false
 amount = 16
 lifetime = 3.0
@@ -76,7 +63,7 @@ color = Color(0.48290545, 0.57241297, 0, 1)
 
 [node name="ParticlesUp" type="CPUParticles3D" parent="."]
 transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 0.99999994, 0, 0.11218901, 0)
-material_override = SubResource("StandardMaterial3D_b3802")
+material_override = ExtResource("7_swvmu")
 emitting = false
 amount = 16
 lifetime = 3.0

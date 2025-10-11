@@ -1,5 +1,8 @@
 @tool
 extends Node
+class_name CompileMaterials
+
+signal finished
 
 @export_tool_button("Load materials") var load_materials_action = load_materials
 @export var materials : Array[Material]
@@ -12,6 +15,7 @@ func load_materials():
 
 func _ready() -> void:
 	if Global.dont_preload_materials:
+		emit_signal("finished")
 		self.queue_free()
 	elif !Engine.is_editor_hint():
 		var initial_time_scale := Engine.time_scale
@@ -23,6 +27,7 @@ func _ready() -> void:
 			show_material(material)
 			await get_tree().process_frame
 		Engine.time_scale = initial_time_scale
+		emit_signal("finished")
 		self.queue_free()
 
 func load_materials_from_dir(path: String):

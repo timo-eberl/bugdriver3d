@@ -1277,12 +1277,10 @@ transform = Transform3D(0.11320324, 0, 0.9935719, 0, 1, 0, -0.9935719, 0, 0.1132
 [node name="IntroMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_eholo")
 volume_db = -17.655
-autoplay = true
 
 [node name="Narration" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_f5nhl")
 volume_db = -4.705
-autoplay = true
 
 [node name="CarStart" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_whp1e")

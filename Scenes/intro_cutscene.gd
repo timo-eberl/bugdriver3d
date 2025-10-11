@@ -1,9 +1,19 @@
 extends AnimationPlayer
+
 @onready var level_scene : PackedScene = preload("res://Scenes/main.tscn")
+@onready var compile_materials : CompileMaterials = $"../CanvasLayer2/CompileMaterials"
+@onready var intro_music : AudioStreamPlayer = $"../IntroMusic"
+@onready var narration : AudioStreamPlayer = $"../Narration"
+
 var skip_timer = 2.0
 
 func _ready():
 	animation_finished.connect(_on_animation_finished)
+	compile_materials.finished.connect(start)
+
+func start():
+	intro_music.playing = true
+	narration.playing = true
 
 func _process(delta: float) -> void:
 	skip_timer -= delta

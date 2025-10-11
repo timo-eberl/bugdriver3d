@@ -1,4 +1,4 @@
-[gd_scene load_steps=683 format=4 uid="uid://btakpdgldl1nf"]
+[gd_scene load_steps=685 format=4 uid="uid://btakpdgldl1nf"]
 
 [ext_resource type="Script" uid="uid://djxliulluwa8u" path="res://Scripts/bus.gd" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bxwbdobqijn2j" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -69,6 +69,8 @@
 [ext_resource type="Material" uid="uid://dbextc8th7wtv" path="res://Materials/mud_particles_mat.tres" id="52_uv6w5"]
 [ext_resource type="AudioStream" uid="uid://b1cv7n6pwly1a" path="res://Sound/sndMagnetPull.wav" id="53_ovafv"]
 [ext_resource type="Material" uid="uid://20nm3mibikxe" path="res://Materials/snow_particles_mat.tres" id="53_r7bbj"]
+[ext_resource type="PackedScene" uid="uid://sl6ujrcyc0fc" path="res://Scenes/compile_materials.tscn" id="70_uv6w5"]
+[ext_resource type="Script" uid="uid://oxdkue6xb75p" path="res://Scripts/load_materials_only_once.gd" id="71_r7bbj"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pe3oc"]
 _surfaces = [{
@@ -10251,7 +10253,6 @@ environment = ExtResource("9_b3802")
 camera_attributes = SubResource("CameraAttributesPractical_jjgbg")
 script = ExtResource("15_pdsj5")
 color_shift_material = ExtResource("34_aa8k8")
-progress = 1.0
 fog_color_day = Color(0.5294118, 0.53333336, 0.49411765, 1)
 fog_density_day = 0.22
 ambient_light_color_day = Color(0.5716675, 0.33265617, 0.30797753, 1)
@@ -10273,7 +10274,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Post2" type="CanvasLayer" parent="."]
 
@@ -10294,7 +10294,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -10320,6 +10319,10 @@ offset_left = -28.156006
 offset_top = -28.074005
 offset_right = -0.15600586
 offset_bottom = -0.07400513
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="CompileMaterials" parent="CanvasLayer2" instance=ExtResource("70_uv6w5")]
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_d1ilt")
@@ -10440,6 +10443,9 @@ transform = Transform3D(0.9501561, 0, 0.88724476, 0, 1.3, 0, -0.88724476, 0, 0.9
 
 [node name="Worm3" parent="." instance=ExtResource("32_aqgau")]
 transform = Transform3D(0.24731666, 0, 1.276258, 0, 1.3, 0, -1.276258, 0, 0.24731666, 21.105768, 1.7030003, 28.226364)
+
+[node name="LoadMaterialsOnlyOnce" type="Node3D" parent="."]
+script = ExtResource("71_r7bbj")
 
 [connection signal="body_entered" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_exited"]

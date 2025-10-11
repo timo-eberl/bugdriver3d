@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://b2kybgswv27lq"]
+[gd_scene load_steps=49 format=4 uid="uid://b2kybgswv27lq"]
 
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/bugs/ladybug.tscn" id="2_yyy7s"]
 [ext_resource type="Material" uid="uid://bs1alic8ytv6u" path="res://Materials/wheel_cutscene.tres" id="3_c2bh5"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b61i8gmml5tia" path="res://Scenes/bugs/beetle.tscn" id="24_rdsk5"]
 [ext_resource type="PackedScene" uid="uid://rqp4fspcmnvf" path="res://Scenes/bugs/butterfly.tscn" id="25_1jk8c"]
 [ext_resource type="PackedScene" uid="uid://b4a0tdsk6t4gu" path="res://Scenes/bugs/bzzt.tscn" id="26_tuspr"]
+[ext_resource type="PackedScene" uid="uid://sl6ujrcyc0fc" path="res://Scenes/compile_materials.tscn" id="27_m8dls"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sp2aa"]
 _surfaces = [{
@@ -1649,6 +1650,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4700043, 1.2573029, -7.852
 
 [node name="Ladybug4" parent="Bugs2" instance=ExtResource("2_yyy7s")]
 transform = Transform3D(0.9416645, 0, -0.33655295, 0, 1, 0, 0.33655295, 0, 0.9416645, 0.16393542, 1.2573029, -4.827449)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="CompileMaterials" parent="CanvasLayer2" instance=ExtResource("27_m8dls")]
 
 [editable path="level"]
 [editable path="AnimationPlayer/cutscene_paper"]

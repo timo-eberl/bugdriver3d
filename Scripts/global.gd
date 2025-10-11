@@ -1,6 +1,7 @@
 extends Node
 
 var fullscreen_enabled := false
+var dont_preload_materials := false
 
 var highscore := 0
 var score := 0

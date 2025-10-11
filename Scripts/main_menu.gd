@@ -1,6 +1,6 @@
 extends Node
 
-@onready var cutscene_scene : PackedScene = preload("res://Scenes/cutscene.tscn")
+@onready var next_scene : PackedScene = preload("res://Scenes/cutscene.tscn")
 @onready var ambient_audio_player: AudioStreamPlayer3D = $AmbientAudioPlayer
 
 @onready var fullscreen_button: Button = $CanvasLayer/UI/FullscreenButton
@@ -20,7 +20,7 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_packed(cutscene_scene)
+	get_tree().change_scene_to_packed(next_scene)
 
 
 func _on_fullscreen_button_pressed() -> void:

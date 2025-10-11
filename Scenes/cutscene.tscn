@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://b2kybgswv27lq"]
+[gd_scene load_steps=48 format=4 uid="uid://b2kybgswv27lq"]
 
 [ext_resource type="PackedScene" uid="uid://bhm7salc8s5ha" path="res://Scenes/bugs/ladybug.tscn" id="2_yyy7s"]
 [ext_resource type="Material" uid="uid://bs1alic8ytv6u" path="res://Materials/wheel_cutscene.tres" id="3_c2bh5"]
@@ -15,7 +15,7 @@
 [ext_resource type="Material" uid="uid://cdu2kwdkfm6fy" path="res://Materials/psx_mat.tres" id="17_3hpda"]
 [ext_resource type="PackedScene" uid="uid://bc738xw4u8hq1" path="res://Effects/snowflake.fbx" id="18_ixjyl"]
 [ext_resource type="Material" uid="uid://di2eyir3u6pux" path="res://Materials/crt_mat.tres" id="18_oai6i"]
-[ext_resource type="Texture2D" uid="uid://b4o6u1aix2fds" path="res://Effects/snowflake.png" id="19_018oa"]
+[ext_resource type="Material" uid="uid://c6g0sqytc1id8" path="res://Materials/snowflake_mat.tres" id="19_m8dls"]
 [ext_resource type="PackedScene" uid="uid://bgbh7727al1k7" path="res://Scenes/bugs/beetman.tscn" id="20_c2bh5"]
 [ext_resource type="AudioStream" uid="uid://bpppl8bpvbuh4" path="res://Sound/amb_birdsong.wav" id="20_fpyw8"]
 [ext_resource type="AudioStream" uid="uid://b7ojkbxlwpmny" path="res://Sound/mus_levelmusicplaceholder.wav" id="21_id5mo"]
@@ -966,11 +966,6 @@ _data = {
 &"RESET": SubResource("Animation_f5nhl")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a71v6"]
-albedo_color = Color(0.60601294, 0.91541, 0.9326801, 1)
-albedo_texture = ExtResource("19_018oa")
-metallic_specular = 0.0
-
 [node name="Main" type="Node3D"]
 
 [node name="level" parent="." instance=ExtResource("3_j3d02")]
@@ -1387,7 +1382,7 @@ transform = Transform3D(-0.72215873, 0, -0.69172734, 0, 1, 0, 0.69172734, 0, -0.
 transform = Transform3D(9.19, 0, 0, 0, 9.19, 0, 0, 0, 9.19, -31.798431, 74.9418, -2.5247002)
 
 [node name="snowflake" parent="snowflake" index="0"]
-material_override = SubResource("StandardMaterial3D_a71v6")
+material_override = ExtResource("19_m8dls")
 
 [node name="Bugs2" type="Node3D" parent="."]
 

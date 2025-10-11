@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c6g0sqytc1id8"]
+
+[ext_resource type="Texture2D" uid="uid://b4o6u1aix2fds" path="res://Effects/snowflake.png" id="1_ejki2"]
+
+[resource]
+albedo_color = Color(0.60601294, 0.91541, 0.9326801, 1)
+albedo_texture = ExtResource("1_ejki2")
+metallic_specular = 0.0

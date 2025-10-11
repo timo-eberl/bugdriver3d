@@ -1,48 +1,39 @@
-@tool
 extends Node
 class_name CompileMaterials
 
 signal finished
 
-@export_tool_button("Load materials") var load_materials_action = load_materials
-@export var materials : Array[Material]
 @onready var mesh_instance : MeshInstance3D = $SubViewportContainer/SubViewport/MeshInstance3D
 @onready var progress : Slider = $Progress
 
-func load_materials():
-	materials.clear()
-	load_materials_from_dir("res://")
+var materials : Array[Material]
+
+func collect_materials_in_node(node : Node):
+	for property_name in node.get_property_list():
+		var value = node.get(property_name.name)
+		if value is Material:
+			#print("Material found in ", node.name, ": ", property_name.name, " = ", value)
+			materials.push_back(value)
+	for child in node.get_children():
+		collect_materials_in_node(child)
 
 func _ready() -> void:
 	if Global.dont_preload_materials:
 		emit_signal("finished")
 		self.queue_free()
-	elif !Engine.is_editor_hint():
+	else:
+		materials.clear()
+		# get all materials in currently loaded scene
+		collect_materials_in_node(get_tree().current_scene)
+		
 		var initial_time_scale := Engine.time_scale
 		Engine.time_scale = 0.0
 		print("showing ", materials.size(), " materials")
 		for i in materials.size():
 			var material := materials[i]
 			progress.value = float(i) / float(materials.size())
-			show_material(material)
+			mesh_instance.material_override = material
 			await get_tree().process_frame
 		Engine.time_scale = initial_time_scale
 		emit_signal("finished")
 		self.queue_free()
-
-func load_materials_from_dir(path: String):
-	var dir := DirAccess.open(path)
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	while file_name != "":
-		if dir.current_is_dir():
-			load_materials_from_dir(path + file_name + "/")
-		elif ".tres" in file_name:
-			var res = load(path + file_name)
-			if res is Material:
-				materials.push_back(res)
-				print("Material loaded: ", path+file_name)
-		file_name = dir.get_next()
-
-func show_material(material : Material):
-	mesh_instance.material_override = material

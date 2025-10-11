@@ -10322,6 +10322,9 @@ offset_bottom = -0.07400513
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
+[node name="LoadMaterialsOnlyOnce" type="Node" parent="CanvasLayer2"]
+script = ExtResource("71_r7bbj")
+
 [node name="CompileMaterials" parent="CanvasLayer2" instance=ExtResource("70_uv6w5")]
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="."]
@@ -10443,9 +10446,6 @@ transform = Transform3D(0.9501561, 0, 0.88724476, 0, 1.3, 0, -0.88724476, 0, 0.9
 
 [node name="Worm3" parent="." instance=ExtResource("32_aqgau")]
 transform = Transform3D(0.24731666, 0, 1.276258, 0, 1.3, 0, -1.276258, 0, 0.24731666, 21.105768, 1.7030003, 28.226364)
-
-[node name="LoadMaterialsOnlyOnce" type="Node3D" parent="."]
-script = ExtResource("71_r7bbj")
 
 [connection signal="body_entered" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Bunker/BigArea3D" to="Bunker/BigArea3D" method="_on_body_exited"]
